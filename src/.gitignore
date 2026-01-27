@@ -1,3 +1,5 @@
 src/lrrit_llm/env.bat
+src/lrrit_llm/desktop.ini
+desktop.ini
 *.bat
 *.ini

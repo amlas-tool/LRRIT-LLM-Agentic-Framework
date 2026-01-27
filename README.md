@@ -1,64 +1,45 @@
-LRRIT-LLM
+# LRRIT-LLM
+**Learning Response Review and Improvement Tool – LLM Agentic Prototype**
 
-Learning Response Review and Improvement Tool – LLM Agentic Prototype
+This repository contains a prototype **agentic framework** for applying Large Language Models (LLMs) to the *Learning Response Review and Improvement Tool (LRRIT)* used in healthcare safety governance.
 
-This repository contains a prototype agentic framework for applying Large Language Models (LLMs) to the Learning Response Review and Improvement Tool (LRRIT) used in healthcare safety governance.
+The system ingests incident / learning response documents (PDFs), extracts structured evidence, and evaluates them across multiple LRRIT dimensions using **dimension-specific agents**, with outputs designed to be auditable, explainable, and suitable for human comparison.
 
-The system ingests incident / learning response documents (PDFs), extracts structured evidence, and evaluates them across multiple LRRIT dimensions using dimension-specific agents, with outputs designed to be auditable, explainable, and suitable for human comparison.
+---
 
-Purpose
+## Purpose
 
 The project explores whether LLMs can:
 
-Apply LRRIT dimensions consistently
+- Apply LRRIT dimensions consistently
+- Provide **evidence-anchored judgements** (verbatim quotes)
+- Distinguish between:
+  - systems vs individual framing,
+  - learning actions vs analysis,
+  - blame vs non-blame language
+- Support **human review**, not replace it
 
-Provide evidence-anchored judgements (verbatim quotes)
+This codebase is intended for **research, prototyping, and governance evaluation**, not operational deployment.
 
-Distinguish between:
+---
 
-systems vs individual framing,
+## High-level architecture
 
-learning actions vs analysis,
+1. **Ingest**
+   - Extracts text and tables from PDF reports
+2. **EvidencePack**
+   - Normalises extracted content into an auditable structure
+3. **Dimension-specific agents**
+   - Each agent evaluates one LRRIT dimension only
+   - Agents return structured JSON with ratings, rationale, evidence quotes, and uncertainty
+4. **Presentation**
+   - Results rendered as static HTML for human review
 
-blame vs non-blame language
+---
 
-Support human review, not replace it
+## Repository structure
 
-This codebase is intended for research, prototyping, and governance evaluation, not operational deployment.
-
-High-level architecture
-
-Ingest
-
-Extracts text and tables from PDF reports
-
-EvidencePack
-
-Normalises extracted content into an auditable structure
-
-Dimension-specific agents (D1–D4, D2, D3)
-
-Each agent evaluates one LRRIT dimension only
-
-Agents return structured JSON with:
-
-rating
-
-rationale
-
-evidence quotes
-
-uncertainty flag
-
-(Future) LLM-as-Judge (LaJ)
-
-Meta-evaluation of agent outputs
-
-Presentation
-
-Results rendered as static HTML for human review
-
-Repository structure
+```text
 lrrit-llm/
 │
 ├── src/
@@ -83,7 +64,6 @@ lrrit-llm/
 │
 ├── scripts/
 │   ├── test_d1_d4.py               # Example runner (D1 + D4)
-│   ├── test_d1_d2_d3_d4.py          # Extended runner (if present)
 │   └── render_results_html.py      # Render agent results to HTML
 │
 ├── data/
@@ -97,155 +77,146 @@ lrrit-llm/
 │
 ├── README.md
 └── requirements.txt
+```
 
-Key concepts
-EvidencePack
+---
 
+## Key concepts
+
+### EvidencePack
 A structured, auditable container holding:
 
-text chunks (with provenance)
+- text chunks (with provenance)
+- extracted tables (when present)
+- stable hashes for traceability
 
-extracted tables
+All agents operate **only** on the EvidencePack.
 
-stable hashes for traceability
-
-All agents operate only on the EvidencePack.
-
-Dimension-specific agents
-
+### Dimension-specific agents
 Each agent:
 
-evaluates one LRRIT dimension only
+- evaluates **one LRRIT dimension only**
+- returns **strict JSON** (machine-parseable)
+- cites **verbatim evidence quotes** (auditable)
+- flags uncertainty explicitly
 
-does not infer beyond text
+Implemented agents to date:
 
-returns strict JSON
+| Agent | Dimension |
+|---|---|
+| D1 | Compassionate engagement |
+| D2 | Systems approach to contributory factors |
+| D3 | Quality & appropriateness of learning actions |
+| D4 | Blame language avoided |
 
-cites verbatim evidence
+### Evidence polarity
+Each evidence item is labelled as:
 
-flags uncertainty explicitly
+- `positive` → supports the dimension judgement
+- `negative` → weakens/contradicts the dimension judgement (or indicates absence/over-reliance on individual action depending on dimension)
 
-Current implemented agents:
+This supports transparent human review and later LLM-as-Judge (LaJ) consistency checking.
 
-Agent	Dimension
-D1	Compassionate engagement
-D2	Systems approach to contributory factors
-D3	Quality & appropriateness of learning actions
-D4	Blame language avoided
-Evidence polarity
+---
 
-Each quoted evidence item is labelled as:
+## Installation
 
-positive → supports the dimension
+Python **3.10+** recommended.
 
-negative → weakens or contradicts the dimension
+Install dependencies:
 
-This allows:
-
-transparent disagreement
-
-LaJ consistency checks
-
-human auditability
-
-Installation
-Python
-
-Python 3.10+ recommended.
-
-Install dependencies
-
-From the repository root:
-
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-Key libraries include:
+## Configuration
 
-PyMuPDF (fitz)
+Set your OpenAI API key (PowerShell example):
 
-pdfplumber
-
-OpenAI client (or compatible LLM wrapper)
-
-Configuration
-
-Set your OpenAI API key (example for PowerShell):
-
+```powershell
 setx OPENAI_API_KEY "sk-..."
+```
 
+Optional model override:
 
-Optional:
-
+```powershell
 setx OPENAI_MODEL "gpt-4o-mini"
+```
 
-Running the pipeline
-1. Place a PDF report
+---
 
-Copy a PDF into:
+## Running the pipeline
 
+### 1) Add a PDF
+Place a PDF in:
+
+```text
 data/raw_pdfs/test.pdf
+```
 
+The filename (without extension) becomes the report ID (`test`).
 
-(The filename becomes the report ID.)
+### 2) Run agents (example: D1 + D4)
 
-2. Run agents (example: D1 + D4)
+From repository root:
+
+```powershell
 py .\scripts\test_d1_d4.py
+```
 
+Outputs will be saved to:
 
-This will:
-
-extract text & tables
-
-build an EvidencePack
-
-run the selected agents
-
-save results to:
-
+```text
 data/processed/reports/test/
+```
 
-3. Render HTML report
+### 3) Render HTML report
+
+```powershell
 py .\scripts\render_results_html.py
+```
 
+Open the generated HTML:
 
-Open the generated file:
-
+```powershell
 Start-Process data\processed\reports\test\agent_results.html
+```
 
+---
 
-This produces a presentation-ready, static HTML view suitable for meetings and review.
+## Outputs
 
-Output artefacts
-File	Purpose
-evidence_pack.json	Auditable extracted evidence
-agent_results.json	Raw agent outputs
-agent_results.html	Human-readable results
-Design principles
+| File | Purpose |
+|---|---|
+| `evidence_pack.json` | Auditable extracted evidence |
+| `agent_results.json` | Structured agent outputs |
+| `agent_results.html` | Human-readable report |
 
-No silent inference
+---
 
-Evidence-first reasoning
+## Design principles
 
-Uncertainty is explicit
+- Evidence-first reasoning (verbatim quotes)
+- No silent inference
+- Explicit uncertainty
+- Systems ≠ people
+- Human review is central
 
-Systems ≠ people
+---
 
-Human review is central
+## Status
 
-Status
+- ✔ EvidencePack ingestion stable (text + optional tables)
+- ✔ D1–D4 agents implemented and calibrated
+- ✔ HTML presentation layer
+- ⏳ LLM-as-Judge (LaJ) meta-evaluation layer (planned)
+- ⏳ Human–LLM comparison tooling (planned)
 
-✔ D1–D4 agents implemented and calibrated
+---
 
-✔ EvidencePack ingestion stable
+## Disclaimer
 
-✔ HTML presentation layer
-
-⏳ LLM-as-Judge (LaJ) meta-evaluation (planned)
-
-⏳ Human–LLM comparison tooling (planned)
-
-Disclaimer
-
-This project is a research prototype.
-It must not be used for operational safety governance without formal validation, clinical oversight, and organisational approval.
+This project is a **research prototype**.
+It must **not** be used for operational safety governance without formal validation, clinical oversight, and organisational approval.
