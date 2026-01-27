@@ -178,11 +178,7 @@ data/processed/reports/test/
 py .\scripts\render_results_html.py
 ```
 
-Open the generated HTML:
-
-```powershell
-Start-Process data\processed\reports\test\agent_results.html
-```
+<img width="1355" height="1850" alt="image" src="https://github.com/user-attachments/assets/4ae0a050-dde0-4af6-a1d5-a61da502fac1" />
 
 ---
 
