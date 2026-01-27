@@ -94,6 +94,11 @@ A structured, auditable container holding:
 
 All agents operate **only** on the EvidencePack.
 
+## PDF parsing and evidence extraction
+
+PDF reports are ingested using open-source libraries (PyMuPDF for text extraction and `pdfplumber` for tables). Text is extracted page-by-page and normalised into traceable text chunks, while tables (where present) are extracted separately and preserved with fallback textual representations. All extracted content is wrapped in an **EvidencePack** with explicit provenance (source file, page number, extractor), ensuring that every agent judgement can be traced back to the original document.
+
+
 ### Dimension-specific agents
 Each agent:
 
