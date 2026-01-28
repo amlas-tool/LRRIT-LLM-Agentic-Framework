@@ -139,7 +139,11 @@ Each evidence item is labelled as:
 - `positive` → supports the dimension judgement
 - `negative` → weakens/contradicts the dimension judgement (or indicates absence/over-reliance on individual action depending on dimension)
 
-This supports transparent human review and later LLM-as-Judge (LaJ) consistency checking.
+This supports transparent human review and later LLM-as-Judge (LaJ) consistency checking. 
+
+The LRRIT guidance words on evidence - GOOD, SOME, LITTLE - are used to grade the dimensions with supporting rationale. 
+
+The `uncertainty` flag is used to flag the need for human review. It can be triggered differently according to the data dimensions. In cases where no verbatim quotes support the grading, the uncertainty flag is usually set to 'YES'.
 
 ---
 
@@ -182,12 +186,12 @@ data/raw_pdfs/test.pdf
 
 The filename (without extension) becomes the report ID (`test`).
 
-### 2) Run agents (example: D1 + D4)
+### 2) Run agents 
 
 From repository root:
 
 ```powershell
-py .\scripts\test_d1_d4.py
+py .\scripts\test_agents.py
 ```
 
 Outputs will be saved to:
@@ -201,6 +205,8 @@ data/processed/reports/test/
 ```powershell
 py .\scripts\render_results_html.py
 ```
+A full example can be found here: https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/test/agent_results.html
+
 
 <img width="1355" height="1850" alt="image" src="https://github.com/user-attachments/assets/4ae0a050-dde0-4af6-a1d5-a61da502fac1" />
 
