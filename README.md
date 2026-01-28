@@ -182,12 +182,12 @@ data/raw_pdfs/test.pdf
 
 The filename (without extension) becomes the report ID (`test`).
 
-### 2) Run agents (example: D1 + D4)
+### 2) Run agents 
 
 From repository root:
 
 ```powershell
-py .\scripts\test_d1_d4.py
+py .\scripts\test_agents.py
 ```
 
 Outputs will be saved to:
