@@ -52,7 +52,9 @@ lrrit-llm/
 │       │   ├── d3_learning_actions.py    # D3: Human error / learning actions
 │       │   ├── d4_blame.py               # D4: Blame language avoided
 │       │   ├── d5_local_rationality.py   # D5: Local rationality / reasoning
-│       │   
+│       │   ├── d6_counterfactuals.py     # D6: Counterfactual reasoning
+│       │   ├── d7_actions.py             # D7: Safety Actions / recs to take
+│       │   ├── d8_clarity.py             # D8: Communication quality and usability
 │       │
 │       ├── ingest/
 │       │   ├── pdf_text.py         # Text extraction (PyMuPDF)
@@ -66,7 +68,7 @@ lrrit-llm/
 │           └── openai_client.py    # LLM client wrapper
 │
 ├── scripts/
-│   ├── test_d1_d4.py               # Example runner (D1 to D4)
+│   ├── test_agents.py              # Test script to run agents against a hardcoded pdf report
 │   └── render_results_html.py      # Render agent results to HTML
 │
 ├── data/
@@ -108,7 +110,7 @@ Each agent:
 - cites **verbatim evidence quotes** (auditable)
 - flags uncertainty explicitly
 
-Implemented agents to date:
+Implemented data dimension agents:
 
 | Agent | Dimension |
 |---|---|
@@ -116,7 +118,10 @@ Implemented agents to date:
 | D2 | Systems approach to contributory factors |
 | D3 | Quality & appropriateness of learning actions |
 | D4 | Blame language avoided |
-| D5| Local rationality |
+| D5 | Local rationality (why actions made sense at the time)|
+| D6 | Counterfactuals: How outcomes & alternatives are reasoned about afterwards|
+| D7 | Safety actions / recommendations|
+| D8 | Communication quality and usability of the learning response|
 
 ### Evidence polarity
 Each evidence item is labelled as:
@@ -214,7 +219,7 @@ py .\scripts\render_results_html.py
 ## Status
 
 - ✔ EvidencePack ingestion stable (text + optional tables)
-- ✔ D1–D5 agents implemented and calibrated
+- ✔ D1–D8 agents implemented and calibrated
 - ✔ HTML presentation layer
 - ⏳ LLM-as-Judge (LaJ) meta-evaluation layer (planned)
 - ⏳ Human–LLM comparison tooling (planned)

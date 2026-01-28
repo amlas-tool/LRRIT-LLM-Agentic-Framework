@@ -3,3 +3,4 @@ src/lrrit_llm/desktop.ini
 desktop.ini
 *.bat
 *.ini
+*.pyc

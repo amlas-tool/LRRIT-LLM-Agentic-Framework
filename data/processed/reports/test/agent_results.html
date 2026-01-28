@@ -149,7 +149,7 @@
   <header>
     <div class="wrap">
       <div style="font-size:22px;font-weight:900;">LRRIT Agent Results</div>
-      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-01-27 16:36</div>
+      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-01-28 10:59</div>
     </div>
   </header>
 
@@ -250,7 +250,7 @@
 
           <div class="card-body">
             <h3>Rationale</h3>
-            <p>The response includes some systems framing, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual learning.</p>
+            <p>The response includes some systems-level analysis, particularly regarding transfer processes and escalation pathways, but also emphasizes individual actions.</p>
 
             <h3>Evidence</h3>
             
@@ -259,7 +259,7 @@
                     <span class="pill" style="background:#007F3B">positive</span>
                     <span class="ev-id">Text p02_c01</span>
                   </div>
-                  <div class="ev-quote">“For patients in ED or SDEC who are acutely unwell and require urgent surgical intervention, transfer to be made to the site where the surgeons are.”</div>
+                  <div class="ev-quote">“No known systematic way to ensure that X-ray results are properly escalated for further review.”</div>
                 </div>
                 
                 <div class="ev-row">
@@ -275,11 +275,11 @@
               <summary>Raw model output</summary>
               <pre>{
   &quot;rating&quot;: &quot;SOME&quot;,
-  &quot;rationale&quot;: &quot;The response includes some systems framing, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual learning.&quot;,
+  &quot;rationale&quot;: &quot;The response includes some systems-level analysis, particularly regarding transfer processes and escalation pathways, but also emphasizes individual actions.&quot;,
   &quot;evidence&quot;: [
     {
       &quot;id&quot;: &quot;Text p02_c01&quot;,
-      &quot;quote&quot;: &quot;For patients in ED or SDEC who are acutely unwell and require urgent surgical intervention, transfer to be made to the site where the surgeons are.&quot;,
+      &quot;quote&quot;: &quot;No known systematic way to ensure that X-ray results are properly escalated for further review.&quot;,
       &quot;evidence_type&quot;: &quot;positive&quot;
     },
     {
@@ -387,7 +387,7 @@
                     <span class="pill" style="background:#007F3B">positive</span>
                     <span class="ev-id">Text p03_c01</span>
                   </div>
-                  <div class="ev-quote">“There is no certainty that an earlier CT would have made a difference”</div>
+                  <div class="ev-quote">“Delay in transferring from I but there is no certainty that this affected the outcome for the patient.”</div>
                 </div>
                 
                 <div class="ev-row">
@@ -407,7 +407,7 @@
   &quot;evidence&quot;: [
     {
       &quot;id&quot;: &quot;Text p03_c01&quot;,
-      &quot;quote&quot;: &quot;There is no certainty that an earlier CT would have made a difference&quot;,
+      &quot;quote&quot;: &quot;Delay in transferring from I but there is no certainty that this affected the outcome for the patient.&quot;,
       &quot;evidence_type&quot;: &quot;positive&quot;
     },
     {
@@ -459,7 +459,7 @@
                     <span class="pill" style="background:#D5281B">negative</span>
                     <span class="ev-id">Text p03_c01</span>
                   </div>
-                  <div class="ev-quote">“There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.”</div>
+                  <div class="ev-quote">“Delay in transferring from I but there is no certainty that this affected the outcome for the patient.”</div>
                 </div>
                 
 
@@ -476,11 +476,203 @@
     },
     {
       &quot;id&quot;: &quot;Text p03_c01&quot;,
-      &quot;quote&quot;: &quot;There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.&quot;,
+      &quot;quote&quot;: &quot;Delay in transferring from I but there is no certainty that this affected the outcome for the patient.&quot;,
       &quot;evidence_type&quot;: &quot;negative&quot;
     }
   ],
   &quot;uncertainty&quot;: true
+}</pre>
+            </details>
+          </div>
+        </section>
+        
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D6 — Avoidance of hindsight bias and counterfactual certainty</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#007F3B">GOOD</div>
+              </div>
+              <div class="badge">
+                <div class="badge-label">Uncertainty</div>
+                <div class="pill" style="background:#007F3B">YES</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The response acknowledges uncertainty regarding the impact of delays and the timing of the patient&#x27;s condition, demonstrating cautious counterfactual reasoning.</p>
+
+            <h3>Evidence</h3>
+            
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#007F3B">positive</span>
+                    <span class="ev-id">Text p02_c01</span>
+                  </div>
+                  <div class="ev-quote">“There is no certainty that an earlier CT would have made a difference”</div>
+                </div>
+                
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#007F3B">positive</span>
+                    <span class="ev-id">Text p02_c01</span>
+                  </div>
+                  <div class="ev-quote">“However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.”</div>
+                </div>
+                
+
+            <details class="raw">
+              <summary>Raw model output</summary>
+              <pre>{
+  &quot;rating&quot;: &quot;GOOD&quot;,
+  &quot;rationale&quot;: &quot;The response acknowledges uncertainty regarding the impact of delays and the timing of the patient&#x27;s condition, demonstrating cautious counterfactual reasoning.&quot;,
+  &quot;evidence&quot;: [
+    {
+      &quot;id&quot;: &quot;Text p02_c01&quot;,
+      &quot;quote&quot;: &quot;There is no certainty that an earlier CT would have made a difference&quot;,
+      &quot;evidence_type&quot;: &quot;positive&quot;
+    },
+    {
+      &quot;id&quot;: &quot;Text p02_c01&quot;,
+      &quot;quote&quot;: &quot;However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.&quot;,
+      &quot;evidence_type&quot;: &quot;positive&quot;
+    }
+  ],
+  &quot;uncertainty&quot;: true
+}</pre>
+            </details>
+          </div>
+        </section>
+        
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D7 — Improvement actions (systems-focused, evidence-informed, collaborative)</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+              <div class="badge">
+                <div class="badge-label">Uncertainty</div>
+                <div class="pill" style="background:#007F3B">YES</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The improvement actions show an attempt to address system issues but lack comprehensive collaboration and monitoring details.</p>
+
+            <h3>Evidence</h3>
+            
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#007F3B">positive</span>
+                    <span class="ev-id">Text p03_c01</span>
+                  </div>
+                  <div class="ev-quote">“Link case to stream of work which is currently being done regarding the acutely surgical ill patients.”</div>
+                </div>
+                
+
+            <details class="raw">
+              <summary>Raw model output</summary>
+              <pre>{
+  &quot;rating&quot;: &quot;SOME&quot;,
+  &quot;rationale&quot;: &quot;The improvement actions show an attempt to address system issues but lack comprehensive collaboration and monitoring details.&quot;,
+  &quot;evidence&quot;: [
+    {
+      &quot;id&quot;: &quot;Text p03_c01&quot;,
+      &quot;quote&quot;: &quot;Link case to stream of work which is currently being done regarding the acutely surgical ill patients.&quot;,
+      &quot;evidence_type&quot;: &quot;positive&quot;
+    }
+  ],
+  &quot;uncertainty&quot;: true
+}</pre>
+            </details>
+          </div>
+        </section>
+        
+        <section class="card">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D8 — Communication quality and usability</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+              <div class="badge">
+                <div class="badge-label">Uncertainty</div>
+                <div class="pill" style="background:#D5281B">NO</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The report has a generally understandable structure but contains vague language and some jargon that affects clarity.</p>
+
+            <h3>Evidence</h3>
+            
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#D5281B">negative</span>
+                    <span class="ev-id">Text p03_c01</span>
+                  </div>
+                  <div class="ev-quote">“Delay in transferring from I but there is no certainty that this affected the outcome for the patient.”</div>
+                </div>
+                
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#D5281B">negative</span>
+                    <span class="ev-id">Text p02_c01</span>
+                  </div>
+                  <div class="ev-quote">“No known systematic way to ensure that X-ray results are properly escalated for further review.”</div>
+                </div>
+                
+                <div class="ev-row">
+                  <div class="ev-meta">
+                    <span class="pill" style="background:#007F3B">positive</span>
+                    <span class="ev-id">Text p01_c01</span>
+                  </div>
+                  <div class="ev-quote">“Appropriate investigations were ordered and performed.”</div>
+                </div>
+                
+
+            <details class="raw">
+              <summary>Raw model output</summary>
+              <pre>{
+  &quot;rating&quot;: &quot;SOME&quot;,
+  &quot;rationale&quot;: &quot;The report has a generally understandable structure but contains vague language and some jargon that affects clarity.&quot;,
+  &quot;evidence&quot;: [
+    {
+      &quot;id&quot;: &quot;Text p03_c01&quot;,
+      &quot;quote&quot;: &quot;Delay in transferring from I but there is no certainty that this affected the outcome for the patient.&quot;,
+      &quot;evidence_type&quot;: &quot;negative&quot;
+    },
+    {
+      &quot;id&quot;: &quot;Text p02_c01&quot;,
+      &quot;quote&quot;: &quot;No known systematic way to ensure that X-ray results are properly escalated for further review.&quot;,
+      &quot;evidence_type&quot;: &quot;negative&quot;
+    },
+    {
+      &quot;id&quot;: &quot;Text p01_c01&quot;,
+      &quot;quote&quot;: &quot;Appropriate investigations were ordered and performed.&quot;,
+      &quot;evidence_type&quot;: &quot;positive&quot;
+    }
+  ],
+  &quot;uncertainty&quot;: false
 }</pre>
             </details>
           </div>
