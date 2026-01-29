@@ -17,11 +17,11 @@ NHS_GREEN = "#007F3B"
 
 def _badge_colour(value: str) -> str:
     v = (value or "").upper().strip()
-    if v in ("GOOD", "YES", "TRUE"):
+    if v in ("GOOD", "NO", "TRUE"):
         return NHS_GREEN
     if v in ("SOME",):
         return NHS_AMBER
-    if v in ("LITTLE", "NO", "FALSE"):
+    if v in ("LITTLE", "YES", "FALSE"):
         return NHS_RED
     return NHS_BLUE
 

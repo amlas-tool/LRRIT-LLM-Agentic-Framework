@@ -94,7 +94,7 @@ def main():
 
     results = {"d1": d1_out, "d2": d2_out, "d3": d3_out, "d4": d4_out, "d5": d5_out, "d6": d6_out, "d7": d7_out, "d8": d8_out}
     results["_meta"] = {
-        "model": os.environ.get("OPENAI_MODEL", "unknown"),
+        "model": os.environ.get("OPENAI_MODEL", "unknown"), # for record-keeping - needs changing for local clients
         "temperature": 0.0,
     }
 
