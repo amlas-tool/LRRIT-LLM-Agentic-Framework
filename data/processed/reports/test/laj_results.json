@@ -3,12 +3,12 @@
     "judge_id": "LaJ",
     "agent_id": "D1",
     "dimension": "Compassionate engagement with people affected",
-    "overall": "WARN",
+    "overall": "PASS",
     "metrics": [
       {
         "metric_id": "M1",
-        "score": "WARN",
-        "notes": "The output identifies a lack of compassionate engagement but could benefit from more specific examples or references to patient communication."
+        "score": "FAIL",
+        "notes": "The output lacks specific examples of compassionate engagement, focusing instead on clinical processes."
       },
       {
         "metric_id": "M2",
@@ -18,17 +18,17 @@
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The rationale is coherent but lacks depth in connecting the evidence to the dimension of compassionate engagement."
+        "notes": "The rationale is coherent but could benefit from more detailed reasoning regarding the lack of compassionate engagement."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of empathy and support, though it lacks explicit examples."
+        "notes": "The output aligns with values of empathy and support, though it lacks specific examples."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output appropriately acknowledges uncertainty regarding the evidence of compassionate engagement."
+        "notes": "The output is clear and does not present any uncertainty."
       },
       {
         "metric_id": "M6",
@@ -41,7 +41,7 @@
       "invalid_evidence_id": false,
       "quote_mismatch": false
     },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output identifies a lack of compassionate engagement but could benefit from more specific examples or references to patient communication.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and corresponds to the provided evidence blocks.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The rationale is coherent but lacks depth in connecting the evidence to the dimension of compassionate engagement.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of empathy and support, though it lacks explicit examples.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output appropriately acknowledges uncertainty regarding the evidence of compassionate engagement.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; the rationale is grounded in the provided evidence.\"\n    }\n  ]\n}"
+    "raw_output": "{\n  \"overall\": \"PASS\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"FAIL\",\n      \"notes\": \"The output lacks specific examples of compassionate engagement, focusing instead on clinical processes.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and corresponds to the provided evidence blocks.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The rationale is coherent but could benefit from more detailed reasoning regarding the lack of compassionate engagement.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of empathy and support, though it lacks specific examples.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output is clear and does not present any uncertainty.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; the rationale is grounded in the provided evidence.\"\n    }\n  ]\n}"
   },
   "d2": {
     "judge_id": "LaJ",
@@ -52,12 +52,12 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output partially meets the rubric by acknowledging systems framing but also emphasizes individual actions, which detracts from a pure systems approach."
+        "notes": "The output partially meets the rubric by acknowledging systems-level factors but also emphasizes individual actions, which detracts from a purely systems approach."
       },
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and corresponds to the provided evidence blocks."
+        "notes": "All evidence cited is present and relevant to the evaluation."
       },
       {
         "metric_id": "M3",
@@ -72,7 +72,7 @@
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output does not express uncertainty, which is appropriate given the evidence."
+        "notes": "The output does not express uncertainty, which is appropriate given the context."
       },
       {
         "metric_id": "M6",
@@ -85,7 +85,7 @@
       "invalid_evidence_id": false,
       "quote_mismatch": false
     },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output partially meets the rubric by acknowledging systems framing but also emphasizes individual actions, which detracts from a pure systems approach.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and corresponds to the provided evidence blocks.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from a clearer connection between the evidence and the systems approach.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of focusing on systemic issues rather than individual blame.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output does not express uncertainty, which is appropriate given the evidence.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; all assertions are grounded in the provided evidence.\"\n    }\n  ]\n}"
+    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output partially meets the rubric by acknowledging systems-level factors but also emphasizes individual actions, which detracts from a purely systems approach.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is present and relevant to the evaluation.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from a clearer connection between the evidence and the systems approach.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of focusing on systemic issues rather than individual blame.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output does not express uncertainty, which is appropriate given the context.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; all assertions are grounded in the provided evidence.\"\n    }\n  ]\n}"
   },
   "d3": {
     "judge_id": "LaJ",
@@ -140,27 +140,27 @@
       {
         "metric_id": "M1",
         "score": "PASS",
-        "notes": "The output accurately reflects the avoidance of blame language and focuses on systemic issues."
+        "notes": "The output clearly meets the rubric by avoiding person-focused blame and focusing on system issues."
       },
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the claims made in the rationale."
+        "notes": "All evidence cited is valid and directly supports the rationale provided."
       },
       {
         "metric_id": "M3",
         "score": "PASS",
-        "notes": "The reasoning is coherent and logically connects the evidence to the evaluation of blame language."
+        "notes": "The reasoning is coherent and logically follows from the evidence presented."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of neutrality and system-focused analysis."
+        "notes": "The output aligns with values of system improvement and learning without assigning blame."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "There is no uncertainty present in the evaluation, and it is clearly articulated."
+        "notes": "There is no uncertainty present in the output, and it clearly communicates the focus on systemic issues."
       },
       {
         "metric_id": "M6",
@@ -173,7 +173,7 @@
       "invalid_evidence_id": false,
       "quote_mismatch": false
     },
-    "raw_output": "{\n  \"overall\": \"PASS\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output accurately reflects the avoidance of blame language and focuses on systemic issues.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and directly supports the claims made in the rationale.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"PASS\",\n      \"notes\": \"The reasoning is coherent and logically connects the evidence to the evaluation of blame language.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of neutrality and system-focused analysis.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"There is no uncertainty present in the evaluation, and it is clearly articulated.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"The rationale does not contain unsupported claims and is consistent with the provided evidence.\"\n    }\n  ]\n}"
+    "raw_output": "{\n  \"overall\": \"PASS\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output clearly meets the rubric by avoiding person-focused blame and focusing on system issues.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and directly supports the rationale provided.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"PASS\",\n      \"notes\": \"The reasoning is coherent and logically follows from the evidence presented.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of system improvement and learning without assigning blame.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"There is no uncertainty present in the output, and it clearly communicates the focus on systemic issues.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"The rationale does not contain unsupported claims and is consistent with the provided evidence.\"\n    }\n  ]\n}"
   },
   "d5": {
     "judge_id": "LaJ",
@@ -184,7 +184,7 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output provides some context but lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken."
+        "notes": "The output provides some context but lacks a thorough explanation of the contemporaneous reasoning behind actions taken."
       },
       {
         "metric_id": "M2",
@@ -194,105 +194,17 @@
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but could benefit from a deeper exploration of the decision-making process."
+        "notes": "The reasoning is somewhat coherent but could benefit from a more detailed exploration of the decision-making process."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of transparency and learning from the incident."
+        "notes": "The output aligns with values of patient safety and learning from incidents."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output appropriately acknowledges uncertainty regarding the impact of timing on the patient's outcome."
-      },
-      {
-        "metric_id": "M6",
-        "score": "PASS",
-        "notes": "No unsupported claims about the report content are present in the rationale."
-      }
-    ],
-    "flags": {
-      "missing_evidence": false,
-      "invalid_evidence_id": false,
-      "quote_mismatch": false
-    },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output provides some context but lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and corresponds to the provided evidence blocks.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from a deeper exploration of the decision-making process.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of transparency and learning from the incident.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output appropriately acknowledges uncertainty regarding the impact of timing on the patient's outcome.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims about the report content are present in the rationale.\"\n    }\n  ]\n}"
-  },
-  "d6": {
-    "judge_id": "LaJ",
-    "agent_id": "D6",
-    "dimension": "Avoidance of hindsight bias and counterfactual certainty",
-    "overall": "WARN",
-    "metrics": [
-      {
-        "metric_id": "M1",
-        "score": "WARN",
-        "notes": "The output generally aligns with the rubric but could benefit from more specific examples of uncertainty."
-      },
-      {
-        "metric_id": "M2",
-        "score": "FAIL",
-        "notes": "There is a quote mismatch; the evidence cited does not fully support the claims made in the rationale."
-      },
-      {
-        "metric_id": "M3",
-        "score": "PASS",
-        "notes": "The reasoning is coherent and logically follows from the evidence provided."
-      },
-      {
-        "metric_id": "M4",
-        "score": "PASS",
-        "notes": "The output aligns with values of transparency and caution regarding patient care."
-      },
-      {
-        "metric_id": "M5",
-        "score": "PASS",
-        "notes": "The output effectively acknowledges uncertainty in the outcomes discussed."
-      },
-      {
-        "metric_id": "M6",
-        "score": "FAIL",
-        "notes": "The rationale includes unsupported claims about the certainty of outcomes that are not substantiated by the evidence."
-      }
-    ],
-    "flags": {
-      "missing_evidence": false,
-      "invalid_evidence_id": false,
-      "quote_mismatch": true
-    },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output generally aligns with the rubric but could benefit from more specific examples of uncertainty.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"FAIL\",\n      \"notes\": \"There is a quote mismatch; the evidence cited does not fully support the claims made in the rationale.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"PASS\",\n      \"notes\": \"The reasoning is coherent and logically follows from the evidence provided.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of transparency and caution regarding patient care.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output effectively acknowledges uncertainty in the outcomes discussed.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"FAIL\",\n      \"notes\": \"The rationale includes unsupported claims about the certainty of outcomes that are not substantiated by the evidence.\"\n    }\n  ]\n}"
-  },
-  "d7": {
-    "judge_id": "LaJ",
-    "agent_id": "D7",
-    "dimension": "Improvement actions (systems-focused, evidence-informed, collaborative)",
-    "overall": "WARN",
-    "metrics": [
-      {
-        "metric_id": "M1",
-        "score": "WARN",
-        "notes": "The rationale identifies underdeveloped improvement actions, but lacks specific examples of how they could be enhanced."
-      },
-      {
-        "metric_id": "M2",
-        "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the evaluation."
-      },
-      {
-        "metric_id": "M3",
-        "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but could benefit from more detailed connections between evidence and the critique."
-      },
-      {
-        "metric_id": "M4",
-        "score": "PASS",
-        "notes": "The output aligns with values of collaborative improvement and patient safety."
-      },
-      {
-        "metric_id": "M5",
-        "score": "PASS",
-        "notes": "The output transparently acknowledges uncertainty regarding the improvement actions."
+        "notes": "The output appropriately acknowledges uncertainty regarding the impact of timing on patient outcomes."
       },
       {
         "metric_id": "M6",
@@ -305,7 +217,95 @@
       "invalid_evidence_id": false,
       "quote_mismatch": false
     },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The rationale identifies underdeveloped improvement actions, but lacks specific examples of how they could be enhanced.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and directly supports the evaluation.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from more detailed connections between evidence and the critique.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of collaborative improvement and patient safety.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output transparently acknowledges uncertainty regarding the improvement actions.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; all assertions are grounded in the provided evidence.\"\n    }\n  ]\n}"
+    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output provides some context but lacks a thorough explanation of the contemporaneous reasoning behind actions taken.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and corresponds to the provided evidence blocks.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from a more detailed exploration of the decision-making process.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of patient safety and learning from incidents.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output appropriately acknowledges uncertainty regarding the impact of timing on patient outcomes.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; all assertions are grounded in the provided evidence.\"\n    }\n  ]\n}"
+  },
+  "d6": {
+    "judge_id": "LaJ",
+    "agent_id": "D6",
+    "dimension": "Avoidance of hindsight bias and counterfactual certainty",
+    "overall": "PASS",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "PASS",
+        "notes": "The agent's output accurately reflects the dimension's requirements by acknowledging uncertainty and avoiding definitive claims."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and directly supports the agent's rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "PASS",
+        "notes": "The reasoning is coherent and logically follows from the evidence provided."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of transparency and caution regarding patient outcomes."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The agent effectively communicates uncertainty and avoids counterfactual assertions."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "No unsupported claims are present in the agent's output."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_mismatch": false
+    },
+    "raw_output": "{\n  \"overall\": \"PASS\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"PASS\",\n      \"notes\": \"The agent's output accurately reflects the dimension's requirements by acknowledging uncertainty and avoiding definitive claims.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"All evidence cited is valid and directly supports the agent's rationale.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"PASS\",\n      \"notes\": \"The reasoning is coherent and logically follows from the evidence provided.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of transparency and caution regarding patient outcomes.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The agent effectively communicates uncertainty and avoids counterfactual assertions.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present in the agent's output.\"\n    }\n  ]\n}"
+  },
+  "d7": {
+    "judge_id": "LaJ",
+    "agent_id": "D7",
+    "dimension": "Improvement actions (systems-focused, evidence-informed, collaborative)",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The improvement actions are mentioned but lack sufficient detail on monitoring and ownership."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "The evidence cited is valid and supports the rationale provided."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "The reasoning is somewhat coherent but could benefit from more specific examples of improvement actions."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of collaborative improvement and patient safety."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output transparently acknowledges uncertainty regarding the effectiveness of actions."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "No unsupported claims are present; all assertions are grounded in the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_mismatch": false
+    },
+    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The improvement actions are mentioned but lack sufficient detail on monitoring and ownership.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"PASS\",\n      \"notes\": \"The evidence cited is valid and supports the rationale provided.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The reasoning is somewhat coherent but could benefit from more specific examples of improvement actions.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of collaborative improvement and patient safety.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output transparently acknowledges uncertainty regarding the effectiveness of actions.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"PASS\",\n      \"notes\": \"No unsupported claims are present; all assertions are grounded in the provided evidence.\"\n    }\n  ]\n}"
   },
   "d8": {
     "judge_id": "LaJ",
@@ -321,7 +321,7 @@
       {
         "metric_id": "M2",
         "score": "FAIL",
-        "notes": "There is a quote mismatch, as the evidence cited does not accurately reflect the content of the report."
+        "notes": "There is a quote mismatch, indicating that the evidence cited does not accurately reflect the original text."
       },
       {
         "metric_id": "M3",
@@ -331,12 +331,12 @@
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The evaluation aligns with values of clarity and usability in communication."
+        "notes": "The output aligns with values of clarity and usability in communication."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output does not introduce uncertainty and presents a clear assessment."
+        "notes": "The output does not present any uncertainty, maintaining a clear stance."
       },
       {
         "metric_id": "M6",
@@ -349,6 +349,6 @@
       "invalid_evidence_id": false,
       "quote_mismatch": true
     },
-    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output identifies some clarity issues but lacks specific examples of jargon and vague language.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"FAIL\",\n      \"notes\": \"There is a quote mismatch, as the evidence cited does not accurately reflect the content of the report.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The evaluation aligns with values of clarity and usability in communication.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output does not introduce uncertainty and presents a clear assessment.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"FAIL\",\n      \"notes\": \"The rationale includes unsupported claims due to the quote mismatch, affecting reliability.\"\n    }\n  ]\n}"
+    "raw_output": "{\n  \"overall\": \"WARN\",\n  \"metrics\": [\n    {\n      \"metric_id\": \"M1\",\n      \"score\": \"WARN\",\n      \"notes\": \"The output identifies some clarity issues but lacks specific examples of jargon and vague language.\"\n    },\n    {\n      \"metric_id\": \"M2\",\n      \"score\": \"FAIL\",\n      \"notes\": \"There is a quote mismatch, indicating that the evidence cited does not accurately reflect the original text.\"\n    },\n    {\n      \"metric_id\": \"M3\",\n      \"score\": \"WARN\",\n      \"notes\": \"The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims.\"\n    },\n    {\n      \"metric_id\": \"M4\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output aligns with values of clarity and usability in communication.\"\n    },\n    {\n      \"metric_id\": \"M5\",\n      \"score\": \"PASS\",\n      \"notes\": \"The output does not present any uncertainty, maintaining a clear stance.\"\n    },\n    {\n      \"metric_id\": \"M6\",\n      \"score\": \"FAIL\",\n      \"notes\": \"The rationale includes unsupported claims due to the quote mismatch, affecting reliability.\"\n    }\n  ]\n}"
   }
 }

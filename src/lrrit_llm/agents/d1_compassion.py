@@ -84,7 +84,7 @@ class D1CompassionAgent:
         return f"""
 You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
 
-Dimension: Compassionate engagement with people affected.
+Dimension: Compassionate engagement with people affected (D1).
 
 Task:
 - Assess whether the learning response demonstrates compassionate engagement
@@ -102,26 +102,22 @@ Instructions:
 - If evidence is sparse or ambiguous, state this explicitly.
 - Do not assess other dimensions (e.g. blame, systems).
 
-Evidence:
-{evidence_text}
-
-Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
   "rationale": "string",
   "evidence": [
     {{
-      "id": "Text pXX_cYY | Table pXX_tYY",
-      "quote": "verbatim excerpt <= 25 words",
-      "evidence_type": "positive | negative"
+      "id": "Text pXX_cYY" | "Table pXX_tYY",
+      "quote": "verbatim excerpt from evidence, <= 25 words",
+      "evidence_type": "positive" | "negative"
     }}
   ],
   "uncertainty": true | false
 }}
 
 Rules:
-- Return STRICT JSON only.
+- Return STRICT JSON ONLY (no markdown, no extra text)
 - Every evidence item MUST include:
   - a verbatim quote taken from the cited Text/Table block (<= 25 words)
   - an evidence_type field: "positive" or "negative"
@@ -129,10 +125,12 @@ Rules:
 - Use "negative" when the quote exemplifies clinical/process-focused documentation that supports the conclusion that compassionate engagement is not documented.
 - If rating is GOOD or SOME: include at least one "positive" evidence item.
 - If rating is LITTLE:
-  - Prefer including 1–2 "negative" evidence items; OR
+  - Prefer including 1-2 "negative" evidence items; OR
   - If no relevant excerpt exists, set evidence to [] and set uncertainty to true.
 - Do not invent quotes. Do not paraphrase quotes.
 
+Evidence:
+{evidence_text}
 
 """.strip()
     

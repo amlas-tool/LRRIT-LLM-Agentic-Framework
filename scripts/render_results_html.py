@@ -168,7 +168,7 @@ def render_html(report_dir: Path) -> Path:
                     action_html = (
                         f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
                         f'href="{_esc(pdf_href)}" '
-                        f'onclick=\'copyText({copy_payload});\'>Open PDF (page {page}</a>'
+                        f'onclick=\'copyText({copy_payload});\'>Open PDF (page {page})</a>'
                     )
 
                 #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))

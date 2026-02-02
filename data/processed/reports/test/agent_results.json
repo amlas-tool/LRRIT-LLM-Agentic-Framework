@@ -3,27 +3,27 @@
     "agent_id": "D1",
     "dimension": "Compassionate engagement with people affected",
     "rating": "LITTLE",
-    "rationale": "The evidence provided lacks specific references to compassionate engagement with the patient. The focus is primarily on clinical processes and outcomes.",
+    "rationale": "The evidence provided lacks specific examples of compassionate engagement with the patient. The focus is primarily on clinical processes and outcomes.",
     "evidence": [
       {
-        "id": "Text p01_c01 | page 1",
+        "id": "Text p01_c01",
         "quote": "Level of harm: Low harm- based on patient experience",
         "evidence_type": "negative"
       },
       {
-        "id": "Text p02_c01 | page 2",
-        "quote": "Plans made to transfer to STH urgently -there was a slight delay.",
+        "id": "Text p02_c01",
+        "quote": "Plans made to transfer to STH urgently - there was a slight delay.",
         "evidence_type": "negative"
       }
     ],
-    "uncertainty": true,
-    "raw_output": "{\n  \"rating\": \"LITTLE\",\n  \"rationale\": \"The evidence provided lacks specific references to compassionate engagement with the patient. The focus is primarily on clinical processes and outcomes.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p01_c01 | page 1\",\n      \"quote\": \"Level of harm: Low harm- based on patient experience\",\n      \"evidence_type\": \"negative\"\n    },\n    {\n      \"id\": \"Text p02_c01 | page 2\",\n      \"quote\": \"Plans made to transfer to STH urgently -there was a slight delay.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": true\n}"
+    "uncertainty": false,
+    "raw_output": "{\n  \"rating\": \"LITTLE\",\n  \"rationale\": \"The evidence provided lacks specific examples of compassionate engagement with the patient. The focus is primarily on clinical processes and outcomes.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p01_c01\",\n      \"quote\": \"Level of harm: Low harm- based on patient experience\",\n      \"evidence_type\": \"negative\"\n    },\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"Plans made to transfer to STH urgently - there was a slight delay.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": false\n}"
   },
   "d2": {
     "agent_id": "D2",
     "dimension": "Systems approach to contributory factors",
     "rating": "SOME",
-    "rationale": "The response includes some systems framing, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual actions and reflections.",
+    "rationale": "The response includes some systems-level analysis, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual actions and reflections.",
     "evidence": [
       {
         "id": "Text p02_c01",
@@ -37,7 +37,7 @@
       }
     ],
     "uncertainty": false,
-    "raw_output": "{\n  \"rating\": \"SOME\",\n  \"rationale\": \"The response includes some systems framing, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual actions and reflections.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"No known systematic way to ensure that X-ray results are properly escalated for further review.\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p03_c01\",\n      \"quote\": \"SHO can use case for personal reflection/appraisal.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": false\n}"
+    "raw_output": "{\n  \"rating\": \"SOME\",\n  \"rationale\": \"The response includes some systems-level analysis, particularly regarding transfer protocols and escalation pathways, but also emphasizes individual actions and reflections.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"No known systematic way to ensure that X-ray results are properly escalated for further review.\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p03_c01\",\n      \"quote\": \"SHO can use case for personal reflection/appraisal.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": false\n}"
   },
   "d3": {
     "agent_id": "D3",
@@ -83,7 +83,7 @@
     "agent_id": "D5",
     "dimension": "Local rationality",
     "rating": "SOME",
-    "rationale": "The response provides some context regarding the decision-making process, but it lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken.",
+    "rationale": "The response provides some context regarding the decision-making process, but lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken.",
     "evidence": [
       {
         "id": "Text p02_c01",
@@ -97,27 +97,27 @@
       }
     ],
     "uncertainty": true,
-    "raw_output": "{\n  \"rating\": \"SOME\",\n  \"rationale\": \"The response provides some context regarding the decision-making process, but it lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"Based on presenting symptoms of abdominal pain, vomiting and raised CRP - obstruction to be considered as a possible differential diagnosis.\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p03_c01\",\n      \"quote\": \"There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": true\n}"
+    "raw_output": "{\n  \"rating\": \"SOME\",\n  \"rationale\": \"The response provides some context regarding the decision-making process, but lacks a comprehensive explanation of the contemporaneous reasoning behind actions taken.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"Based on presenting symptoms of abdominal pain, vomiting and raised CRP - obstruction to be considered as a possible differential diagnosis.\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p03_c01\",\n      \"quote\": \"There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.\",\n      \"evidence_type\": \"negative\"\n    }\n  ],\n  \"uncertainty\": true\n}"
   },
   "d6": {
     "agent_id": "D6",
     "dimension": "Avoidance of hindsight bias and counterfactual certainty",
     "rating": "GOOD",
-    "rationale": "The response acknowledges uncertainty regarding the impact of actions taken and the timing of events, demonstrating cautious counterfactual reasoning.",
+    "rationale": "The response acknowledges uncertainty regarding the timing of the patient's condition and the impact of delays on outcomes.",
     "evidence": [
-      {
-        "id": "Text p02_c01",
-        "quote": "There is no certainty that an earlier CT would have made a difference",
-        "evidence_type": "positive"
-      },
       {
         "id": "Text p02_c01",
         "quote": "However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.",
         "evidence_type": "positive"
+      },
+      {
+        "id": "Text p03_c01",
+        "quote": "There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.",
+        "evidence_type": "positive"
       }
     ],
     "uncertainty": true,
-    "raw_output": "{\n  \"rating\": \"GOOD\",\n  \"rationale\": \"The response acknowledges uncertainty regarding the impact of actions taken and the timing of events, demonstrating cautious counterfactual reasoning.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"There is no certainty that an earlier CT would have made a difference\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.\",\n      \"evidence_type\": \"positive\"\n    }\n  ],\n  \"uncertainty\": true\n}"
+    "raw_output": "{\n  \"rating\": \"GOOD\",\n  \"rationale\": \"The response acknowledges uncertainty regarding the timing of the patient's condition and the impact of delays on outcomes.\",\n  \"evidence\": [\n    {\n      \"id\": \"Text p02_c01\",\n      \"quote\": \"However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.\",\n      \"evidence_type\": \"positive\"\n    },\n    {\n      \"id\": \"Text p03_c01\",\n      \"quote\": \"There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.\",\n      \"evidence_type\": \"positive\"\n    }\n  ],\n  \"uncertainty\": true\n}"
   },
   "d7": {
     "agent_id": "D7",
