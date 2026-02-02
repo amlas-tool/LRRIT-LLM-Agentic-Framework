@@ -207,7 +207,8 @@ py .\scripts\render_results_html.py
 ```
 A full example can be found here: https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/test/agent_results.html
 
-<img width="1266" height="1858" alt="image" src="https://github.com/user-attachments/assets/6d12a8e4-2d80-449f-a4b6-2d8eb9996a10" />
+<img width="1516" height="1760" alt="image" src="https://github.com/user-attachments/assets/22333fe3-7b8f-44bf-beba-adbfadfc72a7" />
+
 
 
 ---
