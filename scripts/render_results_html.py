@@ -163,27 +163,29 @@ def render_html(report_dir: Path) -> Path:
                 # Safe JS string for copy-to-clipboard
                 copy_payload = json.dumps(quote)
 
-                open_pdf_btn = ""
                 if pdf_url and page:
-                  pdf_href = f"{pdf_url}#page={page}"
-                  open_pdf_btn = (
-                      f'<a class="btn" target="lrrit_pdf_tab" href="{_esc(pdf_href)}">'
-                      f'Open PDF (page {page})</a>')
+                    pdf_href = f"{pdf_url}#page={page}"
+                    action_html = (
+                        f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
+                        f'href="{_esc(pdf_href)}" '
+                        f'onclick=\'copyText({copy_payload});\'>Open PDF (page {page}</a>'
+                    )
+
                 #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
                 
                 ev_rows.append(f"""
-                <div class="ev-row">
-                  <div class="ev-meta">
-                    <span class="pill" style="background:{et_col}">{_esc(etype or "evidence")}</span>
-                    <span class="ev-id">{_esc(eid)}</span>
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:{et_col}">{_esc(etype or "evidence")}</span>
+                      <span class="ev-id">{_esc(eid)}</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“{_esc(quote)}”</div>
+                      <div class="ev-action">{action_html}</div>
+                    </div>
                   </div>
-                  <div class="ev-quote">“{_esc(quote)}”</div>
-                  <div class="ev-actions">
-                    <button class="btn" type="button" onclick='copyText({copy_payload})'>Copy quote</button>
-                    {open_pdf_btn}
-                  </div>
-                </div>
-                """)
+                  """)
             else:
                 ev_rows.append('<div class="muted">No more evidence quotes returned.</div>')
 
@@ -366,9 +368,16 @@ def render_html(report_dir: Path) -> Path:
       background: #fafafa;
       border-radius: 8px;
     }}
+    .ev-main{{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap: nowrap;          /* key: don’t wrap action under quote */
+    }}
     .ev-meta {{
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
       margin-bottom: 6px;
     }}
@@ -383,16 +392,19 @@ def render_html(report_dir: Path) -> Path:
       margin-top: 8px;
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
+      flex: 0 0 auto;
+      white-space: nowrap;
     }}
     .btn {{
       border: 1px solid #ccc;
       background: #fff;
-      padding: 6px 10px;
+      padding: 5px 10px;
       border-radius: 10px;
       cursor: pointer;
       text-decoration: none;
       font-size: 0.9em;
+      white-space: nowrap;   /* keep “Copy + open” or “Open PDF (page 2)” on one line */
+      display: inline-flex;  /* better sizing */
     }}
     .btn:hover {{
       background: #f5f5f5;
@@ -454,10 +466,11 @@ def render_html(report_dir: Path) -> Path:
         <div id="pdf-status" style="display:none; margin: 10px 0; padding: 10px; border: 1px solid #f0c36d; background: #fff8e1; border-radius: 10px;">
           </div>
       </div>
-      <footer>This file is stored locally. No data is uploaded anywhere. <p>NB. The <b>copy quote</b> button copies the text of the quote to the clipboard. 
-      The <b>open pdf</b> button opens the original PDF in a new tab. <p>You can then use Ctrl+F, Ctrl+V to search for the quote within the report. 
-      Note that long quotes may be split across lines or the model may have added punctuation or changed the formatting. 
-      In this case, delete parts of the quote until it works. </footer>
+      <footer>This file is stored locally. <p>NB.  
+      The <b>open pdf</b> button copies the verbatim quote to the clipboard and opens the report at that page in a new tab. 
+      You can then use search to find the context of the quote within the report. 
+      <p><i>Caveat emptor:</i> long quotes may be split across lines or the model may have added punctuation or changed the formatting. 
+      In this case, delete parts of the quote until the search works. </footer>
     </div>
 
     <div class="summary" id="summary">
@@ -467,7 +480,7 @@ def render_html(report_dir: Path) -> Path:
         <thead>
           <tr>
             <th>Agent</th>
-            <th>Dimension</th>
+            <th>Data Dimension</th>
             <th>Rating</th>
             <th>Uncertainty</th>
           </tr>
