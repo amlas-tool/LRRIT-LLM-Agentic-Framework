@@ -22,6 +22,20 @@ def _file_url(p: str) -> str:
     return Path(p).resolve().as_uri()
 
 
+
+def _laj_badge(overall: str):
+    overall = (overall or "").upper()
+    col = _badge_colour("GOOD" if overall == "PASS" else "SOME" if overall == "WARN" else "LITTLE")
+    return overall, col
+
+def _laj_tooltip(laj_obj: dict) -> str:
+    metrics = laj_obj.get("metrics") or []
+    bad = [m["metric_id"] for m in metrics if (m.get("score") or "").upper() in ("FAIL","WARN")]
+    if not bad:
+        return "All metrics PASS"
+    return "Flags: " + ", ".join(bad[:6])
+
+
 _PAGE_RE = re.compile(r"p(\d{1,3})", re.IGNORECASE)
 
 
@@ -48,10 +62,60 @@ def _badge_colour(value: str) -> str:
 def _esc(s: str) -> str:
     return html.escape(s or "")
 
+def render_laj_details(laj: dict) -> str:
+    metrics = laj.get("metrics") or []
+    name_map = {
+        "M1": "Rubric fidelity",
+        "M2": "Evidence grounding",
+        "M3": "Reasoning coherence",
+        "M4": "Values alignment (PSIRF/LRRIT)",
+        "M5": "Transparency & uncertainty",
+        "M6": "Unsupported-claim risk",
+    }
+
+    # Build rows
+    rows = []
+    for m in metrics:
+        mid = (m.get("metric_id") or "").upper()
+        score = (m.get("score") or "").upper()
+        note = m.get("notes") or ""
+        label = name_map.get(mid, mid or "Metric")
+
+        rows.append(f"""
+          <tr>
+            <td class="laj-metric-name">{_esc(label)} <span class="laj-score">({_esc(score)})</span></td>
+            <td class="laj-metric-note">{_esc(note)}</td>
+          </tr>
+        """)
+
+    # If no metrics, be explicit
+    if not rows:
+        rows.append("""
+          <tr>
+            <td class="laj-metric-name">No metrics returned</td>
+            <td class="laj-metric-note"></td>
+          </tr>
+        """)
+
+    return f"""
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            {''.join(rows)}
+          </tbody>
+        </table>
+      </div>
+    """
+
+
 
 def render_html(report_dir: Path) -> Path:
     results_path = report_dir / "agent_results.json"
     pack_path = report_dir / "evidence_pack.json"
+    laj_path = report_dir / "laj_results.json"
+    laj_results = {}
+    if laj_path.exists():
+        laj_results = json.loads(laj_path.read_text(encoding="utf-8"))
 
     if not results_path.exists():
         raise FileNotFoundError(f"Missing: {results_path}")
@@ -61,6 +125,7 @@ def render_html(report_dir: Path) -> Path:
     # Model metadata (preferred in results["_meta"], with safe fallbacks)
     meta = results.get("_meta", {}) if isinstance(results, dict) else {}
     model_name = (meta.get("model") or meta.get("openai_model") or "").strip()
+    
     if not model_name:
         # Some earlier runners may store this at top-level
         model_name = (results.get("model") or "").strip()
@@ -121,14 +186,33 @@ def render_html(report_dir: Path) -> Path:
         uncert_col = _badge_colour("YES" if uncertainty else "NO")
 
         anchor = f"dim-{_esc(agent_id).lower()}"
+        
+        laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
+        overall = laj.get("overall", "")
+        overall_txt, overall_col = _laj_badge(overall)
+
+        laj_cell = '<span class="muted">—</span>'
+        if overall_txt:
+            laj_cell = (
+                f'<span class="pill" style="background:{overall_col}" '
+                f'title="{_esc(_laj_tooltip(laj))}">'
+                f'{overall_txt}</span>'
+            )
+
+
         summary_rows.append(f"""
         <tr class=\"summary-row\" onclick=\"location.href='#{anchor}'\" tabindex=\"0\" role=\"link\">
           <td class=\"mono\">{_esc(agent_id)}</td>
           <td>{_esc(dim)}</td>
           <td><span class=\"pill\" style=\"background:{rating_col}\">{_esc(rating)}</span></td>
           <td><span class=\"pill\" style=\"background:{uncert_col}\">{'YES' if uncertainty else 'NO'}</span></td>
+          <td>{laj_cell}</td>
         </tr>
-        """)
+          """
+          )
+     
+
+         
 
     cards_html = []
     for key, obj in agent_items:
@@ -168,11 +252,27 @@ def render_html(report_dir: Path) -> Path:
                     action_html = (
                         f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
                         f'href="{_esc(pdf_href)}" '
-                        f'onclick=\'copyText({copy_payload});\'>Open PDF (page {page})</a>'
+                        f'onclick=\'copyText({copy_payload});\'>Open report (page {page})</a>'
                     )
 
                 #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
-                
+                laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
+                laj_overall = (laj.get("overall") or "").upper()
+
+                laj_html = ""
+                if laj_overall:
+                  overall_txt, overall_col = _laj_badge(laj_overall)
+                  laj_html = f"""
+                  <details class="laj-details">
+                    <summary>
+                      <span class="pill" style="background:{overall_col}">{agent_id}: {overall_txt}</span>
+                      <span class="laj-summary-link">View evaluation metrics</span>
+                    </summary>
+                    {render_laj_details(laj)}
+                  </details>
+                  """               
+
+
                 ev_rows.append(f"""
                   <div class="ev-row">
                     <div class="ev-meta">
@@ -187,7 +287,8 @@ def render_html(report_dir: Path) -> Path:
                   </div>
                   """)
             else:
-                ev_rows.append('<div class="muted">No more evidence quotes returned.</div>')
+                ev_rows.append(f'<div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>{laj_html}')
+
 
 
         anchor = f"dim-{_esc(agent_id).lower()}"
@@ -406,6 +507,55 @@ def render_html(report_dir: Path) -> Path:
       white-space: nowrap;   /* keep “Copy + open” or “Open PDF (page 2)” on one line */
       display: inline-flex;  /* better sizing */
     }}
+    .pill-click{{ border:none; cursor:pointer; }}
+    .laj-box{{
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:12px;
+      padding:12px;
+    }}
+    .laj-header{{ display:flex; gap:10px; align-items:center; margin-bottom:8px; }}
+    .laj-metric{{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:6px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }}
+    .laj-metrics-wrap {{ margin-top: 10px; }}
+
+    .laj-metrics-table{{
+      width: 100%;
+      border-collapse: collapse;
+    }}
+
+    .laj-metrics-table td{{
+      padding: 8px 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      vertical-align: top;
+    }}
+
+    .laj-metric-name{{
+      width: 38%;
+      font-weight: 600;
+      opacity: 0.95;
+      padding-right: 16px;
+    }}
+
+    .laj-score{{
+      font-weight: 500;
+      opacity: 0.8;
+    }}
+
+    .laj-metric-note{{
+      width: 62%;
+      text-align: right;     /* per your request */
+      opacity: 0.9;
+    }}
+    .laj-left{{ display:flex; gap:8px; align-items:baseline; }}
+    .laj-mid{{ font-weight:600; opacity:0.9; }}
+    .laj-name{{ opacity:0.75; font-size:0.95em; }}
+    .laj-right{{ display:flex; gap:10px; align-items:baseline; }}
+    .laj-note{{ opacity:0.85; }}
     .btn:hover {{
       background: #f5f5f5;
     }}
@@ -446,6 +596,16 @@ def render_html(report_dir: Path) -> Path:
       }}
     }}
   </script>
+ <script>
+    function toggleLaj(ev, agentId){{
+      if(ev) ev.stopPropagation();
+      const row = document.getElementById("lajrow-" + agentId);
+      if(!row) {{ console.warn("No LaJ row for", agentId); return; }}
+      row.style.display = (row.style.display === "none" || row.style.display === "") ? "table-row" : "none";
+    }}
+</script>
+
+
 <body>
   <header>
     <div class="wrap">
@@ -483,6 +643,7 @@ def render_html(report_dir: Path) -> Path:
             <th>Data Dimension</th>
             <th>Rating</th>
             <th>Uncertainty</th>
+            <th>Agent Evaluation</th>
           </tr>
         </thead>
         <tbody>

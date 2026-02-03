@@ -124,8 +124,7 @@ class LaJMetaEvaluator:
         "dimension": "...",
         "overall": "PASS|WARN|FAIL",
         "metrics": [{"metric_id":"...", "score":"...", "notes":"..."}],
-        "flags": {"missing_evidence": bool, "quote_mismatch": bool, "invalid_evidence_id": bool},
-        "raw_output": "<LLM response>"
+        "flags": {"missing_evidence": bool, "quote_mismatch": bool, "invalid_evidence_id": bool}
       }
     """
 
@@ -185,7 +184,7 @@ class LaJMetaEvaluator:
             "overall": parsed.get("overall"),
             "metrics": parsed.get("metrics", []),
             "flags": flags,
-            "raw_output": raw,
+            #"raw_output": raw,
         }
 
     # -------------------------
@@ -336,6 +335,7 @@ Hallucination Screening (M6) is ONLY about unsupported factual assertions about 
 - WARN if evidence is thin but not demonstrably false.
 - FAIL only if the rationale asserts facts that are not present in the provided evidence blocks, OR programmatic flags indicate invalid evidence IDs / unverifiable quotes.
 
+Notes on “Hallucination”
 Do NOT use M6 to penalise "insufficient specificity", "weak emphasis", or "could have cited more examples".
 Those belong in M1/M3 (rubric fidelity / reasoning quality).
 """.strip()

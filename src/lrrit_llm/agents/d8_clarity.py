@@ -52,7 +52,7 @@ class D8CommunicationQualityAgent:
             "rationale": parsed.get("rationale"),
             "evidence": parsed.get("evidence", []),
             "uncertainty": parsed.get("uncertainty", False),
-            "raw_output": raw_response,
+            #"raw_output": raw_response,
         }
 
     # -------------------------

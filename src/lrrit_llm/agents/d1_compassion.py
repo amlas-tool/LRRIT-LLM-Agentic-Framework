@@ -55,7 +55,7 @@ class D1CompassionAgent:
             "rationale": result.get("rationale"),
             "evidence": result.get("evidence", []),
             "uncertainty": result.get("uncertainty", False),
-            "raw_output": raw_response,
+            #"raw_output": raw_response,
         }
 
     # -------------------------
