@@ -233,6 +233,26 @@
     .btn:hover {
       background: #f5f5f5;
     }
+    .laj-info{
+      cursor: pointer;
+      opacity: 0.75;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+    .laj-details summary{
+      cursor: pointer;           /* hand cursor */
+      user-select: none;         /* prevents text-selection cursor feel */
+    }
+
+    .laj-details summary *{
+      user-select: none;
+    }
+
+    .laj-info:hover{
+      opacity: 1.0;
+      cursor: pointer;
+    }
+
     details.raw {
       margin-top: 12px;
     }
@@ -284,7 +304,7 @@
   <header>
     <div class="wrap">
       <div style="font-size:22px;font-weight:900;">LRRIT Agent Results</div>
-      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-02-03 15:17</div>
+      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-02-03 16:41</div>
     </div>
   </header>
 
@@ -317,7 +337,7 @@
             <th>Data Dimension</th>
             <th>Rating</th>
             <th>Uncertainty</th>
-            <th>Agent Evaluation</th>
+            <th>Agent Task <br>Evaluation</th>
           </tr>
         </thead>
         <tbody>
@@ -438,11 +458,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("Plans made to transfer to STH urgently - there was a slight delay.");'>Open report (page 2)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#FFB81C">D1: WARN</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D1: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D1</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -537,11 +557,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("SHO can use case for personal reflection/appraisal.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#FFB81C">D2: WARN</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D2: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D2</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -636,11 +656,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Link case to stream of work which is currently being done regarding the acutely surgical ill patients.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#007F3B">D3: PASS</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#007F3B" title="All metrics PASS">D3: PASS</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D3</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -735,11 +755,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("No known systematic way to ensure that X-ray results are properly escalated for further review.");'>Open report (page 2)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#007F3B">D4: PASS</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#007F3B" title="All metrics PASS">D4: PASS</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D4</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -834,11 +854,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#FFB81C">D5: WARN</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D5: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D5</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -933,11 +953,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#007F3B">D6: PASS</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#007F3B" title="All metrics PASS">D6: PASS</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D6</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -1020,11 +1040,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Link case to stream of work which is currently being done regarding the acutely surgical ill patients and endoscopy transfers.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#FFB81C">D7: WARN</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D7: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D7</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">
@@ -1131,11 +1151,11 @@
                       <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=1" onclick='copyText("Appropriate investigations were ordered and performed.");'>Open report (page 1)</a></div>
                     </div>
                   </div>
-                  <div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>
+                  <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:#FFB81C">D8: WARN</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M3, M6">D8: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D8</span>
                     </summary>
                     
       <div class="laj-metrics-wrap">

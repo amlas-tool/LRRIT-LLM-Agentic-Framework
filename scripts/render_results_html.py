@@ -258,15 +258,15 @@ def render_html(report_dir: Path) -> Path:
                 #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
                 laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
                 laj_overall = (laj.get("overall") or "").upper()
-
+                tooltip = _esc(_laj_tooltip(laj))
                 laj_html = ""
                 if laj_overall:
                   overall_txt, overall_col = _laj_badge(laj_overall)
                   laj_html = f"""
                   <details class="laj-details">
-                    <summary>
-                      <span class="pill" style="background:{overall_col}">{agent_id}: {overall_txt}</span>
-                      <span class="laj-summary-link">View evaluation metrics</span>
+                    <summary> 
+                      <span class="pill" style="background:{overall_col}" title="{tooltip}">{agent_id}: {overall_txt}</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for {agent_id}</span>
                     </summary>
                     {render_laj_details(laj)}
                   </details>
@@ -287,7 +287,8 @@ def render_html(report_dir: Path) -> Path:
                   </div>
                   """)
             else:
-                ev_rows.append(f'<div class="muted">No more evidence quotes returned.<p></div><h3>Task Evaluation</h3>{laj_html}')
+                ev_rows.append(f'<div class="muted">No more evidence quotes returned.</div>'
+                                f'<h3>Task Evaluation</h3>{laj_html}')
 
 
 
@@ -559,6 +560,26 @@ def render_html(report_dir: Path) -> Path:
     .btn:hover {{
       background: #f5f5f5;
     }}
+    .laj-info{{
+      cursor: pointer;
+      opacity: 0.75;
+      font-weight: 600;
+      margin-left: 4px;
+    }}
+    .laj-details summary{{
+      cursor: pointer;           /* hand cursor */
+      user-select: none;         /* prevents text-selection cursor feel */
+    }}
+
+    .laj-details summary *{{
+      user-select: none;
+    }}
+
+    .laj-info:hover{{
+      opacity: 1.0;
+      cursor: pointer;
+    }}
+
     details.raw {{
       margin-top: 12px;
     }}
@@ -643,7 +664,7 @@ def render_html(report_dir: Path) -> Path:
             <th>Data Dimension</th>
             <th>Rating</th>
             <th>Uncertainty</th>
-            <th>Agent Evaluation</th>
+            <th>Agent Task <br>Evaluation</th>
           </tr>
         </thead>
         <tbody>
