@@ -118,7 +118,7 @@ All agents operate **only** on the EvidencePack.
 
 ## PDF parsing and evidence extraction
 
-PDF reports are ingested using open-source libraries (PyMuPDF for text extraction and `pdfplumber` for tables). The reason for this is so that the text extraction is not LLM dependent, and doesn't change each time we change the model. By using standard python libs, we can better guarantee consistency. However, the performance of these libraries on real world data leaves much to be desired, and we may need to find an alternative mechanism.
+PDF reports are ingested using open-source libraries (`PyMuPDF` for text extraction and `pdfplumber` for tables). We do this so that the text extraction from the reports is not LLM dependent, otherwise what is extracted might change each time we change the main model. By using standard python libraries, we can better guarantee consistency. However, the performance of these libraries on real world data leaves much to be desired, and we may need to find an alternative mechanism.
 
 Text is extracted page-by-page and normalised into traceable text chunks, while tables (where present) are extracted separately and preserved with fallback textual representations. All extracted content is wrapped in an **EvidencePack** with explicit provenance (source file, page number, extractor), ensuring that every agent judgement can be traced back to the original document.
 
