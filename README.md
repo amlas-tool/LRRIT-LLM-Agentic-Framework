@@ -48,6 +48,7 @@ NB. This codebase is intended for **research, prototyping, and governance evalua
    - Dynamic drop down allows user to drill down into detail for evaluation metrics.
 
 ---
+<img width="1644" height="878" alt="image" src="https://github.com/user-attachments/assets/5c65d686-c6bd-4512-95fa-ebb446be8152" />
 
 ## Repository structure
 
