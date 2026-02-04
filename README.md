@@ -246,12 +246,13 @@ data/processed/reports/test/
 ```powershell
 py .\scripts\render_results_html.py
 ```
-A full example can be found here: https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/test/agent_results.html
+A full example can be found here (note the `Open report` button will not work):
+
+https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/test/agent_results.html
+
+---
 
 <img width="1505" height="1839" alt="image" src="https://github.com/user-attachments/assets/91287a40-661e-4c43-aeca-5a7ff5b189d4" />
-
-
-
 
 ---
 
