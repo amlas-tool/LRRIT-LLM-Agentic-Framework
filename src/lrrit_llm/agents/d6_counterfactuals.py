@@ -88,7 +88,7 @@ Task:
 - Identify how the response discusses what might have happened under different circumstances.
 - Assess whether uncertainty is acknowledged and whether causal claims are proportionate.
 - Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 Rating options:
 - GOOD evidence: cautious counterfactual reasoning with explicit uncertainty

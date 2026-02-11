@@ -94,10 +94,11 @@ You are an expert reviewer applying the Learning Response Review and Improvement
 Dimension: Compassionate engagement with people affected (D1).
 
 Task:
-- Assess whether the learning response demonstrates compassionate engagement
-  with people affected by the incident.
 - Base your judgement ONLY on the evidence provided.
 - Do NOT infer actions or intentions that are not stated.
+- Evaluate whether the learning response demonstrates compassionate engagement with people affected by the incident, 
+  including patients, families, staff, or others.
+- Is there evidence that staff were trained adequately to engage compassionately?
 
 Rating options:
 - GOOD evidence
@@ -108,8 +109,9 @@ Instructions:
 - Quote or reference specific evidence using the IDs provided.
 - If evidence is sparse or ambiguous, state this explicitly.
 - Do not assess other dimensions (e.g. blame, systems).
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
-- Return STRICT JSON ONLY (no markdown, no extra text, no final period, full stop or punctuation):
+Return STRICT JSON ONLY (no markdown, no extra text, no final period, full stop or punctuation):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -125,8 +127,8 @@ Instructions:
 }}
 
 Rules:
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
-- Every evidence item MUST be numbered and include:
+
+- Every evidence item MUST include:
   - a verbatim quote taken from the cited Text/Table block (<= 25 words)
   - an evidence_type field: "positive" or "negative"
 - Use "positive" when the quote directly demonstrates compassionate engagement.

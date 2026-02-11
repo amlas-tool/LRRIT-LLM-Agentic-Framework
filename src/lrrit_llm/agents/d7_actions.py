@@ -99,13 +99,14 @@ Dimension: D7 – Improvement actions (systems-focused, evidence-informed, colla
 
 Definition (what you are judging):
 - Do the proposed safety actions / improvements / recommendations:
-  • focus on system elements (IT, equipment, care processes/pathways, roles/interfaces), not individuals;
-  • address the key contributory factors in the report;
-  • avoid “safety clutter” (generic extra checks/policies/training that do not improve work-as-done);
-  • show evidence of collaborative development with relevant staff/stakeholders;
-  • include monitoring/ownership arrangements (who/how progress will be reviewed)?
+  - focus on system elements (IT, equipment, care processes/pathways, roles/interfaces), not individuals;
+  - address the key contributory factors in the report;
+  - avoid “safety clutter” (generic extra checks/policies/training that do not improve work-as-done);
+  - show evidence of collaborative development with relevant staff/stakeholders;
+  - include monitoring/ownership arrangements (who/how progress will be reviewed)?
 
 IMPORTANT proportionality (AAR):
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 - In AAR reports, improvement actions may legitimately be absent. Absence alone should not automatically imply weak learning.
 - Prioritise quotes from sections headed: "Improvement action plan", "Actions", "Recommendations", "Key learning points".
 - If actions are absent, do NOT force a "LITTLE" rating purely because no actions are listed. Instead, explain the limitation and set uncertainty true.
@@ -131,7 +132,6 @@ Return STRICT JSON ONLY (no markdown, no extra text, no extra text, no final per
 }}
 
 Rules:
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
 - Every evidence item MUST include a verbatim quote (<= 25 words) from the cited Text/Table block.
 - evidence_type:
   - "positive" = supports D7 (system-focused, linked to analysis, collaborative, governed/monitored).

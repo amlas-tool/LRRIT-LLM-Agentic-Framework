@@ -118,6 +118,7 @@ Task:
 - Assess whether the learning response avoids blame-oriented language.
 - Focus on tone, framing, and attribution of responsibility.
 - Base your judgement ONLY on the evidence provided.
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 Rating options:
 - GOOD evidence
@@ -148,8 +149,7 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
 }}
 
 Rules:
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
-- Every evidence item MUST be numbered and include a verbatim quote (<= 25 words).
+- Every evidence item MUST include a verbatim quote (<= 25 words).
 - Evidence_type:
   - "positive" = neutral or systems/process framing; discusses issues without attributing fault to people.
   - "negative" = blame-oriented language that attributes fault to an individual or team, or uses judgemental descriptors about people.

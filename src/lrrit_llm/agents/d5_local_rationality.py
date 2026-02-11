@@ -106,7 +106,7 @@ Task:
 - Look for explicit explanation of what was known/assumed, uncertainty, constraints, priorities, and why actions made sense then.
 - Penalise hindsight-only critique that lacks contemporaneous context.
 - Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 
 Rating options:

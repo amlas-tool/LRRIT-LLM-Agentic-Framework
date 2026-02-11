@@ -3,7 +3,7 @@
     "agent_id": "D1",
     "dimension": "Compassionate engagement with people affected",
     "rating": "GOOD",
-    "rationale": "The evidence demonstrates compassionate engagement through clear communication, respect for patient autonomy, and sensitivity to family needs during a difficult time.",
+    "rationale": "The learning response demonstrates compassionate engagement through clear communication and sensitivity to patients' and families' emotional needs. Staff were trained to engage compassionately, as evidenced by the structured conversation with a patient and their family.",
     "evidence": [
       {
         "id": "Text p16_c01",
@@ -16,6 +16,18 @@
         "page": null,
         "quote": "The patient was given 'as long as he wished' to ask questions, reflect, or simply sit with his loved ones",
         "evidence_type": "positive"
+      },
+      {
+        "id": "Text p16_c01",
+        "page": 16,
+        "quote": "The patient’s family later contacted the ward to thank staff for their gentleness, thoughtfulness, and the calm atmosphere",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p16_c01",
+        "page": null,
+        "quote": "Throughout 2027, the IPC team implemented an ambitious programme of hands-on, interactive infection-prevention education",
+        "evidence_type": "positive"
       }
     ],
     "uncertainty": true
@@ -24,24 +36,18 @@
     "agent_id": "D2",
     "dimension": "Systems approach to contributory factors",
     "rating": "GOOD",
-    "rationale": "The response effectively analyzes contributory factors from a systems perspective, identifying explicit system-level contributors and proposing comprehensive improvement actions that address systemic issues rather than individual behaviors.",
+    "rationale": "The response effectively analyzes contributory factors from a systems perspective, identifying explicit system-level contributors such as process design, escalation pathways, and communication. Improvement actions are aimed at changing the system rather than just addressing individual behaviors.",
     "evidence": [
       {
-        "id": "Text p05_c01",
-        "page": 5,
-        "quote": "The findings from this SEIPS review were intended to guide a comprehensive action plan",
+        "id": "",
+        "page": null,
+        "quote": "The Systems Engineering Initiative for Patient Safety team... agreed to conduct a full review of workflow, environment, equipment",
         "evidence_type": "positive"
       },
       {
         "id": "",
         "page": null,
-        "quote": "Introduce dedicated isolation pod within the AHDS for respiratory patients",
-        "evidence_type": "positive"
-      },
-      {
-        "id": "Text p18_c01",
-        "page": 18,
-        "quote": "Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge",
+        "quote": "Introduce dedicated isolation pod within the AHDS... Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge",
         "evidence_type": "positive"
       }
     ],
@@ -51,12 +57,12 @@
     "agent_id": "D3",
     "dimension": "Quality and appropriateness of learning actions",
     "rating": "GOOD",
-    "rationale": "The learning actions identified are specific, actionable, and designed to address systemic issues, such as introducing dedicated isolation pods and revising swabbing protocols, which are likely to reduce recurrence of similar incidents.",
+    "rationale": "The learning actions identified are specific, actionable, and designed to address systemic issues that contributed to the incidents. They include concrete steps such as introducing dedicated isolation pods and revising swabbing protocols, which are likely to reduce recurrence of similar events.",
     "evidence": [
       {
-        "id": "Text p19_t01",
-        "page": null,
-        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere for respiratory patients",
+        "id": "Text p18_c01",
+        "page": 18,
+        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients",
         "evidence_type": "positive"
       },
       {
@@ -66,19 +72,19 @@
         "evidence_type": "positive"
       }
     ],
-    "uncertainty": true
+    "uncertainty": false
   },
   "d4": {
     "agent_id": "D4",
     "dimension": "Blame language avoided",
-    "rating": "SOME",
-    "rationale": "The response includes both positive language about system issues and some blame-oriented language regarding staff actions, indicating a mixed approach to accountability.",
+    "rating": "GOOD",
+    "rationale": "The learning response effectively avoids blame-oriented language, focusing on systemic issues and processes rather than attributing fault to individuals or teams.",
     "evidence": [
       {
         "id": "Text p05_c01",
         "page": 5,
         "quote": "Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department",
-        "evidence_type": "negative"
+        "evidence_type": "positive"
       },
       {
         "id": "Text p13_c01",
@@ -93,7 +99,7 @@
     "agent_id": "D5",
     "dimension": "Local rationality",
     "rating": "SOME",
-    "rationale": "The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated.",
+    "rationale": "The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated, leading to a mixed understanding of the decisions made at the time.",
     "evidence": [
       {
         "id": "Text p03_c01",
@@ -114,7 +120,7 @@
     "agent_id": "D6",
     "dimension": "Avoidance of hindsight bias and counterfactual certainty",
     "rating": "SOME",
-    "rationale": "The response includes some cautious reasoning about what should have happened versus what did happen, but it also contains definitive claims about the causes of the incidents without sufficient evidence.",
+    "rationale": "The response includes some cautious counterfactual reasoning but also presents definitive claims about the causes of the incidents without sufficient evidence, indicating a mix of cautious and overconfident reasoning.",
     "evidence": [
       {
         "id": "Text p14_c01",
@@ -124,14 +130,20 @@
       },
       {
         "id": "Text p14_c01",
-        "page": 14,
-        "quote": "The evidence for healthcare-associated infection is circumstantial.",
+        "page": null,
+        "quote": "Chronological and geographical links between cases are not straightforward.",
         "evidence_type": "positive"
       },
       {
         "id": "Text p14_c01",
         "page": null,
-        "quote": "Two system themes likely increased risk: Non-compliance with the swabbing SOP.",
+        "quote": "There is no genomic sequencing to confirm transmission.",
+        "evidence_type": "negative"
+      },
+      {
+        "id": "Text p14_c01",
+        "page": 14,
+        "quote": "The evidence for healthcare-associated infection is circumstantial.",
         "evidence_type": "negative"
       }
     ],
@@ -144,21 +156,33 @@
     "rationale": "The improvement actions are system-focused, addressing key contributory factors identified in the report. They are collaboratively developed and include monitoring and ownership arrangements.",
     "evidence": [
       {
-        "id": "Text p18_c01",
+        "id": "Text p18_t01",
         "page": null,
         "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients.",
         "evidence_type": "positive"
       },
       {
-        "id": "Text p21_c01",
+        "id": "Text p21_t01",
         "page": null,
         "quote": "A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test.",
         "evidence_type": "positive"
       },
       {
-        "id": "Text p22_c01",
+        "id": "Text p22_t01",
         "page": null,
         "quote": "A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded 'Containment-Grade Duo-Pods'.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p24_t01",
+        "page": null,
+        "quote": "A comprehensive infection-risk checklist will be embedded into EPR-Star, ensuring that before any NebuloPAP or NIV is initiated.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p28_c01",
+        "page": 28,
+        "quote": "A decision-support tool will be built into the Command Nexus dashboard to reduce unnecessary movement of patients between pods.",
         "evidence_type": "positive"
       }
     ],
@@ -168,19 +192,25 @@
     "agent_id": "D8",
     "dimension": "Communication quality and usability",
     "rating": "SOME",
-    "rationale": "The report has a generally understandable structure but contains excessive vagueness and some jargon that may hinder clarity. While learning points and actions are present, they are not always easy to extract due to inconsistent terminology and unclear signposting.",
+    "rationale": "The report has a generally clear structure and is somewhat readable, but it contains excessive vagueness and some jargon that detracts from clarity. While learning points and actions are present, they are not always easy to identify due to inconsistent terminology and unclear phrasing.",
     "evidence": [
       {
-        "id": "Text p03_c01",
-        "page": null,
-        "quote": "The expected process was: Patients admitted to Ward 47 – Respiratory & Atmospheric Mysteries Unit would be assessed, screened, and placed in appropriate isolation bays.",
+        "id": "Text p02_c01",
+        "page": 2,
+        "quote": "What did we set out to do? (What should have happened? What was the expected outcome?): What actually happened?",
         "evidence_type": "negative"
       },
       {
         "id": "Text p05_c01",
         "page": null,
-        "quote": "ED staff had been: Using obsolete 'Mood-Swabs' that changed colour depending on emotional energy in the room.",
+        "quote": "Using obsolete 'Mood-Swabs' that changed colour depending on emotional energy in the room",
         "evidence_type": "negative"
+      },
+      {
+        "id": "Text p16_c01",
+        "page": 16,
+        "quote": "Staff explained the clinical situation with clarity, empathy, and a sense of grounded honesty",
+        "evidence_type": "positive"
       }
     ],
     "uncertainty": true

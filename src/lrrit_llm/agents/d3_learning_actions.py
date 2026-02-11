@@ -82,7 +82,7 @@ Task:
   and likely to reduce recurrence.
 - Focus on the actions proposed, not just the problems identified.
 - Base your judgement ONLY on the evidence provided.
-
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 Rating options:
 - GOOD evidence: clear, concrete, system-level learning actions
@@ -105,8 +105,7 @@ Return STRICT JSON ONLY (no markdown, no extra text):
 }}
 
 Rules:
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
-- Every evidence item MUST be numbered and include a verbatim quote (<= 25 words).
+- Every evidence item MUST include a verbatim quote (<= 25 words).
 - Evidence_type:
   - "positive" = concrete, actionable learning actions embedded in systems/processes.
   - "negative" = vague actions, individual reflection only, reminders, or absence of actions.

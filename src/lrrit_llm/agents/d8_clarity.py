@@ -94,7 +94,8 @@ What to look for:
 - Clear and consistent terminology
 - Learning and actions are easy to identify
 - Avoids excessive vagueness ("appropriate", "timely") without explanation
-- Avoids jargon/acronyms without explanation where it harms readability
+- Avoids jargon/acronyms without explanation where it harms readability.
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 Rating options:
 - GOOD: clear structure and readable narrative; learning/actions are easy to extract
@@ -118,8 +119,7 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:):
 
 Rules:
 - Every evidence item MUST include a verbatim quote (<= 25 words).
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
-- evidence_type:
+- Evidence_type:
   - "positive" = clear structure/signposting, explicit learning statements, accessible phrasing.
   - "negative" = vague/ambiguous language, jargon/acronyms harming clarity, confusing phrasing/structure.
     - Prefer negative evidence showing vagueness ('appropriate', 'timely'), unexplained acronyms/jargon, or 

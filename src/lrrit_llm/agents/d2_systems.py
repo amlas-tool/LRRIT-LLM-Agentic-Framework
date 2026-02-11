@@ -84,7 +84,7 @@ Task:
 - Look for explicit system-level contributors (process design, escalation pathways, communication, capacity, governance).
 - Look for improvement actions that change the system, not just individual reminders.
 - Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
 
 Rating options:
 - GOOD evidence: clear systems framing + system-level actions
@@ -107,7 +107,7 @@ Return STRICT JSON ONLY (no markdown, no extra text):
 }}
 
 Rules:
-- Every evidence item MUST be numbered and include:
+- Every evidence item MUST include:
 - a verbatim quote taken from the cited Text/Table block (<= 25 words)
 - an evidence_type field: "positive" or "negative":
     - "positive" = explicit systems/process framing or system-level interventions.
