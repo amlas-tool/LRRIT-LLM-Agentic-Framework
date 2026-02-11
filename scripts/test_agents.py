@@ -28,7 +28,7 @@ def main():
     pdf_path = Path(
         os.environ.get(
             "LRRIT_TEST_PDF",
-            r"G:\My Drive\LLM projects\lrrit-llm\data\raw_pdfs\test.pdf",
+            r"G:\My Drive\LLM projects\lrrit-llm\data\raw_pdfs\SYNTHETIC AAR.pdf",
         )
     )
 

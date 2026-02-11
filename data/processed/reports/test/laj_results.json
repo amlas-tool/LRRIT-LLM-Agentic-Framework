@@ -22,13 +22,13 @@
       },
       {
         "metric_id": "M4",
-        "score": "PASS",
-        "notes": "The output aligns with values of empathy and support, though it could be more explicit in discussing these aspects."
+        "score": "FAIL",
+        "notes": "The output does not adequately reflect values of empathy and support, focusing instead on clinical processes."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output does not express uncertainty and presents a clear judgment based on the evidence."
+        "notes": "The output is clear and does not present any uncertainty regarding the assessment."
       },
       {
         "metric_id": "M6",
@@ -56,12 +56,12 @@
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and corresponds to the provided evidence blocks."
+        "notes": "All evidence cited is valid and relevant to the evaluation."
       },
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but lacks depth in connecting systems factors to the overall analysis."
+        "notes": "The reasoning is somewhat coherent but could benefit from a clearer connection between the evidence and the systems approach."
       },
       {
         "metric_id": "M4",
@@ -71,7 +71,7 @@
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output does not express uncertainty, which is appropriate given the context."
+        "notes": "The output does not express uncertainty, which is appropriate given the evidence."
       },
       {
         "metric_id": "M6",
@@ -142,7 +142,7 @@
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the rationale provided."
+        "notes": "All evidence cited is valid and supports the rationale provided."
       },
       {
         "metric_id": "M3",
@@ -152,12 +152,12 @@
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The evaluation aligns with values of transparency and accountability without assigning personal blame."
+        "notes": "The evaluation aligns with values of neutrality and systemic focus."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output is clear and does not present any uncertainty regarding the assessment of blame language."
+        "notes": "The output does not express uncertainty and confidently assesses the language used."
       },
       {
         "metric_id": "M6",
@@ -180,12 +180,12 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output partially meets the rubric by acknowledging the decision-making context but lacks depth in explaining the contemporaneous reasoning."
+        "notes": "The output partially meets the rubric by acknowledging the decision-making context but lacks a thorough explanation of the contemporaneous reasoning."
       },
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the evaluation."
+        "notes": "All evidence cited is valid and relevant to the evaluation."
       },
       {
         "metric_id": "M3",
@@ -195,17 +195,17 @@
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The evaluation aligns with values of patient safety and learning from incidents."
+        "notes": "The output aligns with values of patient safety and learning from incidents."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output appropriately acknowledges uncertainty regarding the impact of timing on the patient's outcome."
+        "notes": "The output appropriately acknowledges uncertainty regarding the impact of delays on patient outcomes."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "No unsupported claims are present; all assertions are grounded in the provided evidence."
+        "notes": "No unsupported factual assertions about the report content are present."
       }
     ],
     "flags": {
@@ -218,17 +218,17 @@
     "judge_id": "LaJ",
     "agent_id": "D6",
     "dimension": "Avoidance of hindsight bias and counterfactual certainty",
-    "overall": "PASS",
+    "overall": "FAIL",
     "metrics": [
       {
         "metric_id": "M1",
-        "score": "PASS",
-        "notes": "The output accurately reflects the dimension's focus on avoiding hindsight bias and recognizes uncertainty."
+        "score": "WARN",
+        "notes": "The output generally aligns with the rubric but could benefit from more specific examples of uncertainty handling."
       },
       {
         "metric_id": "M2",
-        "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the claims made in the rationale."
+        "score": "FAIL",
+        "notes": "There is a quote mismatch; the evidence cited does not directly support the claims made in the rationale."
       },
       {
         "metric_id": "M3",
@@ -243,18 +243,18 @@
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output effectively communicates uncertainty regarding the outcomes and timing of interventions."
+        "notes": "The output appropriately acknowledges uncertainty in the patient's outcome."
       },
       {
         "metric_id": "M6",
-        "score": "PASS",
-        "notes": "No unsupported factual assertions are present in the rationale."
+        "score": "FAIL",
+        "notes": "The rationale includes unsupported claims about the certainty of outcomes that are not substantiated by the evidence."
       }
     ],
     "flags": {
       "missing_evidence": false,
       "invalid_evidence_id": false,
-      "quote_mismatch": false
+      "quote_mismatch": true
     }
   },
   "d7": {
@@ -266,7 +266,7 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output identifies some improvement actions but lacks detail on collaborative development and monitoring."
+        "notes": "The rationale identifies some gaps in monitoring and collaboration but lacks specific examples of how these could be improved."
       },
       {
         "metric_id": "M2",
@@ -276,7 +276,7 @@
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but could benefit from more specific examples of collaborative efforts."
+        "notes": "The reasoning is somewhat coherent but could benefit from more detailed connections between the evidence and the critique."
       },
       {
         "metric_id": "M4",
@@ -304,37 +304,37 @@
     "judge_id": "LaJ",
     "agent_id": "D8",
     "dimension": "Communication quality and usability",
-    "overall": "WARN",
+    "overall": "FAIL",
     "metrics": [
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output identifies some clarity issues but lacks specific examples of jargon and vague language."
+        "notes": "The output identifies some issues with clarity and jargon but lacks specific examples from the report to support these claims."
       },
       {
         "metric_id": "M2",
         "score": "FAIL",
-        "notes": "There is a quote mismatch, which undermines the reliability of the evidence cited."
+        "notes": "The evidence cited contains a quote mismatch, which undermines the grounding of the evaluation."
       },
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims."
+        "notes": "The rationale is somewhat coherent but could benefit from clearer connections between the claims and the evidence."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of clarity and usability in communication."
+        "notes": "The evaluation aligns with values of clarity and usability in communication."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output does not introduce uncertainty and maintains a clear stance."
+        "notes": "The output does not assert any uncertainties, maintaining a clear stance."
       },
       {
         "metric_id": "M6",
         "score": "FAIL",
-        "notes": "The rationale includes unsupported claims due to the quote mismatch."
+        "notes": "The rationale includes unsupported claims due to the quote mismatch, affecting the reliability of the evaluation."
       }
     ],
     "flags": {

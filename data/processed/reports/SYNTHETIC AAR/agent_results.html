@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>LRRIT Agent Results — SYNTHETIC AAR</title>
+  <style>
+    :root {
+      --nhs-blue: #005EB8;
+      --nhs-light: #E8F1FB;
+      --nhs-dark: #0B0C0C;
+      --nhs-grey: #F3F2F1;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--nhs-dark);
+      background: var(--nhs-grey);
+    }
+    header {
+      background: var(--nhs-blue);
+      color: white;
+      padding: 20px 24px;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 18px 40px 18px;
+    }
+    .meta {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: -18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      border-left: 6px solid var(--nhs-blue);
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 18px;
+      margin-top: 8px;
+    }
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    .summary {
+      background: white;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-top: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border: 1px solid #e6e6e6;
+      border-left: 6px solid var(--nhs-blue);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+    th {
+      font-size: 12px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    tr.summary-row {
+      cursor: pointer;
+    }
+    tr.summary-row:hover {
+      background: #f7f7f7;
+    }
+    .meta .k { font-weight: 700; }
+    .meta .v { word-break: break-all; }
+    .card {
+      background: white;
+      border-radius: 12px;
+      margin-top: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      overflow: hidden;
+      border: 1px solid #e6e6e6;
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      background: var(--nhs-light);
+      border-bottom: 1px solid #e6e6e6;
+    }
+    .agent-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .badges {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .badge-label {
+      text-transform: uppercase;
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 6px;
+    }
+    .pill {
+      display: inline-block;
+      color: white;
+      font-weight: 600;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+    .pill.warn { 
+      background:#FFB81C; 
+      font-weight: 500;
+      font-size: 12px;
+      color:#000; 
+    }
+    .card-body {
+      padding: 14px 16px 18px 16px;
+    }
+    h3 {
+      margin: 14px 0 6px 0;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    p {
+      margin: 0;
+      line-height: 1.45;
+    }
+    .muted {
+      opacity: 0.75;
+      font-size: 12px;
+    }
+    .ev-row {
+      border-left: 4px solid var(--nhs-blue);
+      padding: 10px 10px;
+      margin: 10px 0;
+      background: #fafafa;
+      border-radius: 8px;
+    }
+    .ev-main{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap: nowrap;          /* key: don’t wrap action under quote */
+    }
+    .ev-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .ev-id {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    .ev-quote {
+      font-size: 14px;
+    }
+    .ev-actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .btn {
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 0.9em;
+      white-space: nowrap;   /* keep “Copy + open” or “Open PDF (page 2)” on one line */
+      display: inline-flex;  /* better sizing */
+    }
+    .pill-click{ border:none; cursor:pointer; }
+    .laj-box{
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:12px;
+      padding:12px;
+    }
+    .laj-header{ display:flex; gap:10px; align-items:center; margin-bottom:8px; }
+    .laj-metric{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:6px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+    .laj-metrics-wrap { margin-top: 10px; }
+
+    .laj-metrics-table{
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .laj-metrics-table td{
+      padding: 8px 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      vertical-align: top;
+    }
+
+    .laj-metric-name{
+      width: 38%;
+      font-weight: 600;
+      opacity: 0.95;
+      padding-right: 16px;
+    }
+
+    .laj-score{
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .laj-score-pass{
+      color: #1e7e34;     /* NHS green */
+      font-weight: 500;
+    }
+
+    .laj-score-warn{
+      color: #b36b00;     /* amber */
+      font-weight: 500;
+    }
+
+    .laj-score-fail{
+      color: #D5281B;     /* NHS red */
+      font-weight: 700;
+    }
+
+    .laj-metric-note{
+      width: 62%;
+      text-align: right;     /* per your request */
+      opacity: 0.9;
+    }
+    .laj-left{ display:flex; gap:8px; align-items:baseline; }
+    .laj-mid{ font-weight:600; opacity:0.9; }
+    .laj-name{ opacity:0.75; font-size:0.95em; }
+    .laj-right{ display:flex; gap:10px; align-items:baseline; }
+    .laj-note{ opacity:0.85; }
+    .btn:hover {
+      background: #f5f5f5;
+    }
+    .laj-info{
+      cursor: pointer;
+      opacity: 0.75;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+    .laj-details summary{
+      cursor: pointer;           /* hand cursor */
+      user-select: none;         /* prevents text-selection cursor feel */
+    }
+
+    .laj-details summary *{
+      user-select: none;
+    }
+
+    .laj-info:hover{
+      opacity: 1.0;
+      cursor: pointer;
+    }
+
+    details.raw {
+      margin-top: 12px;
+    }
+    pre {
+      background: #0b0c0c;
+      color: #f5f5f5;
+      padding: 12px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 12px;
+    }
+    footer {
+      margin-top: 18px;
+      font-size: 12px;
+      opacity: 0.75;
+    }
+    @media (max-width: 760px) {
+      .meta-grid { grid-template-columns: 1fr; }
+      .card-head { flex-direction: column; }
+      .badges { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<script>
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (e) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+      }
+    }
+    
+    function decodeB64Utf8(b64) {
+      try {
+        return decodeURIComponent(escape(atob(b64)));
+      } catch (e) {
+        return atob(b64);
+      }
+    }
+
+    async function copyB64(b64) {
+      return copyText(decodeB64Utf8(b64));
+    }
+  </script>
+ <script>
+    function toggleLaj(ev, agentId){
+      if(ev) ev.stopPropagation();
+      const row = document.getElementById("lajrow-" + agentId);
+      if(!row) { console.warn("No LaJ row for", agentId); return; }
+      row.style.display = (row.style.display === "none" || row.style.display === "") ? "table-row" : "none";
+    }
+</script>
+
+
+<body>
+  <header>
+    <div class="wrap">
+      <div style="font-size:28px;font-weight:900;">LRRIT Agent Results</div>
+      <div style="opacity:0.9;margin-top:4px;">Report: SYNTHETIC AAR • Generated: 2026-02-11 15:31</div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="meta">
+      <div style="font-weight:900;font-size:14px;">EvidencePack summary</div>
+      <div class="meta-grid">
+        <div><span class="k">File path of report:</span> <span class="v">G:\My Drive\LLM projects\lrrit-llm\data\raw_pdfs\SYNTHETIC AAR.pdf</span></div>
+        <div><span class="k">Large Language Model used:</span> <span class="v mono">gpt-4o-mini</span></div>
+        <div id="pdf-status" style="display:none; margin: 10px 0; padding: 10px; border: 1px solid #f0c36d; background: #fff8e1; border-radius: 10px;">
+          </div>
+      </div>
+      <footer>This file is stored locally. <p>NB.  
+      The <b>open pdf</b> button copies the verbatim quote to the clipboard and opens the report at that page in a new tab. 
+      You can then use search to find the context of the quote within the report. 
+      <p><i>Caveat emptor:</i> long quotes may be split across lines, pages or the model may have added punctuation or changed the formatting. 
+      In this case, delete parts of the quote until the search works. </footer>
+    </div>
+
+    <div class="summary" id="summary">
+      <div style="font-weight:900;font-size:16px;">LRRIT Dimension Summary</div>
+      <div class="muted" style="margin-top:6px;">Click a row to jump to the detailed section for that dimension.</div>
+      <table aria-label="Dimension summary">
+        <thead>
+          <tr>
+            <th>Agent</th>
+            <th>Data Dimension</th>
+            <th>Evidence Rating</th>
+            <th>Agent Task <br>Evaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d1'" tabindex="0" role="link">
+          <td class="mono">D1</td>
+          <td>Compassionate engagement with people affected</td>
+          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          
+          <td><span class="pill" style="background:#007F3B" title="All metrics PASS">PASS</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d2'" tabindex="0" role="link">
+          <td class="mono">D2</td>
+          <td>Systems approach to contributory factors</td>
+          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          
+          <td><span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">FAIL</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d3'" tabindex="0" role="link">
+          <td class="mono">D3</td>
+          <td>Quality and appropriateness of learning actions</td>
+          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M6">WARN</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d4'" tabindex="0" role="link">
+          <td class="mono">D4</td>
+          <td>Blame language avoided</td>
+          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d5'" tabindex="0" role="link">
+          <td class="mono">D5</td>
+          <td>Local rationality</td>
+          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d6'" tabindex="0" role="link">
+          <td class="mono">D6</td>
+          <td>Avoidance of hindsight bias and counterfactual certainty</td>
+          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d7'" tabindex="0" role="link">
+          <td class="mono">D7</td>
+          <td>Improvement actions (systems-focused, evidence-informed, collaborative)</td>
+          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M5">WARN</span></td>
+        </tr>
+          
+        <tr class="summary-row" onclick="location.href='#dim-d8'" tabindex="0" role="link">
+          <td class="mono">D8</td>
+          <td>Communication quality and usability</td>
+          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+        </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    
+        <section class="card" id="dim-d1">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D1 — Compassionate engagement with people affected</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#007F3B">GOOD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The evidence demonstrates compassionate engagement through clear communication, respect for patient autonomy, and sensitivity to family needs during a difficult time.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p16_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Staff explained the clinical situation with clarity, empathy, and a sense of grounded honesty”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=16" data-copy="U3RhZmYgZXhwbGFpbmVkIHRoZSBjbGluaWNhbCBzaXR1YXRpb24gd2l0aCBjbGFyaXR5LCBlbXBhdGh5LCBhbmQgYSBzZW5zZSBvZiBncm91bmRlZCBob25lc3R5" onclick="copyB64(this.dataset.copy);">Open report (page 16)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p16_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The patient was given &#x27;as long as he wished&#x27; to ask questions, reflect, or simply sit with his loved ones”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=16" data-copy="VGhlIHBhdGllbnQgd2FzIGdpdmVuICdhcyBsb25nIGFzIGhlIHdpc2hlZCcgdG8gYXNrIHF1ZXN0aW9ucywgcmVmbGVjdCwgb3Igc2ltcGx5IHNpdCB3aXRoIGhpcyBsb3ZlZCBvbmVz" onclick="copyB64(this.dataset.copy);">Open report (page 16)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D1 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#007F3B" title="All metrics PASS">D1: PASS</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D1</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns well with the rubric by highlighting compassionate engagement and effective communication.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and directly supports the claims made in the rationale.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is coherent and logically connects the evidence to the assessment of compassionate engagement.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output reflects values of empathy and support, consistent with compassionate care principles.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output appropriately acknowledges uncertainty, enhancing transparency.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale does not contain unsupported claims and is consistent with the provided evidence.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d2">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D2 — Systems approach to contributory factors</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#007F3B">GOOD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The response effectively analyzes contributory factors from a systems perspective, identifying explicit system-level contributors and proposing comprehensive improvement actions that address systemic issues rather than individual behaviors.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p05_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The findings from this SEIPS review were intended to guide a comprehensive action plan”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=5" data-copy="VGhlIGZpbmRpbmdzIGZyb20gdGhpcyBTRUlQUyByZXZpZXcgd2VyZSBpbnRlbmRlZCB0byBndWlkZSBhIGNvbXByZWhlbnNpdmUgYWN0aW9uIHBsYW4=" onclick="copyB64(this.dataset.copy);">Open report (page 5)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Unresolved source</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Introduce dedicated isolation pod within the AHDS for respiratory patients”</div>
+                      <div class="ev-action"><span class="pill warn">Verbatim quote not found</span></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p18_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=18" data-copy="RXhwYW5kIHNpbmdsZS1wb2QgY2FwYWNpdHkgYWhlYWQgb2YgdGhlIDIwMjjigJMyMDI5IE5lYnVsYSBXaW50ZXIgU3VyZ2U=" onclick="copyB64(this.dataset.copy);">Open report (page 18)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D2 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">D2: FAIL</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D2</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output identifies systemic factors but could provide more explicit connections to the evidence for clarity.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">One evidence ID is invalid, which undermines the grounding of the claims made in the rationale.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is generally coherent but lacks depth in linking evidence to the systemic approach discussed.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of systemic improvement and patient safety.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output acknowledges uncertainty, which is appropriate for the context.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">The invalid evidence ID raises concerns about the reliability of the claims made in the rationale.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d3">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D3 — Quality and appropriateness of learning actions</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#007F3B">GOOD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The learning actions identified are specific, actionable, and designed to address systemic issues, such as introducing dedicated isolation pods and revising swabbing protocols, which are likely to reduce recurrence of similar incidents.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p19_t01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere for respiratory patients”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=19" data-copy="SW50cm9kdWNlIGEgZGVkaWNhdGVkIGlzb2xhdGlvbiBwb2Qgd2l0aGluIHRoZSBMZXZlbC0yIEF0bW9zcGhlcmljIEhpZ2ggRGVwZW5kZW5jeSBTcGhlcmUgZm9yIHJlc3BpcmF0b3J5IHBhdGllbnRz" onclick="copyB64(this.dataset.copy);">Open report (page 19)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p18_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Revise and re-broadcast the CoreTest NebulaSOP, emphasising that all negative CoreTests MUST be followed by a NebulaPCR”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=18" data-copy="UmV2aXNlIGFuZCByZS1icm9hZGNhc3QgdGhlIENvcmVUZXN0IE5lYnVsYVNPUCwgZW1waGFzaXNpbmcgdGhhdCBhbGwgbmVnYXRpdmUgQ29yZVRlc3RzIE1VU1QgYmUgZm9sbG93ZWQgYnkgYSBOZWJ1bGFQQ1I=" onclick="copyB64(this.dataset.copy);">Open report (page 18)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D3 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M6">D3: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D3</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The rationale identifies specific actions but lacks clarity on how they directly address all contributory factors.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The evidence is partially misattributed, which affects the grounding of the rationale.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is coherent and logically connects the actions to systemic issues.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The actions align with values of safety and improvement in patient care.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output is transparent about uncertainty, acknowledging potential risks.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The rationale is generally supported but lacks some specificity, leading to potential ambiguity.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d4">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D4 — Blame language avoided</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The response includes both positive language about system issues and some blame-oriented language regarding staff actions, indicating a mixed approach to accountability.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#D5281B">negative</span>
+                      <span class="ev-id">Text p05_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=5" data-copy="Tm9uLWFkaGVyZW5jZSB0byB0aGUgVHJ1c3TigJlzIFJlc3BpcmF0b3J5IFN3YWJiaW5nIE1lZ2Fkb2N1bWVudCBpbiB0aGUgRW1lcmdlbmN5IERlcGFydG1lbnQ=" onclick="copyB64(this.dataset.copy);">Open report (page 5)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p13_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The review remains focused on system, not individual performance”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=13" data-copy="VGhlIHJldmlldyByZW1haW5zIGZvY3VzZWQgb24gc3lzdGVtLCBub3QgaW5kaXZpZHVhbCBwZXJmb3JtYW5jZQ==" onclick="copyB64(this.dataset.copy);">Open report (page 13)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D4 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D4: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D4</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output identifies both positive and negative aspects of blame language but could better clarify the balance between them.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and directly supports the evaluation.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The rationale is somewhat coherent but lacks a clear connection between the evidence and the overall assessment of blame language.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The evaluation aligns with values of system-focused accountability.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output is clear and does not present uncertainty.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d5">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D5 — Local rationality</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p03_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The team originally intended to follow the Nebula Valley Health Trust’s respiratory admission and infection-control pathways precisely.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=3" data-copy="VGhlIHRlYW0gb3JpZ2luYWxseSBpbnRlbmRlZCB0byBmb2xsb3cgdGhlIE5lYnVsYSBWYWxsZXkgSGVhbHRoIFRydXN04oCZcyByZXNwaXJhdG9yeSBhZG1pc3Npb24gYW5kIGluZmVjdGlvbi1jb250cm9sIHBhdGh3YXlzIHByZWNpc2VseS4=" onclick="copyB64(this.dataset.copy);">Open report (page 3)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#D5281B">negative</span>
+                      <span class="ev-id">Text p05_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=5" data-copy="S2V5IElzc3VlIElkZW50aWZpZWQ6IE5vbi1hZGhlcmVuY2UgdG8gdGhlIFRydXN04oCZcyBSZXNwaXJhdG9yeSBTd2FiYmluZyBNZWdhZG9jdW1lbnQgaW4gdGhlIEVtZXJnZW5jeSBEZXBhcnRtZW50Lg==" onclick="copyB64(this.dataset.copy);">Open report (page 5)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D5 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D5: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D5</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output partially meets the rubric by acknowledging some context but lacks a thorough explanation of the reasoning behind actions taken.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and relevant to the evaluation.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is somewhat coherent but does not fully articulate the sense-making process behind the actions.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of transparency and adherence to procedures.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output appropriately acknowledges uncertainty in the evaluation.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale does not assert unsupported claims and stays within the bounds of the provided evidence.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d6">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D6 — Avoidance of hindsight bias and counterfactual certainty</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The response includes some cautious reasoning about what should have happened versus what did happen, but it also contains definitive claims about the causes of the incidents without sufficient evidence.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p14_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The review did not identify a single cause.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=14" data-copy="VGhlIHJldmlldyBkaWQgbm90IGlkZW50aWZ5IGEgc2luZ2xlIGNhdXNlLg==" onclick="copyB64(this.dataset.copy);">Open report (page 14)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p14_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The evidence for healthcare-associated infection is circumstantial.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=14" data-copy="VGhlIGV2aWRlbmNlIGZvciBoZWFsdGhjYXJlLWFzc29jaWF0ZWQgaW5mZWN0aW9uIGlzIGNpcmN1bXN0YW50aWFsLg==" onclick="copyB64(this.dataset.copy);">Open report (page 14)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#D5281B">negative</span>
+                      <span class="ev-id">Text p14_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Two system themes likely increased risk: Non-compliance with the swabbing SOP.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=14" data-copy="VHdvIHN5c3RlbSB0aGVtZXMgbGlrZWx5IGluY3JlYXNlZCByaXNrOiBOb24tY29tcGxpYW5jZSB3aXRoIHRoZSBzd2FiYmluZyBTT1Au" onclick="copyB64(this.dataset.copy);">Open report (page 14)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D6 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D6: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D6</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output partially meets rubric fidelity but makes definitive claims about causes without sufficient evidence.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and directly from the referenced block.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is somewhat coherent but lacks depth in addressing the uncertainty of the causes.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of transparency and caution regarding patient safety.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output appropriately acknowledges uncertainty in the evidence.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale does not assert unsupported facts and remains within the provided evidence.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d7">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D7 — Improvement actions (systems-focused, evidence-informed, collaborative)</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#007F3B">GOOD</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The improvement actions are system-focused, addressing key contributory factors identified in the report. They are collaboratively developed and include monitoring and ownership arrangements.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p18_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=18" data-copy="SW50cm9kdWNlIGEgZGVkaWNhdGVkIGlzb2xhdGlvbiBwb2Qgd2l0aGluIHRoZSBMZXZlbC0yIEF0bW9zcGhlcmljIEhpZ2ggRGVwZW5kZW5jeSBTcGhlcmUgKEFIRFMpIGZvciByZXNwaXJhdG9yeSBwYXRpZW50cy4=" onclick="copyB64(this.dataset.copy);">Open report (page 18)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p21_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=21" data-copy="QSBjb21wcmVoZW5zaXZlIGFuZCBmdWxseSBzdGFuZGFyZGlzZWQgcHJvY2VzcyB3aWxsIGJlIGltcGxlbWVudGVkIHRvIGVuc3VyZSB0aGF0IGV2ZXJ5IHBhdGllbnQgdW5kZXJnb2luZyBOZWJ1bGFDb3JlIHJhcGlkIHZpcmFsIHNjcmVlbmluZyByZWNlaXZlcyB0aGUgYXBwcm9wcmlhdGUgY29uZmlybWF0b3J5IFN0ZWxsYXJQQ1IgdGVzdC4=" onclick="copyB64(this.dataset.copy);">Open report (page 21)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#007F3B">positive</span>
+                      <span class="ev-id">Text p22_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded &#x27;Containment-Grade Duo-Pods&#x27;.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=22" data-copy="QSBzdHJ1Y3R1cmVkIHByb2dyYW1tZSB3aWxsIGJlIGRldmVsb3BlZCB0byBpbmNyZWFzZSBpc29sYXRpb24gY2FwYWNpdHkgYnkgY29udmVydGluZyB0d28gZXhpc3Rpbmcgc3RhbmRhcmQgRHVvLVBvZHMgaW50byB1cGdyYWRlZCAnQ29udGFpbm1lbnQtR3JhZGUgRHVvLVBvZHMnLg==" onclick="copyB64(this.dataset.copy);">Open report (page 22)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D7 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M5">D7: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D7</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output clearly meets the rubric by identifying system-focused, evidence-informed, and collaboratively developed improvement actions.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All cited evidence is valid and directly supports the claims made in the rationale.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale is coherent and logically connects the evidence to the assessment of improvement actions.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of collaboration and evidence-based practice in healthcare improvement.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">While the output acknowledges uncertainty, it could provide more detail on how uncertainty impacts the proposed actions.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale does not make unsupported claims and stays within the bounds of the provided evidence.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+        <section class="card" id="dim-d8">
+          <div class="card-head">
+            <div>
+              <div class="agent-title">D8 — Communication quality and usability</div>
+              <div class="muted">Key: positive = supports dimension, negative = contrary/weakening evidence</div>
+            </div>
+            <div class="badges">
+              <div class="badge">
+                <div class="badge-label">Rating</div>
+                <div class="pill" style="background:#FFB81C">SOME</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3>Rationale</h3>
+            <p>The report has a generally understandable structure but contains excessive vagueness and some jargon that may hinder clarity. While learning points and actions are present, they are not always easy to extract due to inconsistent terminology and unclear signposting.</p>
+
+            <h3>Evidence</h3>
+            
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#D5281B">negative</span>
+                      <span class="ev-id">Text p03_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“The expected process was: Patients admitted to Ward 47 – Respiratory &amp; Atmospheric Mysteries Unit would be assessed, screened, and placed in appropriate isolation bays.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=3" data-copy="VGhlIGV4cGVjdGVkIHByb2Nlc3Mgd2FzOiBQYXRpZW50cyBhZG1pdHRlZCB0byBXYXJkIDQ3IOKAkyBSZXNwaXJhdG9yeSAmIEF0bW9zcGhlcmljIE15c3RlcmllcyBVbml0IHdvdWxkIGJlIGFzc2Vzc2VkLCBzY3JlZW5lZCwgYW5kIHBsYWNlZCBpbiBhcHByb3ByaWF0ZSBpc29sYXRpb24gYmF5cy4=" onclick="copyB64(this.dataset.copy);">Open report (page 3)</a></div>
+                    </div>
+                  </div>
+                  
+                  <div class="ev-row">
+                    <div class="ev-meta">
+                      <span class="pill" style="background:#D5281B">negative</span>
+                      <span class="ev-id">Text p05_c01</span>
+                    </div>
+
+                    <div class="ev-main">
+                      <div class="ev-quote">“ED staff had been: Using obsolete &#x27;Mood-Swabs&#x27; that changed colour depending on emotional energy in the room.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/SYNTHETIC%20AAR.pdf#page=5" data-copy="RUQgc3RhZmYgaGFkIGJlZW46IFVzaW5nIG9ic29sZXRlICdNb29kLVN3YWJzJyB0aGF0IGNoYW5nZWQgY29sb3VyIGRlcGVuZGluZyBvbiBlbW90aW9uYWwgZW5lcmd5IGluIHRoZSByb29tLg==" onclick="copyB64(this.dataset.copy);">Open report (page 5)</a></div>
+                    </div>
+                  </div>
+                  <div class="muted">No more evidence quotes returned.</div><h3>D8 Task Evaluation</h3>
+                  <details class="laj-details">
+                    <summary> 
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D8: WARN</span>
+                      <span class="laj-summary-link">View detailed evaluation metrics for D8</span>
+                    </summary>
+                    
+      <div class="laj-metrics-wrap">
+        <table class="laj-metrics-table">
+          <tbody>
+            
+          <tr>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The report has a generally understandable structure, but excessive vagueness and jargon hinder clarity.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and directly supports the claims made in the rationale.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">While the rationale identifies issues, it lacks specific examples of how terminology inconsistency affects clarity.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of clarity and usability in communication.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The agent is transparent about uncertainty in the report&#x27;s clarity.</td>
+          </tr>
+        
+          <tr>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The rationale does not make unsupported claims and stays within the evidence provided.</td>
+          </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    
+                  </details>
+                  
+
+            
+          </div>
+        </section>
+        
+  </div>
+ <script>
+    let pdfWin = null;
+
+    function setPdfStatus(msg) {
+      const el = document.getElementById("pdf-status");
+      if (!el) return;
+      el.textContent = msg || "";
+      el.style.display = msg ? "block" : "none";
+    }
+
+    function openPdf(url) {
+      // Reuse a single named window/tab so repeated clicks don't spawn new tabs
+      const name = "lrrit_pdf_tab";
+
+      // If we already have a handle and it isn't closed, reuse it
+      if (pdfWin && !pdfWin.closed) {
+        pdfWin.location.href = url;
+        pdfWin.focus();
+        setPdfStatus("");  // clear any prior warning
+        return;
+      }
+
+      // Try to open (user gesture should allow this)
+      pdfWin = window.open(url, name, "noopener");
+
+      if (pdfWin) {
+        pdfWin.focus();
+        setPdfStatus("");
+      } else {
+        // Popup blocked: keep report tab, show an inline instruction
+        setPdfStatus("PDF tab blocked by browser. Please allow popups for this report, then click 'Open PDF' again.");
+      }
+    }
+</script>
+
+  <script>
+    // Keyboard accessibility for clickable summary rows
+    document.querySelectorAll('tr.summary-row').forEach(function(row) {
+      row.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          row.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

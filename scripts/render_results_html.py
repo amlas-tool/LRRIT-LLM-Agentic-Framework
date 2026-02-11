@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import base64
+from email.utils import quote
 import re
 import json
+import base64
 import html
 from pathlib import Path
 from datetime import datetime
@@ -15,18 +18,17 @@ NHS_RED = "#D5281B"
 NHS_AMBER = "#FFB81C"
 NHS_GREEN = "#007F3B"
 
-from pathlib import Path
 
 def _file_url(p: str) -> str:
     # Produces a properly URL-encoded file:// URL (spaces handled)
     return Path(p).resolve().as_uri()
 
 
-
 def _laj_badge(overall: str):
     overall = (overall or "").upper()
     col = _badge_colour("GOOD" if overall == "PASS" else "SOME" if overall == "WARN" else "LITTLE")
     return overall, col
+
 
 def _laj_tooltip(laj_obj: dict) -> str:
     metrics = laj_obj.get("metrics") or []
@@ -81,9 +83,17 @@ def render_laj_details(laj: dict) -> str:
         note = m.get("notes") or ""
         label = name_map.get(mid, mid or "Metric")
 
+        score_cls = (
+            "laj-score-fail" if score == "FAIL"
+            else "laj-score-warn" if score == "WARN"
+            else "laj-score-pass"
+        )
+
         rows.append(f"""
           <tr>
-            <td class="laj-metric-name">{_esc(label)} <span class="laj-score">({_esc(score)})</span></td>
+            <td class="laj-metric-name">
+              {_esc(label)} <span class="{score_cls}">({_esc(score)})</span>
+            </td>
             <td class="laj-metric-note">{_esc(note)}</td>
           </tr>
         """)
@@ -205,13 +215,13 @@ def render_html(report_dir: Path) -> Path:
           <td class=\"mono\">{_esc(agent_id)}</td>
           <td>{_esc(dim)}</td>
           <td><span class=\"pill\" style=\"background:{rating_col}\">{_esc(rating)}</span></td>
-          <td><span class=\"pill\" style=\"background:{uncert_col}\">{'YES' if uncertainty else 'NO'}</span></td>
+          
           <td>{laj_cell}</td>
         </tr>
           """
           )
      
-
+        # <td><span class=\"pill\" style=\"background:{uncert_col}\">{'YES' if uncertainty else 'NO'}</span></td>
          
 
     cards_html = []
@@ -241,19 +251,28 @@ def render_html(report_dir: Path) -> Path:
                     else "LITTLE" if etype == "negative"
                     else "SOME"
                 )
+                eid = e.get("id", "")
+                ev_id_display = eid if eid else "Unresolved source"
+                # Prefer explicit page from resolver; fallback to parsing id for older files.
+                page = e.get("page")
+                if page is None:
+                    page = _page_from_evidence_id(eid)
 
-                page = _page_from_evidence_id(eid)
+                copy_b64 = base64.b64encode((quote or "").encode("utf-8")).decode("ascii")
 
-                # Safe JS string for copy-to-clipboard
-                copy_payload = json.dumps(quote)
-
+                action_html = ""
                 if pdf_url and page:
                     pdf_href = f"{pdf_url}#page={page}"
                     action_html = (
                         f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
                         f'href="{_esc(pdf_href)}" '
-                        f'onclick=\'copyText({copy_payload});\'>Open report (page {page})</a>'
+                        f'data-copy="{copy_b64}" '
+                        f'onclick="copyB64(this.dataset.copy);">Open report (page {page})</a>'
                     )
+                else:
+                    # No resolvable page means quote couldn't be located verbatim in the EvidencePack.
+                    # (Often due to non-verbatim / normalisation / hallucinated fragments.)
+                    action_html = '<span class="pill warn">Verbatim quote not found</span>'
 
                 #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
                 laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
@@ -277,7 +296,7 @@ def render_html(report_dir: Path) -> Path:
                   <div class="ev-row">
                     <div class="ev-meta">
                       <span class="pill" style="background:{et_col}">{_esc(etype or "evidence")}</span>
-                      <span class="ev-id">{_esc(eid)}</span>
+                      <span class="ev-id">{_esc(ev_id_display)}</span>
                     </div>
 
                     <div class="ev-main">
@@ -288,7 +307,7 @@ def render_html(report_dir: Path) -> Path:
                   """)
             else:
                 ev_rows.append(f'<div class="muted">No more evidence quotes returned.</div>'
-                                f'<h3>Task Evaluation</h3>{laj_html}')
+                                f'<h3>{agent_id} Task Evaluation</h3>{laj_html}')
 
 
 
@@ -306,10 +325,6 @@ def render_html(report_dir: Path) -> Path:
                 <div class="badge-label">Rating</div>
                 <div class="pill" style="background:{rating_col}">{_esc(rating)}</div>
               </div>
-              <div class="badge">
-                <div class="badge-label">Uncertainty</div>
-                <div class="pill" style="background:{uncert_col}">{'YES' if uncertainty else 'NO'}</div>
-              </div>
             </div>
           </div>
 
@@ -324,6 +339,11 @@ def render_html(report_dir: Path) -> Path:
           </div>
         </section>
         """)
+
+              #         <div class="badge">
+              #   <div class="badge-label">Uncertainty</div>
+              #   <div class="pill" style="background:{uncert_col}">{'YES' if uncertainty else 'NO'}</div>
+              # </div>
 
     html_out = f"""<!doctype html>
 <html lang="en">
@@ -432,18 +452,25 @@ def render_html(report_dir: Path) -> Path:
       align-items: center;
     }}
     .badge-label {{
-      font-size: 12px;
+      text-transform: uppercase;
+      font-size: 13px;
       opacity: 0.85;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }}
     .pill {{
       display: inline-block;
       color: white;
-      font-weight: 800;
+      font-weight: 600;
       border-radius: 999px;
       padding: 6px 10px;
       font-size: 12px;
       letter-spacing: 0.2px;
+    }}
+    .pill.warn {{ 
+      background:#FFB81C; 
+      font-weight: 500;
+      font-size: 12px;
+      color:#000; 
     }}
     .card-body {{
       padding: 14px 16px 18px 16px;
@@ -546,6 +573,20 @@ def render_html(report_dir: Path) -> Path:
       font-weight: 500;
       opacity: 0.8;
     }}
+    .laj-score-pass{{
+      color: #1e7e34;     /* NHS green */
+      font-weight: 500;
+    }}
+
+    .laj-score-warn{{
+      color: #b36b00;     /* amber */
+      font-weight: 500;
+    }}
+
+    .laj-score-fail{{
+      color: {NHS_RED};     /* NHS red */
+      font-weight: 700;
+    }}
 
     .laj-metric-note{{
       width: 62%;
@@ -616,6 +657,18 @@ def render_html(report_dir: Path) -> Path:
         document.body.removeChild(ta);
       }}
     }}
+    
+    function decodeB64Utf8(b64) {{
+      try {{
+        return decodeURIComponent(escape(atob(b64)));
+      }} catch (e) {{
+        return atob(b64);
+      }}
+    }}
+
+    async function copyB64(b64) {{
+      return copyText(decodeB64Utf8(b64));
+    }}
   </script>
  <script>
     function toggleLaj(ev, agentId){{
@@ -630,7 +683,7 @@ def render_html(report_dir: Path) -> Path:
 <body>
   <header>
     <div class="wrap">
-      <div style="font-size:22px;font-weight:900;">LRRIT Agent Results</div>
+      <div style="font-size:28px;font-weight:900;">LRRIT Agent Results</div>
       <div style="opacity:0.9;margin-top:4px;">Report: {html.escape(report_id)} • Generated: {html.escape(now)}</div>
     </div>
   </header>
@@ -639,31 +692,27 @@ def render_html(report_dir: Path) -> Path:
     <div class="meta">
       <div style="font-weight:900;font-size:14px;">EvidencePack summary</div>
       <div class="meta-grid">
-        <div><span class="k">Source:</span> <span class="v">{html.escape(source_path)}</span></div>
-        <div><span class="k">Pack hash:</span> <span class="v">{html.escape(pack_hash)}</span></div>
-        <div><span class="k">Text chunks:</span> <span class="v">{chunk_count}</span></div>
-        <div><span class="k">Tables:</span> <span class="v">{table_count}</span></div>
-        <div><span class="k">Model:</span> <span class="v mono">{html.escape(model_name)}</span></div>
+        <div><span class="k">File path of report:</span> <span class="v">{html.escape(source_path)}</span></div>
+        <div><span class="k">Large Language Model used:</span> <span class="v mono">{html.escape(model_name)}</span></div>
         <div id="pdf-status" style="display:none; margin: 10px 0; padding: 10px; border: 1px solid #f0c36d; background: #fff8e1; border-radius: 10px;">
           </div>
       </div>
       <footer>This file is stored locally. <p>NB.  
       The <b>open pdf</b> button copies the verbatim quote to the clipboard and opens the report at that page in a new tab. 
       You can then use search to find the context of the quote within the report. 
-      <p><i>Caveat emptor:</i> long quotes may be split across lines or the model may have added punctuation or changed the formatting. 
+      <p><i>Caveat emptor:</i> long quotes may be split across lines, pages or the model may have added punctuation or changed the formatting. 
       In this case, delete parts of the quote until the search works. </footer>
     </div>
 
     <div class="summary" id="summary">
-      <div style="font-weight:900;font-size:14px;">Dimension summary</div>
+      <div style="font-weight:900;font-size:16px;">LRRIT Dimension Summary</div>
       <div class="muted" style="margin-top:6px;">Click a row to jump to the detailed section for that dimension.</div>
       <table aria-label="Dimension summary">
         <thead>
           <tr>
             <th>Agent</th>
             <th>Data Dimension</th>
-            <th>Rating</th>
-            <th>Uncertainty</th>
+            <th>Evidence Rating</th>
             <th>Agent Task <br>Evaluation</th>
           </tr>
         </thead>
@@ -731,7 +780,7 @@ def render_html(report_dir: Path) -> Path:
 
 def main():
     # Default to your 'test' report directory
-    report_dir = Path("data") / "processed" / "reports" / "test"
+    report_dir = Path("data") / "processed" / "reports" / "SYNTHETIC AAR"
 
     # Allow override via env var or first CLI arg
     import os, sys

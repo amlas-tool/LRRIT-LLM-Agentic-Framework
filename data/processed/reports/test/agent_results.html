@@ -219,6 +219,20 @@
       font-weight: 500;
       opacity: 0.8;
     }
+    .laj-score-pass{
+      color: #1e7e34;     /* NHS green */
+      font-weight: 500;
+    }
+
+    .laj-score-warn{
+      color: #b36b00;     /* amber */
+      font-weight: 500;
+    }
+
+    .laj-score-fail{
+      color: #D5281B;     /* NHS red */
+      font-weight: 700;
+    }
 
     .laj-metric-note{
       width: 62%;
@@ -304,7 +318,7 @@
   <header>
     <div class="wrap">
       <div style="font-size:22px;font-weight:900;">LRRIT Agent Results</div>
-      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-02-03 16:41</div>
+      <div style="opacity:0.9;margin-top:4px;">Report: test • Generated: 2026-02-06 12:16</div>
     </div>
   </header>
 
@@ -347,7 +361,7 @@
           <td>Compassionate engagement with people affected</td>
           <td><span class="pill" style="background:#D5281B">LITTLE</span></td>
           <td><span class="pill" style="background:#007F3B">NO</span></td>
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3, M4">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d2'" tabindex="0" role="link">
@@ -387,7 +401,7 @@
           <td>Avoidance of hindsight bias and counterfactual certainty</td>
           <td><span class="pill" style="background:#007F3B">GOOD</span></td>
           <td><span class="pill" style="background:#D5281B">YES</span></td>
-          <td><span class="pill" style="background:#007F3B" title="All metrics PASS">PASS</span></td>
+          <td><span class="pill" style="background:#D5281B" title="Flags: M1, M2, M6">FAIL</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d7'" tabindex="0" role="link">
@@ -403,7 +417,7 @@
           <td>Communication quality and usability</td>
           <td><span class="pill" style="background:#FFB81C">SOME</span></td>
           <td><span class="pill" style="background:#007F3B">NO</span></td>
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M3, M6">WARN</span></td>
+          <td><span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">FAIL</span></td>
         </tr>
           
         </tbody>
@@ -454,14 +468,14 @@
                     </div>
 
                     <div class="ev-main">
-                      <div class="ev-quote">“Plans made to transfer to STH urgently - there was a slight delay.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("Plans made to transfer to STH urgently - there was a slight delay.");'>Open report (page 2)</a></div>
+                      <div class="ev-quote">“Plans made to transfer to STH urgently -there was a slight delay.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("Plans made to transfer to STH urgently -there was a slight delay.");'>Open report (page 2)</a></div>
                     </div>
                   </div>
                   <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
                     <summary> 
-                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3">D1: WARN</span>
+                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M3, M4">D1: WARN</span>
                       <span class="laj-summary-link">View detailed evaluation metrics for D1</span>
                     </summary>
                     
@@ -470,32 +484,44 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(WARN)</span></td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
             <td class="laj-metric-note">The output identifies a lack of compassionate engagement but could benefit from more specific examples or details to support the critique.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">All evidence cited is valid and corresponds to the provided evidence blocks.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(WARN)</span></td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
             <td class="laj-metric-note">The rationale is coherent but lacks depth in exploring the implications of the evidence on compassionate engagement.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output aligns with values of empathy and support, though it could be more explicit in discussing these aspects.</td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">The output does not adequately reflect values of empathy and support, focusing instead on clinical processes.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output does not express uncertainty and presents a clear judgment based on the evidence.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output is clear and does not present any uncertainty regarding the assessment.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">No unsupported factual assertions are present in the rationale.</td>
           </tr>
         
@@ -569,32 +595,44 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(WARN)</span></td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
             <td class="laj-metric-note">The output partially meets the rubric by acknowledging systems framing but also emphasizes individual actions, which detracts from a pure systems approach.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">All evidence cited is valid and corresponds to the provided evidence blocks.</td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and relevant to the evaluation.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The reasoning is somewhat coherent but lacks depth in connecting systems factors to the overall analysis.</td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is somewhat coherent but could benefit from a clearer connection between the evidence and the systems approach.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output aligns with values of a systems approach by identifying systemic issues.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output does not express uncertainty, which is appropriate given the context.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output does not express uncertainty, which is appropriate given the evidence.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
           </tr>
         
@@ -668,32 +706,44 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output aligns well with the rubric by identifying specific and actionable learning actions.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">All evidence cited is valid and directly supports the rationale provided.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The reasoning is coherent and logically connects the evidence to the learning actions.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output reflects values aligned with patient safety and quality improvement.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">There is no uncertainty expressed, and the claims are well-supported by the evidence.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
           </tr>
         
@@ -728,7 +778,7 @@
 
           <div class="card-body">
             <h3>Rationale</h3>
-            <p>The learning response avoids blame-oriented language and focuses on system/process issues rather than attributing fault to individuals.</p>
+            <p>The learning response avoids blame-oriented language and focuses on systemic issues rather than attributing fault to individuals.</p>
 
             <h3>Evidence</h3>
             
@@ -767,32 +817,44 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output accurately reflects the avoidance of blame language and focuses on systemic issues.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">All evidence cited is valid and directly supports the rationale provided.</td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and supports the rationale provided.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The reasoning is coherent and logically connects the evidence to the evaluation of blame language.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The evaluation aligns with values of transparency and accountability without assigning personal blame.</td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The evaluation aligns with values of neutrality and systemic focus.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output is clear and does not present any uncertainty regarding the assessment of blame language.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output does not express uncertainty and confidently assesses the language used.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
           </tr>
         
@@ -850,8 +912,8 @@
                     </div>
 
                     <div class="ev-main">
-                      <div class="ev-quote">“There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.");'>Open report (page 3)</a></div>
+                      <div class="ev-quote">“Delay in transferring from I but there is no certainty that this affected the outcome for the patient.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Delay in transferring from I but there is no certainty that this affected the outcome for the patient.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
                   <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
@@ -866,33 +928,45 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The output partially meets the rubric by acknowledging the decision-making context but lacks depth in explaining the contemporaneous reasoning.</td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output partially meets the rubric by acknowledging the decision-making context but lacks a thorough explanation of the contemporaneous reasoning.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">All evidence cited is valid and directly supports the evaluation.</td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">All evidence cited is valid and relevant to the evaluation.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(WARN)</span></td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
             <td class="laj-metric-note">The reasoning is somewhat coherent but could benefit from a more detailed exploration of the decision-making process.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The evaluation aligns with values of patient safety and learning from incidents.</td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output aligns with values of patient safety and learning from incidents.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output appropriately acknowledges uncertainty regarding the impact of timing on the patient&#x27;s outcome.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output appropriately acknowledges uncertainty regarding the impact of delays on patient outcomes.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">No unsupported factual assertions about the report content are present.</td>
           </tr>
         
           </tbody>
@@ -926,7 +1000,7 @@
 
           <div class="card-body">
             <h3>Rationale</h3>
-            <p>The response acknowledges uncertainty regarding the timing of the patient&#x27;s condition and the impact of delays on outcomes.</p>
+            <p>The response acknowledges uncertainty regarding the impact of delays on the patient&#x27;s outcome and avoids definitive counterfactual claims.</p>
 
             <h3>Evidence</h3>
             
@@ -937,26 +1011,26 @@
                     </div>
 
                     <div class="ev-main">
-                      <div class="ev-quote">“However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.");'>Open report (page 2)</a></div>
+                      <div class="ev-quote">“there is no certainty that this affected the outcome for the patient.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("there is no certainty that this affected the outcome for the patient.");'>Open report (page 2)</a></div>
                     </div>
                   </div>
                   
                   <div class="ev-row">
                     <div class="ev-meta">
                       <span class="pill" style="background:#007F3B">positive</span>
-                      <span class="ev-id">Text p03_c01</span>
+                      <span class="ev-id">Text p02_c01</span>
                     </div>
 
                     <div class="ev-main">
-                      <div class="ev-quote">“There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.");'>Open report (page 3)</a></div>
+                      <div class="ev-quote">“there is no certainty that an earlier CT would have made a difference”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("there is no certainty that an earlier CT would have made a difference");'>Open report (page 2)</a></div>
                     </div>
                   </div>
                   <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
                     <summary> 
-                      <span class="pill" style="background:#007F3B" title="All metrics PASS">D6: PASS</span>
+                      <span class="pill" style="background:#D5281B" title="Flags: M1, M2, M6">D6: FAIL</span>
                       <span class="laj-summary-link">View detailed evaluation metrics for D6</span>
                     </summary>
                     
@@ -965,33 +1039,45 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output accurately reflects the dimension&#x27;s focus on avoiding hindsight bias and recognizes uncertainty.</td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output generally aligns with the rubric but could benefit from more specific examples of uncertainty handling.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">All evidence cited is valid and directly supports the claims made in the rationale.</td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">There is a quote mismatch; the evidence cited does not directly support the claims made in the rationale.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The reasoning is coherent and logically follows from the evidence provided.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output aligns with values of transparency and caution regarding patient outcomes.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output effectively communicates uncertainty regarding the outcomes and timing of interventions.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output appropriately acknowledges uncertainty in the patient&#x27;s outcome.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">No unsupported factual assertions are present in the rationale.</td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">The rationale includes unsupported claims about the certainty of outcomes that are not substantiated by the evidence.</td>
           </tr>
         
           </tbody>
@@ -1036,8 +1122,8 @@
                     </div>
 
                     <div class="ev-main">
-                      <div class="ev-quote">“Link case to stream of work which is currently being done regarding the acutely surgical ill patients and endoscopy transfers.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Link case to stream of work which is currently being done regarding the acutely surgical ill patients and endoscopy transfers.");'>Open report (page 3)</a></div>
+                      <div class="ev-quote">“Link case to stream of work which is currently being done regarding the acutely surgical ill patients.”</div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Link case to stream of work which is currently being done regarding the acutely surgical ill patients.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
                   <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
@@ -1052,32 +1138,44 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The output identifies some improvement actions but lacks detail on collaborative development and monitoring.</td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The rationale identifies some gaps in monitoring and collaboration but lacks specific examples of how these could be improved.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The evidence cited is relevant and supports the rationale provided.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The reasoning is somewhat coherent but could benefit from more specific examples of collaborative efforts.</td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The reasoning is somewhat coherent but could benefit from more detailed connections between the evidence and the critique.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output aligns with values of patient safety and quality improvement.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">The output appropriately acknowledges uncertainty regarding the effectiveness of actions.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(PASS)</span></td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-pass">(PASS)</span>
+            </td>
             <td class="laj-metric-note">No unsupported claims are present; all assertions are grounded in the provided evidence.</td>
           </tr>
         
@@ -1119,42 +1217,30 @@
                   <div class="ev-row">
                     <div class="ev-meta">
                       <span class="pill" style="background:#D5281B">negative</span>
-                      <span class="ev-id">Text p03_c01</span>
+                      <span class="ev-id">Text p01_c01</span>
                     </div>
 
                     <div class="ev-main">
                       <div class="ev-quote">“Delay in transferring from I but there is no certainty that this affected the outcome for the patient.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Delay in transferring from I but there is no certainty that this affected the outcome for the patient.");'>Open report (page 3)</a></div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=1" onclick='copyText("Delay in transferring from I but there is no certainty that this affected the outcome for the patient.");'>Open report (page 1)</a></div>
                     </div>
                   </div>
                   
                   <div class="ev-row">
                     <div class="ev-meta">
                       <span class="pill" style="background:#D5281B">negative</span>
-                      <span class="ev-id">Text p02_c01</span>
-                    </div>
-
-                    <div class="ev-main">
-                      <div class="ev-quote">“No known systematic way to ensure that X-ray results are properly escalated for further review.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=2" onclick='copyText("No known systematic way to ensure that X-ray results are properly escalated for further review.");'>Open report (page 2)</a></div>
-                    </div>
-                  </div>
-                  
-                  <div class="ev-row">
-                    <div class="ev-meta">
-                      <span class="pill" style="background:#007F3B">positive</span>
-                      <span class="ev-id">Text p01_c01</span>
+                      <span class="ev-id">Text p03_c01</span>
                     </div>
 
                     <div class="ev-main">
                       <div class="ev-quote">“Appropriate investigations were ordered and performed.”</div>
-                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=1" onclick='copyText("Appropriate investigations were ordered and performed.");'>Open report (page 1)</a></div>
+                      <div class="ev-action"><a class="btn btn-compact" target="lrrit_pdf_tab" href="file:///G:/My%20Drive/LLM%20projects/lrrit-llm/data/raw_pdfs/test.pdf#page=3" onclick='copyText("Appropriate investigations were ordered and performed.");'>Open report (page 3)</a></div>
                     </div>
                   </div>
                   <div class="muted">No more evidence quotes returned.</div><h3>Task Evaluation</h3>
                   <details class="laj-details">
                     <summary> 
-                      <span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M3, M6">D8: WARN</span>
+                      <span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">D8: FAIL</span>
                       <span class="laj-summary-link">View detailed evaluation metrics for D8</span>
                     </summary>
                     
@@ -1163,33 +1249,45 @@
           <tbody>
             
           <tr>
-            <td class="laj-metric-name">Rubric fidelity <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The output identifies some clarity issues but lacks specific examples of jargon and vague language.</td>
+            <td class="laj-metric-name">
+              Rubric fidelity <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The output identifies some issues with clarity and jargon but lacks specific examples from the report to support these claims.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Evidence grounding <span class="laj-score">(FAIL)</span></td>
-            <td class="laj-metric-note">There is a quote mismatch, which undermines the reliability of the evidence cited.</td>
+            <td class="laj-metric-name">
+              Evidence grounding <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">The evidence cited contains a quote mismatch, which undermines the grounding of the evaluation.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Reasoning coherence <span class="laj-score">(WARN)</span></td>
-            <td class="laj-metric-note">The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims.</td>
+            <td class="laj-metric-name">
+              Reasoning coherence <span class="laj-score-warn">(WARN)</span>
+            </td>
+            <td class="laj-metric-note">The rationale is somewhat coherent but could benefit from clearer connections between the claims and the evidence.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Values alignment (PSIRF/LRRIT) <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output aligns with values of clarity and usability in communication.</td>
+            <td class="laj-metric-name">
+              Values alignment (PSIRF/LRRIT) <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The evaluation aligns with values of clarity and usability in communication.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Transparency &amp; uncertainty <span class="laj-score">(PASS)</span></td>
-            <td class="laj-metric-note">The output does not introduce uncertainty and maintains a clear stance.</td>
+            <td class="laj-metric-name">
+              Transparency &amp; uncertainty <span class="laj-score-pass">(PASS)</span>
+            </td>
+            <td class="laj-metric-note">The output does not assert any uncertainties, maintaining a clear stance.</td>
           </tr>
         
           <tr>
-            <td class="laj-metric-name">Unsupported-claim risk <span class="laj-score">(FAIL)</span></td>
-            <td class="laj-metric-note">The rationale includes unsupported claims due to the quote mismatch.</td>
+            <td class="laj-metric-name">
+              Unsupported-claim risk <span class="laj-score-fail">(FAIL)</span>
+            </td>
+            <td class="laj-metric-note">The rationale includes unsupported claims due to the quote mismatch, affecting the reliability of the evaluation.</td>
           </tr>
         
           </tbody>

@@ -1,0 +1,1956 @@
+{
+  "report_id": "SYNTHETIC AAR",
+  "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+  "text_chunks": [
+    {
+      "chunk_id": "p01_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 1,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Patient Safety Event Learning Response - After Action Review  \nPatient safety incident \nor good care reference:  \n  \n  \nReview of potential hospital acquired Flu cases 2027. \n  \nClinical Service Unit(s): \nSpecialist Medicine Clinical Service Unit (CSU).  \n  \nLocation: \nWard 47, Respiratory & Unexpected Meteorology Unit  \nReported:   \n   \n9021 (PL) – 03/02/2027 \n9023 (XN) – 03/02/2027 \n9025 (BD) – 03/02/2027 \n9027 (HT) – 03/02/2027 \n9029 (FM) – 03/02/2027 \n9031 (QV) – 03/02/2027 \n18888 (JW) – 09/11/2027 \n19902 (EZ) – 21/11/2027 \nIncident date:     \nBetween April and November 2027 \nIncident title:   \nReview of eight patients who tested flu-positive, covid-positive, or “positive \nfor mysterious sniffles” while admitted or admitted-to-being-admitted to \nWard 47. \nDate of after action \nreview:   \nMulti-disciplinary meeting held on 12 December 2027, following concerns \nraised during a routine ward huddle and a less-routine moment when the \nward thermometer began displaying temperatures in emojis.  \nResponse lead: \nDr. Marigold Zaffron, Acting Deputy Director of Nursing, Specialist Medicine \nPresent: \nDr. Marigold Zaffron – Acting Deputy Director of Nursing, Specialist \nMedicine \nTerry Skylark – Ward 47 Ward Manager \nDr. Juniper Quill – Director of Nursing (Operations) \nCasey Northwood – Deputy General Manager, Respiratory Medicine \nProf. Lennox Amber – Clinical Director, Specialist Medicine \nMara Tinsley – Senior Respiratory Physiotherapist \nDr. Orion Wexford – Respiratory Consultant \nDr. Petra Bluewood – Respiratory Consultant \nMavis Dunthorne – Respiratory Matron \nDr. Idris Pollen – Director of Infection, Prevention & Control \nDr. Roland Foxwood – Medical Director \nQuentin Marsh – Deputy Matron, Acute Entry Department \nFiona Ledbury – Senior Quality & Governance Lead",
+      "text_hash": "58595eda756d11b9"
+    },
+    {
+      "chunk_id": "p02_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 2,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 2 of 31  \n  \n  \n      Issue date 26/04/2027   Review date 26/04/2027        Owner: TL  \n  \nPage 1 of 15  \n  \n \nWhat did we set out to do? (What should have happened? What was the expected outcome?): What \nactually happened?",
+      "text_hash": "b37d5921200c2e3e"
+    },
+    {
+      "chunk_id": "p03_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 3,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 3 of 31  \n  \n \nContext.  \n  \nThe team originally intended to follow the Nebula Valley Health Trust’s respiratory admission and \ninfection-control pathways precisely. The expected process was: \n \nPatients admitted to Ward 47 – Respiratory & Atmospheric Mysteries Unit would be assessed, \nscreened, and placed in appropriate isolation bays (assuming any of them existed). \n \nAll symptomatic patients should have undergone standardised swabbing procedures following the \nTrust’s Respiratory Virus Detection Megadocument v3.7, which was last updated on 18/08/2028, except \npage 5, which had been missing since a coffee-spill incident. \n \nPositive flu or covid results should have triggered:  \no \nClear documentation \no \nNotification of the nurse in charge \no \nSafe placement in either the Positive Pathogen Suite or a designated side room with appropriate \nenhanced staffing \n \nPatients meeting the Respiratory High-Dependency Unit (RHDU) entry criteria (e.g., ventilation \nsupport requirements, rare air-pressure irregularities, or the ability to speak only in wheezes) should \nhave been transferred promptly. \n \nA consistent application of the Trust’s swabbing guidance was expected across all admission pathways: \nEmergency Department (ED), Medical Assessment Dome (MAD), or direct respiratory referral. \nIn summary, things were meant to run smoothly, logically, and without any involvement from malfunctioning \nair-conditioning units, interpretive dance-based handovers, or rogue clerical decisions. \n  \n  \n Event Description  \nAction  \nSymptomatic adults or children \nadmitted for care OR \ndeveloping symptoms while \nalready in hospital.  \nIn daylight hours: Perform PCR testing (Order \nCosmic-Virus RNA Panel in the Electronic Patient \nRealm). \nDuring moonlit hours: Perform an LFT using the Rapid \nMood-Responsive Test Strip.",
+      "text_hash": "e662157058656034"
+    },
+    {
+      "chunk_id": "p04_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 4,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 4 of 31  \n  \nIf the LFT shows a “negative but slightly grumpy” result, \na confirmatory PCR must also be taken.  \nPositive swab result (Covid or \nCovid-Adjacent Cosmic \nParticles). \nThe Nurse in Charge or Senior Clinician should calmly \ninform the patient of their result, ideally without using \ninterpretive dance or shadow puppetry. \nThe patient should then be: \n \nTransferred to the most suitable Positive Pressure \nCosmic Containment Ward, \n \n \nOR \nPlaced in a side room on the parent ward (assuming the \nroom is not already occupied by: \n \na faulty air-purification robot, \na temporary inflatable isolation dome, or \nan aggressively motivational poster). \nWhat Actually Happened  \n  \nOn 03 February 2027, a respiratory consultant noticed a cluster of six suspiciously synchronised cases of \nflu-like illness on Ward 47. These were unusual because: \n \nAll six patients developed symptoms within minutes of each other. \n \nOne described their symptoms as “feeling like a deflating balloon.” \n \nAnother insisted the virus had “strong opinions about jazz.” \nThis led to the submission of six StarChart Incident Reports, each more frantic than the last. Clinical reviews \nwere launched to determine whether patients had genuinely acquired flu or simply suffered from the ward’s \nfamously unpredictable microclimate. \nWhile these reviews were ongoing, two additional patients were identified on 09 November 2027 and 21 \nNovember 2027 as potentially acquiring a respiratory illness during their stay—both had been housed near the \nward’s experimental prototype “fresh-air circulation monolith.” \nA multi-disciplinary team (MDT) meeting was urgently scheduled, bringing together representatives from: \n \nThe Respiratory team \n \nEmergency Department (ED) \n \nSpecialist Medicine leadership \n \nThe Infection Prevention & Perpetual Confusion Team \n \nSenior management",
+      "text_hash": "a8e5816417c355f3"
+    },
+    {
+      "chunk_id": "p05_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 5,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 5 of 31  \n  \n \nOne uninvited therapy alpaca (again) \nDuring this meeting, the first major learning point emerged: \nKey Issue Identified: \nNon-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department. \nSpecifically, ED staff had been: \n \nUsing obsolete “Mood-Swabs” that changed colour depending on emotional energy in the room \n \nForgetting to log samples into the electronic system, instead placing them in a “mystery drawer” \n \nOccasionally confusing flu swabs with novelty glow-sticks left over from the winter party \nImmediate Actions Taken: \n1. Reinforcement of SOP Compliance \nSenior clinicians reminded all teams—firmly but politely—that swabbing should follow evidence-based \nprocedures, not “whatever feels right in the moment.” \n2. Enhanced Surveillance \nAdditional patient tracking and symptom-monitoring processes were put in place, including a \ntemporary ban on the mystery drawer. \n3. Commissioning of a SEIPS Review \nThe Systems Engineering Initiative for Patient Safety team, led by the Infection Prevention & Perpetual \nConfusion unit, agreed to conduct a full review of workflow, environment, equipment, and any \ninexplicable atmospheric events. \nThe findings from this SEIPS review were intended to guide a comprehensive action plan to prevent future \noccurrences of synchronised respiratory outbreaks, glow-stick-related testing errors, or unexpected alpaca \nparticipation. \n \nAnalysis (What was the difference between what we expected to happen and what actually happened?):",
+      "text_hash": "7280d166e8c5d2e7"
+    },
+    {
+      "chunk_id": "p06_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 6,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 6 of 31  \n  \nThe SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial \ndifferences between what should have happened under the Nebula Valley Health Trust’s respiratory \ninfection-control pathway and what actually occurred during these unusual episodes. \nFull patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed \nfor each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). \nPatient 1 (PX) – StarReport 9921 \n \nAdmission Date: 04/05/2027 \n \nPositive Swab Date: 16/06/2027 \n \nPatient became unwell while resting in Bay Delta-Three, Bed 2, and was moved to the Atmospheric \nHigh Dependency Sphere (AHDS) for ventilation support. \n \nThere was a significant delay in moving the patient to an isolation pod, because all three single pods \nwere occupied by patients with unrelated, but equally confusing, infections—including one patient \ndiagnosed with “Mystery Cough Variant #12.” \n \nThe positive result was auto-uploaded to the Infection Prevention Constellation Server at 12:04, \nprompting an IPC practitioner to teleport (walk briskly) to Ward 47. \n \nThe patient was transferred to a double isolation habitat at 19:21, with the second bed sealed behind \nbright orange “Do Not Enter: Strange Virus” tape. \n \nDue to fluctuating oxygen needs and the room’s temperamental air-circulator, an extra nurse was \nassigned exclusively to the patient. \n \nOn the next day (17/06/2027), the blocked bed was used for another patient who also tested positive \nfor Influenza Q, a strain invented solely for this synthetic scenario. \n \nOutcome: The patient sadly passed away on 20/06/2027. Cause of death listed as:  \no \n1a: Respiratory Nebula Collapse \no \n1b: Influenza Q \no \n2: Complicating Pneumonic Stardust \nClinical Review Highlights (Completed by Dr. Ophelia Starwind, 10/10/2027) \n \nThe patient had shown signs of improvement after a prolonged stay and was beginning discharge \nplanning before sudden deterioration. \n \nNon-Invasive Ventilation (NIV) was initiated in the AHDS bay. \n \nWard doctor documented: \n“There is risk to other patients in this bay due to sneeze-radius uncertainties. Attempting urgent transfer to \na single pod, but cannot delay NebuloPAP initiation.”",
+      "text_hash": "d84126b4640d9d5f"
+    },
+    {
+      "chunk_id": "p07_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 7,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 7 of 31  \n  \nPatient 2 (QN) – StarReport 9923 \n \nAdmission Date: 18/05/2027 \n \nPositive Swab Date: 29/06/2027 \n \nAdmitted via the Emergency Nebula Department (END) with shortness of breath and confusion. Initial \ntesting negative for all screened cosmic viruses. \n \nOn 29/06/2027, the patient tested positive for Influenza Zeta-Prime via Cepheid AstroPCR. Sputum \nsample showed “no growth but suspicious sparkle.” \n \nPalliative Care was consulted due to advanced chronic illness. \n \nOutcome: Deceased on 30/06/2027. Cause of Death:  \no \nPart 1: Multilayer Pneumonia \no \nPart 2: Chronic Space-Obstructive Pulmonary Disease (CSOPD), Influenza Zeta-Prime, Lung \nConstellation Fibrosis \nClinical Review Highlights (Dr. Ophelia Starwind, 10/10/2027) \n \nAdmitted with severe nebular pneumonia—viral screens initially negative. \n \nRequired high-flow Astral Oxygen and was placed in the AHDS. \n \nOxygen requirements improved from 70% NebulaFlow to 55% over several days before sudden \ndeterioration coinciding with onset of viral symptoms. \nPatient 3 (VR) – StarReport 9925 \n \nAdmission Date: 12/03/2027 \n \nPositive Swab Date: 01/07/2027 \nHospital Journey (Chaotic and Synthetic) \n \n12/03/2027 – Attended END at 14:15 \n \n13/03/2027 – Transferred to Ward 5C (“The Breezy Ward”) \n \n15/03/2027 – Moved to Ward 9 due to bed pressures \n \n22/03/2027 – Transferred to Ward 47 \n \n29/06/2027 – Discharged home and labelled as “possible flu contact” after sitting too close to a patient \nwho sneezed with dramatic effect \nReadmission 1 \n \n01/07/2027 – Returned to END and tested positive for Influenza Zeta-Prime \n \n02/07/2027 – Transferred to Ward 5C",
+      "text_hash": "d2963ac22251f7dc"
+    },
+    {
+      "chunk_id": "p08_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 8,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 8 of 31  \n  \n \n05/07/2027 – Discharged \nReadmission 2 \n \n09/07/2027 – Returned again with breathlessness at 02:27 \n \n10/07/2027 – Moved into Ward 5C isolation pod \n \n11/07/2027 – Moved to open bay due to another patient requiring isolation \n \nOutcome: Passed away on 14/07/2027. Cause of death:  \no \n1a: Galactic Heart Failure \no \n1b: Pulmonary Hypertension Nebulosa, Cosmic Fibrosis \no \n1c: P-ANCA-Like Vasculitis Variant \no \n2: Chronic Kidney Outage \nClinical Review Highlights (Dr. Ophelia Starwind, 09/09/2027) \n \nThree admissions occurred between initial arrival on 12 March and death on 14 July. \n \nUnderlying conditions, recurrent admissions, and viral complications contributed to an overall decline.",
+      "text_hash": "b873ab45338e47e9"
+    },
+    {
+      "chunk_id": "p09_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 9,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 9 of 31",
+      "text_hash": "0e320829d8ae631e"
+    },
+    {
+      "chunk_id": "p10_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 10,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 10 of 31  \n  \n  \n \nSystem learning (Why was there a difference? Focus on the design of the work system, not the actions \nof individuals)  \nINTERNAL ENVIRONMENT \nAcute Medical Admitting Wards \nAt the start of the period reviewed, Astro Medical Unit 1 (AMU-1) had been closed and temporarily \nrelocated to Ward Nebula-8 due to extensive refurbishment efforts. These building works were intended to \ncreate additional single-occupancy stasis pods with built-in gravity-assisted sanitation units. \nWard Nebula-8, however, was an old-style Cosmic Nightingale Ward, containing long, open bays and only \ntwo non-ventilated single pods, both notoriously drafty due to the corridor’s “permanent breeze anomaly.” \n \nWard 47 \nWard 47 is a 28-bed unit consisting of: \n \nFour multipatient bays (including the Atmospheric High Dependency Sphere (AHDS)) \n \nThree single “Quiet Pods” \n \nTwo double “Duo Pods” \nNone of these facilities contain en-suite sanitation modules, and the AHDS lacks any form of isolation pod \nfor patients with suspected or confirmed infectious illness. \nAccording to Intergalactic Health Building Standard 04-01 (2229 Edition), all single and multi-occupancy \ncare pods should have en-suite sanitation, oxygen recycling hatches, and at least optional anti-microbial \nforcefields. Ward 47 meets none of these standards. \nPatient Facilities on Ward 47 currently include: \n \nOne designated male sonic shower with a gravity-flush toilet \n \nTwo designated female sanitation capsules \n \nOne shared unisex shower alcove (occasionally occupied by broken air filters “dripping aggressively”) \nVentilation \nWard 47 relies solely on natural space-breeze ventilation, provided by windows that can be opened \nmanually.",
+      "text_hash": "e47201250e677621"
+    },
+    {
+      "chunk_id": "p11_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 11,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 11 of 31  \n  \nPer HTM 03-01 Galactic Supplement, Level-2 critical care areas should achieve ≥10 air exchanges per hour \nusing mechanical ventilation, environmental regulators, or ionised vortex fans. Ward 47 achieves between 0.5 \nand 1.5 air changes depending on wind, weather, and whether someone has jammed a chair under a window \nlatch again. \nA modern facility would feature: \n \nSingle-occupancy pods \n \nPrivate sanitation modules \n \nBespoke mechanical ventilation \n \nAnti-miasma laminar-flow corridors \nThe age and architecture of the current building prevents these upgrades. \n \nCleaning \nWard 47 has consistently scored 5 Comets (the highest rating) throughout 2027, exceeding the 95% quality \nthreshold. \nHowever, the Trust’s decision to remove funding for the Enhanced Cosmic Clean Team (as part of the “Close \nthe Spatial Gap” Programme) has led to: \n \nNo additional touch-point cleaning \n \nNo support during peak viral season \n \nReduced attention to frequently touched surfaces such as:  \no \nDoor plates \no \nLight panels \no \nHolocomm screens \no \nEmergency snack dispensers \nDesired Outcomes – Internal Environment \n \nReduce risk of infectious patients being placed in multi-occupancy bays:  \no \nIntroduce dedicated isolation pod within the AHDS \no \nIncrease single-pod capacity before the 2028–2029 “Winter Nebula Surge” \n \nMitigate ventilation deficits:  \no \nConsider mobile air-purification drones or wall-mounted micro-cyclone units \no \nComplete risk assessment and relocation options by September 2028 (possible relocation to \nWard Solaris-10 once the Dialysis Robots are moved) \n \nReduce cross-infection risk:  \no \nReinstate the Enhanced Clean Team for the next winter-pressure season",
+      "text_hash": "7b1fbfc88a9d4e1e"
+    },
+    {
+      "chunk_id": "p12_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 12,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 12 of 31  \n  \n \nHEALTH AND WELLBEING \nVaccination remains essential for winter preparedness. Ensuring high uptake among staff reduces spread of \nrespiratory pathogens (and discourages rumours of “the corridor ghost coughing at night”). \nThe Interstellar Occupational Health Division reported: \n \n76% vaccination uptake among Respiratory Consultants \n \nOnly 28% uptake among other clinical staff \nThis mirrors the Galactic Health Observatory findings (2026), where non-consultant healthcare workers \naveraged 30–40% influenza vaccination rates. \nDesired Outcomes – Health & Wellbeing \n \nReduce risk of staff acquiring or transmitting viral illness:  \no \nConduct listening sessions with staff to understand vaccine hesitancy \no \nRedesign the 2028–2029 Influenza Comet Campaign using staff feedback \no \nEstablish a network of Flu Champions across Ward 47 and the wider organisation \n \nTOOLS AND TECHNOLOGY \nCepheid / Core Test \nThe Trust currently uses GeneXpert NebulaPCR X-225 units for rapid testing of four seasonal respiratory \nviruses. \nHowever, testing can only occur: \n \n08:00–20:00 on weekdays \n \n08:00–16:00 on weekends \nTo fill gaps, Ward 47 was supplied with CoreTest® Multi-Virus Combo Panels, capable of detecting \nInfluenza A/B, RSV, and SARS-CosmoV-22. \nPer SOP, any negative CoreTest requires confirmatory NebulaPCR. \nThis review found: \n \nTwo cases where NebulaPCR was not performed before patient transfer",
+      "text_hash": "d8c4cc704ab655c6"
+    },
+    {
+      "chunk_id": "p13_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 13,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 13 of 31  \n  \n \nOne instance where a full viral panel was requested but never actioned \n \nSeveral cases where results were not checked because staff:  \no \nCould not access the ICE-Star results system \no \nDid not possess an ICE-Star login \no \nThought the machine was “still broken from last week’s spark event” \nDesired Outcomes – Tools & Tech \n \nReview and reinforce SOP: all negative CoreTests must be followed by NebulaPCR prior to \ntransfer \n \nEstablish a fail-safe: automatic alert if a patient is moved without complete virology \n \nEnsure every nursing staff member has ICE-Star access \n \nTASKS \nWinter care pathways are complex, multi-team, multi-pressure systems, requiring rapid escalation, \ncommunication, and flow management. \nThe Command Centre Orb provides oversight across the Trust’s risk systems but cannot compensate for \nenvironmental and technological limitations. \n \nPERSON \nAlthough not the focus of analysis, winter pressures placed significant strain on: \n \nEmergency Nebula Department (END) \n \nAcute admitting wards \n \nStaff managing competing priorities and fluctuating patient acuity \nThis environmental pressure contributed to system gaps, but the review remains focused on system, not \nindividual performance. \n \nCONCLUSION",
+      "text_hash": "3e3b03b9529ce09f"
+    },
+    {
+      "chunk_id": "p14_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 14,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 14 of 31  \n  \nThe review did not identify a single cause. \nThe Infection Prevention Constellation Team notes: \n \nChronological and geographical links between cases are not straightforward \n \nThere is no genomic sequencing to confirm transmission \n \nThere is no universal definition for Influenza-Like Nosocomial Events (ILNE) \nTherefore, the evidence for healthcare-associated infection is circumstantial. \nTwo system themes likely increased risk: \n1. Non-compliance with the swabbing SOP in the Emergency Nebula Department \n2. Inability to isolate Level-2 respiratory patients when required, due to the lack of suitable isolation \npods within the AHDS and insufficient single-pod capacity",
+      "text_hash": "42a188aa81dee462"
+    },
+    {
+      "chunk_id": "p15_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 15,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "15 of 31  \n  \nGood practice identified throughout the review (What went well? Why?)",
+      "text_hash": "61f4b905a1e092d7"
+    },
+    {
+      "chunk_id": "p16_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 16,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "16 of 31  \n  \n \nExemplary Communication and Compassionate Care \nOne standout example of excellent practice involved a patient with a rare, chronically unstable respiratory \ncondition known as Nebulo-Lung Drift Syndrome. This patient had long understood his complex prognosis and \nhad formed a close working partnership with the clinical team over many months. \nWhen his condition deteriorated further during his stay on Ward 47, the medical team held a compassionate, \nopen, and strikingly well-structured conversation with him and his family. Staff explained the clinical situation \nwith clarity, empathy, and a sense of grounded honesty—while avoiding any unnecessary use of jargon, \nmetaphors involving space-weather, or the ward’s notorious “feelings chart.” \nThe Electronic Patient Record (EPR-Star) further demonstrated: \n \nGenuine kindness \n \nRespect for the patient’s autonomy \n \nFull involvement of the patient in shared decision-making \n \nSensitivity to the family’s emotional needs \n \nA documented moment where the patient was given “as long as he wished” to ask questions, reflect, or \nsimply sit with his loved ones \nThe patient’s family later contacted the ward to thank staff for their gentleness, thoughtfulness, and the calm \natmosphere maintained around the bedside, despite a brief interruption from a confused cleaning robot trying \nto offer warm tea. \nInfection Prevention & Control (IPC) Best Practice \nThroughout 2027, the IPC team implemented an ambitious programme of hands-on, interactive infection-\nprevention education on Ward 47, including: \n \nUse of the Semmelweiss Holo-Scanner, projecting hand-hygiene compliance ratings in neon colours \n \nRefresher sessions on personal protective equipment, including correct placement of disposable \n“breath shield visors” \n \nA “Gloves Off” awareness drive, reminding staff not to wear gloves while performing computer tasks, \neating biscuits, or adjusting their hair \n \nDirect support for commode decontamination, including a short musical jingle played to reinforce the \ncorrect cleaning cycle \nDuring the winter of 2027–2028, staff also took part in a suite of Toolbox Star-Exercises, focusing specifically \non: \n \nIdentifying Cepheid NebulaPCR results in the EPR-Star system \n \nCorrectly distinguishing between standard PCR requests and “extended respiratory megapanels”",
+      "text_hash": "c7f80c1cacfe4ff5"
+    },
+    {
+      "chunk_id": "p17_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 17,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "17 of 31  \n  \n \nAvoiding situations where samples are submitted via “mystery drawers” or left on radiators \nAudit Performance \nThroughout 2027, the ward demonstrated sustained excellence in IPC audit metrics: \n \nThe Matron and IPC audit consistently recorded above 90% compliance with core hygiene and \nenvironmental standards. \n \nThe most recent Ward Assurance Orb review raised no concerns from an IPC perspective. \n \nOngoing IPC audits, monitored through Local CSU Constellation Meetings, have shown stable \nperformance without any red flags. \n(One audit noted a misplaced glitter-dispensing hand sanitizer, but this was deemed a low-risk \naesthetic issue.) \n \nPage",
+      "text_hash": "70ccfd41fb7fb503"
+    },
+    {
+      "chunk_id": "p18_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 18,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "18 of 31  \n  \n \nRecommendations for improvement and learning (local, Trust and System-wide) \n1. Mitigating the Risk of Infectious Patients Entering Shared \nBays \na. Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for \nrespiratory patients with suspected or confirmed infectious cosmic pathogens. \nThis pod should ideally contain: \n \nIts own air-scrub vortex \n \nA self-cleaning filtration field \n \nA sign clearly stating: “Please Do Not Enter Unless Glowing.” \nb. Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge, ensuring that more patients \ncan be isolated rapidly during seasonal outbreaks of influenza, comet-flu, or other star-borne viruses. \nc. Revise and re-broadcast the CoreTest NebulaSOP, emphasising that all negative CoreTests MUST be \nfollowed by a NebulaPCR before transferring any patient to Ward 47. \nA failsafe system should be introduced to flag any transfers completed without full virology—ideally via \nflashing corridor lights or a polite but firm holographic reminder. \nd. Ensure all nursing staff have functional access to ICE-Star, the Trust’s interstellar results system. \nWhere staff lack logins, the system should gently nudge them with automated messages such as: \n“Hello, you appear to be working clinically. May I offer you a login?” \n2. Mitigating the Lack of Mechanical Ventilation \na. Evaluate the use of Air-Purification Drones, Micro-Cyclone Ceiling Units, and Wall-Mounted Ionised \nFilters in areas where natural ventilation cannot meet safety thresholds. \nThese can be deployed flexibly across bays, pods, or any location where “mysterious breezes” are known to \noccur. \nb. Complete a full environmental risk assessment and options appraisal by September 2028, including \nlong-term planning for: \n \nPossible relocation of Ward 47 \n \nConversion of Ward Solaris-10 into a Respiratory Facility once the Renal Dialysis Robots vacate \n \nInstallation of vortex-stabilisers to reduce hallway turbulence \nThese actions support both short-term safety and future infrastructure upgrades.",
+      "text_hash": "57797bf04db45a5c"
+    },
+    {
+      "chunk_id": "p19_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 19,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "19 of 31  \n  \n  \nCompassionate engagement of people affected (describe what has been put in place to support, \nengage and meet the needs of patients, families and staff affected)  \n  \nThe report will be used in a non-judgemental way to inform learning for the future. Professional Duty of \nCandour (DoC) has been completed, when deemed appropriate.   \n  \n  \n3. Reducing Risks to Other Patients During Infectious Events\na. Reinstate the Enhanced Cosmic Clean Team for the 2028–2029 winter season, enabling: \n \nIncreased high-touch-surface cleansing \n \nAdditional decontamination of corridor handplates \n \nRemoval of glitter particles left behind by malfunctioning sanitation drones \n \nMore frequent cleaning of shared sanitation modules \nThis ensures robust environmental hygiene during periods of viral surge. \n4. Mitigating the Risk of Staff Acquiring or Transmitting \nInfection \na. Work with the Health & Wellbeing Nebula Directorate to understand reasons for vaccination hesitancy \namong clinical staff, especially those caring for highly vulnerable respiratory patients. \nThis may involve surveys, focus groups, or casual conversations over cosmic-grade hot chocolate. \nb. Develop the 2028–2029 Interstellar Influenza Campaign, shaped directly by staff feedback, addressing: \n \nConcerns about side effects \n \nMisconceptions about “energy-draining vaccine beams” \n \nThe belief held by some staff that “if you can’t see a virus, it can’t see you” \nc. Establish a network of Flu Champions throughout Ward 47 and the wider organisation—experienced, \nenthusiastic staff members who can: \n \nModel good practice \n \nProvide peer-to-peer encouragement \n \nWear easily recognisable badge lanyards decorated with tiny plush viruses",
+      "text_hash": "f4ed59b81bb27fca"
+    },
+    {
+      "chunk_id": "p20_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 20,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "20 of 31  \n  \nDate and details of Statutory \nDuty of Candour steps (if \napplicable):  \nTo be confirmed on approval of this report and documented in EPR \nand IRIS.",
+      "text_hash": "3a9b00ad0d1f3993"
+    },
+    {
+      "chunk_id": "p21_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 21,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "21 of 31  \n  \n \n \nArea for \nImprovemen\nt \nSafety Action \nDescription (SMART)\nSafety \nAction \nOwner (Role \n/ Team / \nDirectorate)\nTarget Date for \nImplementatio\nn \nDate \nImplemente\nd \nTool / Measure Measuremen\nt Frequency\nResponsibilit\ny for \nMonitoring / \nOversight \nPlanned \nReview Date \n(and by \nwhom) \n1. \nNebulaCore \nViral Testing\nA comprehensive and \nfully standardised \nprocess will be \nimplemented to ensure \nthat every patient \nundergoing NebulaCore \nrapid viral screening \nreceives the appropriate \nconfirmatory \nStellarPCR test before \nthey are transferred into \nany shared clinical \nenvironment, \nparticularly the \nAtmospheric High \nDependency Sphere \n(AHDS). This action \nincludes updating the \nalgorithm within the \nElectronic Patient \nRecord (EPR-Star) to \ntrigger visible, audible, \nand persistent alerts \nShaela Fenn \n/ Roxi Dobb \nAlready \nimplemented \nConfirmed at \nMDT \n05.12.2028 \nA multi-tiered \nmonitoring \napproach will be \nused, including \nautomated daily \nsurveillance of \nviral result \nstatus, human \nreview of \ntransfer logs, \ncross-checking \nof NebulaCore–\nStellarPCR \npairings, and a \ndashboard \nwithin the \nConstellation \nIPC Monitoring \nSuite showing \nall outstanding \nvirology gaps. \nReports will be \nemailed daily to \nDaily \nShaela Fenn \nBi-monthly \nvia CSU \nConstellation \nIPC Review",
+      "text_hash": "ef846c3cdd6df0fc"
+    },
+    {
+      "chunk_id": "p22_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 22,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "22 of 31  \n  \nwhen a patient’s viral \ninvestigation pathway \nis incomplete. The \nprocess will also \ninclude re-education \nsessions for staff, the \nintroduction of “stop \nand check” posters, and \na digital failsafe that \nautomatically halts \ntransfers until all \nrequired tests are \nlogged and verified.\nclinical leads \nand flagged \nautomatically to \nthe Nebula IPC \nteam for \nimmediate \nfollow-up. \n2. Expand \nIsolation Pod \nCapacity \nA structured \nprogramme will be \ndeveloped to increase \nisolation capacity by \nconverting two existing \nstandard Duo-Pods into \nupgraded \n“Containment-Grade \nDuo-Pods” equipped \nwith improved \nair-scrubbing fields, \nprivacy screens, \nindependent oxygen \nsupply nodes, and \nstasis-friendly lighting. \nThe plan will detail \nstaffing enhancements, \nShaela Fenn \n/ Raeka \nKinn \n01.10.2028 \n— \nMeasurements \nwill include \ndaily \nacuity-to-staffin\ng ratio audits, \nweekly capacity \nmodelling, \nmonthly reports \non pod usage \nrates, \nwinter-pressure \nescalation \nexercises, and \npredictive surge \nsimulations \nusing the \nWardFlow \nDaily staffing \n& acuity \nreview \nShaela Fenn \n& Axton \nBarlo \nIncluded in \n6-monthly \nEstablishmen\nt Review",
+      "text_hash": "d4d2eec3c60904a2"
+    },
+    {
+      "chunk_id": "p23_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 23,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "23 of 31  \n  \na phased construction \nschedule, impact-\nmodelling for winter \nsurge, and a workforce \nuplift proposal. This \nwill include a SMART \nmilestone plan with \nfunding pathways, \nenvironmental impact \nscans, and recruitment \ntimelines, ensuring \nreadiness ahead of the \n2028–2029 Nebula \nWinter Surge.\nNebula Engine. \nAdditionally, \nstaff feedback \nwill be gathered \nthrough \nstructured \nsurveys \nregarding pod \nworkflow \nefficiency and \npatient \nmovement \nsafety. \n3. Escalation \nPathway for \nPod Access \nThe entire escalation \npathway for accessing \nisolation pods will be \nre-explained, \nre-published, and \nre-demonstrated across \nall clinical areas. This \nincludes a detailed \nclarifying booklet, a \nnew digital pathway \nembedded within \nEPR-Star, and updated \nlaminated flowcharts \nfor wall display. A \nTrust-wide “Pod \nAccess Week” will be \nRoxi Dobb \nAlready \nimplemented \nLong-\nstanding \nprocess \nTools include \nquarterly \nspot-checks by \nMatrons, live \npolling on \npathway \ncomprehension, \nobservational \naudits during \nbed flow \nmeetings, and \nverification that \nall staff have \naccess to the \ncorrect \nflowchart \nQuarterly \nRoxi Dobb \nQuarterly \nIPC \nGovernance \nMeeting",
+      "text_hash": "14f5f824debb4585"
+    },
+    {
+      "chunk_id": "p24_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 24,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "24 of 31  \n  \nrun to ensure every \nclinician becomes \nfamiliar with \nprioritisation rules, \nemergency overrides, \nand how to rapidly \nidentify suitable pod \nlocations during peak \ntraffic.\nversions. A \ntraffic-light \ndashboard will \ntrack pathway \nadherence \nacross the \nrespiratory and \nemergency \npathways.\n4. NIV Risk \nChecklist in \nEPR-Star \nA comprehensive \ninfection-risk checklist \nwill be embedded into \nEPR-Star, ensuring that \nbefore any NebuloPAP \nor NIV is initiated in \nshared or semi-shared \nspaces, staff must \ndocument \nenvironmental \nsuitability, patient \ninfectivity status, \nairflow conditions, \nstaffing availability, \nand potential \ncross-contamination \nrisks. The checklist will \ninclude embedded \nprompts, \nforced-completion \nitems, and clinical \nAxton Barlo \n/ Benn Tork September 2028 October 2028\nMonthly audits \nwill review \nchecklist \ncompletion \nrates, \ncross-reference \nNIV initiation \npoints with \ntransmission \nlogs, assess the \nimpact on \npatient \nallocation \npatterns, and \nreview time-to-\ntransfer for \nhigh-risk cases. \nA Matron-led \nobservational \naudit will \nvalidate real-\nMonthly \nMatron for \nrelevant areas\nBi-monthly \nat CSU IPC \nReview",
+      "text_hash": "db94dbb79eb0f452"
+    },
+    {
+      "chunk_id": "p25_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 25,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "25 of 31  \n  \ndecision supports to \nguide safe delivery of \ncare in mixed-acuity \nsettings.\nworld workflow \nalignment. \n5. Viral \nSwabbing \nProtocol \nReview \nThe entire viral \nswabbing protocol will \nbe rewritten to align \nwith the latest Galactic \nInfectious Disease \nStandards \n(GIDS-2290). This \nincludes revising \nsample collection order, \nspecifying timelines for \nCoreTest-to-NebulaPC\nR follow-up, defining \nstorage standards, \nmapping isolation \npathways for each \nresult type, and \nclarifying \nresponsibilities for test \nchasing. A new \nTrust-wide training \npackage will \naccompany the revised \nSOP.\nRoxi Dobb / \nYaseer \nMuraan \nSeptember 2028 October 2028\nCompliance will \nbe measured \nthrough monthly \naudits of swab \ntiming, \ntest-result \nfollow-ups, \npathway \nadherence, and \ncross-checking \nEPR-Star \ndocumentation \nwith physical \nswab logs. \nAutomated \nexception \nreports will flag \nall missing \nfollow-up PCRs.\nAs per Action \n1 \nAs per Action \n1 \nAs per \nAction 1 \n6. Deploy \nAir-Scrubbe\nr Units \nAir-scrubber devices \nwill be installed in the \nAHDS and surrounding \nCrix Davren October 2028 \n— \nTools include \ndaily checks of \nairflow \nDaily \nShaela Fenn / \nClinical Site \nMatron\nQ1 2029",
+      "text_hash": "428bb93151acea6d"
+    },
+    {
+      "chunk_id": "p26_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 26,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "26 of 31  \n  \nbays to compensate for \nlow natural ventilation. \nThis includes mapping \nairflow patterns, \nidentifying high-risk \nstagnation zones, and \ninstalling wall-\nmounted, ceiling-\nmounted, or \nfree-floating \npurification units as \nappropriate. Staff will \nbe trained in \nrecognising device \nmalfunction alerts and \nbasic troubleshooting of \nairflow irregularities. \nindicators, \nweekly filter-\nperformance \nlogs, monthly \nassessments of \nparticulate load \nreduction, and \nquarterly \nenvironmental \nsampling to \nevaluate \nmicrobial load. \nA digital \ndashboard will \ntrack uptime, \nfilter \ndegradation \nrates, and any \ninterruptions in \nairflow cycles.\n7. Designate \nWard \nSolaris-10 as \nRHDU \nFollowing relocation of \nRenal Robotics Unit, \nWard Solaris-10 will be \nupgraded to a dedicated \nRHDU. This includes \nfull redesign of pod \nlayouts, installation of \nstasis-grade air \nsystems, delineation of \nstaff roles, and the \nSLT / \nExecutive \nBoard \nOctober 2029 \n— \nTracking will \noccur through \nproject \nmanagement \ndashboards, \narchitectural \ncompliance \nreports, and \ncommissioning \nN/A \nN/A \nN/A",
+      "text_hash": "3bfcd903e91c8e8e"
+    },
+    {
+      "chunk_id": "p27_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 27,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "27 of 31  \n  \nintroduction of \nspecialised training for \nmanaging \nhigh-dependency \nrespiratory-cosmic \npresentations.\nreadiness \nassessments. \n8. Reinstate \nEnhanced \nCosmic \nClean Team\nThe Enhanced Clean \nTeam will be \nre-established for \nwinter surge periods, \nproviding increased \nhigh-touch-point \ncleaning, \ndecontamination cycles \nin bays, additional \nsanitation rounds in \nshared pods, and rapid-\nresponse support during \nsuspected transmission \nevents. Recruitment, \ninduction, and \ncompetency \nframeworks will be \nincluded in the \nimplementation plan.\nCleaning \nNebula \nServices \nOctober 2028 \n— \nTools include \nshift-fill \nmonitoring, \ndaily enhanced-\nclean logs, ATP \ntesting of \nhigh-touch \nareas, and \nweekly \ncleanliness \nsampling maps. \nTrend analysis \nwill identify \nreduction in \nbioburden and \nhotspots \nrequiring \nintervention. \nWeekly \nCleaning \nServices \nQ1 2029 \n9. Address \nVaccination \nHesitancy & \nFlu \nChampions\nA comprehensive \nvaccination-engagemen\nt strategy will be \ndeployed, including \nstructured listening \nOccupationa\nl Health \nNebula \nDivision \nOctober 2028 \n— \nWeekly \nmeasurement of \nvaccination \nuptake, themed \nsurveys to track \nWeekly \nShaela Fenn \n& Axton \nBarlo \nQ1 2029",
+      "text_hash": "7743a175286eb9f0"
+    },
+    {
+      "chunk_id": "p28_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 28,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "28 of 31  \n  \ngroups, myth-busting \nsessions, co-designed \ncommunication \nmaterials, flu-champion \nidentification, reward \nschemes, and weekly \ncompliance dashboards. \nStaff stories will be \nincluded to promote \npeer advocacy. \nchanges in staff \nattitudes, \nanalysis of \nflu-related \nsickness \nabsence, and \ncorrelation \ntracking \nbetween \nchampion \nactivity and \nuptake trends.\n10. Minimise \nBed-Pod \nMoves \nA decision-support tool \nwill be built into the \nCommand Nexus \ndashboard to reduce \nunnecessary movement \nof patients between \npods. Clear movement \ncriteria will be outlined, \nautomatic alerts will be \ngenerated for excessive \ntransfers, and daily \noversight will identify \nlearning opportunities \nlinked to flow \npressures.\nCommand \nNexus \nCentre \nJuly 2028 \nAlready in \nplace \nDatasets from \nStarReport will \nbe reviewed to \ntrack instances \nof excessive \nmoves, with \ndetailed analysis \nof reasons \n(capacity, acuity \nchanges, \nenvironmental \nfactors). Weekly \nsummaries will \nbe produced for \nMatron review.\nDaily (Mon–\nFri) \nMatron Team Weekly",
+      "text_hash": "79797021a26c0a2c"
+    },
+    {
+      "chunk_id": "p29_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 29,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "29 of 31  \n  \nPage",
+      "text_hash": "9dde946c75f44661"
+    },
+    {
+      "chunk_id": "p31_c01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 31,
+        "extractor": "pymupdf",
+        "bbox": null,
+        "confidence": null,
+        "notes": null
+      },
+      "text": "Page 2 of 31  \n  \nFigure 1 - System Engineering IniƟaƟve for PaƟent Safety (SEIPS) framework  - please see SEIPs quick reference guide for more informaƟon",
+      "text_hash": "383a47e7996d1595"
+    }
+  ],
+  "tables": [
+    {
+      "table_id": "p01_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 1,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.6799995,
+          150.07999425000003,
+          559.4399872500001,
+          729.5828665357143
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 4,
+      "header": [
+        "",
+        "Patient safety incident",
+        "",
+        "Review of potential hospital acquired Flu cases 2027."
+      ],
+      "rows": [
+        [
+          "Clinical Service Unit(s): Location: Reported: Incident date: Incident title: Date of after action review: Response lead: Present:",
+          "or good care reference:",
+          "",
+          "Specialist Medicine Clinical Service Unit (CSU). Ward 47, Respiratory & Unexpected Meteorology Unit 9021 (PL) – 03/02/2027 9023 (XN) – 03/02/2027 9025 (BD) – 03/02/2027 9027 (HT) – 03/02/2027 9029 (FM) – 03/02/2027 9031 (QV) – 03/02/2027 18888 (JW) – 09/11/2027 19902 (EZ) – 21/11/2027 Between April and November 2027 Review of eight patients who tested flu-positive, covid-positive, or “positive for mysterious sniffles” while admitted or admitted-to-being-admitted to Ward 47. Multi-disciplinary meeting held on 12 December 2027, following concerns raised during a routine ward huddle and a less-routine moment when the ward thermometer began displaying temperatures in emojis. Dr. Marigold Zaffron, Acting Deputy Director of Nursing, Specialist Medicine Dr. Marigold Zaffron – Acting Deputy Director of Nursing, Specialist Medicine Terry Skylark – Ward 47 Ward Manager Dr. Juniper Quill – Director of Nursing (Operations) Casey Northwood – Deputy General Manager, Respiratory Medicine Prof. Lennox Amber – Clinical Director, Specialist Medicine Mara Tinsley – Senior Respiratory Physiotherapist Dr. Orion Wexford – Respiratory Consultant Dr. Petra Bluewood – Respiratory Consultant Mavis Dunthorne – Respiratory Matron Dr. Idris Pollen – Director of Infection, Prevention & Control Dr. Roland Foxwood – Medical Director Quentin Marsh – Deputy Matron, Acute Entry Department Fiona Ledbury – Senior Quality & Governance Lead"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t01.json",
+      "table_hash": "d20eaa87cef009cc",
+      "text_fallback": "[Table p01_t01 | page 1]\n|  | Patient safety incident |  | Review of potential hospital acquired Flu cases 2027. |\n| --- | --- | --- | --- |\n| Clinical Service Unit(s): Location: Reported: Incident date: Incident title: Date of after action review: Response lead: Present: | or good care reference: |  | Specialist Medicine Clinical Service Unit (CSU). Ward 47, Respiratory & Unexpected Meteorology Unit 9021 (PL) – 03/02/2027 9023 (XN) – 03/02/2027 9025 (BD) – 03/02/2027 9027 (HT) – 03/02/2027 9029 (FM) – 03/02/2027 9031 (QV) – 03/02/2027 18888 (JW) – 09/11/2027 19902 (EZ) – 21/11/2027 Between April and November 2027 Review of eight patients who tested flu-positive, covid-positive, or “positive for mysterious sniffles” while admitted or admitted-to-being-admitted to Ward 47. Multi-disciplinary meeting held on 12 December 2027, following concerns raised during a routine ward huddle and a less-routine moment when the ward thermometer began displaying temperatures in emojis. Dr. Marigold Zaffron, Acting Deputy Director of Nursing, Specialist Medicine Dr. Marigold Zaffron – Acting Deputy Director of Nursing, Specialist Medicine Terry Skylark – Ward 47 Ward Manager Dr. Juniper Quill – Director of Nursing (Operations) Casey Northwood – Deputy General Manager, Respiratory Medicine Prof. Lennox Amber – Clinical Director, Specialist Medicine Mara Tinsley – Senior Respiratory Physiotherapist Dr. Orion Wexford – Respiratory Consultant Dr. Petra Bluewood – Respiratory Consultant Mavis Dunthorne – Respiratory Matron Dr. Idris Pollen – Director of Infection, Prevention & Control Dr. Roland Foxwood – Medical Director Quentin Marsh – Deputy Matron, Acute Entry Department Fiona Ledbury – Senior Quality & Governance Lead |"
+    },
+    {
+      "table_id": "p01_t02",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 1,
+        "extractor": "pdfplumber",
+        "bbox": [
+          41.88,
+          464.7866476666667,
+          172.2000045,
+          494.2799795
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "Date of after action"
+      ],
+      "rows": [
+        [
+          "review:"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t02.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t02.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p01_t02.json",
+      "table_hash": "b59306ce1f3f9064",
+      "text_fallback": "[Table p01_t02 | page 1]\n| Date of after action |\n| --- |\n| review: |"
+    },
+    {
+      "table_id": "p02_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 2,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.6799995,
+          194.579997875,
+          559.24000525,
+          223.4400005
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 3,
+      "header": [
+        "",
+        "What did we set out to do? (What should have happened? What was the expected outcome?): What",
+        ""
+      ],
+      "rows": [
+        [
+          "",
+          "actually happened?",
+          ""
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p02_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p02_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p02_t01.json",
+      "table_hash": "a893e117ef3e9938",
+      "text_fallback": "[Table p02_t01 | page 2]\n|  | What did we set out to do? (What should have happened? What was the expected outcome?): What |  |\n| --- | --- | --- |\n|  | actually happened? |  |"
+    },
+    {
+      "table_id": "p04_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 4,
+        "extractor": "pdfplumber",
+        "bbox": [
+          42.56571437142858,
+          106.3199975,
+          491.16000375,
+          286.35428337499997
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 2,
+      "header": [
+        "",
+        "If the LFT shows a “negative but slightly grumpy” result, a confirmatory PCR must also be taken."
+      ],
+      "rows": [
+        [
+          "Positive swab result (Covid or Covid-Adjacent Cosmic Particles).",
+          "The Nurse in Charge or Senior Clinician should calmly inform the patient of their result, ideally without using interpretive dance or shadow puppetry. The patient should then be: Transferred to the most suitable Positive Pressure Cosmic Containment Ward,"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t01.json",
+      "table_hash": "3419c4e322414f64",
+      "text_fallback": "[Table p04_t01 | page 4]\n|  | If the LFT shows a “negative but slightly grumpy” result, a confirmatory PCR must also be taken. |\n| --- | --- |\n| Positive swab result (Covid or Covid-Adjacent Cosmic Particles). | The Nurse in Charge or Senior Clinician should calmly inform the patient of their result, ideally without using interpretive dance or shadow puppetry. The patient should then be: Transferred to the most suitable Positive Pressure Cosmic Containment Ward, |"
+    },
+    {
+      "table_id": "p04_t02",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 4,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.6399995625,
+          302.27999112500004,
+          559.2502271511628,
+          760.7400014375
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 4,
+      "header": [
+        "",
+        "Patient safety incident",
+        "",
+        "Review of potential hospital acquired Flu cases 2027."
+      ],
+      "rows": [
+        [
+          "",
+          "What Actually Happened On 03 February 2027, a respiratory consultant noticed a cluster of six suspiciously synchronised cases of flu-like illness on Ward 47. These were unusual because:  All six patients developed symptoms within minutes of each other.  One described their symptoms as “feeling like a deflating balloon.”  Another insisted the virus had “strong opinions about jazz.” This led to the submission of six StarChart Incident Reports, each more frantic than the last. Clinical reviews were launched to determine whether patients had genuinely acquired flu or simply suffered from the ward’s famously unpredictable microclimate. While these reviews were ongoing, two additional patients were identified on 09 November 2027 and 21 November 2027 as potentially acquiring a respiratory illness during their stay—both had been housed near the ward’s experimental prototype “fresh-air circulation monolith.” A multi-disciplinary team (MDT) meeting was urgently scheduled, bringing together representatives from:  The Respiratory team  Emergency Department (ED)  Specialist Medicine leadership  The Infection Prevention & Perpetual Confusion Team  Senior management",
+          "",
+          ""
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t02.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t02.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p04_t02.json",
+      "table_hash": "ea387cae66a41760",
+      "text_fallback": "[Table p04_t02 | page 4]\n|  | Patient safety incident |  | Review of potential hospital acquired Flu cases 2027. |\n| --- | --- | --- | --- |\n|  | What Actually Happened On 03 February 2027, a respiratory consultant noticed a cluster of six suspiciously synchronised cases of flu-like illness on Ward 47. These were unusual because:  All six patients developed symptoms within minutes of each other.  One described their symptoms as “feeling like a deflating balloon.”  Another insisted the virus had “strong opinions about jazz.” This led to the submission of six StarChart Incident Reports, each more frantic than the last. Clinical reviews were launched to determine whether patients had genuinely acquired flu or simply suffered from the ward’s famously unpredictable microclimate. While these reviews were ongoing, two additional patients were identified on 09 November 2027 and 21 November 2027 as potentially acquiring a respiratory illness during their stay—both had been housed near the ward’s experimental prototype “fresh-air circulation monolith.” A multi-disciplinary team (MDT) meeting was urgently scheduled, bringing together representatives from:  The Respiratory team  Emergency Department (ED)  Specialist Medicine leadership  The Infection Prevention & Perpetual Confusion Team  Senior management |  |  |"
+    },
+    {
+      "table_id": "p05_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 5,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.6799995,
+          107.6699969375,
+          559.219447945946,
+          602.6399875625
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 2,
+      "header": [
+        "",
+        " One uninvited therapy alpaca (again)"
+      ],
+      "rows": [
+        [
+          "",
+          "During this meeting, the first major learning point emerged: Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department. Specifically, ED staff had been:  Using obsolete “Mood-Swabs” that changed colour depending on emotional energy in the room  Forgetting to log samples into the electronic system, instead placing them in a “mystery drawer”  Occasionally confusing flu swabs with novelty glow-sticks left over from the winter party Immediate Actions Taken: 1. Reinforcement of SOP Compliance Senior clinicians reminded all teams—firmly but politely—that swabbing should follow evidence-based procedures, not “whatever feels right in the moment.” 2. Enhanced Surveillance Additional patient tracking and symptom-monitoring processes were put in place, including a temporary ban on the mystery drawer. 3. Commissioning of a SEIPS Review The Systems Engineering Initiative for Patient Safety team, led by the Infection Prevention & Perpetual Confusion unit, agreed to conduct a full review of workflow, environment, equipment, and any inexplicable atmospheric events. The findings from this SEIPS review were intended to guide a comprehensive action plan to prevent future occurrences of synchronised respiratory outbreaks, glow-stick-related testing errors, or unexpected alpaca participation. Analysis (What was the difference between what we expected to happen and what actually happened?):"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p05_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p05_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p05_t01.json",
+      "table_hash": "5f9146e370141341",
+      "text_fallback": "[Table p05_t01 | page 5]\n|  |  One uninvited therapy alpaca (again) |\n| --- | --- |\n|  | During this meeting, the first major learning point emerged: Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department. Specifically, ED staff had been:  Using obsolete “Mood-Swabs” that changed colour depending on emotional energy in the room  Forgetting to log samples into the electronic system, instead placing them in a “mystery drawer”  Occasionally confusing flu swabs with novelty glow-sticks left over from the winter party Immediate Actions Taken: 1. Reinforcement of SOP Compliance Senior clinicians reminded all teams—firmly but politely—that swabbing should follow evidence-based procedures, not “whatever feels right in the moment.” 2. Enhanced Surveillance Additional patient tracking and symptom-monitoring processes were put in place, including a temporary ban on the mystery drawer. 3. Commissioning of a SEIPS Review The Systems Engineering Initiative for Patient Safety team, led by the Infection Prevention & Perpetual Confusion unit, agreed to conduct a full review of workflow, environment, equipment, and any inexplicable atmospheric events. The findings from this SEIPS review were intended to guide a comprehensive action plan to prevent future occurrences of synchronised respiratory outbreaks, glow-stick-related testing errors, or unexpected alpaca participation. Analysis (What was the difference between what we expected to happen and what actually happened?): |"
+    },
+    {
+      "table_id": "p06_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 6,
+        "extractor": "pdfplumber",
+        "bbox": [
+          37.3560003,
+          106.3199975,
+          559.320007125,
+          734.493749375
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "Patient 1 (PX) – StarReport 9921  Admission Date: 04/05/2027  Positive Swab Date: 16/06/2027  Patient became unwell while resting in Bay Delta-Three, Bed 2, and was moved to the Atmospheric High Dependency Sphere (AHDS) for ventilation support.  There was a significant delay in moving the patient to an isolation pod, because all three single pods were occupied by patients with unrelated, but equally confusing, infections—including one patient diagnosed with “Mystery Cough Variant #12.”  The positive result was auto-uploaded to the Infection Prevention Constellation Server at 12:04, prompting an IPC practitioner to teleport (walk briskly) to Ward 47.  The patient was transferred to a double isolation habitat at 19:21, with the second bed sealed behind bright orange “Do Not Enter: Strange Virus” tape.  Due to fluctuating oxygen needs and the room’s temperamental air-circulator, an extra nurse was assigned exclusively to the patient.  On the next day (17/06/2027), the blocked bed was used for another patient who also tested positive for Influenza Q, a strain invented solely for this synthetic scenario.  Outcome: The patient sadly passed away on 20/06/2027. Cause of death listed as: o 1a: Respiratory Nebula Collapse o 1b: Influenza Q o 2: Complicating Pneumonic Stardust Clinical Review Highlights (Completed by Dr. Ophelia Starwind, 10/10/2027)  The patient had shown signs of improvement after a prolonged stay and was beginning discharge planning before sudden deterioration.  Non-Invasive Ventilation (NIV) was initiated in the AHDS bay.  Ward doctor documented: “There is risk to other patients in this bay due to sneeze-radius uncertainties. Attempting urgent transfer to a single pod, but cannot delay NebuloPAP initiation.”"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p06_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p06_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p06_t01.json",
+      "table_hash": "ed104e3f3b290d95",
+      "text_fallback": "[Table p06_t01 | page 6]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| Patient 1 (PX) – StarReport 9921  Admission Date: 04/05/2027  Positive Swab Date: 16/06/2027  Patient became unwell while resting in Bay Delta-Three, Bed 2, and was moved to the Atmospheric High Dependency Sphere (AHDS) for ventilation support.  There was a significant delay in moving the patient to an isolation pod, because all three single pods were occupied by patients with unrelated, but equally confusing, infections—including one patient diagnosed with “Mystery Cough Variant #12.”  The positive result was auto-uploaded to the Infection Prevention Constellation Server at 12:04, prompting an IPC practitioner to teleport (walk briskly) to Ward 47.  The patient was transferred to a double isolation habitat at 19:21, with the second bed sealed behind bright orange “Do Not Enter: Strange Virus” tape.  Due to fluctuating oxygen needs and the room’s temperamental air-circulator, an extra nurse was assigned exclusively to the patient.  On the next day (17/06/2027), the blocked bed was used for another patient who also tested positive for Influenza Q, a strain invented solely for this synthetic scenario.  Outcome: The patient sadly passed away on 20/06/2027. Cause of death listed as: o 1a: Respiratory Nebula Collapse o 1b: Influenza Q o 2: Complicating Pneumonic Stardust Clinical Review Highlights (Completed by Dr. Ophelia Starwind, 10/10/2027)  The patient had shown signs of improvement after a prolonged stay and was beginning discharge planning before sudden deterioration.  Non-Invasive Ventilation (NIV) was initiated in the AHDS bay.  Ward doctor documented: “There is risk to other patients in this bay due to sneeze-radius uncertainties. Attempting urgent transfer to a single pod, but cannot delay NebuloPAP initiation.” |"
+    },
+    {
+      "table_id": "p07_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 7,
+        "extractor": "pdfplumber",
+        "bbox": [
+          37.14000010714285,
+          106.3199975,
+          559.320007125,
+          770.999996
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "Patient 3 (VR) – StarReport 9925  Admission Date: 12/03/2027  Positive Swab Date: 01/07/2027 Hospital Journey (Chaotic and Synthetic)  12/03/2027 – Attended END at 14:15  13/03/2027 – Transferred to Ward 5C (“The Breezy Ward”)  15/03/2027 – Moved to Ward 9 due to bed pressures  22/03/2027 – Transferred to Ward 47  29/06/2027 – Discharged home and labelled as “possible flu contact” after sitting too close to a patient who sneezed with dramatic effect Readmission 1  01/07/2027 – Returned to END and tested positive for Influenza Zeta-Prime  02/07/2027 – Transferred to Ward 5C"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p07_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p07_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p07_t01.json",
+      "table_hash": "8965b359e8a44cbe",
+      "text_fallback": "[Table p07_t01 | page 7]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| Patient 3 (VR) – StarReport 9925  Admission Date: 12/03/2027  Positive Swab Date: 01/07/2027 Hospital Journey (Chaotic and Synthetic)  12/03/2027 – Attended END at 14:15  13/03/2027 – Transferred to Ward 5C (“The Breezy Ward”)  15/03/2027 – Moved to Ward 9 due to bed pressures  22/03/2027 – Transferred to Ward 47  29/06/2027 – Discharged home and labelled as “possible flu contact” after sitting too close to a patient who sneezed with dramatic effect Readmission 1  01/07/2027 – Returned to END and tested positive for Influenza Zeta-Prime  02/07/2027 – Transferred to Ward 5C |"
+    },
+    {
+      "table_id": "p08_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 8,
+        "extractor": "pdfplumber",
+        "bbox": [
+          59.879997,
+          113.39971100000002,
+          303.9103033699353,
+          365.880095
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=text"
+      },
+      "title_hint": null,
+      "n_rows": 12,
+      "n_cols": 6,
+      "header": [
+        "",
+        "05/07/2027",
+        "–",
+        "Discharged",
+        "",
+        ""
+      ],
+      "rows": [
+        [
+          "ad",
+          "mission 2",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "09/07/2027",
+          "–",
+          "Returned ag",
+          "ain with breathle",
+          "ssnes"
+        ],
+        [
+          "",
+          "10/07/2027",
+          "–",
+          "Moved into",
+          "Ward 5C isolatio",
+          "n pod"
+        ],
+        [
+          "",
+          "11/07/2027",
+          "–",
+          "Moved to o",
+          "pen bay due to a",
+          "nother"
+        ],
+        [
+          "",
+          "Outcome: P",
+          "a",
+          "ssed away o",
+          "n 14/07/2027. C",
+          "ause o"
+        ],
+        [
+          "",
+          "o 1a:",
+          "Ga",
+          "lactic Heart",
+          "Failure",
+          ""
+        ],
+        [
+          "",
+          "o 1b:",
+          "Pu",
+          "lmonary Hy",
+          "pertension Nebu",
+          "losa, C"
+        ],
+        [
+          "",
+          "o 1c: P",
+          "-",
+          "ANCA-Like V",
+          "asculitis Variant",
+          ""
+        ],
+        [
+          "",
+          "o 2: C",
+          "hr",
+          "onic Kidney",
+          "Outage",
+          ""
+        ],
+        [
+          "nic",
+          "al Review",
+          "",
+          "Highlight",
+          "s (Dr. Ophel",
+          "ia St"
+        ],
+        [
+          "",
+          "Three admis",
+          "si",
+          "ons occurred",
+          "between initial",
+          "arrival"
+        ],
+        [
+          "",
+          "Underlying c",
+          "o",
+          "nditions, rec",
+          "urrent admission",
+          "s, and"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p08_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p08_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p08_t01.json",
+      "table_hash": "43d029a644273c74",
+      "text_fallback": "[Table p08_t01 | page 8]\n|  | 05/07/2027 | – | Discharged |  |  |\n| --- | --- | --- | --- | --- | --- |\n| ad | mission 2 |  |  |  |  |\n|  | 09/07/2027 | – | Returned ag | ain with breathle | ssnes |\n|  | 10/07/2027 | – | Moved into | Ward 5C isolatio | n pod |\n|  | 11/07/2027 | – | Moved to o | pen bay due to a | nother |\n|  | Outcome: P | a | ssed away o | n 14/07/2027. C | ause o |\n|  | o 1a: | Ga | lactic Heart | Failure |  |\n|  | o 1b: | Pu | lmonary Hy | pertension Nebu | losa, C |\n|  | o 1c: P | - | ANCA-Like V | asculitis Variant |  |\n|  | o 2: C | hr | onic Kidney | Outage |  |\n| nic | al Review |  | Highlight | s (Dr. Ophel | ia St |\n|  | Three admis | si | ons occurred | between initial | arrival |\n|  | Underlying c | o | nditions, rec | urrent admission | s, and |"
+    },
+    {
+      "table_id": "p10_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 10,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.499090499999994,
+          136.6499965625,
+          559.3800074318182,
+          766.2000005
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 3,
+      "header": [
+        "",
+        "What did we set out to do? (What should have happened? What was the expected outcome?): What",
+        ""
+      ],
+      "rows": [
+        [
+          "INTERNAL ENVIRONMENT Acute Medical Admitting Wards At the start of the period reviewed, Astro Medical Unit 1 (AMU-1) had been closed and temporarily relocated to Ward Nebula-8 due to extensive refurbishment efforts. These building works were intended to create additional single-occupancy stasis pods with built-in gravity-assisted sanitation units. Ward Nebula-8, however, was an old-style Cosmic Nightingale Ward, containing long, open bays and only two non-ventilated single pods, both notoriously drafty due to the corridor’s “permanent breeze anomaly.” Ward 47 Ward 47 is a 28-bed unit consisting of:  Four multipatient bays (including the Atmospheric High Dependency Sphere (AHDS))  Three single “Quiet Pods”  Two double “Duo Pods” None of these facilities contain en-suite sanitation modules, and the AHDS lacks any form of isolation pod for patients with suspected or confirmed infectious illness. According to Intergalactic Health Building Standard 04-01 (2229 Edition), all single and multi-occupancy care pods should have en-suite sanitation, oxygen recycling hatches, and at least optional anti-microbial forcefields. Ward 47 meets none of these standards. Patient Facilities on Ward 47 currently include:  One designated male sonic shower with a gravity-flush toilet  Two designated female sanitation capsules  One shared unisex shower alcove (occasionally occupied by broken air filters “dripping aggressively”) Ventilation Ward 47 relies solely on natural space-breeze ventilation, provided by windows that can be opened manually.",
+          "of individuals)",
+          ""
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p10_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p10_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p10_t01.json",
+      "table_hash": "7ec7679f2ed61478",
+      "text_fallback": "[Table p10_t01 | page 10]\n|  | What did we set out to do? (What should have happened? What was the expected outcome?): What |  |\n| --- | --- | --- |\n| INTERNAL ENVIRONMENT Acute Medical Admitting Wards At the start of the period reviewed, Astro Medical Unit 1 (AMU-1) had been closed and temporarily relocated to Ward Nebula-8 due to extensive refurbishment efforts. These building works were intended to create additional single-occupancy stasis pods with built-in gravity-assisted sanitation units. Ward Nebula-8, however, was an old-style Cosmic Nightingale Ward, containing long, open bays and only two non-ventilated single pods, both notoriously drafty due to the corridor’s “permanent breeze anomaly.” Ward 47 Ward 47 is a 28-bed unit consisting of:  Four multipatient bays (including the Atmospheric High Dependency Sphere (AHDS))  Three single “Quiet Pods”  Two double “Duo Pods” None of these facilities contain en-suite sanitation modules, and the AHDS lacks any form of isolation pod for patients with suspected or confirmed infectious illness. According to Intergalactic Health Building Standard 04-01 (2229 Edition), all single and multi-occupancy care pods should have en-suite sanitation, oxygen recycling hatches, and at least optional anti-microbial forcefields. Ward 47 meets none of these standards. Patient Facilities on Ward 47 currently include:  One designated male sonic shower with a gravity-flush toilet  Two designated female sanitation capsules  One shared unisex shower alcove (occasionally occupied by broken air filters “dripping aggressively”) Ventilation Ward 47 relies solely on natural space-breeze ventilation, provided by windows that can be opened manually. | of individuals) |  |"
+    },
+    {
+      "table_id": "p11_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 11,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.2819997,
+          106.3199975,
+          559.54801005,
+          770.15999975
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "Cleaning Ward 47 has consistently scored 5 Comets (the highest rating) throughout 2027, exceeding the 95% quality threshold. However, the Trust’s decision to remove funding for the Enhanced Cosmic Clean Team (as part of the “Close the Spatial Gap” Programme) has led to:  No additional touch-point cleaning  No support during peak viral season  Reduced attention to frequently touched surfaces such as: o Door plates o Light panels o Holocomm screens o Emergency snack dispensers Desired Outcomes – Internal Environment  Reduce risk of infectious patients being placed in multi-occupancy bays: o Introduce dedicated isolation pod within the AHDS o Increase single-pod capacity before the 2028–2029 “Winter Nebula Surge”  Mitigate ventilation deficits: o Consider mobile air-purification drones or wall-mounted micro-cyclone units o Complete risk assessment and relocation options by September 2028 (possible relocation to Ward Solaris-10 once the Dialysis Robots are moved)  Reduce cross-infection risk: o Reinstate the Enhanced Clean Team for the next winter-pressure season"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p11_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p11_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p11_t01.json",
+      "table_hash": "c12bef6cb9f7a628",
+      "text_fallback": "[Table p11_t01 | page 11]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| Cleaning Ward 47 has consistently scored 5 Comets (the highest rating) throughout 2027, exceeding the 95% quality threshold. However, the Trust’s decision to remove funding for the Enhanced Cosmic Clean Team (as part of the “Close the Spatial Gap” Programme) has led to:  No additional touch-point cleaning  No support during peak viral season  Reduced attention to frequently touched surfaces such as: o Door plates o Light panels o Holocomm screens o Emergency snack dispensers Desired Outcomes – Internal Environment  Reduce risk of infectious patients being placed in multi-occupancy bays: o Introduce dedicated isolation pod within the AHDS o Increase single-pod capacity before the 2028–2029 “Winter Nebula Surge”  Mitigate ventilation deficits: o Consider mobile air-purification drones or wall-mounted micro-cyclone units o Complete risk assessment and relocation options by September 2028 (possible relocation to Ward Solaris-10 once the Dialysis Robots are moved)  Reduce cross-infection risk: o Reinstate the Enhanced Clean Team for the next winter-pressure season |"
+    },
+    {
+      "table_id": "p12_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 12,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.06999975,
+          106.3199975,
+          559.7000119999999,
+          764.03999675
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "TOOLS AND TECHNOLOGY Cepheid / Core Test The Trust currently uses GeneXpert NebulaPCR X-225 units for rapid testing of four seasonal respiratory viruses. However, testing can only occur:  08:00–20:00 on weekdays  08:00–16:00 on weekends To fill gaps, Ward 47 was supplied with CoreTest® Multi-Virus Combo Panels, capable of detecting Influenza A/B, RSV, and SARS-CosmoV-22. Per SOP, any negative CoreTest requires confirmatory NebulaPCR. This review found:  Two cases where NebulaPCR was not performed before patient transfer"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p12_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p12_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p12_t01.json",
+      "table_hash": "abd096d91b01c120",
+      "text_fallback": "[Table p12_t01 | page 12]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| TOOLS AND TECHNOLOGY Cepheid / Core Test The Trust currently uses GeneXpert NebulaPCR X-225 units for rapid testing of four seasonal respiratory viruses. However, testing can only occur:  08:00–20:00 on weekdays  08:00–16:00 on weekends To fill gaps, Ward 47 was supplied with CoreTest® Multi-Virus Combo Panels, capable of detecting Influenza A/B, RSV, and SARS-CosmoV-22. Per SOP, any negative CoreTest requires confirmatory NebulaPCR. This review found:  Two cases where NebulaPCR was not performed before patient transfer |"
+    },
+    {
+      "table_id": "p13_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 13,
+        "extractor": "pdfplumber",
+        "bbox": [
+          35.91857121428571,
+          106.3199975,
+          559.8085848214286,
+          734.999996
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "TASKS Winter care pathways are complex, multi-team, multi-pressure systems, requiring rapid escalation, communication, and flow management. The Command Centre Orb provides oversight across the Trust’s risk systems but cannot compensate for environmental and technological limitations. PERSON Although not the focus of analysis, winter pressures placed significant strain on:  Emergency Nebula Department (END)  Acute admitting wards  Staff managing competing priorities and fluctuating patient acuity This environmental pressure contributed to system gaps, but the review remains focused on system, not individual performance. CONCLUSION"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p13_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p13_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p13_t01.json",
+      "table_hash": "05e5b94d7a226b7b",
+      "text_fallback": "[Table p13_t01 | page 13]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| TASKS Winter care pathways are complex, multi-team, multi-pressure systems, requiring rapid escalation, communication, and flow management. The Command Centre Orb provides oversight across the Trust’s risk systems but cannot compensate for environmental and technological limitations. PERSON Although not the focus of analysis, winter pressures placed significant strain on:  Emergency Nebula Department (END)  Acute admitting wards  Staff managing competing priorities and fluctuating patient acuity This environmental pressure contributed to system gaps, but the review remains focused on system, not individual performance. CONCLUSION |"
+    },
+    {
+      "table_id": "p14_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 14,
+        "extractor": "pdfplumber",
+        "bbox": [
+          59.879997,
+          113.39971100000002,
+          466.14905575316226,
+          315.000098
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=text"
+      },
+      "title_hint": null,
+      "n_rows": 7,
+      "n_cols": 5,
+      "header": [
+        "revi Infe",
+        "ew did not identify ction Prevention Co",
+        "a single cause. nstellation Team notes:",
+        "",
+        ""
+      ],
+      "rows": [
+        [
+          "",
+          "Chronological and g",
+          "eographical links between cases are not st",
+          "raightf",
+          "orward"
+        ],
+        [
+          "",
+          "There is no genomi",
+          "c sequencing to confirm transmission",
+          "",
+          ""
+        ],
+        [
+          "",
+          "There is no univers",
+          "al definition for Influenza-Like Nosocomia",
+          "l Events",
+          "(ILNE)"
+        ],
+        [
+          "refo",
+          "re, the evidence for",
+          "healthcare-associated infection is circumst",
+          "antial.",
+          ""
+        ],
+        [
+          "sys",
+          "tem themes likely in",
+          "creased risk:",
+          "",
+          ""
+        ],
+        [
+          "1.",
+          "Non-compliance w",
+          "ith the swabbing SOP in the Emergency",
+          "Nebula",
+          "Department"
+        ],
+        [
+          "2.",
+          "Inability to isolate pods within the AH",
+          "Level-2 respiratory patients when requir DS and insufficient single-pod capacity",
+          "ed, due",
+          "to the lack of"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p14_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p14_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p14_t01.json",
+      "table_hash": "8594bc189eeba510",
+      "text_fallback": "[Table p14_t01 | page 14]\n| revi Infe | ew did not identify ction Prevention Co | a single cause. nstellation Team notes: |  |  |\n| --- | --- | --- | --- | --- |\n|  | Chronological and g | eographical links between cases are not st | raightf | orward |\n|  | There is no genomi | c sequencing to confirm transmission |  |  |\n|  | There is no univers | al definition for Influenza-Like Nosocomia | l Events | (ILNE) |\n| refo | re, the evidence for | healthcare-associated infection is circumst | antial. |  |\n| sys | tem themes likely in | creased risk: |  |  |\n| 1. | Non-compliance w | ith the swabbing SOP in the Emergency | Nebula | Department |\n| 2. | Inability to isolate pods within the AH | Level-2 respiratory patients when requir DS and insufficient single-pod capacity | ed, due | to the lack of |"
+    },
+    {
+      "table_id": "p15_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 15,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.647999549999994,
+          85.3199975,
+          558.88000475,
+          526.379993375
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 0,
+      "n_cols": 2,
+      "header": [
+        "",
+        " One uninvited therapy alpaca (again)"
+      ],
+      "rows": [],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p15_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p15_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p15_t01.json",
+      "table_hash": "294b866560fe60f7",
+      "text_fallback": "[Table p15_t01 | page 15]\n|  |  One uninvited therapy alpaca (again) |\n| --- | --- |"
+    },
+    {
+      "table_id": "p16_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 16,
+        "extractor": "pdfplumber",
+        "bbox": [
+          41.88,
+          122.45948900000008,
+          542.7623298059134,
+          783.3600605
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=text"
+      },
+      "title_hint": null,
+      "n_rows": 21,
+      "n_cols": 6,
+      "header": [
+        "Exemplary",
+        "Communication",
+        "and Compas",
+        "sionate",
+        "Care",
+        ""
+      ],
+      "rows": [
+        [
+          "One standout exam",
+          "ple of excellent practice involv",
+          "ed a patient with a rar",
+          "e, chronically",
+          "unstable",
+          "respiratory"
+        ],
+        [
+          "condition known a",
+          "s Nebulo-Lung Drift Syndrome.",
+          "This patient had long",
+          "understood h",
+          "is complex",
+          "prognosis a"
+        ],
+        [
+          "had formed a close",
+          "working partnership with the c",
+          "linical team over man",
+          "y months.",
+          "",
+          ""
+        ],
+        [
+          "When his condition",
+          "deteriorated further during his",
+          "stay on Ward 47, the",
+          "medical team",
+          "held a co",
+          "mpassionate"
+        ],
+        [
+          "open, and strikingly",
+          "well-structured conversation w",
+          "ith him and his family",
+          ". Staff explain",
+          "ed the clin",
+          "ical situatio"
+        ],
+        [
+          "with clarity, empath",
+          "y, and a sense of grounded ho",
+          "nesty—while avoiding",
+          "any unnecess",
+          "ary use of",
+          "jargon,"
+        ],
+        [
+          "metaphors involvin",
+          "g space-weather, or the ward’s",
+          "notorious “feelings ch",
+          "art.”",
+          "",
+          ""
+        ],
+        [
+          "The Electronic Pati  Genuine kin  Respect for",
+          "ent Record (EPR-Star) further dness the patient’s autonomy",
+          "demonstrated:",
+          "",
+          "",
+          ""
+        ],
+        [
+          " Full involve  Sensitivity t",
+          "ment of the patient in shared d o the family’s emotional needs",
+          "ecision-making",
+          "",
+          "",
+          ""
+        ],
+        [
+          " A document simply sit wi",
+          "ed moment where the patient th his loved ones",
+          "was given “as long as",
+          "he wished” to",
+          "ask questi",
+          "ons, reflect,"
+        ],
+        [
+          "The patient’s family",
+          "later contacted the ward to th",
+          "ank staff for their gent",
+          "leness, thoug",
+          "htfulness, a",
+          "nd the calm"
+        ],
+        [
+          "atmosphere mainta to offer warm tea.",
+          "ined around the bedside, despi",
+          "te a brief interruption",
+          "from a confu",
+          "sed cleanin",
+          "g robot tryi"
+        ],
+        [
+          "Infection P",
+          "revention & Con",
+          "trol (IPC) Be",
+          "st Pract",
+          "ice",
+          ""
+        ],
+        [
+          "Throughout 2027, t prevention educatio",
+          "he IPC team implemented an a n on Ward 47, including:",
+          "mbitious programme",
+          "of hands-on,",
+          "interactive",
+          "infection-"
+        ],
+        [
+          " Use of the S",
+          "emmelweiss Holo-Scanner, p",
+          "rojecting hand-hygien",
+          "e compliance",
+          "ratings in",
+          "neon colour"
+        ],
+        [
+          " Refresher se “breath shie",
+          "ssions on personal protective ld visors”",
+          "equipment, includin",
+          "g correct plac",
+          "ement of d",
+          "isposable"
+        ],
+        [
+          " A “Gloves O eating biscu",
+          "ff” awareness drive, reminding its, or adjusting their hair",
+          "staff not to wear glo",
+          "ves while perf",
+          "orming co",
+          "mputer tasks"
+        ],
+        [
+          " Direct supp correct clea",
+          "ort for commode decontamin ning cycle",
+          "ation, including a sho",
+          "rt musical jing",
+          "le played t",
+          "o reinforce"
+        ],
+        [
+          "During the winter o on:",
+          "f 2027–2028, staff also took pa",
+          "rt in a suite of Toolbo",
+          "x Star-Exerc",
+          "ises, focusi",
+          "ng specifica"
+        ],
+        [
+          " Identifying",
+          "Cepheid NebulaPCR results in t",
+          "he EPR-Star system",
+          "",
+          "",
+          ""
+        ],
+        [
+          " Correctly di",
+          "stinguishing between standard",
+          "PCR requests and “ex",
+          "tended respir",
+          "atory mega",
+          "panels”"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p16_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p16_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p16_t01.json",
+      "table_hash": "9f05882a10a48cce",
+      "text_fallback": "[Table p16_t01 | page 16]\n| Exemplary | Communication | and Compas | sionate | Care |  |\n| --- | --- | --- | --- | --- | --- |\n| One standout exam | ple of excellent practice involv | ed a patient with a rar | e, chronically | unstable | respiratory |\n| condition known a | s Nebulo-Lung Drift Syndrome. | This patient had long | understood h | is complex | prognosis a |\n| had formed a close | working partnership with the c | linical team over man | y months. |  |  |\n| When his condition | deteriorated further during his | stay on Ward 47, the | medical team | held a co | mpassionate |\n| open, and strikingly | well-structured conversation w | ith him and his family | . Staff explain | ed the clin | ical situatio |\n| with clarity, empath | y, and a sense of grounded ho | nesty—while avoiding | any unnecess | ary use of | jargon, |\n| metaphors involvin | g space-weather, or the ward’s | notorious “feelings ch | art.” |  |  |\n| The Electronic Pati  Genuine kin  Respect for | ent Record (EPR-Star) further dness the patient’s autonomy | demonstrated: |  |  |  |\n|  Full involve  Sensitivity t | ment of the patient in shared d o the family’s emotional needs | ecision-making |  |  |  |\n|  A document simply sit wi | ed moment where the patient th his loved ones | was given “as long as | he wished” to | ask questi | ons, reflect, |\n| The patient’s family | later contacted the ward to th | ank staff for their gent | leness, thoug | htfulness, a | nd the calm |\n| atmosphere mainta to offer warm tea. | ined around the bedside, despi | te a brief interruption | from a confu | sed cleanin | g robot tryi |\n\n(Truncated: showing 12 of 21 rows.)"
+    },
+    {
+      "table_id": "p17_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 17,
+        "extractor": "pdfplumber",
+        "bbox": [
+          59.879997,
+          92.39971100000002,
+          495.1607894683527,
+          318.000098
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=text"
+      },
+      "title_hint": null,
+      "n_rows": 6,
+      "n_cols": 5,
+      "header": [
+        "",
+        "Avoiding situations",
+        "where samples are submitted via “mystery drawers” o",
+        "r left",
+        "on radiators"
+      ],
+      "rows": [
+        [
+          "ud",
+          "it Performa",
+          "nce",
+          "",
+          ""
+        ],
+        [
+          "oug",
+          "hout 2027, the ward",
+          "demonstrated sustained excellence in IPC audit metri",
+          "cs:",
+          ""
+        ],
+        [
+          "",
+          "The Matron and IPC environmental stand",
+          "audit consistently recorded above 90% compliance ards.",
+          "with",
+          "core hygien"
+        ],
+        [
+          "",
+          "The most recent Wa",
+          "rd Assurance Orb review raised no concerns from an",
+          "IPC",
+          "perspective."
+        ],
+        [
+          "",
+          "Ongoing IPC audits, performance withou",
+          "monitored through Local CSU Constellation Meetin t any red flags.",
+          "gs, h",
+          "ave shown s"
+        ],
+        [
+          "",
+          "(One audit noted a aesthetic issue.)",
+          "misplaced glitter-dispensing hand sanitizer, but this w",
+          "as de",
+          "emed a low"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p17_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p17_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p17_t01.json",
+      "table_hash": "ce0cbb6e7399a9fb",
+      "text_fallback": "[Table p17_t01 | page 17]\n|  | Avoiding situations | where samples are submitted via “mystery drawers” o | r left | on radiators |\n| --- | --- | --- | --- | --- |\n| ud | it Performa | nce |  |  |\n| oug | hout 2027, the ward | demonstrated sustained excellence in IPC audit metri | cs: |  |\n|  | The Matron and IPC environmental stand | audit consistently recorded above 90% compliance ards. | with | core hygien |\n|  | The most recent Wa | rd Assurance Orb review raised no concerns from an | IPC | perspective. |\n|  | Ongoing IPC audits, performance withou | monitored through Local CSU Constellation Meetin t any red flags. | gs, h | ave shown s |\n|  | (One audit noted a aesthetic issue.) | misplaced glitter-dispensing hand sanitizer, but this w | as de | emed a low |"
+    },
+    {
+      "table_id": "p18_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 18,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.51428528571429,
+          78.47999562500002,
+          559.2857206071428,
+          748.0500085625
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "1. Mitigating the Risk of Infectious Patients Entering Shared Bays a. Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients with suspected or confirmed infectious cosmic pathogens. This pod should ideally contain:  Its own air-scrub vortex  A self-cleaning filtration field  A sign clearly stating: “Please Do Not Enter Unless Glowing.” b. Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge, ensuring that more patients can be isolated rapidly during seasonal outbreaks of influenza, comet-flu, or other star-borne viruses. c. Revise and re-broadcast the CoreTest NebulaSOP, emphasising that all negative CoreTests MUST be followed by a NebulaPCR before transferring any patient to Ward 47. A failsafe system should be introduced to flag any transfers completed without full virology—ideally via flashing corridor lights or a polite but firm holographic reminder. d. Ensure all nursing staff have functional access to ICE-Star, the Trust’s interstellar results system. Where staff lack logins, the system should gently nudge them with automated messages such as: “Hello, you appear to be working clinically. May I offer you a login?” 2. Mitigating the Lack of Mechanical Ventilation a. Evaluate the use of Air-Purification Drones, Micro-Cyclone Ceiling Units, and Wall-Mounted Ionised Filters in areas where natural ventilation cannot meet safety thresholds. These can be deployed flexibly across bays, pods, or any location where “mysterious breezes” are known to occur. b. Complete a full environmental risk assessment and options appraisal by September 2028, including long-term planning for:  Possible relocation of Ward 47  Conversion of Ward Solaris-10 into a Respiratory Facility once the Renal Dialysis Robots vacate  Installation of vortex-stabilisers to reduce hallway turbulence These actions support both short-term safety and future infrastructure upgrades."
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p18_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p18_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p18_t01.json",
+      "table_hash": "796fa56f9ddcbcfe",
+      "text_fallback": "[Table p18_t01 | page 18]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| 1. Mitigating the Risk of Infectious Patients Entering Shared Bays a. Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients with suspected or confirmed infectious cosmic pathogens. This pod should ideally contain:  Its own air-scrub vortex  A self-cleaning filtration field  A sign clearly stating: “Please Do Not Enter Unless Glowing.” b. Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge, ensuring that more patients can be isolated rapidly during seasonal outbreaks of influenza, comet-flu, or other star-borne viruses. c. Revise and re-broadcast the CoreTest NebulaSOP, emphasising that all negative CoreTests MUST be followed by a NebulaPCR before transferring any patient to Ward 47. A failsafe system should be introduced to flag any transfers completed without full virology—ideally via flashing corridor lights or a polite but firm holographic reminder. d. Ensure all nursing staff have functional access to ICE-Star, the Trust’s interstellar results system. Where staff lack logins, the system should gently nudge them with automated messages such as: “Hello, you appear to be working clinically. May I offer you a login?” 2. Mitigating the Lack of Mechanical Ventilation a. Evaluate the use of Air-Purification Drones, Micro-Cyclone Ceiling Units, and Wall-Mounted Ionised Filters in areas where natural ventilation cannot meet safety thresholds. These can be deployed flexibly across bays, pods, or any location where “mysterious breezes” are known to occur. b. Complete a full environmental risk assessment and options appraisal by September 2028, including long-term planning for:  Possible relocation of Ward 47  Conversion of Ward Solaris-10 into a Respiratory Facility once the Renal Dialysis Robots vacate  Installation of vortex-stabilisers to reduce hallway turbulence These actions support both short-term safety and future infrastructure upgrades. |"
+    },
+    {
+      "table_id": "p19_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 19,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.428571,
+          642.5999866249999,
+          560.3142829285714,
+          786.479961125
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "The report will be used in a non-judgemental way to inform learning for the future. Professional Duty of Candour (DoC) has been completed, when deemed appropriate."
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t01.json",
+      "table_hash": "7c163ae0c1747f8e",
+      "text_fallback": "[Table p19_t01 | page 19]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| The report will be used in a non-judgemental way to inform learning for the future. Professional Duty of Candour (DoC) has been completed, when deemed appropriate. |"
+    },
+    {
+      "table_id": "p19_t02",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 19,
+        "extractor": "pdfplumber",
+        "bbox": [
+          41.64,
+          659.75999075,
+          555.599991,
+          687.1999852499999
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity)."
+      ],
+      "rows": [
+        [
+          "engage and meet the needs of patients, families and staff affected)"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t02.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t02.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p19_t02.json",
+      "table_hash": "e2891b7d057dd94d",
+      "text_fallback": "[Table p19_t02 | page 19]\n| The SEEPS (Systems Engineering for Extra Peculiar Safety) reviews and clinical reviews revealed substantial differences between what should have happened under the Nebula Valley Health Trust’s respiratory infection-control pathway and what actually occurred during these unusual episodes. Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case and are available upon request (some include colour-coded unicorn stickers for clarity). |\n| --- |\n| engage and meet the needs of patients, families and staff affected) |"
+    },
+    {
+      "table_id": "p20_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 20,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.4399995,
+          85.3199975,
+          560.759994375,
+          147.92999450000002
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 2,
+      "header": [
+        "",
+        " One uninvited therapy alpaca (again)"
+      ],
+      "rows": [
+        [
+          "Date and details of Statutory Duty of Candour steps (if applicable):",
+          ""
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t01.json",
+      "table_hash": "574fe8a234e42ce1",
+      "text_fallback": "[Table p20_t01 | page 20]\n|  |  One uninvited therapy alpaca (again) |\n| --- | --- |\n| Date and details of Statutory Duty of Candour steps (if applicable): |  |"
+    },
+    {
+      "table_id": "p20_t02",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 20,
+        "extractor": "pdfplumber",
+        "bbox": [
+          41.64,
+          106.79999150000003,
+          215.40000900000004,
+          147.92999450000002
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 1,
+      "header": [
+        "Date and details of Statutory"
+      ],
+      "rows": [
+        [
+          "Duty of Candour steps (if applicable):"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t02.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t02.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p20_t02.json",
+      "table_hash": "f5d7bc699a4d7d07",
+      "text_fallback": "[Table p20_t02 | page 20]\n| Date and details of Statutory |\n| --- |\n| Duty of Candour steps (if applicable): |"
+    },
+    {
+      "table_id": "p21_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 21,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.47999975,
+          116.29565238586956,
+          760.82665025,
+          508.84000146428576
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test before they are transferred into any shared clinical environment, particularly the Atmospheric High Dependency Sphere (AHDS). This action includes updating the algorithm within the Electronic Patient Record (EPR-Star) to trigger visible, audible, and persistent alerts",
+          "Shaela Fenn / Roxi Dobb",
+          "Already implemented",
+          "Confirmed at MDT 05.12.2028",
+          "A multi-tiered monitoring approach will be used, including automated daily surveillance of viral result status, human review of transfer logs, cross-checking of NebulaCore– StellarPCR pairings, and a dashboard within the Constellation IPC Monitoring Suite showing all outstanding virology gaps. Reports will be emailed daily to",
+          "Daily",
+          "Shaela Fenn",
+          "Bi-monthly via CSU Constellation IPC Review"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p21_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p21_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p21_t01.json",
+      "table_hash": "2ed6ee37ac8f8f78",
+      "text_fallback": "[Table p21_t01 | page 21]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test before they are transferred into any shared clinical environment, particularly the Atmospheric High Dependency Sphere (AHDS). This action includes updating the algorithm within the Electronic Patient Record (EPR-Star) to trigger visible, audible, and persistent alerts | Shaela Fenn / Roxi Dobb | Already implemented | Confirmed at MDT 05.12.2028 | A multi-tiered monitoring approach will be used, including automated daily surveillance of viral result status, human review of transfer logs, cross-checking of NebulaCore– StellarPCR pairings, and a dashboard within the Constellation IPC Monitoring Suite showing all outstanding virology gaps. Reports will be emailed daily to | Daily | Shaela Fenn | Bi-monthly via CSU Constellation IPC Review |"
+    },
+    {
+      "table_id": "p22_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 22,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.31999991666666,
+          86.36571557142858,
+          761.3999865000001,
+          506.7942859285714
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded “Containment-Grade Duo-Pods” equipped with improved air-scrubbing fields, privacy screens, independent oxygen supply nodes, and stasis-friendly lighting. The plan will detail staffing enhancements,",
+          "Shaela Fenn / Raeka Kinn",
+          "01.10.2028",
+          "—",
+          "Measurements will include daily acuity-to-staffin g ratio audits, weekly capacity modelling, monthly reports on pod usage rates, winter-pressure escalation exercises, and predictive surge simulations using the WardFlow",
+          "Daily staffing & acuity review",
+          "Shaela Fenn & Axton Barlo",
+          "Included in 6-monthly Establishmen t Review"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p22_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p22_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p22_t01.json",
+      "table_hash": "f4623f836fc0dbc5",
+      "text_fallback": "[Table p22_t01 | page 22]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded “Containment-Grade Duo-Pods” equipped with improved air-scrubbing fields, privacy screens, independent oxygen supply nodes, and stasis-friendly lighting. The plan will detail staffing enhancements, | Shaela Fenn / Raeka Kinn | 01.10.2028 | — | Measurements will include daily acuity-to-staffin g ratio audits, weekly capacity modelling, monthly reports on pod usage rates, winter-pressure escalation exercises, and predictive surge simulations using the WardFlow | Daily staffing & acuity review | Shaela Fenn & Axton Barlo | Included in 6-monthly Establishmen t Review |"
+    },
+    {
+      "table_id": "p23_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 23,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.31999991666666,
+          86.36571557142858,
+          761.3999865000001,
+          506.7942859285714
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "The entire escalation pathway for accessing isolation pods will be re-explained, re-published, and re-demonstrated across all clinical areas. This includes a detailed clarifying booklet, a new digital pathway embedded within EPR-Star, and updated laminated flowcharts for wall display. A Trust-wide “Pod Access Week” will be",
+          "Roxi Dobb",
+          "Already implemented",
+          "Long- standing process",
+          "Tools include quarterly spot-checks by Matrons, live polling on pathway comprehension, observational audits during bed flow meetings, and verification that all staff have access to the correct flowchart",
+          "Quarterly",
+          "Roxi Dobb",
+          "Quarterly IPC Governance Meeting"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p23_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p23_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p23_t01.json",
+      "table_hash": "0fb7d4829dbd8f90",
+      "text_fallback": "[Table p23_t01 | page 23]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | The entire escalation pathway for accessing isolation pods will be re-explained, re-published, and re-demonstrated across all clinical areas. This includes a detailed clarifying booklet, a new digital pathway embedded within EPR-Star, and updated laminated flowcharts for wall display. A Trust-wide “Pod Access Week” will be | Roxi Dobb | Already implemented | Long- standing process | Tools include quarterly spot-checks by Matrons, live polling on pathway comprehension, observational audits during bed flow meetings, and verification that all staff have access to the correct flowchart | Quarterly | Roxi Dobb | Quarterly IPC Governance Meeting |"
+    },
+    {
+      "table_id": "p24_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 24,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.31999991666666,
+          86.36571557142858,
+          761.3999865000001,
+          506.7942859285714
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "A comprehensive infection-risk checklist will be embedded into EPR-Star, ensuring that before any NebuloPAP or NIV is initiated in shared or semi-shared spaces, staff must document environmental suitability, patient infectivity status, airflow conditions, staffing availability, and potential cross-contamination risks. The checklist will include embedded prompts, forced-completion items, and clinical",
+          "Axton Barlo / Benn Tork",
+          "September 2028",
+          "October 2028",
+          "Monthly audits will review checklist completion rates, cross-reference NIV initiation points with transmission logs, assess the impact on patient allocation patterns, and review time-to- transfer for high-risk cases. A Matron-led observational audit will validate real-",
+          "Monthly",
+          "Matron for relevant areas",
+          "Bi-monthly at CSU IPC Review"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p24_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p24_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p24_t01.json",
+      "table_hash": "c82b7290e687cbd5",
+      "text_fallback": "[Table p24_t01 | page 24]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | A comprehensive infection-risk checklist will be embedded into EPR-Star, ensuring that before any NebuloPAP or NIV is initiated in shared or semi-shared spaces, staff must document environmental suitability, patient infectivity status, airflow conditions, staffing availability, and potential cross-contamination risks. The checklist will include embedded prompts, forced-completion items, and clinical | Axton Barlo / Benn Tork | September 2028 | October 2028 | Monthly audits will review checklist completion rates, cross-reference NIV initiation points with transmission logs, assess the impact on patient allocation patterns, and review time-to- transfer for high-risk cases. A Matron-led observational audit will validate real- | Monthly | Matron for relevant areas | Bi-monthly at CSU IPC Review |"
+    },
+    {
+      "table_id": "p25_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 25,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.419999812499995,
+          86.36571557142858,
+          761.3999865000001,
+          511.18910219318184
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 2,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "The entire viral swabbing protocol will be rewritten to align with the latest Galactic Infectious Disease Standards (GIDS-2290). This includes revising sample collection order, specifying timelines for CoreTest-to-NebulaPC R follow-up, defining storage standards, mapping isolation pathways for each result type, and clarifying responsibilities for test chasing. A new Trust-wide training package will accompany the revised SOP.",
+          "Roxi Dobb / Yaseer Muraan",
+          "September 2028",
+          "October 2028",
+          "Compliance will be measured through monthly audits of swab timing, test-result follow-ups, pathway adherence, and cross-checking EPR-Star documentation with physical swab logs. Automated exception reports will flag all missing follow-up PCRs.",
+          "As per Action 1",
+          "As per Action 1",
+          "As per Action 1"
+        ],
+        [
+          "6. Deploy",
+          "Air-scrubber devices will be installed in the AHDS and surrounding",
+          "Crix Davren",
+          "October 2028",
+          "—",
+          "Tools include daily checks of airflow",
+          "Daily",
+          "Shaela Fenn / Clinical Site Matron",
+          "Q1 2029"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p25_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p25_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p25_t01.json",
+      "table_hash": "8db8e135a5b76b90",
+      "text_fallback": "[Table p25_t01 | page 25]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | The entire viral swabbing protocol will be rewritten to align with the latest Galactic Infectious Disease Standards (GIDS-2290). This includes revising sample collection order, specifying timelines for CoreTest-to-NebulaPC R follow-up, defining storage standards, mapping isolation pathways for each result type, and clarifying responsibilities for test chasing. A new Trust-wide training package will accompany the revised SOP. | Roxi Dobb / Yaseer Muraan | September 2028 | October 2028 | Compliance will be measured through monthly audits of swab timing, test-result follow-ups, pathway adherence, and cross-checking EPR-Star documentation with physical swab logs. Automated exception reports will flag all missing follow-up PCRs. | As per Action 1 | As per Action 1 | As per Action 1 |\n| 6. Deploy | Air-scrubber devices will be installed in the AHDS and surrounding | Crix Davren | October 2028 | — | Tools include daily checks of airflow | Daily | Shaela Fenn / Clinical Site Matron | Q1 2029 |"
+    },
+    {
+      "table_id": "p26_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 26,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.383999849999995,
+          86.36571557142858,
+          761.3999865000001,
+          506.7942859285714
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "Following relocation of Renal Robotics Unit, Ward Solaris-10 will be upgraded to a dedicated RHDU. This includes full redesign of pod layouts, installation of stasis-grade air systems, delineation of staff roles, and the",
+          "SLT / Executive Board",
+          "October 2029",
+          "—",
+          "Tracking will occur through project management dashboards, architectural compliance reports, and commissioning",
+          "N/A",
+          "N/A",
+          "N/A"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p26_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p26_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p26_t01.json",
+      "table_hash": "52aa2a5825a834b5",
+      "text_fallback": "[Table p26_t01 | page 26]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | Following relocation of Renal Robotics Unit, Ward Solaris-10 will be upgraded to a dedicated RHDU. This includes full redesign of pod layouts, installation of stasis-grade air systems, delineation of staff roles, and the | SLT / Executive Board | October 2029 | — | Tracking will occur through project management dashboards, architectural compliance reports, and commissioning | N/A | N/A | N/A |"
+    },
+    {
+      "table_id": "p27_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 27,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.47999975,
+          86.36571557142858,
+          761.3999865000001,
+          511.18910219318184
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 2,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "The Enhanced Clean Team will be re-established for winter surge periods, providing increased high-touch-point cleaning, decontamination cycles in bays, additional sanitation rounds in shared pods, and rapid- response support during suspected transmission events. Recruitment, induction, and competency frameworks will be included in the implementation plan.",
+          "Cleaning Nebula Services",
+          "October 2028",
+          "—",
+          "Tools include shift-fill monitoring, daily enhanced- clean logs, ATP testing of high-touch areas, and weekly cleanliness sampling maps. Trend analysis will identify reduction in bioburden and hotspots requiring intervention.",
+          "Weekly",
+          "Cleaning Services",
+          "Q1 2029"
+        ],
+        [
+          "9. Address",
+          "A comprehensive vaccination-engagemen t strategy will be deployed, including structured listening",
+          "Occupationa l Health Nebula Division",
+          "October 2028",
+          "—",
+          "Weekly measurement of vaccination uptake, themed surveys to track",
+          "Weekly",
+          "Shaela Fenn & Axton Barlo",
+          "Q1 2029"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p27_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p27_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p27_t01.json",
+      "table_hash": "4ced1b709940f451",
+      "text_fallback": "[Table p27_t01 | page 27]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | The Enhanced Clean Team will be re-established for winter surge periods, providing increased high-touch-point cleaning, decontamination cycles in bays, additional sanitation rounds in shared pods, and rapid- response support during suspected transmission events. Recruitment, induction, and competency frameworks will be included in the implementation plan. | Cleaning Nebula Services | October 2028 | — | Tools include shift-fill monitoring, daily enhanced- clean logs, ATP testing of high-touch areas, and weekly cleanliness sampling maps. Trend analysis will identify reduction in bioburden and hotspots requiring intervention. | Weekly | Cleaning Services | Q1 2029 |\n| 9. Address | A comprehensive vaccination-engagemen t strategy will be deployed, including structured listening | Occupationa l Health Nebula Division | October 2028 | — | Weekly measurement of vaccination uptake, themed surveys to track | Weekly | Shaela Fenn & Axton Barlo | Q1 2029 |"
+    },
+    {
+      "table_id": "p28_t01",
+      "provenance": {
+        "report_id": "SYNTHETIC AAR",
+        "source_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf",
+        "page": 28,
+        "extractor": "pdfplumber",
+        "bbox": [
+          36.31999991666666,
+          86.36571557142858,
+          761.3999865000001,
+          465.39427692857146
+        ],
+        "confidence": null,
+        "notes": "pdfplumber strategy=lines"
+      },
+      "title_hint": null,
+      "n_rows": 1,
+      "n_cols": 9,
+      "header": [
+        "Area for Improvement",
+        "Safety Action Description (SMART)",
+        "Action Owner (Role / Team /",
+        "Target Date for Implementation",
+        "Date Implemented",
+        "Tool / Measure",
+        "Measurement Frequency",
+        "Responsibility for Monitoring / Oversight",
+        "Planned Review Date (andby whom)"
+      ],
+      "rows": [
+        [
+          "",
+          "A decision-support tool will be built into the Command Nexus dashboard to reduce unnecessary movement of patients between pods. Clear movement criteria will be outlined, automatic alerts will be generated for excessive transfers, and daily oversight will identify learning opportunities linked to flow pressures.",
+          "Command Nexus Centre",
+          "July 2028",
+          "Already in place",
+          "Datasets from StarReport will be reviewed to track instances of excessive moves, with detailed analysis of reasons (capacity, acuity changes, environmental factors). Weekly summaries will be produced for Matron review.",
+          "Daily (Mon– Fri)",
+          "Matron Team",
+          "Weekly"
+        ]
+      ],
+      "csv_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p28_t01.csv",
+      "md_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p28_t01.md",
+      "json_path": "data\\processed\\reports\\SYNTHETIC AAR\\tables\\p28_t01.json",
+      "table_hash": "abb6c427a7f31c78",
+      "text_fallback": "[Table p28_t01 | page 28]\n| Area for Improvement | Safety Action Description (SMART) | Action Owner (Role / Team / | Target Date for Implementation | Date Implemented | Tool / Measure | Measurement Frequency | Responsibility for Monitoring / Oversight | Planned Review Date (andby whom) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- |\n|  | A decision-support tool will be built into the Command Nexus dashboard to reduce unnecessary movement of patients between pods. Clear movement criteria will be outlined, automatic alerts will be generated for excessive transfers, and daily oversight will identify learning opportunities linked to flow pressures. | Command Nexus Centre | July 2028 | Already in place | Datasets from StarReport will be reviewed to track instances of excessive moves, with detailed analysis of reasons (capacity, acuity changes, environmental factors). Weekly summaries will be produced for Matron review. | Daily (Mon– Fri) | Matron Team | Weekly |"
+    }
+  ],
+  "pack_hash": "2cca86b5aec31656",
+  "metadata": {
+    "note": "smoke_test"
+  }
+}

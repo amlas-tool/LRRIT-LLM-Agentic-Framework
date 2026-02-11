@@ -1,0 +1,192 @@
+{
+  "d1": {
+    "agent_id": "D1",
+    "dimension": "Compassionate engagement with people affected",
+    "rating": "GOOD",
+    "rationale": "The evidence demonstrates compassionate engagement through clear communication, respect for patient autonomy, and sensitivity to family needs during a difficult time.",
+    "evidence": [
+      {
+        "id": "Text p16_c01",
+        "page": 16,
+        "quote": "Staff explained the clinical situation with clarity, empathy, and a sense of grounded honesty",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p16_c01",
+        "page": null,
+        "quote": "The patient was given 'as long as he wished' to ask questions, reflect, or simply sit with his loved ones",
+        "evidence_type": "positive"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d2": {
+    "agent_id": "D2",
+    "dimension": "Systems approach to contributory factors",
+    "rating": "GOOD",
+    "rationale": "The response effectively analyzes contributory factors from a systems perspective, identifying explicit system-level contributors and proposing comprehensive improvement actions that address systemic issues rather than individual behaviors.",
+    "evidence": [
+      {
+        "id": "Text p05_c01",
+        "page": 5,
+        "quote": "The findings from this SEIPS review were intended to guide a comprehensive action plan",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "",
+        "page": null,
+        "quote": "Introduce dedicated isolation pod within the AHDS for respiratory patients",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p18_c01",
+        "page": 18,
+        "quote": "Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge",
+        "evidence_type": "positive"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d3": {
+    "agent_id": "D3",
+    "dimension": "Quality and appropriateness of learning actions",
+    "rating": "GOOD",
+    "rationale": "The learning actions identified are specific, actionable, and designed to address systemic issues, such as introducing dedicated isolation pods and revising swabbing protocols, which are likely to reduce recurrence of similar incidents.",
+    "evidence": [
+      {
+        "id": "Text p19_t01",
+        "page": null,
+        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere for respiratory patients",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p18_c01",
+        "page": 18,
+        "quote": "Revise and re-broadcast the CoreTest NebulaSOP, emphasising that all negative CoreTests MUST be followed by a NebulaPCR",
+        "evidence_type": "positive"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d4": {
+    "agent_id": "D4",
+    "dimension": "Blame language avoided",
+    "rating": "SOME",
+    "rationale": "The response includes both positive language about system issues and some blame-oriented language regarding staff actions, indicating a mixed approach to accountability.",
+    "evidence": [
+      {
+        "id": "Text p05_c01",
+        "page": 5,
+        "quote": "Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department",
+        "evidence_type": "negative"
+      },
+      {
+        "id": "Text p13_c01",
+        "page": 13,
+        "quote": "The review remains focused on system, not individual performance",
+        "evidence_type": "positive"
+      }
+    ],
+    "uncertainty": false
+  },
+  "d5": {
+    "agent_id": "D5",
+    "dimension": "Local rationality",
+    "rating": "SOME",
+    "rationale": "The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated.",
+    "evidence": [
+      {
+        "id": "Text p03_c01",
+        "page": 3,
+        "quote": "The team originally intended to follow the Nebula Valley Health Trust’s respiratory admission and infection-control pathways precisely.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p05_c01",
+        "page": 5,
+        "quote": "Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department.",
+        "evidence_type": "negative"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d6": {
+    "agent_id": "D6",
+    "dimension": "Avoidance of hindsight bias and counterfactual certainty",
+    "rating": "SOME",
+    "rationale": "The response includes some cautious reasoning about what should have happened versus what did happen, but it also contains definitive claims about the causes of the incidents without sufficient evidence.",
+    "evidence": [
+      {
+        "id": "Text p14_c01",
+        "page": 14,
+        "quote": "The review did not identify a single cause.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p14_c01",
+        "page": 14,
+        "quote": "The evidence for healthcare-associated infection is circumstantial.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p14_c01",
+        "page": null,
+        "quote": "Two system themes likely increased risk: Non-compliance with the swabbing SOP.",
+        "evidence_type": "negative"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d7": {
+    "agent_id": "D7",
+    "dimension": "Improvement actions (systems-focused, evidence-informed, collaborative)",
+    "rating": "GOOD",
+    "rationale": "The improvement actions are system-focused, addressing key contributory factors identified in the report. They are collaboratively developed and include monitoring and ownership arrangements.",
+    "evidence": [
+      {
+        "id": "Text p18_c01",
+        "page": null,
+        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p21_c01",
+        "page": null,
+        "quote": "A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test.",
+        "evidence_type": "positive"
+      },
+      {
+        "id": "Text p22_c01",
+        "page": null,
+        "quote": "A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded 'Containment-Grade Duo-Pods'.",
+        "evidence_type": "positive"
+      }
+    ],
+    "uncertainty": true
+  },
+  "d8": {
+    "agent_id": "D8",
+    "dimension": "Communication quality and usability",
+    "rating": "SOME",
+    "rationale": "The report has a generally understandable structure but contains excessive vagueness and some jargon that may hinder clarity. While learning points and actions are present, they are not always easy to extract due to inconsistent terminology and unclear signposting.",
+    "evidence": [
+      {
+        "id": "Text p03_c01",
+        "page": null,
+        "quote": "The expected process was: Patients admitted to Ward 47 – Respiratory & Atmospheric Mysteries Unit would be assessed, screened, and placed in appropriate isolation bays.",
+        "evidence_type": "negative"
+      },
+      {
+        "id": "Text p05_c01",
+        "page": null,
+        "quote": "ED staff had been: Using obsolete 'Mood-Swabs' that changed colour depending on emotional energy in the room.",
+        "evidence_type": "negative"
+      }
+    ],
+    "uncertainty": true
+  },
+  "_meta": {
+    "model": "gpt-4o-mini",
+    "pdf_path": "G:\\My Drive\\LLM projects\\lrrit-llm\\data\\raw_pdfs\\SYNTHETIC AAR.pdf"
+  }
+}

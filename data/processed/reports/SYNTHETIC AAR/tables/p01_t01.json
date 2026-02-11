@@ -1,0 +1,16 @@
+{
+  "report_id": "SYNTHETIC AAR",
+  "table_id": "p01_t01",
+  "page": 1,
+  "extractor": "pdfplumber",
+  "strategy": "lines",
+  "bbox": [
+    36.6799995,
+    150.07999425000003,
+    559.4399872500001,
+    729.5828665357143
+  ],
+  "n_rows": 1,
+  "n_cols": 4,
+  "notes": "header/body post-processed to merge split header rows and wrapped cells"
+}

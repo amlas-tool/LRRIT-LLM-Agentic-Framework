@@ -4,7 +4,7 @@ import json
 from typing import Dict, Any
 
 from lrrit_llm.evidence.schema import EvidencePack
-
+from lrrit_llm.evidence.resolve import resolve_evidence_id_and_page
 
 class D5LocalRationalityAgent:
     """
@@ -57,6 +57,11 @@ class D5LocalRationalityAgent:
         parsed = self._parse_response(raw_response)
         parsed = self._apply_guards(parsed)
 
+        # -------------------------
+        # NEW: resolve evidence page (and repair mis-attributed IDs where possible)
+        # -------------------------
+        parsed = self._add_pages_to_evidence(parsed, pack)
+
         return {
             "agent_id": self.AGENT_ID,
             "dimension": self.DIMENSION_NAME,
@@ -101,6 +106,8 @@ Task:
 - Look for explicit explanation of what was known/assumed, uncertainty, constraints, priorities, and why actions made sense then.
 - Penalise hindsight-only critique that lacks contemporaneous context.
 - Base your judgement ONLY on the evidence provided.
+- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+
 
 Rating options:
 - GOOD evidence: clear contemporaneous explanation makes actions intelligible in context
@@ -173,6 +180,41 @@ Evidence:
             "evidence": obj.get("evidence", []) or [],
             "uncertainty": bool(obj.get("uncertainty", False)),
         }
+    
+     # -------------------------
+    # NEW: Evidence page enrichment
+    # -------------------------
+
+    def _add_pages_to_evidence(self, result: Dict[str, Any], pack: EvidencePack) -> Dict[str, Any]:
+        evidence = result.get("evidence", []) or []
+        if not evidence:
+            return result
+
+        enriched = []
+        for e in evidence:
+            eid = (e.get("id") or "").strip()
+            quote = (e.get("quote") or "").strip()
+            etype = (e.get("evidence_type") or "").strip()
+
+            resolved_id, page = resolve_evidence_id_and_page(pack, eid, quote)
+
+            # Prefer repaired ID if we found one (fixes misattribution)
+            final_id = resolved_id or eid
+
+            # If we couldn't resolve a page at all, preserve but mark uncertain
+            if page is None:
+                result["uncertainty"] = True
+
+            enriched.append({
+                "id": final_id,
+                "page": page,
+                "quote": quote,
+                "evidence_type": etype,
+            })
+
+        result["evidence"] = enriched
+        return result
+
 
     # -------------------------
     # Guards (lightweight)

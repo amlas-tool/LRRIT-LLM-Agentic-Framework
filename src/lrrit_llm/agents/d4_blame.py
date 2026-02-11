@@ -4,7 +4,7 @@ import json
 from typing import Dict, Any
 
 from lrrit_llm.evidence.schema import EvidencePack
-
+from lrrit_llm.evidence.resolve import resolve_evidence_id_and_page
 
 class D4BlameLanguageAgent:
     """
@@ -76,6 +76,10 @@ class D4BlameLanguageAgent:
 
         parsed = self._parse_response(raw_response)
         parsed = self._apply_guards(parsed)
+        # -------------------------
+        # NEW: resolve evidence page (and repair mis-attributed IDs where possible)
+        # -------------------------
+        parsed = self._add_pages_to_evidence(parsed, pack)
 
         return {
             "agent_id": self.AGENT_ID,
@@ -136,7 +140,7 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
   "evidence": [
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
-      "quote": "verbatim excerpt from the evidence, <= 25 words",
+      "quote": "verbatim excerpt from the evidence without trailing punction, <= 25 words",
       "evidence_type": "positive" | "negative"
     }}
   ],
@@ -144,8 +148,9 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
 }}
 
 Rules:
-- Every evidence item MUST include a verbatim quote taken from the cited Text/Table block above (<= 25 words).
-- For D4, label evidence_type as follows:
+- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+- Every evidence item MUST be numbered and include a verbatim quote (<= 25 words).
+- Evidence_type:
   - "positive" = neutral or systems/process framing; discusses issues without attributing fault to people.
   - "negative" = blame-oriented language that attributes fault to an individual or team, or uses judgemental descriptors about people.
 
@@ -206,6 +211,40 @@ Rules:
             "evidence": obj.get("evidence", []) or [],
             "uncertainty": bool(obj.get("uncertainty", False)),
         }
+     # -------------------------
+    # NEW: Evidence page enrichment
+    # -------------------------
+
+    def _add_pages_to_evidence(self, result: Dict[str, Any], pack: EvidencePack) -> Dict[str, Any]:
+        evidence = result.get("evidence", []) or []
+        if not evidence:
+            return result
+
+        enriched = []
+        for e in evidence:
+            eid = (e.get("id") or "").strip()
+            quote = (e.get("quote") or "").strip()
+            etype = (e.get("evidence_type") or "").strip()
+
+            resolved_id, page = resolve_evidence_id_and_page(pack, eid, quote)
+
+            # Prefer repaired ID if we found one (fixes misattribution)
+            final_id = resolved_id or eid
+
+            # If we couldn't resolve a page at all, preserve but mark uncertain
+            if page is None:
+                result["uncertainty"] = True
+
+            enriched.append({
+                "id": final_id,
+                "page": page,
+                "quote": quote,
+                "evidence_type": etype,
+            })
+
+        result["evidence"] = enriched
+        return result
+
 
 
 # ---------------------------------------------------------------------

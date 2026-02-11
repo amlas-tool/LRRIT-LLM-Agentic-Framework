@@ -12,7 +12,7 @@
       },
       {
         "id": "Text p02_c01",
-        "quote": "Plans made to transfer to STH urgently - there was a slight delay.",
+        "quote": "Plans made to transfer to STH urgently -there was a slight delay.",
         "evidence_type": "negative"
       }
     ],
@@ -60,7 +60,7 @@
     "agent_id": "D4",
     "dimension": "Blame language avoided",
     "rating": "GOOD",
-    "rationale": "The learning response avoids blame-oriented language and focuses on system/process issues rather than attributing fault to individuals.",
+    "rationale": "The learning response avoids blame-oriented language and focuses on systemic issues rather than attributing fault to individuals.",
     "evidence": [
       {
         "id": "Text p03_c01",
@@ -88,7 +88,7 @@
       },
       {
         "id": "Text p03_c01",
-        "quote": "There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.",
+        "quote": "Delay in transferring from I but there is no certainty that this affected the outcome for the patient.",
         "evidence_type": "negative"
       }
     ],
@@ -98,16 +98,16 @@
     "agent_id": "D6",
     "dimension": "Avoidance of hindsight bias and counterfactual certainty",
     "rating": "GOOD",
-    "rationale": "The response acknowledges uncertainty regarding the timing of the patient's condition and the impact of delays on outcomes.",
+    "rationale": "The response acknowledges uncertainty regarding the impact of delays on the patient's outcome and avoids definitive counterfactual claims.",
     "evidence": [
       {
         "id": "Text p02_c01",
-        "quote": "However, there was no certainty that surgery would be performed that very night if the patient was transferred earlier.",
+        "quote": "there is no certainty that this affected the outcome for the patient.",
         "evidence_type": "positive"
       },
       {
-        "id": "Text p03_c01",
-        "quote": "There is no certainty that an earlier CT would have made a difference as we cannot determine at what point the patient perforated.",
+        "id": "Text p02_c01",
+        "quote": "there is no certainty that an earlier CT would have made a difference",
         "evidence_type": "positive"
       }
     ],
@@ -121,7 +121,7 @@
     "evidence": [
       {
         "id": "Text p03_c01",
-        "quote": "Link case to stream of work which is currently being done regarding the acutely surgical ill patients and endoscopy transfers.",
+        "quote": "Link case to stream of work which is currently being done regarding the acutely surgical ill patients.",
         "evidence_type": "positive"
       }
     ],
@@ -134,19 +134,14 @@
     "rationale": "The report has a generally understandable structure but contains vague language and some jargon that affects clarity.",
     "evidence": [
       {
-        "id": "Text p03_c01",
+        "id": "Text p01_c01",
         "quote": "Delay in transferring from I but there is no certainty that this affected the outcome for the patient.",
         "evidence_type": "negative"
       },
       {
-        "id": "Text p02_c01",
-        "quote": "No known systematic way to ensure that X-ray results are properly escalated for further review.",
-        "evidence_type": "negative"
-      },
-      {
-        "id": "Text p01_c01",
+        "id": "Text p03_c01",
         "quote": "Appropriate investigations were ordered and performed.",
-        "evidence_type": "positive"
+        "evidence_type": "negative"
       }
     ],
     "uncertainty": false

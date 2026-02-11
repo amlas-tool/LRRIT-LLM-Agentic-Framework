@@ -5,6 +5,8 @@ from typing import Dict, Any, List
 from unittest import result
 
 from lrrit_llm.evidence.schema import EvidencePack, TextChunk, TableEvidence
+from lrrit_llm.evidence.resolve import resolve_evidence_id_and_page
+
 
 import json
 
@@ -38,6 +40,11 @@ class D1CompassionAgent:
         # Parsing is deliberately simple for now.
         # You may later harden this with JSON schema enforcement.
         result = self._parse_response(raw_response)
+
+        # -------------------------
+        # NEW: resolve evidence page (and repair mis-attributed IDs where possible)
+        # -------------------------
+        result = self._add_pages_to_evidence(result, pack)
 
         if result["rating"] in ("GOOD", "SOME"):
             if not any(e.get("evidence_type") == "positive" for e in result["evidence"]):
@@ -102,6 +109,7 @@ Instructions:
 - If evidence is sparse or ambiguous, state this explicitly.
 - Do not assess other dimensions (e.g. blame, systems).
 
+- Return STRICT JSON ONLY (no markdown, no extra text, no final period, full stop or punctuation):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -109,7 +117,7 @@ Instructions:
   "evidence": [
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
-      "quote": "verbatim excerpt from evidence, <= 25 words",
+      "quote": "verbatim excerpt from evidence without trailing punction, <= 25 words",
       "evidence_type": "positive" | "negative"
     }}
   ],
@@ -117,12 +125,13 @@ Instructions:
 }}
 
 Rules:
-- Return STRICT JSON ONLY (no markdown, no extra text)
-- Every evidence item MUST include:
+- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
+- Every evidence item MUST be numbered and include:
   - a verbatim quote taken from the cited Text/Table block (<= 25 words)
   - an evidence_type field: "positive" or "negative"
 - Use "positive" when the quote directly demonstrates compassionate engagement.
 - Use "negative" when the quote exemplifies clinical/process-focused documentation that supports the conclusion that compassionate engagement is not documented.
+- Use "negative" when the quote illustrates a lack of suitable staff training for compassionate engagement.
 - If rating is GOOD or SOME: include at least one "positive" evidence item.
 - If rating is LITTLE:
   - Prefer including 1-2 "negative" evidence items; OR
@@ -169,3 +178,37 @@ Evidence:
             "evidence": obj.get("evidence", []) or [],
             "uncertainty": bool(obj.get("uncertainty", False)),
         }
+    
+    # -------------------------
+    # NEW: Evidence page enrichment
+    # -------------------------
+
+    def _add_pages_to_evidence(self, result: Dict[str, Any], pack: EvidencePack) -> Dict[str, Any]:
+        evidence = result.get("evidence", []) or []
+        if not evidence:
+            return result
+
+        enriched = []
+        for e in evidence:
+            eid = (e.get("id") or "").strip()
+            quote = (e.get("quote") or "").strip()
+            etype = (e.get("evidence_type") or "").strip()
+
+            resolved_id, page = resolve_evidence_id_and_page(pack, eid, quote)
+
+            # Prefer repaired ID if we found one (fixes misattribution)
+            final_id = resolved_id or eid
+
+            # If we couldn't resolve a page at all, preserve but mark uncertain
+            if page is None:
+                result["uncertainty"] = True
+
+            enriched.append({
+                "id": final_id,
+                "page": page,
+                "quote": quote,
+                "evidence_type": etype,
+            })
+
+        result["evidence"] = enriched
+        return result

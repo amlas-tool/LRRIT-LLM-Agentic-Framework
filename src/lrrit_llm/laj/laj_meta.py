@@ -12,6 +12,7 @@ from unittest import result
 from lrrit_llm.evidence.schema import EvidencePack
 
 
+
 # -------------------------
 # Helpers: light normalisation for quote checks
 # -------------------------
@@ -86,6 +87,18 @@ def quote_matches_block(quote: str, block: str) -> bool:
         return True
     return _token_fuzzy_match(quote, block)
 
+def _resolve_block_by_page(self, pack: EvidencePack, page: int) -> Optional[str]:
+    # Return concatenated text from all chunks on that page + all tables on that page
+    parts: List[str] = []
+    for c in pack.text_chunks:
+        if int(getattr(c.provenance, "page", -1)) == int(page):
+            parts.append(c.text or "")
+    for t in pack.tables:
+        if int(getattr(t.provenance, "page", -1)) == int(page):
+            parts.append(t.text_fallback or "")
+    if not parts:
+        return None
+    return "\n\n".join(parts)
 
 
 # -------------------------
@@ -219,6 +232,17 @@ class LaJMetaEvaluator:
 
         return None
 
+    def _quote_exists_anywhere(self, pack: EvidencePack, quote: str) -> bool:
+        if not quote:
+            return False
+        for c in pack.text_chunks:
+            if quote_matches_block(quote, c.text or ""):
+                return True
+        for t in pack.tables:
+            if quote_matches_block(quote, t.text_fallback or ""):
+                return True
+        return False
+
 
     def _build_evidence_context(
         self,
@@ -231,7 +255,10 @@ class LaJMetaEvaluator:
         flags = {
             "missing_evidence": False,
             "invalid_evidence_id": False,
-            "quote_mismatch": False,
+
+            # Quote QA flags
+            "quote_not_found": False,          # quote not found anywhere in EvidencePack
+            "misattributed_evidence": False,   # quote exists, but not in cited block (wrong id/page)
         }
 
         if not evidence:
@@ -250,14 +277,27 @@ class LaJMetaEvaluator:
                 continue
 
             block = self._resolve_block(pack, eid)
+
+            # NEW: fallback by page if id resolution fails but page is available
+            if block is None:
+                page = ev.get("page")
+                if page is not None:
+                    block = self._resolve_block_by_page(pack, int(page))
+
             if block is None:
                 flags["invalid_evidence_id"] = True
                 continue
 
-            # Quote check: quote must appear in the referenced block (after light normalisation)
+
             if strict_quote_check and quote:
                 if not quote_matches_block(quote, block):
-                    flags["quote_mismatch"] = True
+                    # The cited block doesn't contain the quote. Distinguish:
+                    # - quote not in EvidencePack at all (non-verbatim / hallucinated)
+                    # - quote exists elsewhere (mis-cited id/page)
+                    if self._quote_exists_anywhere(pack, quote):
+                        flags["misattributed_evidence"] = True
+                    else:
+                        flags["quote_not_found"] = True
 
 
             if eid not in seen_ids:
@@ -329,11 +369,12 @@ Scoring guidance:
 Rules:
 - Provide ALL 6 metrics M1..M6 exactly once.
 - Keep notes short and actionable.
-- If programmatic flags indicate issues (missing evidence, invalid evidence id, quote mismatch), reflect this in M2/M6.
-Hallucination Screening (M6) is ONLY about unsupported factual assertions about the report content.
-- PASS if the rationale stays within what is supported by the provided evidence blocks, even if the critique is generic.
-- WARN if evidence is thin but not demonstrably false.
-- FAIL only if the rationale asserts facts that are not present in the provided evidence blocks, OR programmatic flags indicate invalid evidence IDs / unverifiable quotes.
+- invalid_evidence_id or quote_not_found → affects M2 and M6 (possible hallucination / unverifiable)
+- misattributed_evidence → affects M2 (grounding/provenance), but not M6
+- Hallucination Screening (M6) is ONLY about unsupported factual assertions about the report content.
+    - PASS if the rationale stays within what is supported by the provided evidence blocks, even if the critique is generic.
+    - WARN if evidence is thin but not demonstrably false.
+    - FAIL only if the rationale asserts facts that are not present in the provided evidence blocks, OR programmatic flags indicate invalid evidence IDs / unverifiable quotes.
 
 Notes on “Hallucination”
 Do NOT use M6 to penalise "insufficient specificity", "weak emphasis", or "could have cited more examples".
@@ -375,7 +416,7 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
         required = [mid for mid, _ in self.METRICS]
 
         # Clamp M6 when programmatic grounding is clean (prevents LaJ misusing hallucination)
-        if not flags.get("invalid_evidence_id") and not flags.get("quote_mismatch"):
+        if not flags.get("invalid_evidence_id") and not flags.get("quote_not_found"):
             m6 = m_by_id.get("M6")
             if m6 and m6.get("score") == "FAIL":
                 m6["score"] = "WARN"
@@ -385,9 +426,10 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
         result["metrics"] = [m_by_id[mid] for mid in required]
 
         # If severe programmatic issues, overall cannot be PASS
-        severe = flags.get("invalid_evidence_id") or flags.get("quote_mismatch")
+        severe = flags.get("invalid_evidence_id") or flags.get("quote_not_found")
         if severe and result.get("overall") == "PASS":
-            result["overall"] = "WARN"
+            result["overall"] = "FAIL"
+
 
         # If no evidence, M2 must at least WARN and M6 must at least WARN
         if flags.get("missing_evidence"):
@@ -398,5 +440,15 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
             if m6.get("score") == "PASS":
                 m6["score"] = "WARN"
             result["metrics"] = [m_by_id[mid] for mid in required]
+        
+        scores = {m["metric_id"]: (m.get("score") or "").upper() for m in metrics}
+
+        if scores.get("M2") == "FAIL" or scores.get("M6") == "FAIL":
+            result["overall"] = "FAIL"
+        elif any(s == "WARN" for s in scores.values()):
+            result["overall"] = "WARN"
+        else:
+            result["overall"] = "PASS"
+
 
         return result

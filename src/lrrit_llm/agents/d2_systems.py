@@ -3,8 +3,9 @@ from __future__ import annotations
 import json
 from typing import Dict, Any
 
+from lrrit_llm.evidence import resolve
 from lrrit_llm.evidence.schema import EvidencePack
-
+from lrrit_llm.evidence.resolve import resolve_evidence_id_and_page
 
 class D2SystemsApproachAgent:
     """
@@ -37,6 +38,11 @@ class D2SystemsApproachAgent:
 
         parsed = self._parse_response(raw_response)
         parsed = self._apply_guards(parsed)
+        
+        # -------------------------
+        # NEW: resolve evidence page (and repair mis-attributed IDs where possible)
+        # -------------------------
+        parsed = self._add_pages_to_evidence(parsed, pack)
 
         return {
             "agent_id": self.AGENT_ID,
@@ -78,6 +84,7 @@ Task:
 - Look for explicit system-level contributors (process design, escalation pathways, communication, capacity, governance).
 - Look for improvement actions that change the system, not just individual reminders.
 - Base your judgement ONLY on the evidence provided.
+- You must explain your rationale in the context of the evidence, explaining why the evidence you cite supports your rating.
 
 Rating options:
 - GOOD evidence: clear systems framing + system-level actions
@@ -91,19 +98,20 @@ Return STRICT JSON ONLY (no markdown, no extra text):
   "rationale": "string",
   "evidence": [
     {{
-      "id": "Text pXX_cYY" | "Table pXX_tYY",
-      "quote": "verbatim excerpt from evidence, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "quote": "verbatim excerpt from evidence without trailing punction, <= 25 words",
+      "evidence_type": "positive" | "negative",
+      "source_hint": "text|table|either"
     }}
   ],
   "uncertainty": true | false
 }}
 
 Rules:
-- Every evidence item MUST include a verbatim quote from the cited Text/Table block (<= 25 words).
-- evidence_type:
-  - "positive" = explicit systems/process framing or system-level interventions.
-  - "negative" = primarily individual blame/reminders or absence of systems framing where expected.
+- Every evidence item MUST be numbered and include:
+- a verbatim quote taken from the cited Text/Table block (<= 25 words)
+- an evidence_type field: "positive" or "negative":
+    - "positive" = explicit systems/process framing or system-level interventions.
+    - "negative" = primarily individual blame/reminders or absence of systems framing where expected.
 - When citing negative evidence, explain why it weakens a systems approach (e.g. individual learning rather than system change)
 - If rating is GOOD: include at least one positive evidence item.
 - If rating is LITTLE: include at least one negative evidence item (if present). If not present, evidence may be [] but set uncertainty true.
@@ -143,6 +151,41 @@ Evidence:
             "uncertainty": bool(obj.get("uncertainty", False)),
         }
 
+  # -------------------------
+    # NEW: Evidence page enrichment
+    # -------------------------
+
+    def _add_pages_to_evidence(self, result: Dict[str, Any], pack: EvidencePack) -> Dict[str, Any]:
+        evidence = result.get("evidence", []) or []
+        if not evidence:
+            return result
+
+        enriched = []
+        for e in evidence:
+            eid = (e.get("id") or "").strip()
+            quote = (e.get("quote") or "").strip()
+            etype = (e.get("evidence_type") or "").strip()
+
+            resolved_id, page = resolve_evidence_id_and_page(pack, eid, quote)
+
+            # Prefer repaired ID if we found one (fixes misattribution)
+            final_id = resolved_id or eid
+
+            # If we couldn't resolve a page at all, preserve but mark uncertain
+            if page is None:
+                result["uncertainty"] = True
+
+            enriched.append({
+                "id": final_id,
+                "page": page,
+                "quote": quote,
+                "evidence_type": etype,
+            })
+
+        result["evidence"] = enriched
+        return result
+
+        
     # -------------------------
     # Guards (lightweight)
     # -------------------------

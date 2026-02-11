@@ -1,0 +1,354 @@
+{
+  "d1": {
+    "judge_id": "LaJ",
+    "agent_id": "D1",
+    "dimension": "Compassionate engagement with people affected",
+    "overall": "PASS",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "PASS",
+        "notes": "The output aligns well with the rubric by highlighting compassionate engagement and effective communication."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and directly supports the claims made in the rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "PASS",
+        "notes": "The reasoning is coherent and logically connects the evidence to the assessment of compassionate engagement."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output reflects values of empathy and support, consistent with compassionate care principles."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output appropriately acknowledges uncertainty, enhancing transparency."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "The rationale does not contain unsupported claims and is consistent with the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d2": {
+    "judge_id": "LaJ",
+    "agent_id": "D2",
+    "dimension": "Systems approach to contributory factors",
+    "overall": "FAIL",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The output identifies systemic factors but could provide more explicit connections to the evidence for clarity."
+      },
+      {
+        "metric_id": "M2",
+        "score": "FAIL",
+        "notes": "One evidence ID is invalid, which undermines the grounding of the claims made in the rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "The reasoning is generally coherent but lacks depth in linking evidence to the systemic approach discussed."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of systemic improvement and patient safety."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output acknowledges uncertainty, which is appropriate for the context."
+      },
+      {
+        "metric_id": "M6",
+        "score": "FAIL",
+        "notes": "The invalid evidence ID raises concerns about the reliability of the claims made in the rationale."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": true,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d3": {
+    "judge_id": "LaJ",
+    "agent_id": "D3",
+    "dimension": "Quality and appropriateness of learning actions",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The rationale identifies specific actions but lacks clarity on how they directly address all contributory factors."
+      },
+      {
+        "metric_id": "M2",
+        "score": "WARN",
+        "notes": "The evidence is partially misattributed, which affects the grounding of the rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "PASS",
+        "notes": "The reasoning is coherent and logically connects the actions to systemic issues."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The actions align with values of safety and improvement in patient care."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output is transparent about uncertainty, acknowledging potential risks."
+      },
+      {
+        "metric_id": "M6",
+        "score": "WARN",
+        "notes": "The rationale is generally supported but lacks some specificity, leading to potential ambiguity."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": true
+    }
+  },
+  "d4": {
+    "judge_id": "LaJ",
+    "agent_id": "D4",
+    "dimension": "Blame language avoided",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The output identifies both positive and negative aspects of blame language but could better clarify the balance between them."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and directly supports the evaluation."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "The rationale is somewhat coherent but lacks a clear connection between the evidence and the overall assessment of blame language."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The evaluation aligns with values of system-focused accountability."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output is clear and does not present uncertainty."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "No unsupported claims are present; all assertions are grounded in the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d5": {
+    "judge_id": "LaJ",
+    "agent_id": "D5",
+    "dimension": "Local rationality",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The output partially meets the rubric by acknowledging some context but lacks a thorough explanation of the reasoning behind actions taken."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and relevant to the evaluation."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "The reasoning is somewhat coherent but does not fully articulate the sense-making process behind the actions."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of transparency and adherence to procedures."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output appropriately acknowledges uncertainty in the evaluation."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "The rationale does not assert unsupported claims and stays within the bounds of the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d6": {
+    "judge_id": "LaJ",
+    "agent_id": "D6",
+    "dimension": "Avoidance of hindsight bias and counterfactual certainty",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The output partially meets rubric fidelity but makes definitive claims about causes without sufficient evidence."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and directly from the referenced block."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "The reasoning is somewhat coherent but lacks depth in addressing the uncertainty of the causes."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of transparency and caution regarding patient safety."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The output appropriately acknowledges uncertainty in the evidence."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "The rationale does not assert unsupported facts and remains within the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d7": {
+    "judge_id": "LaJ",
+    "agent_id": "D7",
+    "dimension": "Improvement actions (systems-focused, evidence-informed, collaborative)",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "PASS",
+        "notes": "The output clearly meets the rubric by identifying system-focused, evidence-informed, and collaboratively developed improvement actions."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All cited evidence is valid and directly supports the claims made in the rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "PASS",
+        "notes": "The rationale is coherent and logically connects the evidence to the assessment of improvement actions."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of collaboration and evidence-based practice in healthcare improvement."
+      },
+      {
+        "metric_id": "M5",
+        "score": "WARN",
+        "notes": "While the output acknowledges uncertainty, it could provide more detail on how uncertainty impacts the proposed actions."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "The rationale does not make unsupported claims and stays within the bounds of the provided evidence."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  },
+  "d8": {
+    "judge_id": "LaJ",
+    "agent_id": "D8",
+    "dimension": "Communication quality and usability",
+    "overall": "WARN",
+    "metrics": [
+      {
+        "metric_id": "M1",
+        "score": "WARN",
+        "notes": "The report has a generally understandable structure, but excessive vagueness and jargon hinder clarity."
+      },
+      {
+        "metric_id": "M2",
+        "score": "PASS",
+        "notes": "All evidence cited is valid and directly supports the claims made in the rationale."
+      },
+      {
+        "metric_id": "M3",
+        "score": "WARN",
+        "notes": "While the rationale identifies issues, it lacks specific examples of how terminology inconsistency affects clarity."
+      },
+      {
+        "metric_id": "M4",
+        "score": "PASS",
+        "notes": "The output aligns with values of clarity and usability in communication."
+      },
+      {
+        "metric_id": "M5",
+        "score": "PASS",
+        "notes": "The agent is transparent about uncertainty in the report's clarity."
+      },
+      {
+        "metric_id": "M6",
+        "score": "PASS",
+        "notes": "The rationale does not make unsupported claims and stays within the evidence provided."
+      }
+    ],
+    "flags": {
+      "missing_evidence": false,
+      "invalid_evidence_id": false,
+      "quote_not_found": false,
+      "misattributed_evidence": false
+    }
+  }
+}
