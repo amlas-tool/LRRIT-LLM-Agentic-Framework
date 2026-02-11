@@ -245,7 +245,7 @@ data/processed/reports/test/
 ```powershell
 py .\scripts\render_results_html.py
 ```
-A full example can be found here (note the `Open report` button will not work):
+A full example can be found here (**NB.** the `Open report` button **will not work**):
 
 [https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/SYNTHETIC%20AAR/agent_results.html]
 ---
