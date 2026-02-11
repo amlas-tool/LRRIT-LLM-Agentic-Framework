@@ -214,9 +214,9 @@ def render_html(report_dir: Path) -> Path:
         <tr class=\"summary-row\" onclick=\"location.href='#{anchor}'\" tabindex=\"0\" role=\"link\">
           <td class=\"mono\">{_esc(agent_id)}</td>
           <td>{_esc(dim)}</td>
-          <td><span class=\"pill\" style=\"background:{rating_col}\">{_esc(rating)}</span></td>
+          <td style=\"text-align: center;\"><span class=\"pill\" style=\"background:{rating_col}\">{_esc(rating)}</span></td>
           
-          <td>{laj_cell}</td>
+          <td style=\"text-align: center;\">{laj_cell}</td>
         </tr>
           """
           )
@@ -406,7 +406,6 @@ def render_html(report_dir: Path) -> Path:
       margin-top: 10px;
     }}
     th, td {{
-      text-align: left;
       padding: 10px 8px;
       border-bottom: 1px solid #eee;
       vertical-align: top;
@@ -453,6 +452,7 @@ def render_html(report_dir: Path) -> Path:
     }}
     .badge-label {{
       text-transform: uppercase;
+      text-align: center;
       font-size: 13px;
       opacity: 0.85;
       margin-bottom: 6px;
@@ -712,7 +712,7 @@ def render_html(report_dir: Path) -> Path:
           <tr>
             <th>Agent</th>
             <th>Data Dimension</th>
-            <th>Evidence Rating</th>
+            <th>Evidence Level Rating</th>
             <th>Agent Task <br>Evaluation</th>
           </tr>
         </thead>

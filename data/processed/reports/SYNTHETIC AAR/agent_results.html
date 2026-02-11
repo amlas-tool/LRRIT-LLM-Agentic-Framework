@@ -59,7 +59,6 @@
       margin-top: 10px;
     }
     th, td {
-      text-align: left;
       padding: 10px 8px;
       border-bottom: 1px solid #eee;
       vertical-align: top;
@@ -106,6 +105,7 @@
     }
     .badge-label {
       text-transform: uppercase;
+      text-align: center;
       font-size: 13px;
       opacity: 0.85;
       margin-bottom: 6px;
@@ -337,7 +337,7 @@
   <header>
     <div class="wrap">
       <div style="font-size:28px;font-weight:900;">LRRIT Agent Results</div>
-      <div style="opacity:0.9;margin-top:4px;">Report: SYNTHETIC AAR • Generated: 2026-02-11 15:31</div>
+      <div style="opacity:0.9;margin-top:4px;">Report: SYNTHETIC AAR • Generated: 2026-02-11 17:45</div>
     </div>
   </header>
 
@@ -365,7 +365,7 @@
           <tr>
             <th>Agent</th>
             <th>Data Dimension</th>
-            <th>Evidence Rating</th>
+            <th>Evidence Level Rating</th>
             <th>Agent Task <br>Evaluation</th>
           </tr>
         </thead>
@@ -374,65 +374,65 @@
         <tr class="summary-row" onclick="location.href='#dim-d1'" tabindex="0" role="link">
           <td class="mono">D1</td>
           <td>Compassionate engagement with people affected</td>
-          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#007F3B">GOOD</span></td>
           
-          <td><span class="pill" style="background:#007F3B" title="All metrics PASS">PASS</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#007F3B" title="All metrics PASS">PASS</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d2'" tabindex="0" role="link">
           <td class="mono">D2</td>
           <td>Systems approach to contributory factors</td>
-          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#007F3B">GOOD</span></td>
           
-          <td><span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">FAIL</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#D5281B" title="Flags: M1, M2, M3, M6">FAIL</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d3'" tabindex="0" role="link">
           <td class="mono">D3</td>
           <td>Quality and appropriateness of learning actions</td>
-          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#007F3B">GOOD</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M6">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M1, M2, M6">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d4'" tabindex="0" role="link">
           <td class="mono">D4</td>
           <td>Blame language avoided</td>
-          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C">SOME</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d5'" tabindex="0" role="link">
           <td class="mono">D5</td>
           <td>Local rationality</td>
-          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C">SOME</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d6'" tabindex="0" role="link">
           <td class="mono">D6</td>
           <td>Avoidance of hindsight bias and counterfactual certainty</td>
-          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C">SOME</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d7'" tabindex="0" role="link">
           <td class="mono">D7</td>
           <td>Improvement actions (systems-focused, evidence-informed, collaborative)</td>
-          <td><span class="pill" style="background:#007F3B">GOOD</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#007F3B">GOOD</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M5">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M5">WARN</span></td>
         </tr>
           
         <tr class="summary-row" onclick="location.href='#dim-d8'" tabindex="0" role="link">
           <td class="mono">D8</td>
           <td>Communication quality and usability</td>
-          <td><span class="pill" style="background:#FFB81C">SOME</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C">SOME</span></td>
           
-          <td><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
+          <td style="text-align: center;"><span class="pill" style="background:#FFB81C" title="Flags: M1, M3">WARN</span></td>
         </tr>
           
         </tbody>
