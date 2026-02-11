@@ -251,7 +251,8 @@ https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/test/ag
 
 ---
 
-<img width="1505" height="1839" alt="image" src="https://github.com/user-attachments/assets/91287a40-661e-4c43-aeca-5a7ff5b189d4" />
+<img width="1260" height="1910" alt="image" src="https://github.com/user-attachments/assets/c966550c-7495-4642-9400-235df290dc3d" />
+
 
 ---
 
