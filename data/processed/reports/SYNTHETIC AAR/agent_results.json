@@ -3,7 +3,7 @@
     "agent_id": "D1",
     "dimension": "Compassionate engagement with people affected",
     "rating": "GOOD",
-    "rationale": "The learning response demonstrates compassionate engagement through clear communication and sensitivity to patients' and families' emotional needs. Staff were trained to engage compassionately, as evidenced by the structured conversation with a patient and their family.",
+    "rationale": "The learning response demonstrates compassionate engagement through clear communication and sensitivity to patients' and families' emotional needs. Staff were trained adequately to engage compassionately, as evidenced by the structured approach to patient conversations and the involvement of families in decision-making.",
     "evidence": [
       {
         "id": "Text p16_c01",
@@ -26,7 +26,7 @@
       {
         "id": "Text p16_c01",
         "page": null,
-        "quote": "Throughout 2027, the IPC team implemented an ambitious programme of hands-on, interactive infection-prevention education",
+        "quote": "Infection Prevention & Control (IPC) team implemented an ambitious programme of hands-on, interactive infection-prevention education",
         "evidence_type": "positive"
       }
     ],
@@ -41,13 +41,13 @@
       {
         "id": "",
         "page": null,
-        "quote": "The Systems Engineering Initiative for Patient Safety team... agreed to conduct a full review of workflow, environment, equipment",
+        "quote": "The Systems Engineering Initiative for Patient Safety team... agreed to conduct a full review of workflow, environment, equipment, and any inexplicable atmospheric events",
         "evidence_type": "positive"
       },
       {
         "id": "",
         "page": null,
-        "quote": "Introduce dedicated isolation pod within the AHDS... Expand single-pod capacity ahead of the 2028–2029 Nebula Winter Surge",
+        "quote": "Introduce dedicated isolation pod within the AHDS... Increase single-pod capacity before the 2028–2029 'Winter Nebula Surge'",
         "evidence_type": "positive"
       }
     ],
@@ -77,19 +77,19 @@
   "d4": {
     "agent_id": "D4",
     "dimension": "Blame language avoided",
-    "rating": "GOOD",
-    "rationale": "The learning response effectively avoids blame-oriented language, focusing on systemic issues and processes rather than attributing fault to individuals or teams.",
+    "rating": "SOME",
+    "rationale": "The learning response includes both positive system/process framing and instances of blame-oriented language, particularly regarding staff actions and adherence to protocols.",
     "evidence": [
       {
         "id": "Text p05_c01",
         "page": 5,
         "quote": "Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department",
-        "evidence_type": "positive"
+        "evidence_type": "negative"
       },
       {
-        "id": "Text p13_c01",
-        "page": 13,
-        "quote": "The review remains focused on system, not individual performance",
+        "id": "Text p05_c01",
+        "page": 5,
+        "quote": "Senior clinicians reminded all teams—firmly but politely—that swabbing should follow evidence-based procedures",
         "evidence_type": "positive"
       }
     ],
@@ -99,18 +99,18 @@
     "agent_id": "D5",
     "dimension": "Local rationality",
     "rating": "SOME",
-    "rationale": "The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated, leading to a mixed understanding of the decisions made at the time.",
+    "rationale": "The response provides some context regarding the actions taken during the incident, but it lacks a comprehensive explanation of the contemporaneous reasoning behind those actions. While there are references to expected procedures and some identified issues, the overall sense-making process is not fully articulated.",
     "evidence": [
       {
         "id": "Text p03_c01",
         "page": 3,
-        "quote": "The team originally intended to follow the Nebula Valley Health Trust’s respiratory admission and infection-control pathways precisely.",
+        "quote": "The team originally intended to follow the Nebula Valley Health Trust’s respiratory admission and infection-control pathways precisely",
         "evidence_type": "positive"
       },
       {
         "id": "Text p05_c01",
         "page": 5,
-        "quote": "Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department.",
+        "quote": "Key Issue Identified: Non-adherence to the Trust’s Respiratory Swabbing Megadocument in the Emergency Department",
         "evidence_type": "negative"
       }
     ],
@@ -136,12 +136,6 @@
       },
       {
         "id": "Text p14_c01",
-        "page": null,
-        "quote": "There is no genomic sequencing to confirm transmission.",
-        "evidence_type": "negative"
-      },
-      {
-        "id": "Text p14_c01",
         "page": 14,
         "quote": "The evidence for healthcare-associated infection is circumstantial.",
         "evidence_type": "negative"
@@ -153,36 +147,24 @@
     "agent_id": "D7",
     "dimension": "Improvement actions (systems-focused, evidence-informed, collaborative)",
     "rating": "GOOD",
-    "rationale": "The improvement actions are system-focused, addressing key contributory factors identified in the report. They are collaboratively developed and include monitoring and ownership arrangements.",
+    "rationale": "The improvement actions are system-focused, addressing key contributory factors identified in the review. They are collaboratively developed and include monitoring and ownership arrangements.",
     "evidence": [
       {
-        "id": "Text p18_t01",
-        "page": null,
-        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients.",
+        "id": "Text p18_c01",
+        "page": 18,
+        "quote": "Introduce a dedicated isolation pod within the Level-2 Atmospheric High Dependency Sphere (AHDS) for respiratory patients",
         "evidence_type": "positive"
       },
       {
-        "id": "Text p21_t01",
-        "page": null,
-        "quote": "A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test.",
+        "id": "Text p21_c01",
+        "page": 21,
+        "quote": "A comprehensive and fully standardised process will be implemented to ensure that every patient undergoing NebulaCore rapid viral screening receives the appropriate confirmatory StellarPCR test",
         "evidence_type": "positive"
       },
       {
-        "id": "Text p22_t01",
+        "id": "Text p22_c01",
         "page": null,
-        "quote": "A structured programme will be developed to increase isolation capacity by converting two existing standard Duo-Pods into upgraded 'Containment-Grade Duo-Pods'.",
-        "evidence_type": "positive"
-      },
-      {
-        "id": "Text p24_t01",
-        "page": null,
-        "quote": "A comprehensive infection-risk checklist will be embedded into EPR-Star, ensuring that before any NebuloPAP or NIV is initiated.",
-        "evidence_type": "positive"
-      },
-      {
-        "id": "Text p28_c01",
-        "page": 28,
-        "quote": "A decision-support tool will be built into the Command Nexus dashboard to reduce unnecessary movement of patients between pods.",
+        "quote": "Measurements will include daily acuity-to-staffing ratio audits, weekly capacity modelling, monthly reports on pod usage rates",
         "evidence_type": "positive"
       }
     ],
@@ -192,25 +174,25 @@
     "agent_id": "D8",
     "dimension": "Communication quality and usability",
     "rating": "SOME",
-    "rationale": "The report has a generally clear structure and is somewhat readable, but it contains excessive vagueness and some jargon that detracts from clarity. While learning points and actions are present, they are not always easy to identify due to inconsistent terminology and unclear phrasing.",
+    "rationale": "The report has a generally clear structure and is somewhat readable, but it contains excessive vagueness and some jargon that may hinder understanding. While learning points and actions are present, they are not always easy to extract due to inconsistent terminology and unclear phrasing.",
     "evidence": [
       {
-        "id": "Text p02_c01",
-        "page": 2,
-        "quote": "What did we set out to do? (What should have happened? What was the expected outcome?): What actually happened?",
-        "evidence_type": "negative"
+        "id": "Text p03_c01",
+        "page": null,
+        "quote": "The expected process was: Patients admitted to Ward 47 – Respiratory & Atmospheric Mysteries Unit would be assessed",
+        "evidence_type": "positive"
       },
       {
         "id": "Text p05_c01",
         "page": null,
-        "quote": "Using obsolete 'Mood-Swabs' that changed colour depending on emotional energy in the room",
+        "quote": "ED staff had been: Using obsolete 'Mood-Swabs' that changed colour depending on emotional energy in the room",
         "evidence_type": "negative"
       },
       {
-        "id": "Text p16_c01",
-        "page": 16,
-        "quote": "Staff explained the clinical situation with clarity, empathy, and a sense of grounded honesty",
-        "evidence_type": "positive"
+        "id": "Text p06_c01",
+        "page": 6,
+        "quote": "Full patient-location mapping, atmospheric anomaly logs, and bed-movement diagrams have been completed for each synthetic case",
+        "evidence_type": "negative"
       }
     ],
     "uncertainty": true

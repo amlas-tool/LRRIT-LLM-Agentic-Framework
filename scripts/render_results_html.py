@@ -683,14 +683,14 @@ def render_html(report_dir: Path) -> Path:
 <body>
   <header>
     <div class="wrap">
-      <div style="font-size:28px;font-weight:900;">LRRIT Agent Results</div>
-      <div style="opacity:0.9;margin-top:4px;">Report: {html.escape(report_id)} • Generated: {html.escape(now)}</div>
+      <div style="font-size:28px;font-weight:900;">LRRIT Agentic Assessment of Dimensions</div>
+      <div style="opacity:0.9;margin-top:8px;">Report: {html.escape(report_id)} • Evaluation generated: {html.escape(now)}</div>
     </div>
   </header>
 
   <div class="wrap">
     <div class="meta">
-      <div style="font-weight:900;font-size:14px;">EvidencePack summary</div>
+      <div style="font-weight:900;font-size:14px;"></div>
       <div class="meta-grid">
         <div><span class="k">File path of report:</span> <span class="v">{html.escape(source_path)}</span></div>
         <div><span class="k">Large Language Model used:</span> <span class="v mono">{html.escape(model_name)}</span></div>

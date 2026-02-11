@@ -98,7 +98,7 @@ Return STRICT JSON ONLY (no markdown, no extra text):
   "rationale": "string",
   "evidence": [
     {{
-      "quote": "verbatim excerpt from evidence without trailing punction, <= 25 words",
+      "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
       "evidence_type": "positive" | "negative",
       "source_hint": "text|table|either"
     }}

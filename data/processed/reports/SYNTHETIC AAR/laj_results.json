@@ -18,7 +18,7 @@
       {
         "metric_id": "M3",
         "score": "PASS",
-        "notes": "The reasoning is coherent and logically connects the evidence to the assessment of compassionate engagement."
+        "notes": "The rationale is coherent and logically connects the evidence to the assessment of compassionate engagement."
       },
       {
         "metric_id": "M4",
@@ -33,7 +33,7 @@
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not contain unsupported claims and stays within the evidence provided."
+        "notes": "The rationale does not contain unsupported claims and is grounded in the provided evidence."
       }
     ],
     "flags": {
@@ -52,32 +52,32 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output generally aligns with the rubric but could benefit from more explicit connections to the systems approach."
+        "notes": "The analysis identifies system-level contributors but lacks depth in exploring latent factors and work-as-done."
       },
       {
         "metric_id": "M2",
         "score": "WARN",
-        "notes": "The evidence provided is relevant but includes an invalid evidence ID, which raises concerns about grounding."
+        "notes": "The evidence provided is relevant but includes an invalid evidence ID, which affects grounding."
       },
       {
         "metric_id": "M3",
         "score": "PASS",
-        "notes": "The reasoning is coherent and logically structured, effectively linking system-level factors."
+        "notes": "The rationale is coherent and logically follows from the evidence presented."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of focusing on systemic issues rather than individual blame."
+        "notes": "The output aligns with values of focusing on system conditions rather than individual blame."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output transparently acknowledges uncertainty, which is appropriate for the context."
+        "notes": "The output appropriately acknowledges uncertainty in the analysis."
       },
       {
         "metric_id": "M6",
         "score": "WARN",
-        "notes": "While the rationale is mostly supported, the invalid evidence ID raises questions about the reliability of the claims."
+        "notes": "While the rationale is generally supported, the invalid evidence ID raises concerns about the reliability of the claims."
       }
     ],
     "flags": {
@@ -106,7 +106,7 @@
       {
         "metric_id": "M3",
         "score": "PASS",
-        "notes": "The reasoning is coherent and logically connects the actions to the systemic issues."
+        "notes": "The reasoning is coherent and logically connects the actions to the identified systemic issues."
       },
       {
         "metric_id": "M4",
@@ -116,12 +116,12 @@
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "There is no uncertainty present in the evaluation, and the claims are well-supported."
+        "notes": "The output is clear and does not present any uncertainty regarding the actions proposed."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not contain unsupported claims and is consistent with the provided evidence."
+        "notes": "The rationale does not include unsupported claims and is consistent with the provided evidence."
       }
     ],
     "flags": {
@@ -135,37 +135,37 @@
     "judge_id": "LaJ",
     "agent_id": "D4",
     "dimension": "Blame language avoided",
-    "overall": "PASS",
+    "overall": "WARN",
     "metrics": [
       {
         "metric_id": "M1",
-        "score": "PASS",
-        "notes": "The output aligns well with the rubric by accurately assessing the avoidance of blame language."
+        "score": "WARN",
+        "notes": "The output identifies both positive and negative language but could better emphasize the neutral/system framing."
       },
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and directly supports the claims made in the rationale."
+        "notes": "All evidence cited is valid and accurately reflects the content of the report."
       },
       {
         "metric_id": "M3",
-        "score": "PASS",
-        "notes": "The reasoning is coherent and logically follows from the evidence provided."
+        "score": "WARN",
+        "notes": "The rationale could be clearer in distinguishing between the positive and negative aspects of the language used."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output is values-aligned, focusing on systemic issues rather than individual blame."
+        "notes": "The output aligns with values of promoting a systems approach to blame avoidance."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "There is no uncertainty present in the evaluation, and the claims are well-supported."
+        "notes": "The output is clear and does not present uncertainty."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not contain unsupported claims and is consistent with the provided evidence."
+        "notes": "The rationale is supported by the provided evidence and does not contain unsupported claims."
       }
     ],
     "flags": {
@@ -194,22 +194,22 @@
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but does not fully articulate the decision-making process, leading to gaps in understanding."
+        "notes": "The reasoning is somewhat coherent but does not fully articulate the sense-making process behind the actions."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of transparency and adherence to established procedures."
+        "notes": "The output aligns with values of transparency and adherence to procedures."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output appropriately acknowledges uncertainty regarding the completeness of the explanation."
+        "notes": "The output appropriately acknowledges uncertainty in the evaluation."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not assert unsupported claims and remains within the bounds of the provided evidence."
+        "notes": "The rationale does not assert unsupported facts and remains within the bounds of the provided evidence."
       }
     ],
     "flags": {
@@ -233,22 +233,22 @@
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is correctly referenced and relevant to the claims made."
+        "notes": "All evidence cited is valid and directly supports the evaluation."
       },
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The reasoning is somewhat coherent but mixes cautious and overconfident statements, leading to ambiguity."
+        "notes": "The reasoning is somewhat coherent but mixes cautious and overconfident claims, leading to ambiguity."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of transparency and caution in discussing uncertainty."
+        "notes": "The evaluation aligns with values of recognizing uncertainty and avoiding definitive claims."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output effectively communicates uncertainty regarding the causes of the incidents."
+        "notes": "The output is transparent about uncertainty and acknowledges the lack of definitive causes."
       },
       {
         "metric_id": "M6",
@@ -272,7 +272,7 @@
       {
         "metric_id": "M1",
         "score": "PASS",
-        "notes": "The output clearly meets the rubric requirements by identifying system-focused, evidence-informed, and collaboratively developed improvement actions."
+        "notes": "The output clearly aligns with the rubric by identifying system-focused, evidence-informed, and collaboratively developed improvement actions."
       },
       {
         "metric_id": "M2",
@@ -282,22 +282,22 @@
       {
         "metric_id": "M3",
         "score": "PASS",
-        "notes": "The reasoning is coherent and logically connects the evidence to the evaluation of improvement actions."
+        "notes": "The rationale is coherent and logically connects the evidence to the assessment of improvement actions."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The output aligns with values of safety and collaboration, as emphasized in the improvement actions."
+        "notes": "The output aligns with values of safety and quality improvement as outlined in the provided evidence."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output transparently acknowledges uncertainty, which is appropriate for the context."
+        "notes": "The output transparently acknowledges uncertainty, which is appropriate given the context."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not make unsupported claims and stays within the bounds of the provided evidence."
+        "notes": "The rationale does not contain unsupported claims and remains within the bounds of the provided evidence."
       }
     ],
     "flags": {
@@ -316,32 +316,32 @@
       {
         "metric_id": "M1",
         "score": "WARN",
-        "notes": "The output identifies some issues with clarity and jargon but lacks specific examples to fully support the critique."
+        "notes": "The output identifies some issues with clarity and jargon but lacks specific examples from the evidence to support claims about excessive vagueness."
       },
       {
         "metric_id": "M2",
         "score": "PASS",
-        "notes": "All evidence cited is valid and corresponds to the report content."
+        "notes": "All evidence cited is valid and directly relates to the communication quality of the report."
       },
       {
         "metric_id": "M3",
         "score": "WARN",
-        "notes": "The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims."
+        "notes": "The rationale is somewhat coherent but could benefit from clearer connections between evidence and claims about readability."
       },
       {
         "metric_id": "M4",
         "score": "PASS",
-        "notes": "The evaluation aligns with values of clear communication and patient-centered care."
+        "notes": "The evaluation aligns with values of clarity and usability in communication."
       },
       {
         "metric_id": "M5",
         "score": "PASS",
-        "notes": "The output appropriately acknowledges uncertainty in the report's clarity."
+        "notes": "The output appropriately acknowledges uncertainty regarding the clarity of the report."
       },
       {
         "metric_id": "M6",
         "score": "PASS",
-        "notes": "The rationale does not assert unsupported claims and stays within the provided evidence."
+        "notes": "The rationale does not make unsupported factual assertions and stays within the bounds of the provided evidence."
       }
     ],
     "flags": {
