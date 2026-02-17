@@ -4,3 +4,7 @@ desktop.ini
 *.bat
 *.ini
 *.pyc
+*.md
+*.csv
+*.json
+*.pdf

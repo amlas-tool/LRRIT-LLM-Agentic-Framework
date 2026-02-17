@@ -95,7 +95,7 @@ Rating options:
 - SOME evidence: mixed cautious and overconfident counterfactual reasoning
 - LITTLE evidence: strong hindsight bias or definitive unsupported causal claims
 
-Return STRICT JSON ONLY (no markdown, no extra text, no extra text, no final period, full stop or punctuation):
+Return STRICT JSON ONLY (no markdown, no extra text, no extra text):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",

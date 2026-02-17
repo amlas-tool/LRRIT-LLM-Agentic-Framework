@@ -780,7 +780,7 @@ def render_html(report_dir: Path) -> Path:
 
 def main():
     # Default to your 'test' report directory
-    report_dir = Path("data") / "processed" / "reports" / "SYNTHETIC AAR"
+    report_dir = Path("data") / "processed" / "reports" / "investigation-report-202410-redcliffematernity-services"
 
     # Allow override via env var or first CLI arg
     import os, sys

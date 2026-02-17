@@ -78,7 +78,8 @@ class D8CommunicationQualityAgent:
             )
 
         evidence_text = "\n\n".join(evidence_blocks)
-
+        # print(f"Constructed prompt for {self.AGENT_ID} with {len(evidence_blocks)} evidence blocks.")
+        # print(f"Prompt length (characters): {len(evidence_text)}")
         return f"""
 You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
 

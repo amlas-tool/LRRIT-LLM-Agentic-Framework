@@ -28,7 +28,7 @@ def main():
     pdf_path = Path(
         os.environ.get(
             "LRRIT_TEST_PDF",
-            r"G:\My Drive\LLM projects\lrrit-llm\data\raw_pdfs\SYNTHETIC AAR.pdf",
+            r"G:\My Drive\LLM projects\lrrit-llm\data\raw_pdfs\investigation-report-202410-redcliffematernity-services.pdf",
         )
     )
 
@@ -95,7 +95,17 @@ def main():
     d8_out = d8.run(pack)
 
 
-    results = {"d1": d1_out, "d2": d2_out, "d3": d3_out, "d4": d4_out, "d5": d5_out, "d6": d6_out, "d7": d7_out, "d8": d8_out}
+    results = {
+        "d1": d1_out, 
+        "d2": d2_out, 
+        "d3": d3_out, 
+        "d4": d4_out, 
+        "d5": d5_out, 
+        "d6": d6_out, 
+        "d7": d7_out, 
+        "d8": d8_out
+        }
+    
     results["_meta"] = {
         "model": os.environ.get("OPENAI_MODEL", "unknown"), # for record-keeping - needs changing for local clients
         "pdf_path": str(Path(pdf_path).resolve()),

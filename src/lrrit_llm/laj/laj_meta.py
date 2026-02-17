@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from unittest import result
 
 from lrrit_llm.evidence.schema import EvidencePack
+from lrrit_llm.laj.dimensions import DIMENSION_DEFINITIONS
 
 
 
@@ -231,6 +232,31 @@ class LaJMetaEvaluator:
                     return t.text_fallback or ""
 
         return None
+    
+    def run_all(
+        self,
+        pack: EvidencePack,
+        agent_results: Dict[str, Any],
+        strict_quote_check: bool = True,
+    ) -> Dict[str, Any]:
+        out: Dict[str, Any] = {}
+
+        for key, agent_out in agent_results.items():
+            if not isinstance(agent_out, dict):
+                continue
+            agent_id = agent_out.get("agent_id")
+            if not agent_id:
+                continue
+
+            dim_def = DIMENSION_DEFINITIONS.get(agent_id, agent_out.get("dimension", ""))
+            out[key] = self.run(
+                pack=pack,
+                agent_output=agent_out,
+                dimension_definition=dim_def,
+                strict_quote_check=strict_quote_check,
+            )
+
+        return out
 
     def _quote_exists_anywhere(self, pack: EvidencePack, quote: str) -> bool:
         if not quote:
