@@ -8,7 +8,7 @@ from typing import Any, Dict
 
 from lrrit_llm.ingest.pdf_text import extract_text_pages
 from lrrit_llm.ingest.pdf_tables import extract_tables_from_pdf
-from lrrit_llm.evidence.pack import build_evidence_pack, save_evidence_pack
+from lrrit_llm.evidence.pack import build_evidence_pack, save_evidence_pack, load_evidence_pack
 
 from lrrit_llm.clients.openai_client import OpenAIChatClient
 
@@ -101,9 +101,9 @@ def main() -> None:
         do_ingest = False
 
 
-    # ---- INGEST ----
     pack = None
-    if not args.no_ingest and not args.html_only:
+    # ---- INGEST ----
+    if do_ingest:
         print(f"[1/5] Extracting text: {pdf_path}")
         text_pages = extract_text_pages(str(pdf_path))
 
@@ -127,18 +127,21 @@ def main() -> None:
         save_evidence_pack(pack, str(evidence_pack_path))
         print(f"Saved EvidencePack: {evidence_pack_path}")
     else:
-        if evidence_pack_path.exists():
-            # If you already have a loader, use it; otherwise you can reconstruct a minimal pack from json.
-            # For now, LaJ/agents typically need the pack object, so --no-ingest implies you add a loader later.
+        if need_pack_obj and evidence_pack_path.exists():
+            pack = load_evidence_pack(str(evidence_pack_path))
+            print(f"[ingest] Skipped. Loaded EvidencePack from: {evidence_pack_path}")
+        elif evidence_pack_path.exists():
             print(f"[ingest] Skipped. EvidencePack JSON exists at: {evidence_pack_path}")
         else:
             print("[ingest] Skipped, but no evidence_pack.json found.")
 
+    if need_pack_obj and pack is None:
+        raise RuntimeError(
+            "This run requires an EvidencePack object, but ingest was skipped and no evidence_pack.json was found."
+        )
+
     # ---- RUN AGENTS ----
     if do_agents:
-        if pack is None:
-            raise RuntimeError("Agents require an EvidencePack object. Run without --no-ingest, or implement a pack loader.")
-
         print("[4/5] Running agents (D1–D8)")
         client = OpenAIChatClient(model=args.model, temperature=args.temperature)
 

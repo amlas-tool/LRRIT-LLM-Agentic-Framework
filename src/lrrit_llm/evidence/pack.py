@@ -147,3 +147,48 @@ def save_evidence_pack(pack: EvidencePack, out_path: str) -> None:
     """
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(to_jsonable(pack), f, ensure_ascii=False, indent=2)
+
+
+def load_evidence_pack(in_path: str) -> EvidencePack:
+    """
+    Load an EvidencePack JSON file produced by save_evidence_pack.
+    """
+    with open(in_path, "r", encoding="utf-8") as f:
+        payload = json.load(f)
+
+    text_chunks = [
+        TextChunk(
+            chunk_id=chunk["chunk_id"],
+            provenance=Provenance(**chunk["provenance"]),
+            text=chunk["text"],
+            text_hash=chunk["text_hash"],
+        )
+        for chunk in payload.get("text_chunks", [])
+    ]
+
+    tables = [
+        TableEvidence(
+            table_id=table["table_id"],
+            provenance=Provenance(**table["provenance"]),
+            title_hint=table.get("title_hint"),
+            n_rows=table["n_rows"],
+            n_cols=table["n_cols"],
+            header=table.get("header"),
+            rows=table.get("rows", []),
+            csv_path=table.get("csv_path", ""),
+            md_path=table.get("md_path", ""),
+            json_path=table.get("json_path", ""),
+            table_hash=table["table_hash"],
+            text_fallback=table.get("text_fallback", ""),
+        )
+        for table in payload.get("tables", [])
+    ]
+
+    return EvidencePack(
+        report_id=payload["report_id"],
+        source_path=payload["source_path"],
+        text_chunks=text_chunks,
+        tables=tables,
+        pack_hash=payload["pack_hash"],
+        metadata=payload.get("metadata", {}),
+    )
