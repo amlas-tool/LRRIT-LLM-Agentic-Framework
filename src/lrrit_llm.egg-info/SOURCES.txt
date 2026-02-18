@@ -9,7 +9,7 @@ src/lrrit_llm.egg-info/top_level.txt
 src/lrrit_llm/agents/__init__.py
 src/lrrit_llm/agents/d1_compassion.py
 src/lrrit_llm/agents/d2_systems.py
-src/lrrit_llm/agents/d3_human_error.py
+src/lrrit_llm/agents/d3_learning_actions.py
 src/lrrit_llm/agents/d4_blame.py
 src/lrrit_llm/agents/d5_local_rationality.py
 src/lrrit_llm/agents/d6_counterfactuals.py
@@ -20,6 +20,7 @@ src/lrrit_llm/clients/openai_client.py
 src/lrrit_llm/evidence/__init__.py
 src/lrrit_llm/evidence/pack.py
 src/lrrit_llm/evidence/render.py
+src/lrrit_llm/evidence/resolve.py
 src/lrrit_llm/evidence/schema.py
 src/lrrit_llm/ingest/__init__.py
 src/lrrit_llm/ingest/chunking.py
@@ -27,7 +28,10 @@ src/lrrit_llm/ingest/normalise.py
 src/lrrit_llm/ingest/pdf_tables.py
 src/lrrit_llm/ingest/pdf_text.py
 src/lrrit_llm/laj/__init__.py
+src/lrrit_llm/laj/dimension_defs.py
+src/lrrit_llm/laj/dimensions.py
 src/lrrit_llm/laj/judge.py
+src/lrrit_llm/laj/laj_meta.py
 src/lrrit_llm/storage/__init__.py
 src/lrrit_llm/storage/filesystem.py
 src/lrrit_llm/storage/sqlite.py

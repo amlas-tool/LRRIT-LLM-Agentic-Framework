@@ -71,10 +71,9 @@ def main():
 
     # ---- RUN AGENTS ----
     print("[4/4] Running agents...")
-    client = OpenAIChatClient(
-        model=os.environ.get("OPENAI_MODEL", "gpt-4o-mini"),
-        temperature=0.0,
-    )
+    client = OpenAIChatClient()
+
+    print("Running agents on evidence pack using model:", client.model)
 
     d1 = D1CompassionAgent(client)
     d2 = D2SystemsApproachAgent(client)
@@ -86,13 +85,21 @@ def main():
     d8 = D8CommunicationQualityAgent(client)
 
     d1_out = d1.run(pack)
+    print("d1 completed, evidence of compassion :", d1_out.get("rating", "")[:100], "...")
     d2_out = d2.run(pack)
+    print("d2 completed, systems approach :", d2_out.get("rating", "")[:100], "...")
     d3_out = d3.run(pack)
+    print("d3 completed, learning actions :", d3_out.get("rating", "")[:100], "...")
     d4_out = d4.run(pack)
+    print("d4 completed, blame language :", d4_out.get("rating", "")[:100], "...")
     d5_out = d5.run(pack)
+    print("d5 completed, local rationality :", d5_out.get("rating", "")[:100], "...")
     d6_out = d6.run(pack)
+    print("d6 completed, hindsight bias :", d6_out.get("rating", "")[:100], "...")
     d7_out = d7.run(pack)
+    print("d7 completed, improvement actions :", d7_out.get("rating", "")[:100], "...")
     d8_out = d8.run(pack)
+    print("d8 completed, communication quality :", d8_out.get("rating", "")[:100], "...")
 
 
     results = {
@@ -107,7 +114,7 @@ def main():
         }
     
     results["_meta"] = {
-        "model": os.environ.get("OPENAI_MODEL", "unknown"), # for record-keeping - needs changing for local clients
+        "model": client.model, # for record-keeping - needs changing for local clients
         "pdf_path": str(Path(pdf_path).resolve()),
     }
 

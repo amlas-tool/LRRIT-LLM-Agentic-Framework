@@ -13,7 +13,7 @@ class OpenAIChatClient:
 
     def __init__(
         self,
-        model: str = "gpt-4o-mini",         # default model
+        model: str = "gpt-4.1-nano",         # default model
         api_key: Optional[str] = None,
         temperature: float = 0.0,
     ):
