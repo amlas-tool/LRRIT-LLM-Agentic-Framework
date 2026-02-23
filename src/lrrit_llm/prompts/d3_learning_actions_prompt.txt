@@ -1,0 +1,45 @@
+Dimension: "Human Error" is considered as a symptom of a system problem. 
+
+The report includes the interactions of multiple factors which influenced the incident.  It does not
+conclude “human error” or similar terms (e.g., failure to follow policy, loss of situation awareness, missed
+opportunity) to be the “cause” of the incident. (D3)
+
+Core Definition:
+“Human error” is treated as an outcome to be explained, not a cause in itself. The report uses system analysis 
+to explain why people acted as they did and avoids presenting “human error” (or similar terms such as non-compliance 
+or loss of situational awareness) as the causal explanation for the incident, with this stance reflected in both 
+the analysis and the learning response.
+
+
+Discriminators for the evidence level ratings:
+GOOD evidence: Does the report consistently avoid treating human error as the explanation and instead use system 
+conditions to explain why people acted as they did, with this stance reflected in both the analysis and the learning response?
+
+SOME evidence: Does the report avoid explicitly presenting human error as the explanation, even if behavioural 
+explanation through system conditions is limited or inconsistently applied?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
+  but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - No causal attribution of “human error”: The report avoids concluding that “human error” (or equivalent terms) was the cause of the incident and clearly frames error as an outcome requiring explanation."
+"GOOD - Human behaviour is explained through systems conditions: The report explicitly links relevant system conditions (e.g., workload, task design, information availability, procedures, environment) to why people acted as they did, making their actions understandable in context."
+"GOOD - Avoidance of error labels as causal explanations: Where error-related terms are used (e.g., “failure to follow policy,” “loss of situational awareness”), they are unpacked and explained, rather than treated as causal endpoints."
+"GOOD - The learning response addresses systems conditions shaping performance: The learning response addresses system conditions that shaped human performance, rather than focusing on correcting or retraining individuals for having made errors."
+
+"SOME - Mixed stance on “human error”: The report avoids explicitly stating that “human error” (or equivalent terms) was the explanation for the incident but also uses error language without clearly distancing it as non-explanatory."
+"SOME - Human behaviour is partially described through systems conditions: The report refers to system conditions that were present but does not clearly explain how these conditions shaped decision-making or behaviour at the time."
+"SOME - Error labels are only partially unpacked: Error-related terms are used in the analysis or conclusions, and are sometimes unpacked by reference to underlying conditions, but are also used in places as explanatory shorthand without further explanation."
+"SOME - The learning response mixes system change and individual correction: The learning response includes actions targeting system conditions and actions aimed at correcting individual behaviour (e.g., retraining, reminders, reinforcing compliance), without clearly prioritising system change."
+
+"LITTLE - “Human error” is treated as the explanation: The report explicitly or implicitly presents “human error” (or equivalent terms such as failure to follow policy, loss of situational awareness, or missed opportunity) as the explanation or endpoint for why the incident occurred."
+"LITTLE - Human behaviour is described without system-based explanation: The report describes what people did, or what they failed to do, without explaining how system conditions shaped their actions."
+"LITTLE - Error labels are used as explanations: Error-related terms are used as sufficient explanations, without unpacking or reference to underlying system conditions."
+"LITTLE - The learning response focuses on correcting individual error: Learning actions primarily target individuals, e.g., through retraining, reminders and supervision, rather than system conditions."

@@ -21,6 +21,7 @@ class D8CommunicationQualityAgent:
 
     AGENT_ID = "D8"
     DIMENSION_NAME = "Communication quality and usability"
+    PROMPT_FILE = "d8_clarity_prompt.txt"
 
     # Guardrail cues only (soft checks)
     STRUCTURE_CUES = (
@@ -60,12 +61,13 @@ class D8CommunicationQualityAgent:
             #"raw_output": raw_response,
         }
 
-    # -------------------------
+      # -------------------------
     # Prompt construction
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
-        evidence_blocks: List[str] = []
+        prompt_body = self._load_prompt_body()
+        evidence_blocks = []
 
         for chunk in pack.text_chunks:
             evidence_blocks.append(
@@ -78,32 +80,16 @@ class D8CommunicationQualityAgent:
             )
 
         evidence_text = "\n\n".join(evidence_blocks)
-        # print(f"Constructed prompt for {self.AGENT_ID} with {len(evidence_blocks)} evidence blocks.")
-        # print(f"Prompt length (characters): {len(evidence_text)}")
+
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: D8 – Communication quality and usability of the learning response.
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Definition:
-- Judge whether the report is clearly communicated and usable:
-  structure, readability, clarity of learning, and accessibility of language.
-- This is about communication quality, not clinical correctness.
+{prompt_body}
 
-What to look for:
-- Clear structure and signposting (sections like what happened / learning points / action plan)
-- Clear and consistent terminology
-- Learning and actions are easy to identify
-- Avoids excessive vagueness ("appropriate", "timely") without explanation
-- Avoids jargon/acronyms without explanation where it harms readability.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
-
-Rating options:
-- GOOD: clear structure and readable narrative; learning/actions are easy to extract
-- SOME: understandable but with issues (vagueness, jargon, weak signposting, inconsistencies)
-- LITTLE: hard to follow; confusing structure/terminology; learning/actions hard to extract
-
-Return STRICT JSON ONLY (no markdown, no extra text) with this schema:):
+Return STRICT JSON ONLY (no markdown, no extra text):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -112,28 +98,23 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:):
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
 
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words).
-- Evidence_type:
-  - "positive" = clear structure/signposting, explicit learning statements, accessible phrasing.
-  - "negative" = vague/ambiguous language, jargon/acronyms harming clarity, confusing phrasing/structure.
-    - Prefer negative evidence showing vagueness ('appropriate', 'timely'), unexplained acronyms/jargon, or 
-    formatting/structure issues, rather than concise problem statements.
-- If rating is GOOD: include at least one positive evidence item.
-- If rating is LITTLE: include at least one negative evidence item IF such text exists.
-- If you cannot find any relevant excerpt to quote, set evidence to [] AND set uncertainty true.
-- Do not paraphrase quotes.
 
 Evidence:
 {evidence_text}
-""".strip()
 
+""".strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+     
     # -------------------------
     # JSON parsing
     # -------------------------
@@ -232,4 +213,5 @@ Evidence:
                     result["uncertainty"] = True
 
         return result
+
 

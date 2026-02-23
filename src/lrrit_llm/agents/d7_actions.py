@@ -24,6 +24,7 @@ class D7ImprovementActionsAgent:
 
     AGENT_ID = "D7"
     DIMENSION_NAME = "Improvement actions (systems-focused, evidence-informed, collaborative)"
+    PROMPT_FILE = "d7_actions_prompt.txt"
 
     # Guardrail cue lists (lightweight; only used to set uncertainty, not to rewrite decisions)
     SYSTEM_ACTION_CUES = (
@@ -52,6 +53,7 @@ class D7ImprovementActionsAgent:
         self.model = model_client
 
     def run(self, pack: EvidencePack) -> Dict[str, Any]:
+        
         prompt = self._build_prompt(pack)
         raw_response = self.model.complete(prompt)
 
@@ -73,12 +75,13 @@ class D7ImprovementActionsAgent:
             #"raw_output": raw_response,
         }
 
-    # -------------------------
+     # -------------------------
     # Prompt construction
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
-        evidence_blocks: List[str] = []
+        prompt_body = self._load_prompt_body()
+        evidence_blocks = []
 
         for chunk in pack.text_chunks:
             evidence_blocks.append(
@@ -91,31 +94,16 @@ class D7ImprovementActionsAgent:
             )
 
         evidence_text = "\n\n".join(evidence_blocks)
-        # print(f"Constructed prompt for {self.AGENT_ID} with {len(evidence_blocks)} evidence blocks.")
-        # print(f"Prompt length (characters): {len(evidence_text)}")
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: D7 – Improvement actions (systems-focused, evidence-informed, collaboratively developed).
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Definition (what you are judging):
-- Do the proposed safety actions / improvements / recommendations:
-  - focus on system elements (IT, equipment, care processes/pathways, roles/interfaces), not individuals;
-  - show evidence of collaborative development with relevant staff/stakeholders;
-  - include monitoring/ownership arrangements (who/how progress will be reviewed)?
+{prompt_body}
 
-IMPORTANT proportionality (AAR):
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
-- In AAR reports, improvement actions may legitimately be absent. Absence alone should not automatically imply weak learning.
-- Prioritise quotes from sections headed: "Improvement action plan", "Actions", "Recommendations", "Key learning points".
-
-Rating options:
-- GOOD: system-focused actions, grounded in analysis, collaboratively developed, with ownership/monitoring
-- SOME: genuine attempt but underdeveloped (weak linkage/collaboration/governance OR mix of system + individual actions)
-- LITTLE: generic/compliance/individual-focused actions dominate; weak link to analysis; no rationale; no collaboration; no monitoring
-
-Return STRICT JSON ONLY (no markdown, no extra text, no extra text):
+Return STRICT JSON ONLY (no markdown, no extra text):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -124,25 +112,23 @@ Return STRICT JSON ONLY (no markdown, no extra text, no extra text):
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
 
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words) from the cited Text/Table block.
-- evidence_type:
-  - "positive" = supports D7 (system-focused, linked to analysis, collaborative, governed/monitored).
-  - "negative" = indicates weak D7 (generic/compliance/individual-focused actions, safety clutter, missing governance/collaboration, weak linkage).
-- If rating is GOOD: include at least one positive evidence item.
-- If rating is LITTLE: include at least one negative evidence item IF such text exists.
-- If actions appear absent, you may return rating = SOME with evidence = [] and uncertainty = true (AAR conditionality).
-- Do not invent actions. Do not paraphrase quotes.
 
 Evidence:
 {evidence_text}
+
 """.strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+ 
 
     # -------------------------
     # JSON parsing
@@ -254,3 +240,4 @@ Evidence:
 
         return result
  
+

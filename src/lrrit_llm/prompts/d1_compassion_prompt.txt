@@ -1,0 +1,42 @@
+Dimension: Compassionate engagement with people affected: assess evidence of empathy, communication, 
+support, duty of candour tone; avoid purely clinical narration. (D1)
+
+Core Definition:
+Compassionate engagement means that affected peopleâ€™s needs, experiences, and perspectives were 
+sensitively elicited, understood, and responded to, and that those conducting the engagement had 
+appropriate skills to ensure safe, respectful involvement. Meaningful involvement requires that 
+these perspectives inform the learning response.  
+
+Discriminators for the evidence level ratings:
+GOOD evidence: Does the report demonstrate engagement that both (a) shows that affected peopleâ€™s 
+needs or perspectives were sensitively elicited and understood by individuals with the appropriate 
+skills, and (b) illustrates how these informed or shaped the learning response?
+
+SOME evidence: Does the report provide evidence of any meaningful engagement with affected people, 
+i.e., engagement that went beyond procedural notification and generated insight into their needs, 
+perspectives, or experiences, even if this did not influence the learning response?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
+  but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - Meaningful engagement is clearly described: The report specifies how patients, families, carers, or staff were engaged."
+"GOOD - Needs and perspectives are clearly articulated: The report presents what affected people said, needed, or emphasised."
+"GOOD - Engagement was conducted by suitably skilled individuals: Involvement was carried out by people with appropriate roles and skills (e.g., family liaison, bereavement team, trained facilitator)."
+"GOOD - Engagement influenced the learning response: Needs or insights from those affected directly shaped analysis, decisions, or actions."
+"GOOD - Restorative orientation is demonstrated: The learning response attends to what mattered to affected people and addresses their needs or concerns."
+"SOME - Engagement is mentioned but minimally described: Affected people were contacted, consulted, or interviewed, but details are sparse."
+"SOME - Needs and perspectives are acknowledged but vague: The report refers to concerns or experiences without elaborating on them."
+"SOME - Influence of engagement is implied but unclear: Engagement may have informed the response, but no clear link is shown."
+"SOME - Restorative response is partial or unclear: The report recognises impact or distress but does not show how needs were explored or addressed."
+"LITTLE - Engagement is absent or purely procedural: No meaningful engagement. Any reference is limited to formal notification (e.g., family informed in line with policy)."
+"LITTLE - Needs or perspectives are not described: The report does not describe any needs, concerns, or perspectives of those affected."
+"LITTLE - Competency cannot be assessed: The report does not indicate who engaged with those affected, or whether any relevant skills were involved."
+"LITTLE - No evidence of influence on the learning response: Perspectives of those affected did not shape insights, decisions, or actions."

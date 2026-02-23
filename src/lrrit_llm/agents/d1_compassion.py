@@ -21,6 +21,7 @@ class D1CompassionAgent:
 
     AGENT_ID = "D1"
     DIMENSION_NAME = "Compassionate engagement with people affected"
+    PROMPT_FILE = "d1_compassion_prompt.txt"
 
     def __init__(self, model_client):
         """
@@ -73,6 +74,7 @@ class D1CompassionAgent:
         """
         Construct a conservative, evidence-grounded prompt.
         """
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -89,55 +91,13 @@ class D1CompassionAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-LRRIT Dimension: People affected by incidents are compassionately engaged and meaningfully involved. 
-The report includes the perspectives of those affected such as staff, patients, families and carers.
+{prompt_body}
 
-Core Definition:
-Compassionate engagement means that affected people’s needs, experiences, and perspectives were 
-sensitively elicited, understood, and responded to, and that those conducting the engagement had 
-appropriate skills to ensure safe, respectful involvement. Meaningful involvement requires that 
-these perspectives inform the learning response.  
-
-
-Discriminators:
-GOOD evidence: Does the report demonstrate engagement that both (a) shows that affected people’s 
-needs or perspectives were sensitively elicited and understood by individuals with the appropriate 
-skills, and (b) illustrates how these informed or shaped the learning response?
-
-SOME evidence: Does the report provide evidence of any meaningful engagement with affected people, 
-i.e., engagement that went beyond procedural notification and generated insight into their needs, 
-perspectives, or experiences, even if this did not influence the learning response?
-
-LITTLE evidence: 
-Is there little to no evidence, you should report this saying "I looked through the report and 
-found no evidence of compassionate engagement".
-
-You must use the following indicators for evidence levels. For each indicator, you should look for 
-evidence in the report and include verbatim quotes that demonstrate that indicator.
-
-- GOOD
-    - Meaningful engagement is clearly described: The report specifies how patients, families, carers, or staff were engaged.
-    - Needs and perspectives are clearly articulated: The report presents what affected people said, needed, or emphasised.
-    - Engagement was conducted by suitably skilled individuals: Involvement was carried out by people with appropriate roles and skills (e.g., family liaison, bereavement team, trained facilitator).
-    - Engagement influenced the learning response: Needs or insights from those affected directly shaped analysis, decisions, or actions.
-    - Restorative orientation is demonstrated: The learning response attends to what mattered to affected people and addresses their needs or concerns.
-
-- SOME
-    - Engagement is mentioned but minimally described: Affected people were contacted, consulted, or interviewed, but details are sparse.
-    - Needs and perspectives are acknowledged but vague: The report refers to concerns or experiences without elaborating on them.
-    - Influence of engagement is implied but unclear: Engagement may have informed the response, but no clear link is shown.
-    - Restorative response is partial or unclear: The report recognises impact or distress but does not show how needs were explored or addressed.
-
-- LITTLE
-    - Engagement is absent or purely procedural: No meaningful engagement. Any reference is limited to formal notification (e.g., “family informed in line with policy”).
-    - Needs or perspectives are not described: The report does not describe any needs, concerns, or perspectives of those affected.
-    - Competency cannot be assessed: The report does not indicate who engaged with those affected, or whether any relevant skills were involved.
-    - No evidence of influence on the learning response: Perspectives of those affected did not shape insights, decisions, or actions.
-
-
-Return STRICT JSON ONLY (no markdown, no extra text, no final period, full stop or punctuation):
+Return STRICT JSON ONLY (no markdown, no extra text). :
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -146,24 +106,22 @@ Return STRICT JSON ONLY (no markdown, no extra text, no final period, full stop 
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "Rating" 
-      "rubric_indicator": "Indicator description"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
 }}
 
-Rules:
-
-- Every evidence item MUST include:
-- a verbatim quote taken from the evidence pack (<= 25 words)
-- an evidence_type that maps to the specific indicator it supports (e.g., "GOOD - Needs and perspectives are clearly articulated")
-- If no relevant excerpt exists, set evidence to [] and set uncertainty to true.
-- Do not invent quotes. Do not paraphrase quotes. 
 
 Evidence:
 {evidence_text}
 
 """.strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
     
     # -------------------------
     # Response parsing
@@ -229,3 +187,5 @@ Evidence:
 
         result["evidence"] = enriched
         return result
+
+

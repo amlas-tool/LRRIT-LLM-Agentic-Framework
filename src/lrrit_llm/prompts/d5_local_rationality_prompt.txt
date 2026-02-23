@@ -1,0 +1,42 @@
+Dimension: Local rationality is considered. The report clearly explores how the
+situation and context at the time (local) influenced the decisions (rationality) and
+the actions of those involved.   (D5)
+
+Core Definition:
+Local rationality is considered when the report explores how the situation made sense 
+to those involved at the time, given what they knew, prioritised, and could do.  Actions 
+are made intelligible in context. 
+
+
+Discriminators for the evidence level ratings:
+GOOD evidence:  Does the report reconstruct how decisions and actions made sense to those involved at the time, 
+by linking what was known, prioritised, and possible to the actions taken?
+
+SOME evidence: Does the report show any credible attempt to explore the situation from the perspective of those 
+involved at the time, even if this exploration is incomplete or not clearly linked to the actions taken?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
+  but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - Information available at the time is clearly reconstructed: The report describes what information, signals, or cues were available to those involved and how these informed their understanding of the situation at the time."
+"GOOD - Situated goals and trade-offs are clearly articulated: The report explains what those involved were trying to achieve at the time and how competing demands or trade-offs shaped decision-making."
+"GOOD - Experienced constraints and affordances are clearly described: The report describes how constraints and affordances were experienced by those involved as shaping what actions were possible at the time."
+"GOOD - Actions are made intelligible in context: The report shows how the actions taken were understandable or plausible to those involved, given the situation and context at the time."
+
+"SOME - Information available at the time is mentioned but not reconstructed: The report refers to information, signals, or cues present at the time, but does not clearly show how these shaped understanding or sense-making (e.g., listing available data without explaining how people interpreted these)."
+"SOME - Goals or priorities are referenced but not situated in lived decision-making: The report refers to goals, priorities, or pressures, but does not clearly reconstruct how these were actively managed or traded off at the time (e.g., generic statements about workload and time pressure)."
+"SOME - Constraints or affordances are identified but not linked to perceived options: The report identifies constraints or resources but does not show how these were experienced as shaping what actions were possible at the time"
+"SOME - Actions are contextualised but not made intelligible from people’s perspectives: The report places actions alongside contextual factors but does not clearly explain why those actions made sense to those involved at the time"
+
+"LITTLE - Information available at the time is not considered: The report does not describe what information, cues, or signals were available to those involved when decisions were made."
+"LITTLE - Goals or priorities at the time are not explored: The report does not consider what those involved were trying to achieve or balance at the time decisions were made."
+"LITTLE - Experienced constraints and affordances are not considered: The report does not explore what constraints or affordances shaped what actions were possible from the perspective of those involved."
+"LITTLE - Actions are not made intelligible in context: The report describes what happened or evaluates actions, without attempting to explain how those actions made sense to those involved at the time."

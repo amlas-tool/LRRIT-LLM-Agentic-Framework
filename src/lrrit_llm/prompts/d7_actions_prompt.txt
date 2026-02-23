@@ -1,0 +1,43 @@
+Dimension: Safety actions / improvements / recommendations are systems-focussed, evidence based and were developed collaboratively.  
+Safety actions / improvements / recommendations proposed:
+- were developed collaboratively with relevant staff / stakeholders and with consideration of wider organisation priorities and improvement work
+- focus on system elements (IT, equipment, care processes / pathways) not individuals
+- are specific, robust, actionable and do not add to “safety clutter” (e.g., additional checks, policies, procedures that do not contribute to the safety of work)
+- include who / how progress will be monitored over time - address the key contributory factors in the report.  (D7)
+
+Core Definition:
+Safety actions are systems-focused, evidence-informed, and developed collaboratively with relevant staff and stakeholders, such that they are meaningful to work-as-done, owned by those involved, and capable of improving how the system functions in practice.
+
+Discriminators for the evidence level ratings:
+GOOD evidence: 
+Does the report demonstrate a credible, system-focused improvement response that is clearly grounded in the analysis and developed collaboratively with relevant staff and stakeholders?
+
+SOME evidence: Does the report demonstrate a genuine attempt to translate analysis into improvement action, even if actions are weakly justified, partially collaborative, or poorly governed?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - Actions target system elements rather than individual behaviour: The proposed actions focus on system elements such as workflows, care pathways, technology, equipment, roles, interfaces, or organisational arrangements, rather than on correcting or controlling individual behaviour."
+"GOOD - Actions clearly address the key contributory factors identified: The report makes an explicit link between the contributory factors identified in the analysis and the proposed actions, showing how the actions respond to the issues identified."
+"GOOD - A clear, work-informed rationale is provided for the actions: The report explains why the proposed actions are expected to improve how work is done in practice, drawing on an understanding of work-as-done and without relying on abstract control or compliance logic."
+"GOOD - Collaborative development of actions is clearly described: The report describes how improvement actions were developed collaboratively with relevant staff and stakeholders, demonstrating meaningful involvement that influenced the form of the actions and supported ownership."
+"GOOD - Clear arrangements for monitoring and follow-up are described: The report specifies who is responsible for implementing and monitoring the actions and how progress or impact will be reviewed over time."
+
+"SOME - Actions include some system-focused elements, but individual-focused actions are also present: The report proposes actions that address system elements, but these sit alongside actions that rely on individual behaviour, vigilance, or compliance."
+"SOME - Actions are broadly linked to the analysis, but connections are not clearly articulated: The report proposes actions that relate to issues discussed in the analysis but does not clearly show how the actions address the key contributory factors."
+"SOME - A rationale for actions is suggested but not clearly developed: The report provides some explanation for why the proposed actions are expected to help, but this rationale is high-level, generic, or not clearly grounded in work-as-done."
+"SOME - Collaboration is mentioned but the approach is not clearly described: The report states or implies that actions were developed collaboratively but provides little detail on how collaboration occurred or how it influenced the actions."
+"SOME - Some monitoring or ownership is identified, but arrangements are incomplete: The report includes limited information about who will monitor progress or how actions will be reviewed, but arrangements are not fully specified."
+
+
+"LITTLE - Actions focus primarily on individual behaviour or compliance: The proposed actions rely mainly on changing individual behaviour, awareness, or compliance, rather than modifying system elements."
+"LITTLE - Actions are weakly connected or unrelated to the analysis: The proposed actions do not clearly address the key contributory factors identified in the report, or appear generic and transferable across incidents (e.g., “update policy”, “share learning”)."
+"LITTLE - No clear rationale is provided for how actions are expected to improve work: The report does not explain how the proposed actions would change conditions, constraints, or resources in practice, or relies on vague assurances of improvement."
+"LITTLE - Monitoring and follow-up arrangements are absent or unclear: The report does not specify who is responsible for implementing or monitoring the actions, or how progress will be reviewed."

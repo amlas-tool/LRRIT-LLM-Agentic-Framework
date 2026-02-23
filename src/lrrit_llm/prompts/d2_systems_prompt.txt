@@ -1,0 +1,45 @@
+Dimension: A systems approach is used to investigate. The report demonstrates consideration of 
+system factors (such as workplace design, technology, culture, fatigue, 
+commissioning) and how these interacted to contribute to the incident. (D2)
+
+Core Definition:
+A systems approach means that the learning response process used a structured systems perspective 
+or method to identify, analyse, and interpret multiple interacting system factors that contributed 
+to the incident.
+
+Discriminators for the evidence level ratings:
+GOOD evidence: Does the report show that a systems approach or structured systems perspective informed 
+the identification and analysis of multiple interacting system factors?
+
+SOME evidence: Does the report demonstrate any meaningful consideration of system factors, such as 
+design of tasks, environment, equipment, staffing, procedures, or organisational context, even if 
+these were described individually and without a structured systems method?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
+  but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - A systems approach or perspective is evident: The report describes or clearly reflects the use of a structured systems approach (e.g., PSIRF systems-based expectations, human factors frameworks such as SEIPS)."
+"GOOD - Multiple system factors are described: Contextualised consideration of relevant factors such as design of technology, task design, policies, environment and layout, staffing, culture."
+"GOOD - Interactions between system factors are explored: The report shows how factors combined to create conditions for the incident."
+"GOOD - Human actions are framed within their system context: The analysis explains behaviour within the context of system conditions."
+"GOOD - The learning response is clearly informed by the system analysis: Recommended actions address system contributors and follow logically from the analysis."
+
+"SOME - Systems thinking is present, but not methodical: Some system elements appear in the analysis, but no structured systems approach is described or evident."
+"SOME - System factors are mentioned but not well developed: For example, referencing workload, environment, or equipment but without detail or analysis."
+"SOME - Interactions are implied but not explained: The report describes several system factors but does not articulate how they interacted to produce outcomes."
+"SOME - Analysis mixes systems approach with focus on individuals: Contextual factors appear, but analysis emphasises individual behaviour."
+"SOME - Link from system factors to recommendations is weak: Improvements mention system elements but are not grounded in the analysis."
+
+"LITTLE - No systems approach or perspective is evident: The investigation appears linear, unstructured, or descriptive rather than systems based."
+"LITTLE - Systems factors are absent or minimally referenced: Little consideration of equipment, environment, tasks, or organisational and wider external context."
+"LITTLE - Focus on the individual: Behaviour is described without reference to system conditions or constraints."
+"LITTLE - No evidence of influence on the learning response: Perspectives of those affected did not shape insights, decisions, or actions."
+"LITTLE - Improvement actions target the individual, not system change: Solutions rely on interventions such as training, reminders, or procedural compliance."

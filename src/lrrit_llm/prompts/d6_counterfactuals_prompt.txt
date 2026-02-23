@@ -1,0 +1,33 @@
+Dimension:  Counterfactual reasoning is avoided. The report does not focus on information that is counter 
+to the facts of what happened i.e., the report does not focus on what “could” or “should” have happened during 
+or before the incident (work-as-imagined). Instead, the report focuses on what actually happened (work-as-done). (D6)
+
+Core Definition:
+Counterfactual reasoning is avoided when the report focuses on what actually happened (work-as-done) and does 
+not reason from imagined alternatives about what could or should have happened.
+
+Discriminators for the evidence level ratings:
+GOOD evidence: Does the report maintain a work-as-done analytic starting point throughout, without using policy, 
+expected practice, or imagined alternatives as the basis for evaluating actions?
+
+SOME evidence: Does the report primarily analyse what actually happened, even though policy, expected practice, or 
+imagined alternatives are introduced as evaluative reference points in parts of the analysis?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - Reasoning is grounded in work-as-done: The report analyses events as they unfolded in practice and avoids reasoning framed around what “could”, “should”, or “would” have happened."
+"GOOD - Policies and expected practice are used descriptively, not to evaluate: Policies, procedures, or expected practice are used to describe context, not to judge adequacy or correctness of actions."
+
+"SOME - Analysis is primarily grounded in what happened but includes counterfactual evaluation: The report largely analyses events as they unfolded in practice, but includes backward-looking statements framed around what “could”, “should”, or “would” have happened."
+"SOME - Work-as-done analysis is present, but policy is used evaluatively in places: The report starts from describing what happened, but introduces policies, procedures, or expected practice as standards against which actions are judged in parts of the report."
+
+"LITTLE - Analysis is driven by counterfactual or hindsight reasoning: The report routinely reasons in terms of what “should”, “could”, or “would” have happened, rather than analysing how events unfolded in practice."
+"LITTLE - Analysis is structured around policy or expected practice: The report begins from policy, procedure, or expected practice and evaluates events primarily in terms of compliance or deviation."

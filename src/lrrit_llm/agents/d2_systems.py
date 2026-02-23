@@ -17,6 +17,7 @@ class D2SystemsApproachAgent:
 
     AGENT_ID = "D2"
     DIMENSION_NAME = "Systems approach to contributory factors"
+    PROMPT_FILE = "d2_systems_prompt.txt"
 
     # Optional lightweight cues for post-parse sanity checks (not decision logic)
     SYSTEM_CUES = (
@@ -59,6 +60,8 @@ class D2SystemsApproachAgent:
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
+
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -75,53 +78,37 @@ class D2SystemsApproachAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: Systems approach to contributory factors (D2).
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Task:
-- Judge whether the response analyses contributory factors using a systems/process perspective.
-- Look for explicit system-level contributors (process design, escalation pathways, communication, capacity, governance).
-- Look for improvement actions that change the system, not just individual reminders.
-- Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
+{prompt_body}
 
-Rating options:
-- GOOD evidence: clear systems framing + system-level actions
-- SOME evidence: partial systems framing or mixed individual/system emphasis
-- LITTLE evidence: mostly individual-centric framing; minimal systems analysis
-
-Return STRICT JSON ONLY (no markdown, no extra text):
+Return STRICT JSON ONLY (no markdown, no extra text). :
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
   "rationale": "string",
   "evidence": [
     {{
+      "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative",
-      "source_hint": "text|table|either"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
-
-Rules:
-- Every evidence item MUST include:
-- a verbatim quote taken from the cited Text/Table block (<= 25 words)
-- an evidence_type field: "positive" or "negative":
-    - "positive" = explicit systems/process framing or system-level interventions.
-    - "negative" = primarily individual blame/reminders or absence of systems framing where expected.
-- When citing negative evidence, explain why it weakens a systems approach (e.g. individual learning rather than system change)
-- If rating is GOOD: include at least one positive evidence item.
-- If rating is LITTLE: include at least one negative evidence item (if present). If not present, evidence may be [] but set uncertainty true.
-- If no relevant excerpt exists to quote, set evidence to [] AND set uncertainty true.
-- Do not invent quotes. Do not paraphrase quotes.
 
 Evidence:
 {evidence_text}
 """.strip()
+    
 
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
     # -------------------------
     # JSON parsing
     # -------------------------
@@ -194,20 +181,21 @@ Evidence:
         rating = result.get("rating")
         evidence = result.get("evidence", []) or []
 
-        # If no evidence, must be uncertain
-        if not evidence:
-            result["uncertainty"] = True
-            return result
+        # # If no evidence, must be uncertain
+        # if not evidence:
+        #     result["uncertainty"] = True
+        #     return result
 
-        # If claimed GOOD but no positive evidence item, force uncertainty
-        if rating == "GOOD":
-            if not any(e.get("evidence_type") == "positive" for e in evidence):
-                result["uncertainty"] = True
+        # # If claimed GOOD but no positive evidence item, force uncertainty
+        # if rating == "GOOD":
+        #     if not any(e.get("evidence_type") == "positive" for e in evidence):
+        #         result["uncertainty"] = True
 
-        # If claimed LITTLE but no negative evidence item, force uncertainty
-        if rating == "LITTLE":
-            if not any(e.get("evidence_type") == "negative" for e in evidence):
-                result["uncertainty"] = True
+        # # If claimed LITTLE but no negative evidence item, force uncertainty
+        # if rating == "LITTLE":
+        #     if not any(e.get("evidence_type") == "negative" for e in evidence):
+        #         result["uncertainty"] = True
 
         return result
+
 

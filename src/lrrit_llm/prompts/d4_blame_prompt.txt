@@ -1,0 +1,39 @@
+Dimension: Blame language is avoided. The language used in the report does not
+directly or indirectly infer blame of individuals, teams, departments,
+organisations or systems.  (D4)
+
+Core Definition:
+Blame language is avoided when the report uses neutral, descriptive language and does not attribute fault, 
+culpability, or responsibility for the incident to individuals, teams, departments, organisations, or systems, 
+either explicitly or by implication.
+
+
+Discriminators for the evidence level ratings:
+GOOD evidence:  Does the report consistently use neutral, non-judgemental language that does not frame individuals, 
+teams, organisations, or systems as being at fault, either explicitly or implicitly, across the report as a whole?
+
+SOME evidence: Does the report show evidence of a non-blaming narrative stance, even if blame language is not fully 
+eliminated or appears inconsistently through framing, evaluative language, or displaced attribution?
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
+  but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - No blame conveyed through narrative framing: The report does not attribute fault, culpability or responsibility for the incident to individuals, teams, departments, organisations or systems explicitly or implicitly, and avoids framing actions or decisions as deficient or blameworthy (e.g., avoiding statements, such as “despite clear guidance…”, “opportunities to do xyz were missed” etc)."
+"GOOD - The language is descriptive, not judgemental: The report uses neutral, descriptive language and avoids evaluative or judgemental terms when describing actions, decisions, or practices (avoiding terms such as “poor”, “inadequate”, “unacceptable” etc)."
+"GOOD - Systems and organisations are not framed as culpable agents: Systems and organisations are described as factors or arrangements shaping work, not as actors responsible for failure (avoiding attributing failures to “the system” or “the organisation” etc)."
+
+"SOME - Blame may be implied through narrative framing: The report uses phrasing or narrative structures that may imply fault or deficiency without explicitly assigning blame."
+"SOME - There is some use of judgemental or evaluative language: The report uses both evaluative terms as well as otherwise neutral descriptions (e.g., judgemental paraphrasing of mostly neutral analysis in summaries or conclusions)."
+"SOME - Systems and organisations are framed both as context as well as culpable agents: The report alternates between describing systems or organisations as contextual arrangements and framing them as being at fault, without clearly maintaining a non-blaming linguistic stance."
+
+"LITTLE - Blame is conveyed through narrative framing: The report clearly frames actions or decisions as blameworthy or deficient.  "
+"LITTLE - Judgemental language dominates the narrative: The report uses evaluative or judgemental terms throughout to characterise actions, decisions, or practices."
+"LITTLE - Systems and organisations are framed as culpable agents: Systems and organisations are being presented as being responsible for the incident in a fault-attributing sense."

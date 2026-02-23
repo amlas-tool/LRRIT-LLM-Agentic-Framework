@@ -20,6 +20,7 @@ class D5LocalRationalityAgent:
 
     AGENT_ID = "D5"
     DIMENSION_NAME = "Local rationality"
+    PROMPT_FILE = "d5_local_rationality_prompt.txt"
 
     # Optional cues used ONLY for post-hoc uncertainty checks (not decision logic)
     # These help catch mislabelling (e.g., calling something "positive" when it
@@ -77,6 +78,8 @@ class D5LocalRationalityAgent:
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
+        
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -92,27 +95,12 @@ class D5LocalRationalityAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: D5 – Local rationality.
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Definition:
-- Local rationality means explaining how actions/decisions were understandable to those involved at the time,
-  given what they knew, prioritised, and could do (information, uncertainty, constraints, priorities, trade-offs).
-- It is NOT simply describing events/outcomes, and NOT merely avoiding blame or hindsight.
-
-Task:
-- Judge whether the response reconstructs contemporaneous sense-making.
-- Look for explicit explanation of what was known/assumed, uncertainty, constraints, priorities, and why actions made sense then.
-- Penalise hindsight-only critique that lacks contemporaneous context.
-- Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
-
-
-Rating options:
-- GOOD evidence: clear contemporaneous explanation makes actions intelligible in context
-- SOME evidence: partial/patchy reconstruction; mixed with hindsight or not clearly linked to decisions
-- LITTLE evidence: actions judged/recited without explaining why they made sense at the time
+{prompt_body}
 
 Return STRICT JSON ONLY (no markdown, no extra text):
 
@@ -123,35 +111,24 @@ Return STRICT JSON ONLY (no markdown, no extra text):
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
-
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words) from the cited Text/Table block.
-- "Local rationality" evidence must explain contemporaneous sense-making (what was known/assumed/available, how it was interpreted,
-  constraints/trade-offs, uncertainty at the time).
-- Do NOT use these as evidence for D5 (they are NOT local rationality):
-  (a) Reassurance statements like "appropriate", "timely", "good care" without explaining why decisions made sense at the time.
-  (b) Counterfactual outcome uncertainty like "no certainty that earlier X would have made a difference" unless it explicitly explains
-      what was believed/known at the time.
-- evidence_type:
-  - "positive" = explicit contemporaneous reasoning/context/constraints/trade-offs/uncertainty that makes actions intelligible.
-  - "negative" = hindsight-only judgement (e.g., "should have", "failed to", "obvious") OR actions described with no attempt to explain why
-    they made sense at the time.
-  - If you cite negative evidence, state whether it is (i) hindsight judgement or (ii) action described without contemporaneous reasoning.
-- If rating is GOOD: include at least one positive evidence item.
-- If rating is LITTLE: include at least one negative evidence item IF such text exists.
-- If you cannot find any relevant excerpt to quote, set evidence to [] AND set uncertainty true.
-- Do not invent context. Do not paraphrase quotes.
 
 
 Evidence:
 {evidence_text}
-""".strip()
 
+""".strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+ 
+    
     # -------------------------
     # JSON parsing
     # -------------------------
@@ -265,4 +242,5 @@ Evidence:
                 result["uncertainty"] = True
 
         return result
+
 

@@ -16,7 +16,7 @@ class D4BlameLanguageAgent:
 
     AGENT_ID = "D4"
     DIMENSION_NAME = "Blame language avoided"
-
+    PROMPT_FILE = "d4_blame_prompt.txt"
 # ---------------------------------------------------------------------
 # D4: Blame language detection – design rationale
 #
@@ -96,6 +96,7 @@ class D4BlameLanguageAgent:
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -110,30 +111,14 @@ class D4BlameLanguageAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: Blame language avoided.
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Task:
-- Assess whether the learning response avoids blame-oriented language.
-- Focus on tone, framing, and attribution of responsibility.
-- Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
+{prompt_body}
 
-Rating options:
-- GOOD evidence
-- SOME evidence
-- LITTLE evidence
-
-Important:
-- Describing actions or errors does NOT automatically imply blame.
-- Focus on language and attribution, not clinical correctness.
-- Do not infer intent beyond the text.
-
-Evidence:
-{evidence_text}
-
-Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
+Return STRICT JSON ONLY (no markdown, no extra text):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -142,44 +127,24 @@ Return STRICT JSON ONLY (no markdown, no extra text) with this schema:
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
 
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words).
-- Evidence_type:
-  - "positive" = neutral or systems/process framing; discusses issues without attributing fault to people.
-  - "negative" = blame-oriented language that attributes fault to an individual or team, or uses judgemental descriptors about people.
 
-- IMPORTANT: Systems/process critique is NOT blame.
-  Examples that are NOT blame (label "positive"):
-  - "No systematic way to ensure..."
-  - "There is no standard process..."
-  - "System factors contributed..."
-  - "Escalation pathways were unclear..."
+Evidence:
+{evidence_text}
 
-- Examples of blame language (label "negative"):
-  - "X failed to..."
-  - "The team did not..."
-  - "Should have escalated..."
-  - "Negligent / incompetent / careless..."
-  - "Non-compliance with policy by staff..."
-- Do NOT label a quote "negative" unless it clearly refers to actions/omissions of a person/team (not a system/process).
-
-- If you find no blame-oriented language (no negative evidence), rate "GOOD".
-- Use "SOME" only when both neutral/system framing AND at least one genuine blame-oriented statement are present.
-
-- Otherwise label it "positive".
-- If rating is GOOD: include at least one "positive" evidence item.
-- If rating is LITTLE: include at least one "negative" evidence item.
-- If rating is SOME: include one item of the most salient type; include both if mixed language exists.
-- If you cannot find any relevant excerpt to quote, set evidence to [] AND set uncertainty to true.
-- Do not invent quotes. Do not paraphrase quotes.
 """.strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
 
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+
+    
     # -------------------------
     # Response parsing
     # -------------------------
@@ -315,3 +280,4 @@ Rules:
             result["uncertainty"] = True
 
         return result
+

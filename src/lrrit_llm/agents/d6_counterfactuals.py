@@ -17,6 +17,7 @@ class D6HindsightBiasAgent:
 
     AGENT_ID = "D6"
     DIMENSION_NAME = "Avoidance of hindsight bias and counterfactual certainty"
+    PROMPT_FILE = "d6_counterfactuals_prompt.txt"
 
     # Used only for guardrails / uncertainty escalation
     UNCERTAINTY_CUES = (
@@ -59,6 +60,7 @@ class D6HindsightBiasAgent:
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -74,28 +76,14 @@ class D6HindsightBiasAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: D6 – Avoidance of hindsight bias and inappropriate counterfactual certainty.
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Definition:
-- This dimension assesses how cautiously the response reasons about outcomes and
-  alternative actions after the event.
-- It rewards explicit acknowledgement of uncertainty and penalises definitive,
-  unsupported counterfactual claims.
+{prompt_body}
 
-Task:
-- Identify how the response discusses what might have happened under different circumstances.
-- Assess whether uncertainty is acknowledged and whether causal claims are proportionate.
-- Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
-
-Rating options:
-- GOOD evidence: cautious counterfactual reasoning with explicit uncertainty
-- SOME evidence: mixed cautious and overconfident counterfactual reasoning
-- LITTLE evidence: strong hindsight bias or definitive unsupported causal claims
-
-Return STRICT JSON ONLY (no markdown, no extra text, no extra text):
+Return STRICT JSON ONLY (no markdown, no extra text):
 
 {{
   "rating": "GOOD" | "SOME" | "LITTLE",
@@ -104,26 +92,23 @@ Return STRICT JSON ONLY (no markdown, no extra text, no extra text):
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
       "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
 
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words).
-- evidence_type:
-  - "positive" = explicit acknowledgement of uncertainty or cautious counterfactual reasoning.
-  - "negative" = definitive hindsight claims or unsupported causal certainty.
-- If rating is GOOD: include at least one positive evidence item.
-- If rating is LITTLE: include at least one negative evidence item IF such text exists.
-- For rating = SOME, it is acceptable to include both positive and negative evidence.
-- If you cannot find any relevant excerpt to quote, set evidence to [] AND set uncertainty true.
-- Do not invent causal claims. Do not paraphrase quotes.
 
 Evidence:
 {evidence_text}
+
 """.strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+ 
 
     # -------------------------
     # JSON parsing
@@ -222,3 +207,4 @@ Evidence:
 
         return result
  
+

@@ -16,6 +16,7 @@ class D3LearningActionsAgent:
 
     AGENT_ID = "D3"
     DIMENSION_NAME = "Quality and appropriateness of learning actions"
+    PROMPT_FILE = "d3_learning_actions_prompt.txt"
 
     # Optional cues (sanity checking only, not decision logic)
     ACTION_CUES = (
@@ -58,6 +59,8 @@ class D3LearningActionsAgent:
     # -------------------------
 
     def _build_prompt(self, pack: EvidencePack) -> str:
+        
+        prompt_body = self._load_prompt_body()
         evidence_blocks = []
 
         for chunk in pack.text_chunks:
@@ -73,21 +76,12 @@ class D3LearningActionsAgent:
         evidence_text = "\n\n".join(evidence_blocks)
 
         return f"""
-You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT).
+You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
 
-Dimension: Quality and appropriateness of learning actions (D3).
+Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
+of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
 
-Task:
-- Assess whether the learning actions identified are appropriate, concrete,
-  and likely to reduce recurrence.
-- Focus on the actions proposed, not just the problems identified.
-- Base your judgement ONLY on the evidence provided.
-- You must explain your rationale in detail, explaining why the specific evidence you cite supports your rationale.
-
-Rating options:
-- GOOD evidence: clear, concrete, system-level learning actions
-- SOME evidence: actions present but generic, mixed, or weakly specified
-- LITTLE evidence: vague, individual-only, or absent learning actions
+{prompt_body}
 
 Return STRICT JSON ONLY (no markdown, no extra text):
 
@@ -97,29 +91,24 @@ Return STRICT JSON ONLY (no markdown, no extra text):
   "evidence": [
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
-      "quote": "vverbatim excerpt from the evidence without trailing punctuation, <= 25 words",
-      "evidence_type": "positive" | "negative"
+      "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-  "uncertainty": true | false
 }}
 
-Rules:
-- Every evidence item MUST include a verbatim quote (<= 25 words).
-- Evidence_type:
-  - "positive" = concrete, actionable learning actions embedded in systems/processes.
-  - "negative" = vague actions, individual reflection only, reminders, or absence of actions.
-- If rating is GOOD: include at least one positive evidence item.
-    - For GOOD, at least one evidence quote must describe a specific implementable change 
-    (e.g., a rule, protocol, pathway, escalation mechanism), not merely 'linking to work' or 'discussion'.
-- If rating is LITTLE: include at least one negative evidence item (if present).
-- If no learning actions are stated at all, evidence may be [] but set uncertainty true.
-- Do not invent actions. Do not paraphrase quotes.
 
 Evidence:
 {evidence_text}
-""".strip()
 
+""".strip()
+    
+    def _load_prompt_body(self) -> str:
+        from pathlib import Path
+
+        prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
+        return prompt_path.read_text(encoding="utf-8").strip()
+ 
     # -------------------------
     # JSON parsing
     # -------------------------
@@ -205,4 +194,5 @@ Evidence:
                 result["uncertainty"] = True
 
         return result
+
 

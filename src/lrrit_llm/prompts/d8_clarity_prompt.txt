@@ -1,0 +1,32 @@
+Dimension: The written report is clear and easy to read. The report is concise, written in easy to
+understand, and inclusive language i.e., it is written to “inform rather than impress”.  (D8)
+
+Core Definition:
+The report is written clearly and accessibly, using inclusive language that supports understanding rather than demonstrating expertise.
+
+Discriminators for the evidence level ratings:
+GOOD Good evidence: Does the report make an active effort to be inclusive and accessible to a broad audience (including patients, families, and non-specialist staff), i.e., is there deliberate inclusivity rather than simply an absence of jargon?
+
+SOME evidence: Can the report still be understood by non-specialist readers with reasonable effort even if inclusivity is not deliberate? 
+
+LITTLE evidence: 
+Is there little to no evidence, you should report this saying "I looked through the report and 
+found no evidence of compassionate engagement".
+
+Indicator Matching Rule (STRICT):
+- You MUST rate evidence_type based on the indicators below.
+- Do NOT paraphrase, shorten, or modify indicator wording.
+- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type but state "No evidence matches this indicator".
+
+"evidence_type": 
+"GOOD - Language is clear and accessible: The report uses straightforward language that can be readily understood by non-specialist readers"
+"GOOD - The report is logically structured and easy to follow: The report is organised in a coherent way that supports understanding and allows the reader to follow the narrative from context through learning to actions."
+"GOOD - Language is inclusive and written to inform rather than impress: The report uses inclusive, respectful language and avoids insider, performative, or exclusionary phrasing (e.g., explaining rather than assuming relevant background knowledge)."
+
+"SOME - Language is understandable but technical or insider terms are not consistently explained: The report uses clear language, but includes technical terms, acronyms, or professional shorthand that are not consistently explained."
+"SOME - The report has a recognisable structure, but flow and signposting are uneven: The report follows a basic structure, but transitions between sections are not always clear or key messages are not consistently signposted."
+"SOME - Language is clear and respectful but oriented towards an insider audience: The report uses clear and respectful language and avoids exclusionary phrasing, but it is primarily oriented toward an insider audience and does not consistently support understanding for patients, families, or non-specialist readers."
+
+"LITTLE - Language is difficult to understand: The report relies heavily on unexplained jargon, acronyms, or technical terminology, making it hard to understand without specialist knowledge."
+"LITTLE - The report lacks a clear or coherent structure: The report is poorly organised or fragmented, making it difficult to follow the narrative or locate key messages."
+"LITTLE - Language is written for insiders and excludes a wider audience: The report is written in a way that assumes insider knowledge throughout and does not support understanding for patients, families, or non-specialist readers."

@@ -8,6 +8,7 @@ import base64
 import html
 from pathlib import Path
 from datetime import datetime
+from collections import OrderedDict
 
 # NHS-ish palette (approx)
 NHS_BLUE = "#005EB8"
@@ -238,73 +239,100 @@ def render_html(report_dir: Path) -> Path:
 
         # Evidence list
         #pdf_url = meta.get("pdf_url") or meta.get("pdf_path") or os.environ.get("LRRIT_PDF_URL", "")
-
+        
+        groups = OrderedDict()
         ev_rows = []
+
         if evidence:
             for e in evidence:
-                eid = e.get("id", "")
-                quote = e.get("quote", "")
-                etype = e.get("evidence_type", "")
+                etype = (e.get("evidence_type") or "evidence").strip()
+                display_type = etype.split(":", 1)[0].strip()
+                groups.setdefault(display_type, []).append(e)
+                
+            ev_rows = []   
+            for etype, items in groups.items():
+                ev_rows.append(f'<h4 class="ev-group">{_esc(etype)}</h4>')
+                for e in items:
+                    quote = e.get("quote", "")
+                    #etype = e.get("evidence_type", "")
 
-                et_col = _badge_colour(
-                    "GOOD" if etype == "positive"
-                    else "LITTLE" if etype == "negative"
-                    else "SOME"
-                )
-                eid = e.get("id", "")
-                ev_id_display = eid if eid else "Unresolved source"
-                # Prefer explicit page from resolver; fallback to parsing id for older files.
-                page = e.get("page")
-                if page is None:
-                    page = _page_from_evidence_id(eid)
-
-                copy_b64 = base64.b64encode((quote or "").encode("utf-8")).decode("ascii")
-
-                action_html = ""
-                if pdf_url and page:
-                    pdf_href = f"{pdf_url}#page={page}"
-                    action_html = (
-                        f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
-                        f'href="{_esc(pdf_href)}" '
-                        f'data-copy="{copy_b64}" '
-                        f'onclick="copyB64(this.dataset.copy);">Open report (page {page})</a>'
+                    et_col = _badge_colour(
+                        "GOOD" if etype == "positive"
+                        else "LITTLE" if etype == "negative"
+                        else "SOME"
                     )
-                else:
-                    # No resolvable page means quote couldn't be located verbatim in the EvidencePack.
-                    # (Often due to non-verbatim / normalisation / hallucinated fragments.)
-                    action_html = '<span class="pill warn">Verbatim quote not found</span>'
 
-                #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
-                laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
-                laj_overall = (laj.get("overall") or "").upper()
-                tooltip = _esc(_laj_tooltip(laj))
-                laj_html = ""
-                if laj_overall:
-                  overall_txt, overall_col = _laj_badge(laj_overall)
-                  laj_html = f"""
-                  <details class="laj-details">
-                    <summary> 
-                      <span class="pill" style="background:{overall_col}" title="{tooltip}">{agent_id}: {overall_txt}</span>
-                      <span class="laj-summary-link">View detailed evaluation metrics for {agent_id}</span>
-                    </summary>
-                    {render_laj_details(laj)}
-                  </details>
-                  """               
+        # if evidence:
+        #     for e in evidence:
+        #         etype = (e.get("evidence_type") or "evidence").strip()
+        #         groups.setdefault(etype, []).append(e)
+                
+        #     ev_rows = []   
+        #     for etype, items in groups.items():
+        #         ev_rows.append(f'<h4 class="ev-group">{_esc(etype)}</h4>')
+        #         for e in items:
+        #             quote = e.get("quote", "")
+        #             #etype = e.get("evidence_type", "")
 
+        #             et_col = _badge_colour(
+        #                 "GOOD" if etype == "positive"
+        #                 else "LITTLE" if etype == "negative"
+        #                 else "SOME"
+        #             )
+                    eid = e.get("id", "")
+                    ev_id_display = eid if eid else "Unresolved source"
+                    # Prefer explicit page from resolver; fallback to parsing id for older files.
+                    page = e.get("page")
+                    if page is None:
+                        page = _page_from_evidence_id(eid)
 
-                ev_rows.append(f"""
-                  <div class="ev-row">
-                    <div class="ev-meta">
-                      <span class="pill" style="background:{et_col}">{_esc(etype or "evidence")}</span>
-                      <span class="ev-id">{_esc(ev_id_display)}</span>
-                    </div>
+                    copy_b64 = base64.b64encode((quote or "").encode("utf-8")).decode("ascii")
 
-                    <div class="ev-main">
-                      <div class="ev-quote">“{_esc(quote)}”</div>
-                      <div class="ev-action">{action_html}</div>
-                    </div>
-                  </div>
-                  """)
+                    action_html = ""
+                    if pdf_url and page:
+                        pdf_href = f"{pdf_url}#page={page}"
+                        action_html = (
+                            f'<a class="btn btn-compact" target="lrrit_pdf_tab" '
+                            f'href="{_esc(pdf_href)}" '
+                            f'data-copy="{copy_b64}" '
+                            f'onclick="copyB64(this.dataset.copy);">Open report (page {page})</a>'
+                        )
+                    else:
+                        # No resolvable page means quote couldn't be located verbatim in the EvidencePack.
+                        # (Often due to non-verbatim / normalisation / hallucinated fragments.)
+                        action_html = '<span class="pill warn">Verbatim quote not found</span>'
+
+                    #print("DEBUG evidence:", eid, "page=", page, "pdf_url=", bool(pdf_url))
+                    laj = laj_results.get(agent_id.lower()) or laj_results.get(agent_id) or {}
+                    laj_overall = (laj.get("overall") or "").upper()
+                    tooltip = _esc(_laj_tooltip(laj))
+                    laj_html = ""
+                    if laj_overall:
+                      overall_txt, overall_col = _laj_badge(laj_overall)
+                      laj_html = f"""
+                      <details class="laj-details">
+                        <summary> 
+                          <span class="pill" style="background:{overall_col}" title="{tooltip}">{agent_id}: {overall_txt}</span>
+                          <span class="laj-summary-link">View detailed evaluation metrics for {agent_id}</span>
+                        </summary>
+                        {render_laj_details(laj)}
+                      </details>
+                      """               
+
+#<span class="pill" style="background:{et_col}">{_esc(etype or "evidence")}</span>
+                    ev_rows.append(f"""
+                      <div class="ev-row">
+                        <div class="ev-meta">
+                          
+                          <span class="ev-id">{_esc(ev_id_display)}</span>
+                        </div>
+
+                        <div class="ev-main">
+                          <div class="ev-quote">“{_esc(quote)}”</div>
+                          <div class="ev-action">{action_html}</div>
+                        </div>
+                      </div>
+                      """)
             else:
                 ev_rows.append(f'<div class="muted">No more evidence quotes returned.</div>'
                                 f'<h3>{agent_id} Task Evaluation</h3>{laj_html}')
@@ -490,6 +518,13 @@ def render_html(report_dir: Path) -> Path:
       opacity: 0.75;
       font-size: 12px;
     }}
+    .ev-group {{
+        margin: 12px 0 6px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        opacity: 0.8;
+      }}
     .ev-row {{
       border-left: 4px solid var(--nhs-blue);
       padding: 10px 10px;
