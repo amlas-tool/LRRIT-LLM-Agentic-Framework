@@ -5,6 +5,7 @@ import re
 import string
 
 from dataclasses import dataclass
+from pathlib import Path
 from sys import flags
 from typing import Any, Dict, List, Optional, Tuple
 from unittest import result
@@ -26,6 +27,9 @@ _TOKEN_RE = re.compile(r"[a-z0-9]+")
 _HYPHEN_LINEBREAK_RE = re.compile(r"(\w)-\s+(\w)")
 
 _CHUNK_RE = re.compile(r"(p\d{1,3}_(?:c|t)\d{1,3})", re.IGNORECASE)
+_INDICATOR_LINE_RE = re.compile(r'^"((GOOD|SOME|LITTLE)\s*-\s.+)"\s*$')
+
+_PROMPTS_DIR = Path(__file__).resolve().parents[1] / "prompts"
 
 def _extract_chunk_id(evidence_id: str) -> str | None:
     if not evidence_id:
@@ -103,6 +107,69 @@ def _resolve_block_by_page(self, pack: EvidencePack, page: int) -> Optional[str]
 
 
 # -------------------------
+# Rubric structure helpers (from prompts)
+# -------------------------
+
+def _find_prompt_file(agent_id: str) -> Optional[Path]:
+    if not agent_id or not _PROMPTS_DIR.exists():
+        return None
+    matches = sorted(_PROMPTS_DIR.glob(f"{agent_id.lower()}*_prompt.txt"))
+    return matches[0] if matches else None
+
+def _load_prompt_text(agent_id: str) -> str:
+    path = _find_prompt_file(agent_id)
+    if not path:
+        return ""
+    return path.read_text(encoding="utf-8")
+
+def _find_line_index(lines: List[str], prefix: str) -> int:
+    target = prefix.strip().lower()
+    for i, line in enumerate(lines):
+        if line.strip().lower().startswith(target):
+            return i
+    return -1
+
+def _extract_rubric_structure(prompt_text: str) -> Tuple[str, List[str]]:
+    if not prompt_text:
+        return "", []
+
+    lines = prompt_text.splitlines()
+    core_idx = _find_line_index(lines, "Core Definition:")
+    discr_idx = _find_line_index(lines, "Discriminators")
+
+    core = ""
+    if core_idx != -1:
+        end = discr_idx if discr_idx != -1 else len(lines)
+        core = "\n".join(line.rstrip() for line in lines[core_idx:end]).strip()
+
+    discr = ""
+    if discr_idx != -1:
+        end = len(lines)
+        for i in range(discr_idx + 1, len(lines)):
+            line = lines[i].strip().lower()
+            if line.startswith("indicator matching rule") or line.startswith('"evidence_type"'):
+                end = i
+                break
+        discr = "\n".join(line.rstrip() for line in lines[discr_idx:end]).strip()
+
+    indicators: List[str] = []
+    for line in lines:
+        m = _INDICATOR_LINE_RE.match(line.strip())
+        if m:
+            indicators.append(m.group(1))
+
+    parts: List[str] = []
+    if core:
+        parts.append(core)
+    if discr:
+        parts.append(discr)
+    if indicators:
+        parts.append("Indicator list (verbatim):\n" + "\n".join(f"- {i}" for i in indicators))
+
+    return "\n\n".join(parts).strip(), indicators
+
+
+# -------------------------
 # Data model
 # -------------------------
 
@@ -128,7 +195,6 @@ class LaJMetaEvaluator:
         "rating": "GOOD|SOME|LITTLE",
         "rationale": "...",
         "evidence": [{"id": "...", "quote": "...", "evidence_type": "positive|negative"}],
-        "uncertainty": true|false
       }
 
     Output:
@@ -151,6 +217,7 @@ class LaJMetaEvaluator:
         ("M4", "Values Alignment (PSIRF/LRRIT)"),
         ("M5", "Transparency & Uncertainty Handling"),
         ("M6", "Hallucination Screening"),
+        ("M7", "Rubric Structure Adherence"),
     ]
 
     def __init__(self, model_client, temperature: float = 0.0):
@@ -177,14 +244,22 @@ class LaJMetaEvaluator:
         agent_id = agent_output.get("agent_id", "UNKNOWN")
         dimension = agent_output.get("dimension", "UNKNOWN")
 
+        rubric_structure, indicator_list = _extract_rubric_structure(_load_prompt_text(agent_id))
+
         # Programmatic checks (do not require LLM, do not re-review report)
-        flags, evidence_context = self._build_evidence_context(pack, agent_output, strict_quote_check=strict_quote_check)
+        flags, evidence_context = self._build_evidence_context(
+            pack,
+            agent_output,
+            strict_quote_check=strict_quote_check,
+            indicator_list=indicator_list,
+        )
 
         prompt = self._build_prompt(
             agent_output=agent_output,
             dimension_definition=dimension_definition,
             evidence_context=evidence_context,
             flags=flags,
+            rubric_structure=rubric_structure,
         )
 
         raw = self.model.complete(prompt)
@@ -275,6 +350,7 @@ class LaJMetaEvaluator:
         pack: EvidencePack,
         agent_output: Dict[str, Any],
         strict_quote_check: bool,
+        indicator_list: List[str],
     ) -> Tuple[Dict[str, bool], str]:
         evidence = agent_output.get("evidence", []) or []
 
@@ -285,6 +361,11 @@ class LaJMetaEvaluator:
             # Quote QA flags
             "quote_not_found": False,          # quote not found anywhere in EvidencePack
             "misattributed_evidence": False,   # quote exists, but not in cited block (wrong id/page)
+
+            # Rubric structure / indicator adherence
+            "indicator_list_available": bool(indicator_list),
+            "indicator_missing": False,
+            "indicator_mismatch": False,
         }
 
         if not evidence:
@@ -297,6 +378,13 @@ class LaJMetaEvaluator:
         for ev in evidence:
             eid = (ev.get("id") or "").strip()
             quote = (ev.get("quote") or "").strip()
+            etype = (ev.get("evidence_type") or "").strip()
+
+            if indicator_list:
+                if not etype:
+                    flags["indicator_missing"] = True
+                elif etype not in indicator_list:
+                    flags["indicator_mismatch"] = True
 
             if not eid:
                 flags["invalid_evidence_id"] = True
@@ -343,6 +431,7 @@ class LaJMetaEvaluator:
         dimension_definition: str,
         evidence_context: str,
         flags: Dict[str, bool],
+        rubric_structure: str,
     ) -> str:
         # Keep this concise: LaJ judges the agent output, not the report.
         agent_json = json.dumps(agent_output, ensure_ascii=False, indent=2)
@@ -361,6 +450,9 @@ well-grounded, coherent, values-aligned, transparent about uncertainty, and free
 
 Target dimension definition (what the agent should be judging):
 {dimension_definition}
+
+Rubric structure reference (core definition, discriminators, indicators):
+{rubric_structure if rubric_structure else "[NO RUBRIC STRUCTURE AVAILABLE]"}
 
 Dimension agent output (JSON):
 {agent_json}
@@ -393,10 +485,12 @@ Scoring guidance:
 - FAIL: materially fails; unreliable
 
 Rules:
-- Provide ALL 6 metrics M1..M6 exactly once.
+- Provide ALL 7 metrics M1..M7 exactly once.
 - Keep notes short and actionable.
 - invalid_evidence_id or quote_not_found → affects M2 and M6 (possible hallucination / unverifiable)
 - misattributed_evidence → affects M2 (grounding/provenance), but not M6
+- indicator_mismatch → affects M7 (rubric structure adherence)
+- For M7, assess whether the rationale aligns with the core definition, the chosen rating aligns with the discriminators, and evidence_type strings exactly match indicator wording when indicator_list_available is true.
 - Hallucination Screening (M6) is ONLY about unsupported factual assertions about the report content.
     - PASS if the rationale stays within what is supported by the provided evidence blocks, even if the critique is generic.
     - WARN if evidence is thin but not demonstrably false.
@@ -449,6 +543,18 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
                 # Optional: nudge notes to be accurate
                 m6["notes"] = "No programmatic grounding issues detected; treat as potential overreach rather than hallucination."
 
+        # Enforce indicator adherence (M7)
+        if flags.get("indicator_mismatch") and flags.get("indicator_list_available"):
+            m7 = m_by_id.get("M7")
+            if m7:
+                m7["score"] = "WARN"
+                m7["notes"] = "Agent did not exactly match rubric indicator wording when providing evidence."
+        elif flags.get("indicator_missing") and flags.get("indicator_list_available"):
+            m7 = m_by_id.get("M7")
+            if m7 and m7.get("score") == "PASS":
+                m7["score"] = "WARN"
+                m7["notes"] = "Missing evidence_type on at least one evidence item; include the exact rubric indicator."
+
         result["metrics"] = [m_by_id[mid] for mid in required]
 
         # If severe programmatic issues, overall cannot be PASS
@@ -467,10 +573,12 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
                 m6["score"] = "WARN"
             result["metrics"] = [m_by_id[mid] for mid in required]
         
-        scores = {m["metric_id"]: (m.get("score") or "").upper() for m in metrics}
+        scores = {mid: (m_by_id.get(mid, {}).get("score") or "").upper() for mid in required}
 
         if scores.get("M2") == "FAIL" or scores.get("M6") == "FAIL":
             result["overall"] = "FAIL"
+        elif scores.get("M7") == "FAIL":
+            result["overall"] = "WARN"
         elif any(s == "WARN" for s in scores.values()):
             result["overall"] = "WARN"
         else:

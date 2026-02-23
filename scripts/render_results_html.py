@@ -74,6 +74,7 @@ def render_laj_details(laj: dict) -> str:
         "M4": "Values alignment (PSIRF/LRRIT)",
         "M5": "Transparency & uncertainty",
         "M6": "Unsupported-claim risk",
+        "M7": "Rubric Indicator matching",
     }
 
     # Build rows
@@ -262,23 +263,6 @@ def render_html(report_dir: Path) -> Path:
                         else "SOME"
                     )
 
-        # if evidence:
-        #     for e in evidence:
-        #         etype = (e.get("evidence_type") or "evidence").strip()
-        #         groups.setdefault(etype, []).append(e)
-                
-        #     ev_rows = []   
-        #     for etype, items in groups.items():
-        #         ev_rows.append(f'<h4 class="ev-group">{_esc(etype)}</h4>')
-        #         for e in items:
-        #             quote = e.get("quote", "")
-        #             #etype = e.get("evidence_type", "")
-
-        #             et_col = _badge_colour(
-        #                 "GOOD" if etype == "positive"
-        #                 else "LITTLE" if etype == "negative"
-        #                 else "SOME"
-        #             )
                     eid = e.get("id", "")
                     ev_id_display = eid if eid else "Unresolved source"
                     # Prefer explicit page from resolver; fallback to parsing id for older files.
