@@ -23,8 +23,13 @@ found no evidence of compassionate engagement".
 Indicator Matching Rule (STRICT):
 - You MUST rate evidence_type based on the indicators below.
 - Do NOT paraphrase, shorten, or modify indicator wording.
-- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
-  but state "No evidence matches this indicator".
+- Do not skip indicators. 
+- If you cannot find evidence matching an indicator at the selected rating, 
+  include the evidence_type but state "No evidence matches this indicator".
+
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
 
 "evidence_type": 
 "GOOD - Meaningful engagement is clearly described: The report specifies how patients, families, carers, or staff were engaged."
@@ -40,3 +45,6 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Needs or perspectives are not described: The report does not describe any needs, concerns, or perspectives of those affected."
 "LITTLE - Competency cannot be assessed: The report does not indicate who engaged with those affected, or whether any relevant skills were involved."
 "LITTLE - No evidence of influence on the learning response: Perspectives of those affected did not shape insights, decisions, or actions."
+
+
+

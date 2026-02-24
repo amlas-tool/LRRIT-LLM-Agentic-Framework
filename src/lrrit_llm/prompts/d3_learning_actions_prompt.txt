@@ -28,6 +28,10 @@ Indicator Matching Rule (STRICT):
 - If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
   but state "No evidence matches this indicator".
 
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
+
 "evidence_type": 
 "GOOD - No causal attribution of “human error”: The report avoids concluding that “human error” (or equivalent terms) was the cause of the incident and clearly frames error as an outcome requiring explanation."
 "GOOD - Human behaviour is explained through systems conditions: The report explicitly links relevant system conditions (e.g., workload, task design, information availability, procedures, environment) to why people acted as they did, making their actions understandable in context."
@@ -43,3 +47,6 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Human behaviour is described without system-based explanation: The report describes what people did, or what they failed to do, without explaining how system conditions shaped their actions."
 "LITTLE - Error labels are used as explanations: Error-related terms are used as sufficient explanations, without unpacking or reference to underlying system conditions."
 "LITTLE - The learning response focuses on correcting individual error: Learning actions primarily target individuals, e.g., through retraining, reminders and supervision, rather than system conditions."
+
+
+

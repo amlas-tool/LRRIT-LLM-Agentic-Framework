@@ -23,6 +23,10 @@ Indicator Matching Rule (STRICT):
 - Do NOT paraphrase, shorten, or modify indicator wording.
 - If you cannot find evidence matching an indicator at the selected rating, include the evidence_type but state "No evidence matches this indicator".
 
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
+
 "evidence_type": 
 "GOOD - Actions target system elements rather than individual behaviour: The proposed actions focus on system elements such as workflows, care pathways, technology, equipment, roles, interfaces, or organisational arrangements, rather than on correcting or controlling individual behaviour."
 "GOOD - Actions clearly address the key contributory factors identified: The report makes an explicit link between the contributory factors identified in the analysis and the proposed actions, showing how the actions respond to the issues identified."
@@ -41,3 +45,5 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Actions are weakly connected or unrelated to the analysis: The proposed actions do not clearly address the key contributory factors identified in the report, or appear generic and transferable across incidents (e.g., “update policy”, “share learning”)."
 "LITTLE - No clear rationale is provided for how actions are expected to improve work: The report does not explain how the proposed actions would change conditions, constraints, or resources in practice, or relies on vague assurances of improvement."
 "LITTLE - Monitoring and follow-up arrangements are absent or unclear: The report does not specify who is responsible for implementing or monitoring the actions, or how progress will be reviewed."
+
+

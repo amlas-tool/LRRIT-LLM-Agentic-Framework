@@ -263,17 +263,21 @@ def render_html(report_dir: Path) -> Path:
                         else "SOME"
                     )
 
+                    copy_b64 = base64.b64encode((quote or "").encode("utf-8")).decode("ascii")
+                    
                     eid = e.get("id", "")
                     ev_id_display = eid if eid else "Unresolved source"
                     # Prefer explicit page from resolver; fallback to parsing id for older files.
                     page = e.get("page")
-                    if page is None:
-                        page = _page_from_evidence_id(eid)
+                    has_explicit_page = "page" in e
 
-                    copy_b64 = base64.b64encode((quote or "").encode("utf-8")).decode("ascii")
+                    if page is None and not has_explicit_page:
+                        page = _page_from_evidence_id(eid)
+                    
+                    
 
                     action_html = ""
-                    if pdf_url and page:
+                    if pdf_url and page is not None:
                         pdf_href = f"{pdf_url}#page={page}"
                         action_html = (
                             f'<a class="btn btn-compact" target="lrrit_pdf_tab" '

@@ -114,7 +114,9 @@ Return STRICT JSON ONLY (no markdown, no extra text):
       "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-}}
+  "missing_indicators": ["<exact indicator text>"],
+  }}
+
 
 
 Evidence:
@@ -126,8 +128,13 @@ Evidence:
         from pathlib import Path
 
         prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
-        return prompt_path.read_text(encoding="utf-8").strip()
- 
+        data = prompt_path.read_bytes()
+        for enc in ("utf-8", "cp1252", "latin-1"):
+            try:
+                return data.decode(enc).strip()
+            except UnicodeDecodeError:
+                continue
+        return data.decode("utf-8", errors="replace").strip() 
     
     # -------------------------
     # JSON parsing
@@ -149,16 +156,15 @@ Evidence:
             return self._normalise_obj(obj)
 
         raise ValueError("Agent did not return valid JSON.")
-
     def _normalise_obj(self, obj: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "rating": obj.get("rating"),
             "rationale": obj.get("rationale"),
             "evidence": obj.get("evidence", []) or [],
-            "uncertainty": bool(obj.get("uncertainty", False)),
+            "missing_indicators": obj.get("missing_indicators", []) or [],
         }
-    
-     # -------------------------
+
+    # -------------------------
     # NEW: Evidence page enrichment
     # -------------------------
 
@@ -242,5 +248,11 @@ Evidence:
                 result["uncertainty"] = True
 
         return result
+
+
+
+
+
+
 
 

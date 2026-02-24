@@ -9,6 +9,7 @@ from lrrit_llm.evidence.schema import EvidencePack
 
 _WS_RE = re.compile(r"\s+")
 _HYPHEN_LINEBREAK_RE = re.compile(r"(\w)[\-\u2010\u2011]\s*\n\s*(\w)")
+_TRAIL_NONALNUM_RE = re.compile(r"[^a-z0-9]+$")
 # Normalise curly quotes and NBSP
 _TRANSLATION = str.maketrans({
     "“": '"', "”": '"', "„": '"', "‟": '"',
@@ -35,6 +36,13 @@ def _norm_for_match(s: str) -> str:
     s = _WS_RE.sub(" ", s).strip().lower()
     return s
 
+def _norm_no_punct(s: str) -> str:
+    """Punctuation-insensitive normalisation for forgiving quote matching."""
+    s = _norm_for_match(s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    s = _WS_RE.sub(" ", s).strip()
+    return s
+
 import re
 from typing import List
 
@@ -51,6 +59,26 @@ def _token_overlap_score(quote: str, block: str, max_tokens: int = 12) -> int:
         return 0
     b = _norm_for_match(block)
     return sum(1 for t in qtoks if t in b)
+
+
+def _quote_matches_block(quote: str, block: str) -> bool:
+    if not quote or not block:
+        return False
+    nq = _norm_for_match(quote)
+    nb = _norm_for_match(block)
+    if nq and nq in nb:
+        return True
+    # Allow trailing punctuation differences (e.g., quote ends with "." but block continues)
+    nq_trim = _TRAIL_NONALNUM_RE.sub("", nq)
+    if nq_trim and nq_trim in nb:
+        return True
+    # Punctuation-insensitive match
+    nqp = _norm_no_punct(quote)
+    nbp = _norm_no_punct(block)
+    if nqp and nqp in nbp:
+        return True
+    # Token overlap fallback for slightly paraphrased/line-broken quotes
+    return _token_overlap_score(quote, block) >= 4
 
 
 def resolve_evidence_id_and_page(
@@ -89,7 +117,7 @@ def resolve_evidence_id_and_page(
                     if c.chunk_id == key:
                         # Validate quote if provided
                         if quote:
-                            if _norm_for_match(quote) in _norm_for_match(c.text):
+                            if _quote_matches_block(quote, c.text):
                                 return f"Text {c.chunk_id}", int(c.provenance.page)
                         else:
                             return f"Text {c.chunk_id}", int(c.provenance.page)
@@ -99,7 +127,7 @@ def resolve_evidence_id_and_page(
                     if t.table_id == key:
                         blob = t.text_fallback or ""
                         if quote:
-                            if _norm_for_match(quote) in _norm_for_match(blob):
+                            if _quote_matches_block(quote, blob):
                                 return f"Table {t.table_id}", int(t.provenance.page)
                         else:
                             return f"Table {t.table_id}", int(t.provenance.page)
@@ -110,19 +138,18 @@ def resolve_evidence_id_and_page(
     # -------------------
     # 2) Repair path: resolve by quote
     # -------------------
-    nq = _norm_for_match(quote)
-    if not nq:
+    if not _norm_for_match(quote):
         return None, None
 
     # Search Text chunks first (usually preferred for narrative quotes)
     for c in pack.text_chunks:
-        if nq in _norm_for_match(c.text):
+        if _quote_matches_block(quote, c.text):
             return f"Text {c.chunk_id}", int(c.provenance.page)
 
     # Then search Tables via text_fallback
     for t in pack.tables:
         blob = (t.text_fallback or "")
-        if nq in _norm_for_match(blob):
+        if _quote_matches_block(quote, blob):
             return f"Table {t.table_id}", int(t.provenance.page)
 
     return None, None

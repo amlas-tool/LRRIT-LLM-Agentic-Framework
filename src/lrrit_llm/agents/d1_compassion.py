@@ -62,6 +62,7 @@ class D1CompassionAgent:
             "rating": result.get("rating"),
             "rationale": result.get("rationale"),
             "evidence": result.get("evidence", []),
+            "missing_indicators": result.get("missing_indicators", []),
             "uncertainty": result.get("uncertainty", False),
             #"raw_output": raw_response,
         }
@@ -92,8 +93,9 @@ class D1CompassionAgent:
 
         return f"""
 You are an expert reviewer applying the Learning Response Review and Improvement Tool (LRRIT). 
-Apply the discriminators in the rubric to evaluate the evidence. Provide an overall evidence rating 
-of GOOD, SOME, or LITTLE, with a rationale and verbatim quotes that support that rating. 
+Apply the evidence type discriminators in the rubric to evaluate if the report meets the 
+dimension below. Provide an overall evidence rating of GOOD, SOME, or LITTLE, with a detailed  
+rationale backed up by verbatim quotes that support that rating. 
 
 {prompt_body}
 
@@ -109,7 +111,9 @@ Return STRICT JSON ONLY (no markdown, no extra text). :
       "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],
-}}
+  "missing_indicators": ["<exact indicator text>"],
+  }}
+
 
 
 Evidence:
@@ -121,8 +125,13 @@ Evidence:
         from pathlib import Path
 
         prompt_path = Path(__file__).resolve().parents[1] / "prompts" / self.PROMPT_FILE
-        return prompt_path.read_text(encoding="utf-8").strip()
-    
+        data = prompt_path.read_bytes()
+        for enc in ("utf-8", "cp1252", "latin-1"):
+            try:
+                return data.decode(enc).strip()
+            except UnicodeDecodeError:
+                continue
+        return data.decode("utf-8", errors="replace").strip()    
     # -------------------------
     # Response parsing
     # -------------------------
@@ -150,14 +159,14 @@ Evidence:
             return self._normalise_obj(obj)
 
         raise ValueError("Agent did not return valid JSON.")
-    
     def _normalise_obj(self, obj: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "rating": obj.get("rating"),
             "rationale": obj.get("rationale"),
             "evidence": obj.get("evidence", []) or [],
+            "missing_indicators": obj.get("missing_indicators", []) or [],
         }
-    
+
     # -------------------------
     # NEW: Evidence page enrichment
     # -------------------------
@@ -187,5 +196,12 @@ Evidence:
 
         result["evidence"] = enriched
         return result
+
+
+
+
+
+
+
 
 

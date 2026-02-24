@@ -22,8 +22,13 @@ found no evidence of compassionate engagement".
 Indicator Matching Rule (STRICT):
 - You MUST rate evidence_type based on the indicators below.
 - Do NOT paraphrase, shorten, or modify indicator wording.
-- If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
-  but state "No evidence matches this indicator".
+- Do not skip indicators. 
+- If you cannot find evidence matching an indicator at the selected rating, 
+  include the evidence_type but state "No evidence matches this indicator".
+
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
 
 "evidence_type": 
 "GOOD - A systems approach or perspective is evident: The report describes or clearly reflects the use of a structured systems approach (e.g., PSIRF systems-based expectations, human factors frameworks such as SEIPS)."
@@ -43,3 +48,5 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Focus on the individual: Behaviour is described without reference to system conditions or constraints."
 "LITTLE - No evidence of influence on the learning response: Perspectives of those affected did not shape insights, decisions, or actions."
 "LITTLE - Improvement actions target the individual, not system change: Solutions rely on interventions such as training, reminders, or procedural compliance."
+
+

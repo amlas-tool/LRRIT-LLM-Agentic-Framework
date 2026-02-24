@@ -85,21 +85,21 @@ def main():
     d8 = D8CommunicationQualityAgent(client)
 
     d1_out = d1.run(pack)
-    print("d1 completed, evidence of compassion :", d1_out.get("rating", "")[:100], "...")
+    print("D1 completed, evidence of compassion :", d1_out.get("rating", "")[:100], "...")
     d2_out = d2.run(pack)
-    print("d2 completed, systems approach :", d2_out.get("rating", "")[:100], "...")
+    print("D2 completed, systems approach :", d2_out.get("rating", "")[:100], "...")
     d3_out = d3.run(pack)
-    print("d3 completed, learning actions :", d3_out.get("rating", "")[:100], "...")
+    print("D3 completed, learning actions :", d3_out.get("rating", "")[:100], "...")
     d4_out = d4.run(pack)
-    print("d4 completed, blame language :", d4_out.get("rating", "")[:100], "...")
+    print("D4 completed, blame language :", d4_out.get("rating", "")[:100], "...")
     d5_out = d5.run(pack)
-    print("d5 completed, local rationality :", d5_out.get("rating", "")[:100], "...")
+    print("D5 completed, local rationality :", d5_out.get("rating", "")[:100], "...")
     d6_out = d6.run(pack)
-    print("d6 completed, hindsight bias :", d6_out.get("rating", "")[:100], "...")
+    print("D6 completed, hindsight bias :", d6_out.get("rating", "")[:100], "...")
     d7_out = d7.run(pack)
-    print("d7 completed, improvement actions :", d7_out.get("rating", "")[:100], "...")
+    print("D7 completed, improvement actions :", d7_out.get("rating", "")[:100], "...")
     d8_out = d8.run(pack)
-    print("d8 completed, communication quality :", d8_out.get("rating", "")[:100], "...")
+    print("D8 completed, communication quality :", d8_out.get("rating", "")[:100], "...")
 
 
     results = {
@@ -143,6 +143,7 @@ def main():
                 dimension_definition=DIMENSION_DEFS[agent_id],
                 strict_quote_check=True,
             )
+            print(f"{agent_id} completed, rating: {laj_results[agent_id.lower()].get('overall', '')[:100]}...")
 
     #results["laj"] = laj_results
 

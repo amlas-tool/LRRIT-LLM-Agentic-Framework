@@ -120,7 +120,13 @@ def _load_prompt_text(agent_id: str) -> str:
     path = _find_prompt_file(agent_id)
     if not path:
         return ""
-    return path.read_text(encoding="utf-8")
+    data = path.read_bytes()
+    for enc in ("utf-8", "cp1252", "latin-1"):
+        try:
+            return data.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return data.decode("utf-8", errors="replace")
 
 def _find_line_index(lines: List[str], prefix: str) -> int:
     target = prefix.strip().lower()
@@ -245,6 +251,7 @@ class LaJMetaEvaluator:
         dimension = agent_output.get("dimension", "UNKNOWN")
 
         rubric_structure, indicator_list = _extract_rubric_structure(_load_prompt_text(agent_id))
+        rating = (agent_output.get("rating") or "").upper()
 
         # Programmatic checks (do not require LLM, do not re-review report)
         flags, evidence_context = self._build_evidence_context(
@@ -252,6 +259,7 @@ class LaJMetaEvaluator:
             agent_output,
             strict_quote_check=strict_quote_check,
             indicator_list=indicator_list,
+            rating=rating,
         )
 
         prompt = self._build_prompt(
@@ -351,8 +359,10 @@ class LaJMetaEvaluator:
         agent_output: Dict[str, Any],
         strict_quote_check: bool,
         indicator_list: List[str],
+        rating: str,
     ) -> Tuple[Dict[str, bool], str]:
         evidence = agent_output.get("evidence", []) or []
+        missing_indicators = agent_output.get("missing_indicators", []) or []
 
         flags = {
             "missing_evidence": False,
@@ -366,6 +376,7 @@ class LaJMetaEvaluator:
             "indicator_list_available": bool(indicator_list),
             "indicator_missing": False,
             "indicator_mismatch": False,
+            "indicator_invalid": False,
         }
 
         if not evidence:
@@ -418,6 +429,19 @@ class LaJMetaEvaluator:
                 seen_ids.add(eid)
                 # Provide only the referenced blocks (LaJ does not read full report)
                 blocks.append(f"[{eid}]\n{block}")
+
+        if indicator_list and rating in ("GOOD", "SOME", "LITTLE"):
+            expected = [i for i in indicator_list if i.upper().startswith(f"{rating} -")]
+            provided = {e.get("evidence_type") for e in evidence if e.get("evidence_type")}
+            provided.update([m for m in missing_indicators if m])
+
+            if any(m not in indicator_list for m in missing_indicators if m):
+                flags["indicator_invalid"] = True
+
+            for ind in expected:
+                if ind not in provided:
+                    flags["indicator_missing"] = True
+                    break
 
         return flags, "\n\n".join(blocks)
 
@@ -490,7 +514,8 @@ Rules:
 - invalid_evidence_id or quote_not_found → affects M2 and M6 (possible hallucination / unverifiable)
 - misattributed_evidence → affects M2 (grounding/provenance), but not M6
 - indicator_mismatch → affects M7 (rubric structure adherence)
-- For M7, assess whether the rationale aligns with the core definition, the chosen rating aligns with the discriminators, and evidence_type strings exactly match indicator wording when indicator_list_available is true.
+- indicator_missing or indicator_invalid → affects M7 (coverage or invalid indicator entries)
+- For M7, assess whether the rationale aligns with the core definition, the chosen rating aligns with the discriminators, evidence_type strings exactly match indicator wording, and missing_indicators is used for any indicator without quotes when indicator_list_available is true.
 - Hallucination Screening (M6) is ONLY about unsupported factual assertions about the report content.
     - PASS if the rationale stays within what is supported by the provided evidence blocks, even if the critique is generic.
     - WARN if evidence is thin but not demonstrably false.
@@ -544,16 +569,21 @@ Those belong in M1/M3 (rubric fidelity / reasoning quality).
                 m6["notes"] = "No programmatic grounding issues detected; treat as potential overreach rather than hallucination."
 
         # Enforce indicator adherence (M7)
-        if flags.get("indicator_mismatch") and flags.get("indicator_list_available"):
+        if flags.get("indicator_invalid") and flags.get("indicator_list_available"):
             m7 = m_by_id.get("M7")
             if m7:
-                m7["score"] = "WARN"
-                m7["notes"] = "Agent did not exactly match rubric indicator wording when providing evidence."
+                m7["score"] = "FAIL"
+                m7["notes"] = "missing_indicators includes values that are not valid rubric indicators."
+        elif flags.get("indicator_mismatch") and flags.get("indicator_list_available"):
+            m7 = m_by_id.get("M7")
+            if m7:
+                m7["score"] = "FAIL"
+                m7["notes"] = "evidence_type does not exactly match rubric indicator wording; use the verbatim indicator text."
         elif flags.get("indicator_missing") and flags.get("indicator_list_available"):
             m7 = m_by_id.get("M7")
             if m7 and m7.get("score") == "PASS":
                 m7["score"] = "WARN"
-                m7["notes"] = "Missing evidence_type on at least one evidence item; include the exact rubric indicator."
+                m7["notes"] = "Some indicators at the selected rating are missing; provide quotes or list them in missing_indicators."
 
         result["metrics"] = [m_by_id[mid] for mid in required]
 

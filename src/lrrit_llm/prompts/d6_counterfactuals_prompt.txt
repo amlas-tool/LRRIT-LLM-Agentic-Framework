@@ -22,6 +22,10 @@ Indicator Matching Rule (STRICT):
 - Do NOT paraphrase, shorten, or modify indicator wording.
 - If you cannot find evidence matching an indicator at the selected rating, include the evidence_type but state "No evidence matches this indicator".
 
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
+
 "evidence_type": 
 "GOOD - Reasoning is grounded in work-as-done: The report analyses events as they unfolded in practice and avoids reasoning framed around what “could”, “should”, or “would” have happened."
 "GOOD - Policies and expected practice are used descriptively, not to evaluate: Policies, procedures, or expected practice are used to describe context, not to judge adequacy or correctness of actions."
@@ -31,3 +35,5 @@ Indicator Matching Rule (STRICT):
 
 "LITTLE - Analysis is driven by counterfactual or hindsight reasoning: The report routinely reasons in terms of what “should”, “could”, or “would” have happened, rather than analysing how events unfolded in practice."
 "LITTLE - Analysis is structured around policy or expected practice: The report begins from policy, procedure, or expected practice and evaluates events primarily in terms of compliance or deviation."
+
+

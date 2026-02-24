@@ -25,6 +25,10 @@ Indicator Matching Rule (STRICT):
 - If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
   but state "No evidence matches this indicator".
 
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
+
 "evidence_type": 
 "GOOD - No blame conveyed through narrative framing: The report does not attribute fault, culpability or responsibility for the incident to individuals, teams, departments, organisations or systems explicitly or implicitly, and avoids framing actions or decisions as deficient or blameworthy (e.g., avoiding statements, such as “despite clear guidance…”, “opportunities to do xyz were missed” etc)."
 "GOOD - The language is descriptive, not judgemental: The report uses neutral, descriptive language and avoids evaluative or judgemental terms when describing actions, decisions, or practices (avoiding terms such as “poor”, “inadequate”, “unacceptable” etc)."
@@ -37,3 +41,5 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Blame is conveyed through narrative framing: The report clearly frames actions or decisions as blameworthy or deficient.  "
 "LITTLE - Judgemental language dominates the narrative: The report uses evaluative or judgemental terms throughout to characterise actions, decisions, or practices."
 "LITTLE - Systems and organisations are framed as culpable agents: Systems and organisations are being presented as being responsible for the incident in a fault-attributing sense."
+
+

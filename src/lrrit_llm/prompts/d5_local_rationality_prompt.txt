@@ -25,6 +25,10 @@ Indicator Matching Rule (STRICT):
 - If you cannot find evidence matching an indicator at the selected rating, include the evidence_type 
   but state "No evidence matches this indicator".
 
+- If multiple distinct excerpts support the same indicator, include 2-3 separate evidence items for that evidence_type; only provide one if only one clear verbatim match exists.
+
+- For the selected rating, you MUST cover every indicator: either cite 1-3 quotes in evidence or include the exact indicator text in missing_indicators.
+
 "evidence_type": 
 "GOOD - Information available at the time is clearly reconstructed: The report describes what information, signals, or cues were available to those involved and how these informed their understanding of the situation at the time."
 "GOOD - Situated goals and trade-offs are clearly articulated: The report explains what those involved were trying to achieve at the time and how competing demands or trade-offs shaped decision-making."
@@ -40,3 +44,6 @@ Indicator Matching Rule (STRICT):
 "LITTLE - Goals or priorities at the time are not explored: The report does not consider what those involved were trying to achieve or balance at the time decisions were made."
 "LITTLE - Experienced constraints and affordances are not considered: The report does not explore what constraints or affordances shaped what actions were possible from the perspective of those involved."
 "LITTLE - Actions are not made intelligible in context: The report describes what happened or evaluates actions, without attempting to explain how those actions made sense to those involved at the time."
+
+
+
