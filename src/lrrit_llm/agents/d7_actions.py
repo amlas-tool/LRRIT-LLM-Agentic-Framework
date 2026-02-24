@@ -111,7 +111,7 @@ Return STRICT JSON ONLY (no markdown, no extra text):
   "evidence": [
     {{
       "id": "Text pXX_cYY" | "Table pXX_tYY",
-      "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 25 words",
+      "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 50 words",
       "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
     }}
   ],

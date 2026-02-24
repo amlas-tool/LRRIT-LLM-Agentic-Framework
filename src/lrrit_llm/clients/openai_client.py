@@ -13,18 +13,19 @@ class OpenAIChatClient:
 
     def __init__(
         self,
-        model: str = "gpt-4.1-nano",         # default model
+        #model: str = "gpt-4.1-nano",         # default model
+        model: str = "o3-mini",   
         api_key: Optional[str] = None,
-        temperature: float = 0.0,
+        #temperature: float = 0.0,
     ):
         self.model = model
-        self.temperature = temperature
+        #self.temperature = temperature
         self.client = OpenAI(api_key=api_key or os.getenv("OPENAI_API_KEY"))
 
     def complete(self, prompt: str) -> str:
         resp = self.client.chat.completions.create(
             model=self.model,
-            temperature=self.temperature,
+            #temperature=self.temperature,
             messages=[
                 {"role": "system", "content": "You are a careful, evidence-grounded evaluator."},
                 {"role": "user", "content": prompt},
