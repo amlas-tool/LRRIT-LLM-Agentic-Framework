@@ -46,7 +46,7 @@ The pipeline is organised into five conceptual stages, using the test_agents.py 
 - Dimension agent evaluation (D1–D8)
 - LLM-as-Judge (LaJ) meta-evaluation
 - HTML report rendering
-
+---
 
 1. **PDF ingestion and extraction**
    - Extracts text and tables from PDF reports using open source pdf python libs.
@@ -99,9 +99,9 @@ Chunks are page-scoped and relatively coarse. This simplifies downstream quote m
 
 ## PDF parsing and evidence extraction
 
-PDF reports are ingested using open-source libraries (`PyMuPDF` for text extraction and `pdfplumber` for tables). We do this so that the text extraction from the reports is not LLM dependent, otherwise what is extracted might change each time we change the main model. By using standard python libraries, we can better guarantee consistency. However, the performance of these libraries on real world data leaves much to be desired, and we may need to find an alternative mechanism.
+PDF reports are ingested using open-source libraries (`PyMuPDF` for text extraction and `pdfplumber` for tables). We do this so that the text extraction from the reports is deterministic and not LLM dependent, otherwise what is extracted might change each time we change the main model. By using standard python libraries, we can better guarantee consistency. However, the performance of these libraries on real world data leaves much to be desired, and we may need to find an alternative mechanism, such as using the LLM to extract the text and tables.
 
-Text is extracted page-by-page and normalised into traceable text chunks, while tables (where present) are extracted separately and preserved with fallback textual representations. All extracted content is wrapped in an **EvidencePack** with explicit provenance (source file, page number, extractor), ensuring that every agent judgement can be traced back to the original document.
+Text is extracted page-by-page and normalised into traceable text chunks, while tables (where present) are extracted separately and preserved with fallback textual representations. All extracted content is wrapped in an **EvidencePack** with explicit provenance (source file, page number, extractor), ensuring that every agent judgement can be traced back to the original document. This isn't completely reliable.
 
 ---
 ### Dimension-specific agents
