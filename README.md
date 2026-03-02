@@ -190,6 +190,35 @@ The LaJ grades each of these metrics as follows
 
 The LaJ assigns an overall grade to the agent's performance based on the same grades. However, this may change if we introduce weights into the metrics (especially no. 2 and 6).
 
+Note that the LaJ oes NOT re-evaluate the original report. It only uses the cited evidence blocks (and optional programmatic quote checks) to assess grounding and hallucination risk.
+
+Expected agent and laj output schema:
+```
+  Agent Output
+      {
+        "rating": "GOOD" | "SOME" | "LITTLE",
+        "rationale": "string",
+        "evidence": [
+            {{
+            "id": "Text pXX_cYY" | "Table pXX_tYY",
+            "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 50 words",
+            "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
+            }}
+        ],
+        "missing_indicators": ["<exact indicator text>"],
+      }
+
+    LaJ Output:
+      {
+        "judge_id": "LaJ",
+        "agent_id": "...",
+        "dimension": "...",
+        "overall": "PASS|WARN|FAIL",
+        "metrics": [{"metric_id":"...", "score":"...", "notes":"..."}],
+        "flags": {"missing_evidence": bool, "quote_mismatch": bool, "invalid_evidence_id": bool}
+      }
+```
+
 ## Installation
 
 Python **3.10+** recommended.
