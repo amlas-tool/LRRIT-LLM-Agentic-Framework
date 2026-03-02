@@ -250,7 +250,8 @@ A full example can be found here (**NB.** the `Open report` button **will not wo
 [https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/SYNTHETIC%20AAR/agent_results.html]
 ---
 
-<img width="1260" height="1910" alt="image" src="https://github.com/user-attachments/assets/c966550c-7495-4642-9400-235df290dc3d" />
+<img width="1008" height="1261" alt="image" src="https://github.com/user-attachments/assets/ff581862-a743-4684-a074-42844b40d93b" />
+
 
 
 ---
