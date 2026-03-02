@@ -2,7 +2,11 @@
 
 This repository contains a prototype **agentic framework** for applying Large Language Models (LLMs) to the *Learning Response Review and Improvement Tool (LRRIT)* used in healthcare safety governance.
 
-The system ingests incident / learning response documents (PDFs), extracts structured evidence, and evaluates them across multiple LRRIT dimensions using **dimension-specific agents**, with outputs designed to be auditable, explainable, and suitable for human comparison.
+The code ingests incident / learning response documents (PDFs), extracts structured evidence, and evaluates them across multiple LRRIT dimensions using **dimension-specific LLM agents**, with outputs designed to be auditable, explainable, and suitable for human comparison.
+
+The code implements a structured, multi-agent Large Language Model (LLM) evaluation pipeline to assess investigation reports against the LRRIT scoring rubric (v2) and associated PSIRF principles. The system operationalises eight defined LRRIT dimensions (D1–D8), each implemented as a specialist “reviewer” agent. These agents produce ratings, evidence-anchored rationales, and structured outputs. A secondary LLM-as-Judge (LaJ) layer then evaluates the quality of each agent’s reasoning against a defined meta-evaluation basket (rubric fidelity, grounding, coherence, values alignment, uncertainty handling, hallucination risk).
+
+The overall objective is to provide a reproducible, traceable, and auditable AI-assisted review tool that supports structured analysis of investigation reports while preserving explicit links to source text in the underlying PDF.
 
 ---
 
@@ -18,13 +22,13 @@ The project explores whether LLMs can:
   - blame vs non-blame language
 - Support **human review**, not replace it
 
-The idea is to have:
+The original thinking behind the implementation was to have:
 
 - Clean separation of dimensions (D1–D8) with no conceptual leakage
-- Evidence-grounded outputs (verbatim, auditable, polarity-aware)
+- Evidence-grounded outputs (verbatim, auditable, aligned with rubric)
 - Appropriate uncertainty handling (especially in D5–D7)
-- An agentic architecture that actually reflects the LRRIT rubric, not a superficial mapping
-- A system that can be explained to clinicians, safety scientists, and auditors.
+- An agentic architecture that actually maps directly to the LRRIT rubric
+- A rating system that can be explained to clinicians, safety scientists, and auditors.
 
 Further explanation can be found below.
 
@@ -33,6 +37,7 @@ NB. This codebase is intended for **research, prototyping, and governance evalua
 ---
 
 ## High-level architecture
+<img width="1644" height="878" alt="image" src="https://github.com/user-attachments/assets/5c65d686-c6bd-4512-95fa-ebb446be8152" />
 
 The pipeline is organised into five conceptual stages, using the test_agents.py script run from the source root directory. Currently it uses a hardcoded pdf file to analyse:
 
@@ -62,72 +67,35 @@ The pipeline is organised into five conceptual stages, using the test_agents.py 
    - Dynamic drop down allows user to drill down into detail for evaluation metrics.
 
 ---
-<img width="1644" height="878" alt="image" src="https://github.com/user-attachments/assets/5c65d686-c6bd-4512-95fa-ebb446be8152" />
 
-## Repository structure
+## Key Implementation Decisions & Trade-offs
 
-```text
-lrrit-llm/
-│
-├── src/
-│   └── lrrit_llm/
-│       ├── agents/                       # Dimension-specific agents
-│           ├── profiles/                 # Agent profiles in mark down (reference only)
-│       │      └── *.md                      # Agent design notes
-│       │   ├── d1_compassion.py          # D1: Compassionate engagement
-│       │   ├── d2_systems.py             # D2: Systems approach
-│       │   ├── d3_learning_actions.py    # D3: Human error / learning actions
-│       │   ├── d4_blame.py               # D4: Blame language avoided
-│       │   ├── d5_local_rationality.py   # D5: Local rationality / reasoning
-│       │   ├── d6_counterfactuals.py     # D6: Counterfactual reasoning
-│       │   ├── d7_actions.py             # D7: Safety Actions / recs to take
-│       │   ├── d8_clarity.py             # D8: Communication quality and usability
-│       │
-│       ├── ingest/
-│       │   ├── pdf_text.py         # Text extraction (PyMuPDF)
-│       │   └── pdf_tables.py       # Table extraction
-│       │
-│       ├── evidence/
-│       │   ├── schema.py           # EvidencePack data model
-│       │   └── pack.py             # EvidencePack builder / serializer
-│       │ 
-│       ├── laj/
-│       │   ├── laj_meta.py           # LLM-as_Judge metrics and rules
-│       │   ├── dimensions_defs.py    # summary of data dimensions
-│       │
-│       └── clients/
-│           └── openai_client.py    # LLM client wrapper
-│
-├── scripts/
-│   ├── test_agents.py              # Test script to run agents against a hardcoded pdf report
-│   └── render_results_html.py      # Render agent results to HTML
-│
-├── data/
-│   ├── raw_pdfs/                   # Input PDF reports
-│   └── processed/
-│       └── reports/
-│           └── <report_id>/
-│               ├── evidence_pack.json
-│               ├── agent_results.json
-│               ├── laj_results.json        # LaJ QA over D1–D8
-│               └── agent_results.html # Generated by render_results.py
-│
-├── README.md
-└── requirements.txt
-```
+- Deterministic Extraction: Prioritizes reproducibility over the flexibility of LLM-based vision extraction.
+- JSON-First Output: Uses strict formatting with parsing to balance robustness and structure.
+- Independent LaJ Layer: Separating agent evals from the initial agent call increases assurance.
+- Smaller LLMs from OpenAI were used during development to keep costs down. However, performance was largely unsatisfactory.
+
 
 ---
-
-## Key concepts
-
 ### EvidencePack
-A structured, auditable container holding:
-
-- text chunks (with provenance)
-- extracted tables (when present)
-- stable hashes for traceability
 
 All agents operate **only** on the EvidencePack.   
+
+The ingestion stage parses the PDF using PyMuPDF (for text) and table extraction utilities. Extracted content is structured into an EvidencePack object and serialised to evidence_pack.json.
+
+Each EvidencePack entry contains:
+
+- chunk_id (e.g., p18_c01 or p13_t01)
+- provenance metadata (page, extractor, source path)
+- raw text
+- text_hash (for integrity checks)
+
+Chunks are page-scoped and relatively coarse. This simplifies downstream quote matching and makes traceability manageable. The EvidencePack design decision was deliberate:
+
+- Agents do not operate directly on PDFs.
+- All evaluation must reference structured, indexed text blocks.
+- Verbatim quotes must be ≤25 words.
+- Traceability must support PDF deep linking.
 
 ## PDF parsing and evidence extraction
 
@@ -135,7 +103,7 @@ PDF reports are ingested using open-source libraries (`PyMuPDF` for text extract
 
 Text is extracted page-by-page and normalised into traceable text chunks, while tables (where present) are extracted separately and preserved with fallback textual representations. All extracted content is wrapped in an **EvidencePack** with explicit provenance (source file, page number, extractor), ensuring that every agent judgement can be traced back to the original document.
 
-
+---
 ### Dimension-specific agents
 Each agent:
 
@@ -143,6 +111,29 @@ Each agent:
 - returns **strict JSON** (machine-parseable)
 - cites **verbatim evidence quotes** (auditable)
 - flags uncertainty explicitly
+
+Agents follow a consistent pattern:
+
+- Prompt construction referencing the LRRIT rubric definition
+- Requirement for verbatim quotes
+- Structured JSON output schema
+- Post-processing to normalise and validate output
+
+Agent output schema:
+```
+{{
+  "rating": "GOOD" | "SOME" | "LITTLE",
+  "rationale": "string",
+  "evidence": [
+    {{
+      "id": "Text pXX_cYY" | "Table pXX_tYY",
+      "quote": "verbatim excerpt from the evidence without trailing punctuation, <= 50 words",
+      "evidence_type": "evidence_type from indicator prefix (e.g. SOME - Influence of engagement is implied but unclear: )" 
+    }}
+  ],
+  "missing_indicators": ["<exact indicator text>"],
+  }}
+```
 
 Implemented data dimension agents:
 
@@ -159,17 +150,13 @@ Implemented data dimension agents:
 
 ---
 
-### Evidence polarity
-Each evidence item is labelled as:
-
-- `positive` → supports the dimension judgement
-- `negative` → weakens/contradicts the dimension judgement (or indicates absence/over-reliance on individual action depending on dimension)
-
-This supports transparent human review and later LLM-as-Judge (LaJ) consistency checking. 
+### Evidence type and rating
 
 The LRRIT guidance words on evidence - GOOD, SOME, LITTLE - are used to grade the dimensions with supporting rationale. 
 
-The `uncertainty` flag is used to flag the need for human review. It can be triggered differently according to the data dimensions. In cases where no verbatim quotes support the grading, the uncertainty flag is usually set to 'YES'.
+The LRRIT scoring rubric v2 follows the same pattern for all dimensions: LRRIT dimension, core definition, discriminators and indicators for evidence levels. Each dimension's scoring rubric is maintained in a separate prompt text file which is loaded by the agent at runtime.
+
+Evidence from each agent should be collated under a single grading, and then under each discriminator heading. The collation is done in the html presentation layer to prevent misalignment in agent outputs.
 
 ---
 
@@ -193,13 +180,15 @@ Below are a basket of metrics that are currently unweighted. However, we may wei
    - Is uncertainty signalled appropriately for mixed/ambiguous evidence?
 6. Hallucination Screening (agent-output level)
    - Does the rationale introduce claims not supported by the supplied excerpts?
+7. Rubric Structure Adherence
+  - Has the agent followed the evidence discriminators specified in the rubric? It should not paraphrase or reword these.
   
 The LaJ grades each of these metrics as follows
-- PASS: clearly meets the metric
-- WARN: partially meets; minor gaps
-- FAIL: materially fails; unreliable
+- PASS: clearly meets the metric, verbatim evidence backs up the rating.
+- WARN: partially meets; minor gaps, evidence is acceptable, but minor issues such as changed punctuation in verbatim quotes.
+- FAIL: materially fails; usually due to verbatim quote not found or hallucinated.
 
-It assigns an overall grade to the agent's performance based on the same grades. However, this may change if we introduce weights into the metrics (especially no. 2 and 6).
+The LaJ assigns an overall grade to the agent's performance based on the same grades. However, this may change if we introduce weights into the metrics (especially no. 2 and 6).
 
 ## Installation
 
@@ -282,7 +271,64 @@ A full example can be found here (**NB.** the `Open report` button **will not wo
 
 ---
 
+---
+## Repository structure
 
+```text
+lrrit-llm/
+│
+├── src/
+│   └── lrrit_llm/
+│       ├── agents/                       # Dimension-specific agents
+│           ├── profiles/                 # Agent profiles in mark down (reference only)
+│       │      └── *.md                      # Agent design notes
+│       │   ├── d1_compassion.py          # D1: Compassionate engagement
+│       │   ├── d2_systems.py             # D2: Systems approach
+│       │   ├── d3_learning_actions.py    # D3: Human error / learning actions
+│       │   ├── d4_blame.py               # D4: Blame language avoided
+│       │   ├── d5_local_rationality.py   # D5: Local rationality / reasoning
+│       │   ├── d6_counterfactuals.py     # D6: Counterfactual reasoning
+│       │   ├── d7_actions.py             # D7: Safety Actions / recs to take
+│       │   ├── d8_clarity.py             # D8: Communication quality and usability
+│       │
+│       ├── ingest/
+│       │   ├── pdf_text.py         # Text extraction (PyMuPDF)
+│       │   └── pdf_tables.py       # Table extraction
+│       │
+│       ├── evidence/
+│       │   ├── schema.py           # EvidencePack data model
+│       │   └── pack.py             # EvidencePack builder / serializer
+│       │ 
+│       ├── laj/
+│       │   ├── laj_meta.py           # LLM-as_Judge metrics and rules
+│       │   ├── dimensions_defs.py    # summary of data dimensions
+│       │   
+│       ├── prompts/
+│       │   ├── d1_prompt.txt        # text prompt loaded by agents
+│       │   ├── d2_prompt.txt        # prompts follow rubric word for word
+│       │   ├── d3_prompt.txt
+│       │   ├── etc
+│       │   
+│       └── clients/
+│           └── openai_client.py    # LLM client wrapper
+│
+├── scripts/
+│   ├── test_agents.py              # Test script to run agents against a hardcoded pdf report
+│   └── render_results_html.py      # Render agent results to HTML
+│
+├── data/
+│   ├── raw_pdfs/                   # Input PDF reports
+│   └── processed/
+│       └── reports/
+│           └── <report_id>/
+│               ├── evidence_pack.json
+│               ├── agent_results.json
+│               ├── laj_results.json        # LaJ QA over D1–D8
+│               └── agent_results.html # Generated by render_results.py
+│
+├── README.md
+└── requirements.txt
+```
 ## Status
 
 - ✔ EvidencePack ingestion stable (text + optional tables)
