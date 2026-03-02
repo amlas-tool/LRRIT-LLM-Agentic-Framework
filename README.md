@@ -75,6 +75,13 @@ The pipeline is organised into five conceptual stages, using the test_agents.py 
 - Independent LaJ Layer: Separating agent evals from the initial agent call increases assurance.
 - Smaller LLMs from OpenAI were used during development to keep costs down. However, performance was largely unsatisfactory.
 
+Some design decisions to note:
+
+First, verbatim quoting is mandatory. Agents must not paraphrase. This constraint reduces semantic drift and supports automated validation. 
+
+Second, page resolution is not trusted to the agent. Agents may mis-assign chunk IDs. A helper module (resolve.py) validates and corrects ID–quote alignment against the EvidencePack. This includes tolerant matching (normalisation of punctuation, whitespace, line breaks). 
+
+Third, agent outputs are stored independently in agent_results.json before any LaJ evaluation. This preserves a clean separation between primary review and meta-review.
 
 ---
 ### EvidencePack
