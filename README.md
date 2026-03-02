@@ -181,7 +181,7 @@ Below are a basket of metrics that are currently unweighted. However, we may wei
 6. Hallucination Screening (agent-output level)
    - Does the rationale introduce claims not supported by the supplied excerpts?
 7. Rubric Structure Adherence
-  - Has the agent followed the evidence discriminators specified in the rubric? It should not paraphrase or reword these.
+   - Has the agent followed the evidence discriminators specified in the rubric? It should not paraphrase or reword these.
   
 The LaJ grades each of these metrics as follows
 - PASS: clearly meets the metric, verbatim evidence backs up the rating.
