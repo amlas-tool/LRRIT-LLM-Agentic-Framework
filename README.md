@@ -305,24 +305,26 @@ PS G:\My Drive\LLM projects\lrrit-llm>
 ```
 
 
-Outputs will be saved to:
-
-```text
-data/processed/reports/test/
-```
+The outputs will be saved to the report directory. Don't forget to generate the html report as follows.
 
 ### 3) Render HTML report
 
 ```powershell
 py .\scripts\render_results_html.py
 ```
+## Note on run_report.py 
+```
+script scripts\run_report.py
+````
+This script is unfinished and currently won't work. It was intended to give a better CLI with parameters, so that pdfs did not have to be hardcoded and you could run agents individually without re-running the pdf extraction processes. It was also meant to enable running the LaJ separately. Unfortunately it required too many changes to the existing code and was abandoned. However, with a bit more effort something like this would be a big help during development and testing. Alternatively, a web-based UI to load parameters and run agents / LaJ parts might be better for users.
+
+---
+## Example html output
 A full example can be found here (**NB.** the `Open report` button **will not work**):
 
 [https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/investigation-report-202410-redcliffematernity-services/agent_results.html]
 
-
 ---
-
 
 <img width="1008" height="1261" alt="image" src="https://github.com/user-attachments/assets/ff581862-a743-4684-a074-42844b40d93b" />
 
