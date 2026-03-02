@@ -34,16 +34,30 @@ NB. This codebase is intended for **research, prototyping, and governance evalua
 
 ## High-level architecture
 
-1. **Ingest**
-   - Extracts text and tables from PDF reports
-2. **EvidencePack**
-   - Normalises extracted content into an auditable structure
-3. **Dimension-specific agents**
-   - Each agent evaluates one LRRIT dimension only
-   - Agents return structured JSON with ratings, rationale, evidence quotes, and uncertainty
+The pipeline is organised into five conceptual stages, using the test_agents.py script run from the source root directory. Currently it uses a hardcoded pdf file to analyse:
+
+- PDF ingestion and extraction
+- EvidencePack construction
+- Dimension agent evaluation (D1–D8)
+- LLM-as-Judge (LaJ) meta-evaluation
+- HTML report rendering
+
+
+1. **PDF ingestion and extraction**
+   - Extracts text and tables from PDF reports using open source pdf python libs.
+2. **EvidencePack construction**
+   - Normalises extracted content into an auditable structure. This is the ground truth in terms of what is passed to the LLM.
+3. **Dimension-specific agent evaluation (D1–D8)**
+   - Each agent evaluates one LRRIT dimension only using the evidence pack contents.
+   - Agent prompts are kept separately for easier editing and contain the entire rubric (v2).
+   - Agents return structured JSON with ratings, rationale, evidence quotes. The evidence should be grouped by the evidence type indicators from the rubric.
    - Each agent is assessed for its performance by the LLM (LLM-as-Judge or LaJ), using a basket of metrics for task evaluation to reduce the risk of hallucination, errors, misalignment etc. by the agents.
      - *NB. The LaJ does not assess the agents against the report, it assesses them against the rubric and the verbatim evidence retrieved by the agent.*
-4. **Presentation**
+4. **LLM-as-Judge (LaJ) meta-evaluation**
+   - Series of metrics that try to give a confidence score on whether the agent completed its task correctly and successfully.
+   - Results in a PASS, WARN, FAIL grading.
+6. **Presentation**
+   - Separate script uses agent_results.json and and laj_results.json files to generate html presentation layer.
    - Results rendered as static HTML for human review
    - Dynamic drop down allows user to drill down into detail for evaluation metrics.
 
