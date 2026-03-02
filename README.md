@@ -247,12 +247,13 @@ py .\scripts\render_results_html.py
 ```
 A full example can be found here (**NB.** the `Open report` button **will not work**):
 
-[https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/SYNTHETIC%20AAR/agent_results.html]
+[https://raw.githack.com/amlas-tool/lrrit-llm/main/data/processed/reports/investigation-report-202410-redcliffematernity-services/agent_results.html]
+
+
 ---
 
+
 <img width="1008" height="1261" alt="image" src="https://github.com/user-attachments/assets/ff581862-a743-4684-a074-42844b40d93b" />
-
-
 
 ---
 
