@@ -163,9 +163,9 @@ Evidence from each agent should be collated under a single grading, and then und
 ## LaJ evaluation metrics
 The LLM-as-judge or LaJ asesses how well the agents have performed their task. It tries to see if the evidence they cite and their rationale could be erroneous, hallucinated or incoherent / misaligned. 
 
-*It does not judge the agent outputs against the report in question.*
+*It does not judge the agent outputs against the report in question.* That would be very expensive in terms of tokens and time.
 
-Below are a basket of metrics that are currently unweighted. However, we may weight them to give us a combined single grade as a confidence metric. 
+Below are a basket of metrics that are currently unweighted. However, we may weight them to give us a combined single grade as a confidence metric. Please note, this part is _still under development_.
 
 ### LaJ metric basket
 1. Rubric Fidelity
